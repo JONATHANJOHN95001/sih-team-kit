@@ -1,0 +1,883 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SIH 2026 Team Kit</title>
+<meta name="description" content="Setup guide for our JAIN Smart India Hackathon 2026 team. Six steps, about twenty minutes, everything free. Prepared by Jonathan John.">
+<meta name="author" content="Jonathan John">
+<meta name="color-scheme" content="light dark">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="SIH 2026 Team Kit">
+<meta property="og:description" content="Setup guide for our JAIN Smart India Hackathon 2026 team. Six steps, about twenty minutes, everything free. Prepared by Jonathan John.">
+<meta name="twitter:card" content="summary">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#129520;</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<style>
+  *,*::before,*::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; }
+  img { max-width: 100%; }
+</style>
+</head>
+<body>
+
+<style>
+  :root {
+    --paper:#F4F5FA; --card:#FFFFFF; --raise:#FAFAFE;
+    --ink:#131529; --ink-soft:#414565; --ink-faint:#71769A;
+    --rule:#D9DBEC; --rule-soft:#E9EAF5;
+    --accent:#4B36D9; --accent-ink:#3524AB; --accent-wash:#EAE6FC;
+    --req:#C22C4C; --req-wash:#FBE9ED;
+    --ok:#147F5C; --ok-wash:#E2F2EC;
+    --term-bg:#171A34; --term-ink:#DCDDF2; --term-pre:#9E8CFF;
+    --mono-mark:#131529;
+    --shadow-sm:0 1px 2px rgba(19,21,41,.07);
+    --shadow:0 1px 2px rgba(19,21,41,.05), 0 12px 30px -16px rgba(19,21,41,.30);
+    --f-display:'Archivo','Helvetica Neue',Arial,sans-serif;
+    --f-body:'IBM Plex Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+    --f-mono:'IBM Plex Mono',ui-monospace,Consolas,monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper:#0D0F1C; --card:#171A2E; --raise:#1D2138;
+      --ink:#EDEEF8; --ink-soft:#B3B7D4; --ink-faint:#8085A8;
+      --rule:#2A2E4A; --rule-soft:#20243B;
+      --accent:#A594FF; --accent-ink:#C4B8FF; --accent-wash:#241F47;
+      --req:#F0899F; --req-wash:#301A22;
+      --ok:#5FC5A0; --ok-wash:#12291F;
+      --term-bg:#080A18; --term-ink:#D6D8EE; --term-pre:#A594FF;
+      --mono-mark:#EDEEF8;
+      --shadow-sm:0 1px 2px rgba(0,0,0,.5);
+      --shadow:0 1px 2px rgba(0,0,0,.5), 0 12px 30px -16px rgba(0,0,0,.8);
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper:#0D0F1C; --card:#171A2E; --raise:#1D2138;
+    --ink:#EDEEF8; --ink-soft:#B3B7D4; --ink-faint:#8085A8;
+    --rule:#2A2E4A; --rule-soft:#20243B;
+    --accent:#A594FF; --accent-ink:#C4B8FF; --accent-wash:#241F47;
+    --req:#F0899F; --req-wash:#301A22;
+    --ok:#5FC5A0; --ok-wash:#12291F;
+    --term-bg:#080A18; --term-ink:#D6D8EE; --term-pre:#A594FF;
+    --mono-mark:#EDEEF8;
+    --shadow-sm:0 1px 2px rgba(0,0,0,.5);
+    --shadow:0 1px 2px rgba(0,0,0,.5), 0 12px 30px -16px rgba(0,0,0,.8);
+  }
+
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; scroll-padding-top:84px; }
+  @media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto} *{transition:none!important} }
+
+  body { margin:0; background:var(--paper); color:var(--ink); font-family:var(--f-body);
+         font-size:16px; line-height:1.62; -webkit-font-smoothing:antialiased; }
+  .wrap { max-width:940px; margin:0 auto; padding:0 20px 110px; }
+
+  .logo { width:24px; height:24px; flex:0 0 auto; display:block; }
+  .logo-sm { width:18px; height:18px; }
+  .logo-lg { width:30px; height:30px; }
+
+  /* progress */
+  .topbar { position:sticky; top:0; z-index:40; background:color-mix(in srgb,var(--paper) 86%,transparent);
+            backdrop-filter:blur(10px); border-bottom:1px solid var(--rule); }
+  .topbar-in { max-width:940px; margin:0 auto; padding:11px 20px; display:flex; align-items:center; gap:14px; }
+  .track { flex:1; height:7px; background:var(--rule-soft); border-radius:99px; overflow:hidden; }
+  .bar { height:100%; width:0%; background:var(--accent); border-radius:99px; transition:width .35s ease; }
+  .pct { font-family:var(--f-mono); font-size:12.5px; color:var(--ink-soft);
+         font-variant-numeric:tabular-nums; white-space:nowrap; font-weight:500; }
+  .reset { font-family:var(--f-mono); font-size:11px; color:var(--ink-faint); background:none;
+           border:1px solid var(--rule); border-radius:4px; padding:3px 8px; cursor:pointer; }
+  .reset:hover { color:var(--ink); border-color:var(--ink-faint); }
+
+  /* masthead */
+  .masthead { padding:52px 0 30px; border-bottom:2px solid var(--ink); margin-bottom:34px; }
+  .eyebrow { font-family:var(--f-mono); font-size:11.5px; letter-spacing:.16em; text-transform:uppercase;
+             color:var(--accent-ink); margin:0 0 14px; }
+  h1 { font-family:var(--f-display); font-weight:800; font-size:clamp(36px,7vw,62px); line-height:.98;
+       letter-spacing:-.03em; margin:0 0 16px; text-wrap:balance; }
+  .byline { display:flex; align-items:center; gap:10px; margin:0 0 22px; }
+  .avatar { width:34px; height:34px; border-radius:99px; background:var(--accent); color:#fff;
+            font-family:var(--f-display); font-weight:700; font-size:14px; display:grid; place-items:center; }
+  .byline-t { font-size:14.5px; color:var(--ink-soft); }
+  .byline-t b { color:var(--ink); font-weight:600; }
+  .standfirst { font-size:18.5px; color:var(--ink-soft); max-width:62ch; margin:0 0 28px;
+                text-align:justify; text-justify:inter-word; hyphens:auto; }
+  .facts { display:flex; flex-wrap:wrap; gap:10px; }
+  .fact { font-family:var(--f-mono); font-size:12.5px; color:var(--ink-soft); background:var(--card);
+          border:1px solid var(--rule-soft); border-radius:99px; padding:5px 13px; box-shadow:var(--shadow-sm); }
+  .fact b { color:var(--ink); font-weight:600; }
+
+  .alert { display:flex; gap:14px; padding:17px 19px; background:var(--req-wash);
+           border-left:3px solid var(--req); border-radius:4px; margin:0 0 40px; }
+  .alert-tag { font-family:var(--f-mono); font-size:10.5px; letter-spacing:.13em; text-transform:uppercase;
+               color:var(--req); white-space:nowrap; padding-top:4px; font-weight:600; }
+  .alert p { margin:0; font-size:15px; }
+  .alert p + p { margin-top:8px; }
+
+  .shead { margin:52px 0 20px; scroll-margin-top:88px; }
+  .shead h2 { font-family:var(--f-display); font-weight:700; font-size:27px; letter-spacing:-.02em;
+              margin:0 0 5px; display:flex; align-items:center; gap:12px; }
+  .shead h2 .sico { width:27px; height:27px; flex:0 0 auto; color:var(--accent); }
+  .shead p { margin:0; font-size:14.5px; color:var(--ink-faint); max-width:70ch; }
+
+  /* ══ dashboard ══ */
+  .dash { display:grid; gap:11px; margin:0 0 8px; }
+  @media (min-width:640px){ .dash { grid-template-columns:1fr 1fr; } }
+  @media (min-width:900px){ .dash { grid-template-columns:1fr 1fr 1fr; } }
+  .tile { display:grid; grid-template-columns:38px 1fr 16px; gap:13px; align-items:center;
+          background:var(--card); border:1px solid var(--rule); border-radius:10px;
+          padding:15px 16px; text-decoration:none; color:inherit; box-shadow:var(--shadow-sm);
+          transition:border-color .18s, transform .18s, box-shadow .18s; }
+  .tile:hover { border-color:var(--accent); transform:translateY(-2px);
+                box-shadow:var(--shadow); color:inherit; }
+  .tile:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+  .tile .tile-ico { width:38px; height:38px; border-radius:9px; background:var(--accent-wash);
+                    color:var(--accent-ink); display:grid; place-items:center; flex:0 0 auto; }
+  .tile .tile-ico svg { width:21px; height:21px; }
+  .tile b { display:block; font-family:var(--f-display); font-weight:700; font-size:15px;
+            letter-spacing:-.01em; margin-bottom:2px; color:var(--ink); }
+  .tile .tile-txt { display:block; min-width:0; }
+  .tile .tile-txt span { display:block; font-size:13px; color:var(--ink-faint); line-height:1.45; }
+  .tile .go { color:var(--ink-faint); width:16px; height:16px; transition:transform .18s, color .18s; }
+  .tile:hover .go { color:var(--accent); transform:translateX(3px); }
+  .tile-count { font-family:var(--f-mono); font-size:11px; color:var(--accent-ink);
+                background:var(--accent-wash); border-radius:99px; padding:2px 7px; }
+
+  /* workflow */
+  .flow { display:grid; gap:9px; }
+  .fstep { display:grid; grid-template-columns:30px 1fr auto; gap:15px; align-items:center;
+           background:var(--card); border:1px solid var(--rule-soft); border-radius:6px;
+           padding:13px 16px; box-shadow:var(--shadow-sm); }
+  .fn { font-family:var(--f-mono); font-size:12px; font-weight:600; color:var(--accent-ink);
+        background:var(--accent-wash); border-radius:5px; text-align:center; padding:3px 0; line-height:1.5; }
+  .fw b { font-weight:600; font-size:15px; }
+  .fw span { display:block; color:var(--ink-soft); font-size:14px; }
+  .ft { display:flex; align-items:center; gap:6px; }
+
+  /* steps */
+  .step { background:var(--card); border:1px solid var(--rule); border-radius:10px; margin-bottom:16px;
+          box-shadow:var(--shadow); overflow:hidden; transition:border-color .2s; }
+  .step[data-done="1"] { border-color:var(--ok); }
+  .step[data-done="1"] .step-num { background:var(--ok); }
+  .step-head { display:grid; grid-template-columns:42px 1fr auto; gap:15px; align-items:center;
+               padding:17px 20px; cursor:pointer; user-select:none; background:none; border:0; width:100%;
+               text-align:left; font-family:inherit; color:inherit; }
+  .step-head:hover { background:var(--raise); }
+  .step-head:focus-visible { outline:2px solid var(--accent); outline-offset:-3px; }
+  .step-num { width:42px; height:42px; border-radius:10px; background:var(--accent); color:#fff;
+              font-family:var(--f-display); font-weight:700; font-size:18px; display:grid; place-items:center;
+              transition:background .25s; }
+  .step-title { font-family:var(--f-display); font-weight:700; font-size:19px; letter-spacing:-.015em; }
+  .step-sub { font-size:14px; color:var(--ink-faint); margin-top:1px; }
+  .step-meta { display:flex; align-items:center; gap:11px; }
+  .time { font-family:var(--f-mono); font-size:11.5px; color:var(--ink-faint); white-space:nowrap; }
+  .chev { color:var(--ink-faint); transition:transform .25s; font-size:12px; }
+  .step[open-state="1"] .chev { transform:rotate(90deg); }
+  .step-body { padding:0 20px 20px; border-top:1px solid var(--rule-soft); }
+  .step-body.hide { display:none; }
+  .step-body > p { font-size:15.5px; color:var(--ink-soft); margin:16px 0; max-width:68ch;
+                   text-align:justify; text-justify:inter-word; hyphens:auto; }
+  .step-body > p:first-child { margin-top:18px; }
+
+  /* how-to: opening PowerShell */
+  .howto { background:var(--paper); border:1px solid var(--rule); border-radius:8px;
+           padding:16px 18px; margin:14px 0; }
+  .howto h5 { font-family:var(--f-display); font-weight:700; font-size:15px; margin:0 0 12px;
+              letter-spacing:-.01em; display:flex; align-items:center; gap:9px; }
+  .howto ol { margin:0; padding-left:0; list-style:none; counter-reset:ht; display:grid; gap:10px; }
+  .howto li { counter-increment:ht; display:grid; grid-template-columns:24px 1fr; gap:12px;
+              font-size:14.5px; color:var(--ink-soft); align-items:start;
+              line-height:1.85; text-align:left; }
+  .howto li::before { content:counter(ht); font-family:var(--f-mono); font-size:11.5px; font-weight:600;
+                      color:var(--accent-ink); background:var(--accent-wash); border-radius:5px;
+                      width:24px; text-align:center; padding:3px 0; line-height:1.4; margin-top:5px; }
+  .kbd { display:inline-block; font-family:var(--f-mono); font-size:12px; background:var(--card);
+         border:1px solid var(--rule); border-bottom-width:2px; border-radius:4px;
+         padding:0 7px; margin:0 1px; color:var(--ink); white-space:nowrap;
+         line-height:1.55; vertical-align:baseline; }
+
+  /* terminal */
+  .term { background:var(--term-bg); border-radius:8px; margin:12px 0; overflow:hidden; }
+  .term-row { display:flex; align-items:stretch; border-bottom:1px solid rgba(255,255,255,.07); }
+  .term-row:last-child { border-bottom:0; }
+  .term-cmd { flex:1; font-family:var(--f-mono); font-size:13.5px; color:var(--term-ink);
+              padding:12px 14px; overflow-x:auto; white-space:pre; line-height:1.5; }
+  .term-cmd::before { content:"> "; color:var(--term-pre); }
+  .copy { flex:0 0 auto; background:rgba(255,255,255,.07); border:0; border-left:1px solid rgba(255,255,255,.1);
+          color:#B9B4E8; font-family:var(--f-mono); font-size:11px; letter-spacing:.07em; padding:0 15px;
+          cursor:pointer; transition:background .18s,color .18s; }
+  .copy:hover { background:rgba(255,255,255,.15); color:#fff; }
+  .copy:focus-visible { outline:2px solid var(--accent); outline-offset:-3px; }
+  .copy[data-copied="1"] { background:var(--ok); color:#fff; }
+
+  .note { display:flex; gap:11px; padding:13px 15px; border-radius:6px; font-size:14.5px;
+          margin:13px 0; line-height:1.55; align-items:flex-start; }
+  .note b { font-weight:600; }
+  .note-warn { background:var(--req-wash); color:var(--ink); border-left:3px solid var(--req); }
+  .note-tip { background:var(--accent-wash); color:var(--ink); border-left:3px solid var(--accent); }
+  .note-ok { background:var(--ok-wash); color:var(--ink); border-left:3px solid var(--ok); }
+  .note-ico { flex:0 0 auto; width:17px; height:17px; margin-top:2px; }
+
+  .pick { display:grid; gap:8px; margin:14px 0; }
+  .pick-row { display:flex; align-items:center; gap:12px; padding:12px 15px; border-radius:6px;
+              font-family:var(--f-mono); font-size:14px; }
+  .pick-yes { background:var(--ok-wash); border:1.5px solid var(--ok); color:var(--ink); }
+  .pick-no { background:var(--req-wash); border:1.5px solid var(--req); color:var(--ink);
+             text-decoration:line-through; text-decoration-thickness:1px; }
+  .pick-tag { margin-left:auto; font-size:11px; letter-spacing:.09em; text-transform:uppercase;
+              text-decoration:none; opacity:.85; }
+
+  .dl { display:inline-flex; align-items:center; gap:10px; background:var(--card); color:var(--ink);
+        text-decoration:none; font-family:var(--f-body); font-size:14.5px; font-weight:600;
+        padding:10px 16px; border:1.5px solid var(--rule); border-radius:8px; margin:5px 7px 5px 0;
+        transition:border-color .18s, transform .18s; box-shadow:var(--shadow-sm); }
+  .dl:hover { border-color:var(--accent); color:var(--ink); transform:translateY(-1px); }
+  .dl:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+  .dl small { color:var(--ink-faint); font-weight:400; font-family:var(--f-mono); font-size:11.5px; }
+
+  .exts { display:grid; gap:7px; margin:13px 0; }
+  .ext { display:grid; grid-template-columns:auto 1fr; gap:11px; align-items:baseline;
+         background:var(--paper); border:1px solid var(--rule-soft); border-radius:6px;
+         padding:10px 14px; font-size:14.5px; }
+  .ext code { background:none; padding:0; color:var(--accent-ink); font-weight:600; font-size:13.5px; }
+  .ext span { color:var(--ink-soft); }
+
+  .donebar { display:flex; align-items:center; gap:11px; margin-top:18px; padding-top:15px;
+             border-top:1px dashed var(--rule); }
+  .donebtn { display:inline-flex; align-items:center; gap:9px; background:var(--paper);
+             border:1.5px solid var(--rule); border-radius:8px; padding:9px 15px; cursor:pointer;
+             font-family:var(--f-body); font-size:14.5px; font-weight:500; color:var(--ink-soft);
+             transition:all .2s; }
+  .donebtn:hover { border-color:var(--accent); color:var(--ink); }
+  .donebtn:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+  .donebtn[data-on="1"] { background:var(--ok-wash); border-color:var(--ok); color:var(--ok); font-weight:600; }
+  .tick { width:17px; height:17px; border:1.5px solid currentColor; border-radius:4px; display:grid;
+          place-items:center; font-size:11px; line-height:1; }
+  .donebtn[data-on="1"] .tick { background:var(--ok); border-color:var(--ok); color:#fff; }
+
+  .grid { display:grid; gap:13px; }
+  @media (min-width:700px){ .grid-2 { grid-template-columns:1fr 1fr; } }
+  .mini { background:var(--card); border:1px solid var(--rule-soft); border-radius:9px;
+          padding:17px 19px; box-shadow:var(--shadow-sm); }
+  .mini h4 { font-family:var(--f-display); font-weight:700; font-size:16.5px; margin:0 0 8px;
+             letter-spacing:-.01em; display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+  .mini p { margin:0 0 10px; font-size:14.5px; color:var(--ink-soft);
+            text-align:justify; text-justify:inter-word; hyphens:auto; }
+  .mini p:last-child { margin-bottom:0; }
+  .lrow { display:flex; align-items:flex-start; gap:10px; margin-bottom:11px; font-size:14.5px; color:var(--ink-soft); }
+  .lrow span { text-align:justify; text-justify:inter-word; hyphens:auto; }
+  .lrow:last-child { margin-bottom:0; }
+  .lrow .logo { margin-top:1px; }
+  .chip { font-family:var(--f-mono); font-size:10.5px; letter-spacing:.05em; padding:3px 8px;
+          border-radius:99px; background:var(--accent-wash); color:var(--accent-ink); font-weight:500; white-space:nowrap; }
+  .chip-ok { background:var(--ok-wash); color:var(--ok); }
+
+  .gotchas { border-top:1px solid var(--rule); }
+  .gotcha { display:grid; grid-template-columns:200px 1fr; gap:22px; padding:15px 0;
+            border-bottom:1px solid var(--rule-soft); }
+  .gk { font-family:var(--f-mono); font-size:12.5px; color:var(--req); line-height:1.5; padding-top:2px; }
+  .gv { font-size:14.5px; color:var(--ink-soft); text-align:justify; text-justify:inter-word; hyphens:auto; }
+  .gv b { color:var(--ink); font-weight:600; }
+
+  .final { background:var(--card); border:1px solid var(--rule); border-radius:10px;
+           padding:6px 20px; box-shadow:var(--shadow); }
+  .fitem { display:flex; gap:13px; align-items:flex-start; padding:13px 0;
+           border-bottom:1px solid var(--rule-soft); font-size:15px; cursor:pointer; }
+  .fitem:last-child { border-bottom:0; }
+  .fbox { width:17px; height:17px; border:1.5px solid var(--ink-faint); border-radius:4px; flex-shrink:0;
+          margin-top:3px; display:grid; place-items:center; font-size:11px; color:transparent; transition:all .18s; }
+  .fitem[data-on="1"] .fbox { background:var(--ok); border-color:var(--ok); color:#fff; }
+  .fitem[data-on="1"] .flabel { color:var(--ink-faint); text-decoration:line-through; }
+  .flabel b { font-weight:600; }
+  .flabel .why { display:block; color:var(--ink-faint); font-size:13.5px; margin-top:2px; text-decoration:none; }
+
+  a { color:var(--accent-ink); text-decoration-thickness:1px; text-underline-offset:2px; }
+  a:hover { color:var(--accent); }
+  code { background:var(--rule-soft); padding:1px 5px; border-radius:3px; font-family:var(--f-mono); font-size:13.5px; }
+
+  .foot { margin-top:56px; padding-top:22px; border-top:1px solid var(--rule); display:flex;
+          align-items:center; gap:12px; flex-wrap:wrap; }
+  .foot p { margin:0; font-size:13px; color:var(--ink-faint); font-family:var(--f-mono); }
+
+  @media (max-width:700px){
+    .fstep { grid-template-columns:30px 1fr; }
+    .ft { grid-column:2; margin-top:5px; }
+    .gotcha { grid-template-columns:1fr; gap:4px; }
+    .step-head { grid-template-columns:36px 1fr auto; gap:12px; padding:15px 16px; }
+    .step-num { width:36px; height:36px; font-size:16px; }
+    .step-title { font-size:17px; }
+    .time { display:none; }
+    .step-body { padding:0 16px 18px; }
+  }
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+  <symbol id="l-node" viewBox="0 0 24 24"><path d="M12 1.7 21.4 7.1v10.8L12 23.3 2.6 17.9V7.1L12 1.7Z" fill="#5FA04E"/><path d="M8.9 9.3v5.1c0 .9-.7 1.4-1.6 1.4-.8 0-1.4-.5-1.4-1.3h1.2c0 .3.2.4.4.4s.4-.2.4-.5V9.3h1Zm3.8 6.5c-1.8 0-2.9-.8-3-2h1.2c.1.6.7.9 1.8.9 1 0 1.5-.3 1.5-.8s-.3-.7-1.4-.9l-.9-.1c-1.5-.2-2.2-.8-2.2-1.8 0-1.2 1-1.9 2.7-1.9s2.7.7 2.8 1.9h-1.2c-.1-.5-.6-.9-1.6-.9s-1.4.3-1.4.8c0 .4.3.6 1.3.8l.9.1c1.6.2 2.3.7 2.3 1.8 0 1.3-1.1 2.1-2.8 2.1Z" fill="#fff"/></symbol>
+  <symbol id="l-git" viewBox="0 0 24 24"><path d="M23.1 11 13 .9a1.7 1.7 0 0 0-2.4 0L8.5 3l2.7 2.7a2 2 0 0 1 2.5 2.6l2.6 2.6a2 2 0 1 1-1.2 1.1l-2.4-2.4v6.4a2 2 0 1 1-1.6 0V9.5a2 2 0 0 1-1.1-2.6L7.3 4.2.9 10.6a1.7 1.7 0 0 0 0 2.4l10.1 10.1a1.7 1.7 0 0 0 2.4 0l9.7-9.7a1.7 1.7 0 0 0 0-2.4Z" fill="#F05133"/></symbol>
+  <symbol id="l-vscode" viewBox="0 0 24 24"><path d="M17.9 1.3 22.4 3.5a1 1 0 0 1 .6.9v15.2a1 1 0 0 1-.6.9l-4.5 2.2a1 1 0 0 1-1.1-.2l-8.6-7.8-4 3a.7.7 0 0 1-.9 0l-1.9-1.7a.7.7 0 0 1 0-1L4.3 12 1.4 9a.7.7 0 0 1 0-1l1.9-1.7a.7.7 0 0 1 .9 0l4 3 8.6-7.8a1 1 0 0 1 1.1-.2Zm.6 5.3L12 12l6.5 5.4V6.6Z" fill="#0078D4"/></symbol>
+  <symbol id="l-gemini" viewBox="0 0 24 24"><path d="M12 1.6c0 5.7 4.7 10.4 10.4 10.4C16.7 12 12 16.7 12 22.4 12 16.7 7.3 12 1.6 12 7.3 12 12 7.3 12 1.6Z" fill="#4285F4"/></symbol>
+  <symbol id="l-openai" viewBox="0 0 24 24"><path d="M21.6 9.9a5.4 5.4 0 0 0-.5-4.5 5.5 5.5 0 0 0-5.9-2.6A5.4 5.4 0 0 0 11.1.9a5.5 5.5 0 0 0-5.2 3.8A5.4 5.4 0 0 0 2.3 7.3a5.5 5.5 0 0 0 .7 6.4 5.4 5.4 0 0 0 .5 4.5 5.5 5.5 0 0 0 5.9 2.6 5.4 5.4 0 0 0 4.1 1.8 5.5 5.5 0 0 0 5.2-3.8 5.4 5.4 0 0 0 3.6-2.6 5.5 5.5 0 0 0-.7-6.3Zm-8.2 11.4a4 4 0 0 1-2.6-.9l3.5-2a.6.6 0 0 0 .3-.5v-4.9l1.5.9v4.1a4.1 4.1 0 0 1-2.7 3.3ZM4.6 17.5a4 4 0 0 1-.5-2.7l3.5 2a.6.6 0 0 0 .6 0l4.3-2.5v1.7l-3.6 2.1a4.1 4.1 0 0 1-4.3-.6ZM3.7 8.4a4 4 0 0 1 2.1-1.8v4.2a.6.6 0 0 0 .3.5l4.3 2.5-1.5.9-3.6-2.1a4.1 4.1 0 0 1-1.6-4.2Zm14.3 3.3-4.3-2.5 1.5-.9 3.6 2.1a4.1 4.1 0 0 1-.6 7.4v-4.2a.6.6 0 0 0-.2-.5ZM19.5 9l-3.5-2a.6.6 0 0 0-.6 0l-4.3 2.5V7.8l3.6-2.1a4.1 4.1 0 0 1 6.1 4.4A4 4 0 0 1 19.5 9ZM10.3 12.6l-1.5-.9V7.6a4.1 4.1 0 0 1 6.7-3.2l-3.5 2a.6.6 0 0 0-.3.5v5.7Zm.8-1.8L13 9.7l1.9 1.1v2.2L13 14.1l-1.9-1.1v-2.2Z" fill="var(--mono-mark)"/></symbol>
+  <symbol id="l-supabase" viewBox="0 0 24 24"><path d="M13.4 22.8a1.1 1.1 0 0 1-2-.7l-.1-7.5H3.9a1.4 1.4 0 0 1-1.1-2.3L10.6 1.2a1.1 1.1 0 0 1 2 .7l.1 7.5h7.3a1.4 1.4 0 0 1 1.1 2.3l-7.7 11.1Z" fill="#3ECF8E"/></symbol>
+  <symbol id="l-github" viewBox="0 0 24 24"><path d="M12 2.2a9.8 9.8 0 0 0-3.1 19.1c.5.1.7-.2.7-.5v-1.8c-2.7.6-3.3-1.3-3.3-1.3-.5-1.1-1.1-1.4-1.1-1.4-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.6.3-1.1.6-1.3-2.2-.3-4.5-1.1-4.5-4.9 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.7 1a9.4 9.4 0 0 1 4.9 0c1.9-1.3 2.7-1 2.7-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.8-2.3 4.6-4.5 4.9.3.3.7 1 .7 1.9v2.8c0 .3.2.6.7.5A9.8 9.8 0 0 0 12 2.2Z" fill="var(--mono-mark)"/></symbol>
+  <symbol id="l-obs" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10.2" fill="#302E31"/><circle cx="9.4" cy="9.6" r="4.3" fill="#fff"/><circle cx="13.9" cy="15.4" r="3.1" fill="#fff" opacity=".82"/></symbol>
+  <symbol id="l-antigravity" viewBox="0 0 24 24"><path d="M12 2.4 22.2 21H16l-4-7.6L8 21H1.8L12 2.4Z" fill="none" stroke="#4B36D9" stroke-width="1.9" stroke-linejoin="round"/></symbol>
+  <symbol id="l-lmstudio" viewBox="0 0 24 24"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="4.4" fill="#4E3BC4"/><path d="M8.3 7.6v8.8h7.1" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="l-perplexity" viewBox="0 0 24 24"><path d="M12 2.6v18.8M12 7.2 5.4 2.6v6.1H2.6v8.6h2.8v4.1L12 16.8M12 7.2l6.6-4.6v6.1h2.8v8.6h-2.8v4.1L12 16.8" fill="none" stroke="#20808D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="l-cloudflare" viewBox="0 0 24 24"><path d="M17.6 18.6H6.4a4.3 4.3 0 0 1-.5-8.5 6 6 0 0 1 11.3-1 3.5 3.5 0 0 1 .4 9.5Z" fill="#F38020"/></symbol>
+  <symbol id="l-slidev" viewBox="0 0 24 24"><rect x="2.6" y="4.4" width="18.8" height="12.4" rx="2" fill="#2B90B6"/><path d="M12 16.8v3M8.6 19.8h6.8" fill="none" stroke="#2B90B6" stroke-width="1.8" stroke-linecap="round"/><path d="M9.6 8.2 13.2 10.6 9.6 13" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="l-stitch" viewBox="0 0 24 24"><path d="M4 12c0-4.4 3.6-8 8-8s8 3.6 8 8-3.6 8-8 8" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="2.6" fill="#8B5CF6"/></symbol>
+  <symbol id="l-google" viewBox="0 0 24 24"><path d="M21.6 12.2c0-.7-.1-1.4-.2-2H12v3.9h5.4a4.6 4.6 0 0 1-2 3v2.5h3.2c1.9-1.7 3-4.3 3-7.4Z" fill="#4285F4"/><path d="M12 22c2.7 0 5-.9 6.6-2.4l-3.2-2.5a6 6 0 0 1-9-3.2H3.1v2.6A10 10 0 0 0 12 22Z" fill="#34A853"/><path d="M6.4 13.9a6 6 0 0 1 0-3.8V7.5H3.1a10 10 0 0 0 0 9l3.3-2.6Z" fill="#FBBC05"/><path d="M12 6a5.4 5.4 0 0 1 3.8 1.5l2.8-2.8A9.6 9.6 0 0 0 12 2a10 10 0 0 0-8.9 5.5l3.3 2.6A6 6 0 0 1 12 6Z" fill="#EA4335"/></symbol>
+  <symbol id="l-notebook" viewBox="0 0 24 24"><rect x="4.6" y="2.8" width="15" height="18.4" rx="2.2" fill="none" stroke="#4285F4" stroke-width="1.8"/><path d="M8.4 2.8v18.4M11.6 8h5M11.6 12h5M11.6 16h3" fill="none" stroke="#4285F4" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="l-data" viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7.6" ry="3.2" fill="#FF9933"/><path d="M4.4 6v12c0 1.8 3.4 3.2 7.6 3.2s7.6-1.4 7.6-3.2V6" fill="none" stroke="#138808" stroke-width="1.8"/><path d="M4.4 12c0 1.8 3.4 3.2 7.6 3.2s7.6-1.4 7.6-3.2" fill="none" stroke="#138808" stroke-width="1.8"/></symbol>
+  <symbol id="l-warn" viewBox="0 0 24 24"><path d="M12 3.4 22.2 20.4H1.8L12 3.4Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M12 9.6v4.2M12 16.8v.1" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></symbol>
+  <symbol id="l-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 11v5.5M12 7.6v.1" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></symbol>
+  <symbol id="l-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m8 12.3 2.7 2.7L16 9.6" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+
+  <!-- section marks -->
+  <symbol id="s-route" viewBox="0 0 24 24"><circle cx="5.5" cy="5.5" r="2.6" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="18.5" cy="18.5" r="2.6" fill="none" stroke="currentColor" stroke-width="1.9"/><path d="M8.1 5.5h6.4a3.6 3.6 0 0 1 0 7.2H9.5a3.6 3.6 0 0 0 0 7.2h6.4" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></symbol>
+  <symbol id="s-wrench" viewBox="0 0 24 24"><path d="M15.6 3.4a5.6 5.6 0 0 0-5 8.1L3.5 18.6a1.8 1.8 0 0 0 2.6 2.6l7.1-7.1a5.6 5.6 0 0 0 6.9-7.6l-3 3-2.6-2.6 3-3a5.6 5.6 0 0 0-1.9-.5Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+  <symbol id="s-offline" viewBox="0 0 24 24"><path d="M2.5 8.6a15 15 0 0 1 19 0M5.8 12.3a10 10 0 0 1 12.4 0M9.2 15.9a5 5 0 0 1 5.6 0M12 19.6v.1" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/><path d="m3 3 18 18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"/></symbol>
+  <symbol id="s-gift" viewBox="0 0 24 24"><rect x="3" y="9.4" width="18" height="11.6" rx="1.8" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M2 9.4h20M12 9.4v11.6" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 9.4C10.8 6 6.6 5.3 6.6 7.8c0 1.5 2.9 1.6 5.4 1.6Zm0 0c1.2-3.4 5.4-4.1 5.4-1.6 0 1.5-2.9 1.6-5.4 1.6Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+  <symbol id="s-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M2.8 12h18.4M12 2.8c2.4 2.5 3.7 5.8 3.7 9.2s-1.3 6.7-3.7 9.2c-2.4-2.5-3.7-5.8-3.7-9.2S9.6 5.3 12 2.8Z" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+  <symbol id="s-trap" viewBox="0 0 24 24"><path d="M9.4 4.6a3 3 0 0 1 5.2 0l7 12.2a3 3 0 0 1-2.6 4.5H5a3 3 0 0 1-2.6-4.5Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M12 9.4v4.4M12 17.2v.1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="s-clip" viewBox="0 0 24 24"><rect x="4.6" y="4" width="14.8" height="17" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><rect x="8.8" y="1.9" width="6.4" height="4.2" rx="1.4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m8.8 13 2.3 2.3 4.1-4.6" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="s-arrow" viewBox="0 0 24 24"><path d="M5 12h13.5M13 6.5 18.5 12 13 17.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</defs></svg>
+
+
+<div class="topbar">
+  <div class="topbar-in">
+    <span class="pct" id="pctText">0 of 6 steps</span>
+    <div class="track"><div class="bar" id="bar"></div></div>
+    <button class="reset" id="resetBtn" type="button">reset</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <p class="eyebrow">Internal Hackathon · JAIN (Deemed-to-be University)</p>
+    <h1>SIH 2026 Team Kit</h1>
+    <div class="byline">
+      <span class="avatar">JJ</span>
+      <span class="byline-t">Prepared by <b>Jonathan John</b> · August 2026</span>
+    </div>
+    <p class="standfirst">This is the complete setup for our team, in six steps that take about twenty minutes altogether. Every tool listed here is free, and I have installed and tested each one myself — including the parts that break in ways the documentation does not warn you about.</p>
+    <div class="facts">
+      <span class="fact">Hackathon <b>4–5 Sept</b></span>
+      <span class="fact">Setup by <b>3 Sept</b></span>
+      <span class="fact">Takes <b>~20 min</b></span>
+      <span class="fact">Cost <b>₹0</b></span>
+    </div>
+  </header>
+
+  <div class="alert">
+    <span class="alert-tag">Read first</span>
+    <div>
+      <p><b>Please do all of this at the hostel rather than at the venue.</b> The wifi on the day will be shared by several hundred people, so the downloads will crawl and the browser logins will fail outright. Arrive on 4 September with everything already working.</p>
+      <p>If you have never used a terminal before, that is completely fine. Every command on this page has a <b>Copy</b> button — you paste it in, press Enter, and wait for it to finish.</p>
+    </div>
+  </div>
+
+  <div class="shead" id="top">
+    <h2><svg class="sico"><use href="#s-route"/></svg> Jump to a section</h2>
+    <p>The whole page is worth reading once, but if you are coming back to look something up, start here.</p>
+  </div>
+
+  <nav class="dash">
+    <a class="tile" href="#workflow">
+      <span class="tile-ico"><svg><use href="#s-route"/></svg></span>
+      <span class="tile-txt"><b>How the day goes</b><span>The seven stages of our 24 hours and which tool does each one.</span></span>
+      <svg class="go"><use href="#s-arrow"/></svg>
+    </a>
+    <a class="tile" href="#setup">
+      <span class="tile-ico"><svg><use href="#s-wrench"/></svg></span>
+      <span class="tile-txt"><b>The setup</b><span>Six steps, about twenty minutes. Start here on your laptop.</span></span>
+      <svg class="go"><use href="#s-arrow"/></svg>
+    </a>
+    <a class="tile" href="#project">
+      <span class="tile-ico"><svg><use href="#s-wrench"/></svg></span>
+      <span class="tile-txt"><b>Our project — SIH26042</b><span>What the translation tool needs on top of the setup.</span></span>
+      <svg class="go"><use href="#s-arrow"/></svg>
+    </a>
+    <a class="tile" href="#offline">
+      <span class="tile-ico"><svg><use href="#s-offline"/></svg></span>
+      <span class="tile-txt"><b>Offline AI</b><span>Optional backup for when the venue wifi gives out.</span></span>
+      <svg class="go"><use href="#s-arrow"/></svg>
+    </a>
+    <a class="tile" href="#perks">
+      <span class="tile-ico"><svg><use href="#s-gift"/></svg></span>
+      <span class="tile-txt"><b>Student perks</b><span>Free storage, JetBrains, cloud credits and a domain.</span></span>
+      <svg class="go"><use href="#s-arrow"/></svg>
+    </a>
+    <a class="tile" href="#webkit">
+      <span class="tile-ico"><svg><use href="#s-globe"/></svg></span>
+      <span class="tile-txt"><b>The web toolkit</b><span>Nineteen tools that need no install at all.</span></span>
+      <svg class="go"><use href="#s-arrow"/></svg>
+    </a>
+    <a class="tile" href="#gotchas">
+      <span class="tile-ico"><svg><use href="#s-trap"/></svg></span>
+      <span class="tile-txt"><b>Time wasters</b><span>Nine traps that already cost me hours. Read before you start.</span></span>
+      <svg class="go"><use href="#s-arrow"/></svg>
+    </a>
+    <a class="tile" href="#checklist">
+      <span class="tile-ico"><svg><use href="#s-clip"/></svg></span>
+      <span class="tile-txt"><b>Final checklist</b><span>What must be true before we leave for the venue.</span></span>
+      <svg class="go"><use href="#s-arrow"/></svg>
+    </a>
+  </nav>
+
+  <div class="shead" id="workflow">
+    <h2><svg class="sico"><use href="#s-route"/></svg> How the 24 hours actually go</h2>
+    <p>Nobody is going to be typing code line by line. Our job is to direct the AI clearly and then check its work carefully, which is a different skill and a much faster one.</p>
+  </div>
+
+  <div class="flow">
+    <div class="fstep"><span class="fn">01</span><span class="fw"><b>Research the problem</b><span>Find real government figures we can put on a slide and defend when a judge questions them.</span></span><span class="ft"><svg class="logo logo-sm"><use href="#l-perplexity"/></svg><svg class="logo logo-sm"><use href="#l-notebook"/></svg></span></div>
+    <div class="fstep"><span class="fn">02</span><span class="fw"><b>Design the screens</b><span>Describe a screen in plain English and get a designed layout back in seconds.</span></span><span class="ft"><svg class="logo logo-sm"><use href="#l-stitch"/></svg></span></div>
+    <div class="fstep"><span class="fn">03</span><span class="fw"><b>Build it — prompt to task</b><span>Describe what we want and the agent writes it straight into the project files.</span></span><span class="ft"><svg class="logo logo-sm"><use href="#l-gemini"/></svg><svg class="logo logo-sm"><use href="#l-openai"/></svg></span></div>
+    <div class="fstep"><span class="fn">04</span><span class="fw"><b>Review and run it</b><span>Read what changed, fix what is wrong, then open it in a browser and confirm it works.</span></span><span class="ft"><svg class="logo logo-sm"><use href="#l-vscode"/></svg><svg class="logo logo-sm"><use href="#l-antigravity"/></svg></span></div>
+    <div class="fstep"><span class="fn">05</span><span class="fw"><b>Store the data</b><span>Database and login, hosted online, with nothing heavy running on our laptops.</span></span><span class="ft"><svg class="logo logo-sm"><use href="#l-supabase"/></svg></span></div>
+    <div class="fstep"><span class="fn">06</span><span class="fw"><b>Record the demo</b><span>The moment it works. A recording that plays reliably beats a live demo that crashes.</span></span><span class="ft"><svg class="logo logo-sm"><use href="#l-obs"/></svg><svg class="logo logo-sm"><use href="#l-cloudflare"/></svg></span></div>
+    <div class="fstep"><span class="fn">07</span><span class="fw"><b>Build the deck</b><span>Slides written as a text file and exported to PDF. This is scored, not decoration.</span></span><span class="ft"><svg class="logo logo-sm"><use href="#l-slidev"/></svg></span></div>
+  </div>
+
+  <div class="shead" id="setup">
+    <h2><svg class="sico"><use href="#s-wrench"/></svg> The setup — six steps</h2>
+    <p>Work your way down the page in order. Mark each step done as you finish it and your progress will be saved on this device, so you can stop partway and pick up later.</p>
+  </div>
+
+  <!-- 1 -->
+  <section class="step" id="s1" open-state="1">
+    <button class="step-head" type="button" aria-expanded="true" aria-controls="b1">
+      <span class="step-num">1</span>
+      <span><span class="step-title">Install the base</span><span class="step-sub">Node.js, Git and VS Code — everything else runs on top of these</span></span>
+      <span class="step-meta"><span class="time">~8 min</span><span class="chev">▶</span></span>
+    </button>
+    <div class="step-body" id="b1">
+      <p>There are three downloads here. Click each button below, run the installer it gives you, and click Next through every screen — the default options are all correct and none of them need changing.</p>
+
+      <a class="dl" href="https://nodejs.org" target="_blank" rel="noopener"><svg class="logo"><use href="#l-node"/></svg> Node.js <small>pick LTS</small></a>
+      <a class="dl" href="https://git-scm.com/download/win" target="_blank" rel="noopener"><svg class="logo"><use href="#l-git"/></svg> Git</a>
+      <a class="dl" href="https://code.visualstudio.com" target="_blank" rel="noopener"><svg class="logo"><use href="#l-vscode"/></svg> VS Code</a>
+
+      <p>To explain what each of these actually does: <b>Node.js</b> is what runs all the AI tools we install in step 2, so nothing else will work without it. <b>Git</b> is how six of us can edit the same code without overwriting each other's work. <b>VS Code</b> is the editor where we will actually see and change the project.</p>
+
+      <div class="note note-warn"><svg class="logo note-ico"><use href="#l-warn"/></svg><div><b>Please restart your PC now.</b> Windows will not recognise the <code>npm</code> command until you do, and step 2 will fail with the message "npm is not recognised". This catches almost everyone, so it is worth doing before you continue.</div></div>
+
+      <div class="donebar"><button class="donebtn" type="button" data-done-for="1"><span class="tick">✓</span><span> Mark step 1 done</span></button></div>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section class="step" id="s2" open-state="1">
+    <button class="step-head" type="button" aria-expanded="true" aria-controls="b2">
+      <span class="step-num">2</span>
+      <span><span class="step-title">Install the AI agents</span><span class="step-sub">The tools that write our code from plain-English instructions</span></span>
+      <span class="step-meta"><span class="time">~6 min</span><span class="chev">▶</span></span>
+    </button>
+    <div class="step-body" id="b2">
+      <p>Everything in this step happens inside PowerShell, which is the terminal built into Windows. If you have never opened it before, here is exactly how.</p>
+
+      <div class="howto">
+        <h5><svg class="logo logo-sm"><use href="#l-info"/></svg> How to open PowerShell</h5>
+        <ol>
+          <li>Press the <span class="kbd">Windows</span> key on your keyboard. The Start menu opens with a search box.</li>
+          <li>Type the word <span class="kbd">powershell</span>. You do not need to click anything first — just start typing.</li>
+          <li>Press <span class="kbd">Enter</span>, or click <b>Windows PowerShell</b> in the results.</li>
+          <li>A blue or black window opens with a line ending in <code>&gt;</code>. That blinking cursor is where commands go.</li>
+        </ol>
+      </div>
+
+      <div class="note note-tip"><svg class="logo note-ico"><use href="#l-info"/></svg><div>Pasting into PowerShell works with <span class="kbd">Ctrl</span> + <span class="kbd">V</span> as normal, and right-clicking pastes as well. If nothing appears when you paste, click once inside the window first so it has focus.</div></div>
+
+      <p>Now copy each line below using its Copy button, paste it into that window, and press Enter. Do them <b>one at a time</b> and wait for each one to finish before starting the next. Each command prints a few lines and then returns you to the <code>&gt;</code> prompt, which is how you know it has completed.</p>
+
+      <div class="term">
+        <div class="term-row"><div class="term-cmd">npm install -g @google/gemini-cli</div><button class="copy" type="button">COPY</button></div>
+        <div class="term-row"><div class="term-cmd">npm install -g freebuff</div><button class="copy" type="button">COPY</button></div>
+        <div class="term-row"><div class="term-cmd">npm install -g @openai/codex</div><button class="copy" type="button">COPY</button></div>
+        <div class="term-row"><div class="term-cmd">npm install -g supabase</div><button class="copy" type="button">COPY</button></div>
+        <div class="term-row"><div class="term-cmd">npm install -g @slidev/cli</div><button class="copy" type="button">COPY</button></div>
+      </div>
+
+      <p>Here is what you have just installed. <b>Gemini CLI</b> is our main agent and gives us roughly 1,500 requests a day. <b>freebuff</b> and <b>Codex</b> are backups that each come with their own separate free limit, which matters because when one runs out we can switch to another instead of sitting idle. <b>Supabase</b> handles our database, and <b>Slidev</b> turns a plain text file into our presentation.</p>
+
+      <div class="note note-warn"><svg class="logo note-ico"><use href="#l-warn"/></svg><div>If you see <b>"npm is not recognised"</b>, it means the restart in step 1 was skipped. Restart your PC and run the commands again.</div></div>
+
+      <div class="donebar"><button class="donebtn" type="button" data-done-for="2"><span class="tick">✓</span><span> Mark step 2 done</span></button></div>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section class="step" id="s3" open-state="1">
+    <button class="step-head" type="button" aria-expanded="true" aria-controls="b3">
+      <span class="step-num">3</span>
+      <span><span class="step-title">Log in to Gemini</span><span class="step-sub">The one step where the obvious choice is the wrong one</span></span>
+      <span class="step-meta"><span class="time">~3 min</span><span class="chev">▶</span></span>
+    </button>
+    <div class="step-body" id="b3">
+      <p>Staying in the same PowerShell window, run the following command.</p>
+
+      <div class="term">
+        <div class="term-row"><div class="term-cmd">gemini</div><button class="copy" type="button">COPY</button></div>
+      </div>
+
+      <p>It will ask how you would like to authenticate. Use the <b>arrow keys</b> to move down the list, then press Enter on the second option rather than the first.</p>
+
+      <div class="pick">
+        <div class="pick-row pick-yes"><svg class="logo logo-sm"><use href="#l-check"/></svg> Use Gemini API Key <span class="pick-tag">pick this</span></div>
+        <div class="pick-row pick-no"><svg class="logo logo-sm"><use href="#l-warn"/></svg> Sign in with Google <span class="pick-tag">do not</span></div>
+      </div>
+
+      <div class="note note-warn"><svg class="logo note-ico"><use href="#l-warn"/></svg><div><b>"Sign in with Google" no longer works.</b> It looks exactly like the right choice, it opens a browser, and it even tells you "Authentication succeeded" — and then it fails anyway, because Google discontinued that free tier for individual accounts. I lost twenty minutes to this, so please take the API key option instead.</div></div>
+
+      <p>Get your key from the link below, copy it, and paste it into the terminal when it asks for one.</p>
+      <a class="dl" href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener"><svg class="logo"><use href="#l-gemini"/></svg> Get your Gemini API key <small>free</small></a>
+
+      <div class="note note-tip"><svg class="logo note-ico"><use href="#l-info"/></svg><div>If the page refuses to load, or the button does nothing at all when you click it, open the link in an <b>incognito window</b> instead. Ad-blocker extensions broke three separate Google logins while I was setting this up.</div></div>
+
+      <div class="donebar"><button class="donebtn" type="button" data-done-for="3"><span class="tick">✓</span><span> Mark step 3 done</span></button></div>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section class="step" id="s4" open-state="1">
+    <button class="step-head" type="button" aria-expanded="true" aria-controls="b4">
+      <span class="step-num">4</span>
+      <span><span class="step-title">Install the apps</span><span class="step-sub">Antigravity for testing, OBS Studio for recording</span></span>
+      <span class="step-meta"><span class="time">~5 min</span><span class="chev">▶</span></span>
+    </button>
+    <div class="step-body" id="b4">
+      <p><b>Antigravity</b> is Google's AI editor. It behaves much like VS Code, except that its AI can open our app in a real browser and check whether it genuinely works — which is something none of the other tools here can do.</p>
+
+      <a class="dl" href="https://antigravity.google/download" target="_blank" rel="noopener"><svg class="logo"><use href="#l-antigravity"/></svg> Antigravity</a>
+
+      <p>Once it has installed, open it and click <b>"Install IDE"</b> inside the app to get the editor as well.</p>
+
+      <div class="note note-warn"><svg class="logo note-ico"><use href="#l-warn"/></svg><div><b>Antigravity only gives you 20 requests per day.</b> Please do not chat in it. We need to save every one of those for browser-testing the app and recording the demo walkthrough, because those are the two things nothing else in our toolkit can do.</div></div>
+
+      <p><b>OBS Studio</b> records your screen, and we will use it to capture the demo as soon as the app is working properly.</p>
+
+      <a class="dl" href="https://obsproject.com" target="_blank" rel="noopener"><svg class="logo"><use href="#l-obs"/></svg> OBS Studio</a>
+
+      <div class="note note-tip"><svg class="logo note-ico"><use href="#l-info"/></svg><div>A recording that plays reliably beats a live demo that crashes in front of the judges, and something almost always breaks on stage.</div></div>
+
+      <div class="donebar"><button class="donebtn" type="button" data-done-for="4"><span class="tick">✓</span><span> Mark step 4 done</span></button></div>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section class="step" id="s5" open-state="1">
+    <button class="step-head" type="button" aria-expanded="true" aria-controls="b5">
+      <span class="step-num">5</span>
+      <span><span class="step-title">Add four VS Code extensions</span><span class="step-sub">These catch our mistakes before they turn into bugs</span></span>
+      <span class="step-meta"><span class="time">~2 min</span><span class="chev">▶</span></span>
+    </button>
+    <div class="step-body" id="b5">
+      <p>Open VS Code and click the <b>Extensions</b> icon in the left sidebar — it looks like four small squares. Search for each of the following and click Install.</p>
+
+      <div class="exts">
+        <div class="ext"><code>Error Lens</code><span>Shows errors directly on the line where they happen, so you do not have to hover over anything or hunt through a panel.</span></div>
+        <div class="ext"><code>Prettier</code><span>Formats code automatically when you save, which stops six people's formatting from clashing every time we merge.</span></div>
+        <div class="ext"><code>ES7 React snippets</code><span>Lets you type <code>rafce</code> and press Tab to generate a whole component.</span></div>
+        <div class="ext"><code>GitLens</code><span>Shows who changed each line and when, which matters a great deal when a merge goes wrong at three in the morning.</span></div>
+      </div>
+
+      <div class="note note-tip"><svg class="logo note-ico"><use href="#l-info"/></svg><div>If you would rather use the terminal, the command below installs all four of them at once.</div></div>
+
+      <div class="term">
+        <div class="term-row"><div class="term-cmd">code --install-extension usernamehw.errorlens --install-extension esbenp.prettier-vscode --install-extension dsznajder.es7-react-js-snippets --install-extension eamodio.gitlens</div><button class="copy" type="button">COPY</button></div>
+      </div>
+
+      <div class="donebar"><button class="donebtn" type="button" data-done-for="5"><span class="tick">✓</span><span> Mark step 5 done</span></button></div>
+    </div>
+  </section>
+
+  <!-- 6 -->
+  <section class="step" id="s6" open-state="1">
+    <button class="step-head" type="button" aria-expanded="true" aria-controls="b6">
+      <span class="step-num">6</span>
+      <span><span class="step-title">Final logins</span><span class="step-sub">GitHub and Supabase, and then you are finished</span></span>
+      <span class="step-meta"><span class="time">~3 min</span><span class="chev">▶</span></span>
+    </button>
+    <div class="step-body" id="b6">
+      <p>Go back to PowerShell for the last two commands. Each one opens a browser window, and you should sign in with the <b>same Google account</b> you have used for everything else, so that sharing projects between us later does not become a mess.</p>
+
+      <div class="term">
+        <div class="term-row"><div class="term-cmd">gh auth login</div><button class="copy" type="button">COPY</button></div>
+        <div class="term-row"><div class="term-cmd">supabase login</div><button class="copy" type="button">COPY</button></div>
+      </div>
+
+      <p><b>GitHub</b> holds our code and is what we submit at the end, and <b>Supabase</b> is our database.</p>
+
+      <div class="note note-warn"><svg class="logo note-ico"><use href="#l-warn"/></svg><div>Once we have a Supabase project set up, please <b>never run <code>supabase start</code></b>. That command launches Docker with roughly fourteen containers and it will freeze your laptop. We are using the hosted version only.</div></div>
+
+      <p>Finally, check that everything worked by running the command below. If the Gemini interface opens, your setup is complete.</p>
+
+      <div class="term">
+        <div class="term-row"><div class="term-cmd">gemini</div><button class="copy" type="button">COPY</button></div>
+      </div>
+
+      <div class="note note-ok"><svg class="logo note-ico"><use href="#l-check"/></svg><div>That is the entire setup. Everything below this point is either optional or there for reference on the day.</div></div>
+
+      <div class="donebar"><button class="donebtn" type="button" data-done-for="6"><span class="tick">✓</span><span> Mark step 6 done</span></button></div>
+    </div>
+  </section>
+
+
+  <div class="shead" id="project">
+    <h2><svg class="sico"><use href="#s-wrench"/></svg> Our project — SIH26042</h2>
+    <p>We are building the <b>Vernacular Pedagogy and Real-Time Translation Tool</b> for Government of Jharkhand: a teacher records or types a lesson in Hindi, and a child reads and hears it in their mother tongue. Here is everything the project itself needs on top of the setup above.</p>
+  </div>
+
+  <div class="note note-ok" style="margin-bottom:18px"><svg class="logo note-ico"><use href="#l-check"/></svg><div><b>Total new installs: one npm package and one font.</b> Everything else is already on your machine after the six steps above. That is why we chose this statement.</div></div>
+
+  <div class="grid grid-2">
+
+    <div class="mini">
+      <h4><svg class="logo logo-lg"><use href="#l-data"/></svg> 1 · Bhashini API key <span class="chip chip-ok">free · required</span></h4>
+      <p>The Government of India's own language platform does all the translation, speech recognition and speech synthesis. <b>We are not building AI — we are building the teaching tool on top of theirs.</b></p>
+      <p>Sign up, verify your email, then go to <b>My Profile</b> and generate a key. You need three values: <code>userID</code>, <code>ulcaApiKey</code> and an <code>Inference API key</code>.</p>
+      <a class="dl" href="https://bhashini.gov.in" target="_blank" rel="noopener"><svg class="logo"><use href="#l-data"/></svg> Get a Bhashini key</a>
+    </div>
+
+    <div class="mini">
+      <h4><svg class="logo logo-lg"><use href="#l-warn"/></svg> 2 · Noto Sans Ol Chiki <span class="chip">easy to miss</span></h4>
+      <p><b>Santali is written in the Ol Chiki script</b>, and Windows does not ship a font for it. Without this, every translated word renders as an empty box and the demo dies in front of the judges.</p>
+      <p>It is free from Google Fonts. Add one line to <code>index.html</code> and set it as the font for any Santali text.</p>
+      <div class="term"><div class="term-row"><div class="term-cmd">&lt;link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Ol+Chiki&amp;display=swap"&gt;</div><button class="copy" type="button">COPY</button></div></div>
+    </div>
+
+    <div class="mini">
+      <h4><svg class="logo logo-lg"><use href="#l-node"/></svg> 3 · idb <span class="chip">offline cache</span></h4>
+      <p>A small wrapper around IndexedDB for caching lessons and audio so the app works with no connection. <code>localStorage</code> can hold the text, but audio files need IndexedDB.</p>
+      <div class="term"><div class="term-row"><div class="term-cmd">npm install idb</div><button class="copy" type="button">COPY</button></div></div>
+    </div>
+
+    <div class="mini">
+      <h4><svg class="logo logo-lg"><use href="#l-check"/></svg> Already installed</h4>
+      <p><code>react</code> · <code>react-dom</code> · <code>react-router-dom</code> · <code>lucide-react</code> · <code>vite-plugin-pwa</code> · Vite · oxlint</p>
+      <p>Plus the browser gives us <b>MediaRecorder</b> for voice input and a <b>Service Worker</b> for offline, neither of which needs installing.</p>
+    </div>
+
+  </div>
+
+  <div class="shead" id="offline">
+    <h2><svg class="sico"><use href="#s-offline"/></svg> Optional — an AI that works offline</h2>
+    <p>This is only worth doing if you want a backup for when the venue wifi gives out, which in my experience it will at some point during the night.</p>
+  </div>
+
+  <div class="mini">
+    <h4><svg class="logo logo-lg"><use href="#l-lmstudio"/></svg> LM Studio <span class="chip chip-ok">unlimited · offline</span></h4>
+    <p>LM Studio runs an AI model entirely on your own laptop with no internet connection at all. Install it, then download the model called <b>Nemotron 3 Nano 4B</b>, which is about 2.8 GB.</p>
+    <p><b>Check your graphics card before you download anything.</b> A 4 GB card can run a 3B or 4B model and nothing larger. The catalogue will cheerfully suggest 27B and 30B models that are 17 GB or more and can never load on our machines, so if it warns you that a model is "likely too large", please believe it.</p>
+    <a class="dl" href="https://lmstudio.ai" target="_blank" rel="noopener"><svg class="logo"><use href="#l-lmstudio"/></svg> LM Studio</a>
+  </div>
+
+
+  <div class="shead" id="perks">
+    <h2><svg class="sico"><use href="#s-gift"/></svg> Free student perks worth claiming</h2>
+    <p>Both of these verify your student status using your college details, and both can take a few days to come through, so it is worth starting them now rather than the night before.</p>
+  </div>
+
+  <div class="grid grid-2">
+    <div class="mini">
+      <h4><svg class="logo logo-lg"><use href="#l-google"/></svg> Google AI Plus <span class="chip chip-ok">free 12 months</span></h4>
+      <p>This gives you <b>400 GB of storage</b> and full Gemini access, free for a year. Claim it using your JAIN college mail.</p>
+      <p>When it asks you for your school, you must <b>select "JAIN (Deemed-to-be University)" from the dropdown list</b> that appears. Typing the name and moving on will not work.</p>
+      <a class="dl" href="https://one.google.com/ai-student" target="_blank" rel="noopener"><svg class="logo"><use href="#l-gemini"/></svg> Claim AI Plus</a>
+    </div>
+
+    <div class="mini">
+      <h4><svg class="logo logo-lg"><use href="#l-github"/></svg> GitHub Student Pack <span class="chip chip-ok">free</span></h4>
+      <p>This one includes <b>JetBrains Ultimate</b>, <b>$200 of DigitalOcean credit</b>, <b>$100 of Azure credit</b>, a free domain name, and <b>180 hours a month of Codespaces</b>, which is cloud development that runs perfectly well even on a slow laptop.</p>
+      <p>Set your GitHub profile location to Bangalore before you apply, because a mismatch between your location and your college is the most common reason applications get rejected.</p>
+      <a class="dl" href="https://education.github.com/pack" target="_blank" rel="noopener"><svg class="logo"><use href="#l-github"/></svg> Claim the pack</a>
+    </div>
+  </div>
+
+
+  <div class="shead" id="webkit">
+    <h2><svg class="sico"><use href="#s-globe"/></svg> The web toolkit — nothing to install</h2>
+    <p>These all run in a browser tab, so there is no download and no setup beyond signing in. Please use the <b>same Google account</b> for every one of them, because sharing a design or a database project between us later becomes painful if we are scattered across different logins.</p>
+  </div>
+
+  <div class="grid grid-2">
+
+    <div class="mini">
+      <h4><svg class="logo"><use href="#l-gemini"/></svg> AI you can chat with</h4>
+      <div class="lrow"><svg class="logo"><use href="#l-gemini"/></svg><span><a href="https://gemini.google.com" target="_blank" rel="noopener">Gemini</a> is our main assistant for thinking through problems and drafting text. There is no desktop app for Windows, so the browser is the only option.</span></div>
+      <div class="lrow"><svg class="logo"><use href="#l-openai"/></svg><span><a href="https://chatgpt.com" target="_blank" rel="noopener">ChatGPT</a> works well as a second opinion. Please use the website rather than any desktop app you find, because the ones in the Windows package manager are all unofficial copies.</span></div>
+      <div class="lrow"><svg class="logo"><use href="#l-gemini"/></svg><span><a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener">Google AI Studio</a> is where your Gemini API key comes from, and where you can check how much of your daily quota is left.</span></div>
+    </div>
+
+    <div class="mini">
+      <h4><svg class="logo"><use href="#l-perplexity"/></svg> Research and sources</h4>
+      <div class="lrow"><svg class="logo"><use href="#l-perplexity"/></svg><span><a href="https://www.perplexity.ai" target="_blank" rel="noopener">Perplexity</a> answers with its sources attached, which is exactly what we need for the presentation. Use <b>Search</b> mode rather than Work mode, as Work burns through the free allowance quickly.</span></div>
+      <div class="lrow"><svg class="logo"><use href="#l-notebook"/></svg><span><a href="https://notebooklm.google.com" target="_blank" rel="noopener">NotebookLM</a> lets you upload a long government PDF and then ask questions about it, answering with page numbers so every claim we make can be traced back.</span></div>
+      <div class="lrow"><svg class="logo"><use href="#l-data"/></svg><span><a href="https://sih.gov.in" target="_blank" rel="noopener">The SIH portal</a> carries the official rules, the timeline, and the published problem statements.</span></div>
+    </div>
+
+    <div class="mini">
+      <h4><svg class="logo"><use href="#l-stitch"/></svg> Design and prototyping</h4>
+      <div class="lrow"><svg class="logo"><use href="#l-stitch"/></svg><span><a href="https://stitch.withgoogle.com" target="_blank" rel="noopener">Stitch</a> takes a plain-English description of a screen and designs it properly, including a mobile version. Remember to switch the toggle from App to <b>Web</b> before you generate anything.</span></div>
+      <div class="lrow"><svg class="logo"><use href="#l-vscode"/></svg><span><a href="https://bolt.new" target="_blank" rel="noopener">Bolt</a> takes a description of an entire app and builds a rough working version, which is genuinely useful in the first hour when we are staring at an empty folder.</span></div>
+      <div class="lrow"><svg class="logo"><use href="#l-slidev"/></svg><span><a href="https://excalidraw.com" target="_blank" rel="noopener">Excalidraw</a> is where we will draw the architecture diagram. Judges consistently respond to one clear picture of how the system fits together.</span></div>
+      <div class="lrow"><svg class="logo"><use href="#l-obs"/></svg><span><a href="https://www.photopea.com" target="_blank" rel="noopener">Photopea</a> is a free Photoshop that runs in a tab, for any image editing the deck needs.</span></div>
+    </div>
+
+    <div class="mini">
+      <h4><svg class="logo"><use href="#l-supabase"/></svg> Database and backend</h4>
+      <div class="lrow"><svg class="logo"><use href="#l-supabase"/></svg><span><a href="https://supabase.com/dashboard" target="_blank" rel="noopener">Supabase</a> is our database and login system. One important detail: a free project <b>goes to sleep after seven days of inactivity</b>, so whoever owns it should open this dashboard on the morning of the demo to wake it up.</span></div>
+      <div class="lrow"><svg class="logo"><use href="#l-supabase"/></svg><span><a href="https://console.neon.tech" target="_blank" rel="noopener">Neon</a> is a second Postgres database we can use for throwaway experiments, and unlike Supabase it wakes itself up automatically.</span></div>
+      <div class="lrow"><svg class="logo"><use href="#l-github"/></svg><span><a href="https://github.com" target="_blank" rel="noopener">GitHub</a> holds our repository, and the submission link comes from here.</span></div>
+    </div>
+
+    <div class="mini">
+      <h4><svg class="logo"><use href="#l-data"/></svg> Indian data and languages <span class="chip">our edge</span></h4>
+      <div class="lrow"><svg class="logo"><use href="#l-data"/></svg><span><a href="https://bhashini.gov.in" target="_blank" rel="noopener">Bhashini</a> is the Government of India's own AI language platform, built by MeitY, covering <b>22 Indian languages</b> for speech and translation. It is free with no rate limit, and using the government's own infrastructure at a government hackathon is an angle most teams will not have considered.</span></div>
+      <div class="lrow"><svg class="logo"><use href="#l-data"/></svg><span><a href="https://data.gov.in" target="_blank" rel="noopener">data.gov.in</a> holds real government datasets covering agriculture, health, disaster management and more. Seeding our app with genuine data rather than invented rows is exactly what separates a prototype from a demo, and when we cite it we should name the dataset and year rather than just the portal.</span></div>
+    </div>
+
+    <div class="mini">
+      <h4><svg class="logo"><use href="#l-cloudflare"/></svg> Deploy, demo and compute</h4>
+      <div class="lrow"><svg class="logo"><use href="#l-cloudflare"/></svg><span><a href="https://pages.cloudflare.com" target="_blank" rel="noopener">Cloudflare Pages</a> gives us a free permanent web address for the finished app, which is far better on a slide than <code>localhost</code>.</span></div>
+      <div class="lrow"><svg class="logo"><use href="#l-google"/></svg><span><a href="https://colab.research.google.com" target="_blank" rel="noopener">Google Colab</a> provides a free GPU in the browser, which we will need if any part of our solution involves training a model.</span></div>
+      <div class="lrow"><svg class="logo"><use href="#l-github"/></svg><span><a href="https://github.dev" target="_blank" rel="noopener">github.dev</a> opens VS Code inside a browser tab, which is a useful escape route if someone's laptop dies on the day.</span></div>
+    </div>
+
+  </div>
+
+
+  <div class="shead" id="gotchas">
+    <h2><svg class="sico"><use href="#s-trap"/></svg> Things that will waste your time</h2>
+    <p>Every one of these cost me real hours during setup, and none of them are obvious until they happen to you.</p>
+  </div>
+
+  <div class="gotchas">
+    <div class="gotcha"><div class="gk">Gemini "Sign in with Google"</div><div class="gv"><b>This no longer works for individual accounts.</b> The login completes and then the account is refused. Use the API key option instead.</div></div>
+    <div class="gotcha"><div class="gk">Restart after Node.js</div><div class="gv">If npm commands fail with <code>npm is not recognised</code>, the restart was skipped. Windows does not refresh its PATH until you restart.</div></div>
+    <div class="gotcha"><div class="gk">Ad blockers break logins</div><div class="gv">An extension silently broke <b>three separate Google logins</b> during setup. If a sign-in button does nothing whatsoever when clicked, open the page in an <b>incognito window</b>.</div></div>
+    <div class="gotcha"><div class="gk">Model size against VRAM</div><div class="gv">A 4 GB graphics card runs roughly a <b>3B or 4B model</b>. Anything above about 3 GB will simply not load, however impressive it looks in the catalogue.</div></div>
+    <div class="gotcha"><div class="gk">Convincing fakes everywhere</div><div class="gv">Searching the VS Code marketplace for Antigravity returns impostors with <b>more installs than the real one</b>, and there is no official ChatGPT or Gemini desktop app in winget either. <b>Check the publisher rather than the install count.</b></div></div>
+    <div class="gotcha"><div class="gk"><code>npm create vite .</code></div><div class="gv">Scaffolding into a folder that already contains files will offer to <b>delete them</b>, and passing <code>-y</code> confirms that automatically. Scaffold into an empty subfolder and move the files up afterwards.</div></div>
+    <div class="gotcha"><div class="gk">Async from the first line</div><div class="gv">If our data layer starts out synchronous, <b>swapping in Supabase later means rewriting every file</b>. Every store method should return a Promise from the very beginning.</div></div>
+    <div class="gotcha"><div class="gk">RAM matters more than tools</div><div class="gv">Chrome with 28 tabs held <b>4.3 GB</b> on my machine, which is more than every tool in this kit combined. Close your browsers before we start.</div></div>
+    <div class="gotcha"><div class="gk">Do not install Docker</div><div class="gv">Nothing here needs it, and on a 16 GB laptop already running an editor and a dev server it will cause more problems than it solves.</div></div>
+  </div>
+
+
+  <div class="shead" id="checklist">
+    <h2><svg class="sico"><use href="#s-clip"/></svg> Before 3 September</h2>
+    <p>Tap each line to tick it off. Everything on this list needs a working internet connection, so none of it can be left until we are at the venue.</p>
+  </div>
+
+  <div class="final" id="finalList">
+    <div class="fitem" data-f="1"><span class="fbox">✓</span><span class="flabel"><b>All six steps above complete</b><span class="why">The progress bar at the top of this page should read six of six.</span></span></div>
+    <div class="fitem" data-f="2"><span class="fbox">✓</span><span class="flabel"><b>Local model downloaded and loaded at least once</b><span class="why">Confirm that it actually loads, not simply that the file finished downloading.</span></span></div>
+    <div class="fitem" data-f="3"><span class="fbox">✓</span><span class="flabel"><b>Student perks claimed</b><span class="why">Google AI Plus and the GitHub Student Pack. Verification can take several days.</span></span></div>
+    <div class="fitem" data-f="4"><span class="fbox">✓</span><span class="flabel"><b>Phone hotspot tested</b><span class="why">This is our genuine wifi backup, so please test it before we need it rather than after.</span></span></div>
+    <div class="fitem" data-f="5"><span class="fbox">✓</span><span class="flabel"><b>Charger, power bank and an extension board</b><span class="why">Six laptops over 24 hours, and there are never enough sockets.</span></span></div>
+    <div class="fitem" data-f="6"><span class="fbox">✓</span><span class="flabel"><b>Roles agreed between us</b><span class="why">Who owns the backend, the interface, the deck and the demo recording. Best decided now rather than at hour eighteen.</span></span></div>
+  </div>
+
+  <div class="foot">
+    <span class="avatar">JJ</span>
+    <p>Prepared by Jonathan John · JAIN (Deemed-to-be University) · August 2026<br>Compiled from a full end-to-end install and test. Every command verified on Windows 11.</p>
+  </div>
+
+</div>
+
+
+<script>
+(function () {
+  var KEY = 'sih-kit-progress-v1';
+  var state = {};
+  try { state = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { state = {}; }
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
+
+  document.querySelectorAll('.step-head').forEach(function (head) {
+    head.addEventListener('click', function () {
+      var body = document.getElementById(head.getAttribute('aria-controls'));
+      var willOpen = body.classList.contains('hide');
+      body.classList.toggle('hide', !willOpen);
+      head.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+      head.closest('.step').setAttribute('open-state', willOpen ? '1' : '0');
+    });
+  });
+
+  document.querySelectorAll('.copy').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var text = btn.parentElement.querySelector('.term-cmd').textContent;
+      function done() {
+        btn.textContent = 'COPIED'; btn.setAttribute('data-copied', '1');
+        setTimeout(function () { btn.textContent = 'COPY'; btn.removeAttribute('data-copied'); }, 1400);
+      }
+      function fallback() {
+        var ta = document.createElement('textarea');
+        ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+        document.body.appendChild(ta); ta.select();
+        try { document.execCommand('copy'); done(); } catch (e) {}
+        document.body.removeChild(ta);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, fallback);
+      } else { fallback(); }
+    });
+  });
+
+  var TOTAL = 6;
+  function paintProgress() {
+    var n = 0;
+    for (var i = 1; i <= TOTAL; i++) { if (state['step' + i]) n++; }
+    document.getElementById('bar').style.width = (n / TOTAL * 100) + '%';
+    document.getElementById('pctText').textContent =
+      n === TOTAL ? 'all 6 steps done' : (n + ' of ' + TOTAL + ' steps');
+  }
+
+  document.querySelectorAll('[data-done-for]').forEach(function (btn) {
+    var n = btn.getAttribute('data-done-for');
+    var card = document.getElementById('s' + n);
+    var lbl = btn.querySelector('span:last-child');
+    function paint() {
+      var on = !!state['step' + n];
+      btn.setAttribute('data-on', on ? '1' : '0');
+      card.setAttribute('data-done', on ? '1' : '0');
+      lbl.textContent = on ? ' Step ' + n + ' done' : ' Mark step ' + n + ' done';
+    }
+    btn.addEventListener('click', function () {
+      state['step' + n] = !state['step' + n]; save(); paint(); paintProgress();
+    });
+    paint();
+  });
+
+  document.querySelectorAll('.fitem').forEach(function (row) {
+    var k = 'final' + row.getAttribute('data-f');
+    function paint() { row.setAttribute('data-on', state[k] ? '1' : '0'); }
+    row.addEventListener('click', function () { state[k] = !state[k]; save(); paint(); });
+    paint();
+  });
+
+  document.getElementById('resetBtn').addEventListener('click', function () {
+    state = {}; save();
+    document.querySelectorAll('[data-done-for]').forEach(function (b) {
+      var n = b.getAttribute('data-done-for');
+      b.setAttribute('data-on', '0');
+      document.getElementById('s' + n).setAttribute('data-done', '0');
+      b.querySelector('span:last-child').textContent = ' Mark step ' + n + ' done';
+    });
+    document.querySelectorAll('.fitem').forEach(function (r) { r.setAttribute('data-on', '0'); });
+    paintProgress();
+  });
+
+  paintProgress();
+})();
+</script>
+
+</body>
+</html>
