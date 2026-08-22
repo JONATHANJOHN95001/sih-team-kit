@@ -116,6 +116,44 @@
   .themer button:hover { color:#EDEEF8; }
   .themer button[aria-pressed="true"] { background:#EDEEF8; color:#131529; font-weight:600; }
   @media (max-width:640px) { .themer { position:static; margin:0 0 22px; width:max-content; } }
+
+  /* ---- phones ---------------------------------------------------------
+     The layout already reflows; these fix what a finger notices rather
+     than what the grid does. ------------------------------------------ */
+  @media (max-width:560px) {
+    /* Names and descriptions fight over the width in two columns. */
+    .ext { grid-template-columns:1fr; gap:3px; }
+    .ext code { font-size:14px; }
+
+    /* The command scrolls under the COPY button without this. */
+    .term-cmd { padding-right:14px; }
+    .term-row { align-items:center; }
+
+    /* Comfortable targets. Anything tapped needs real height. */
+    .themer button { padding:11px 16px; font-size:11.5px; }
+    .reset { padding:9px 14px; font-size:11.5px; }
+    .copy { padding-left:16px; padding-right:16px; min-height:46px; }
+    .donebtn, .dl { min-height:46px; }
+
+    /* 42px of display type eats a phone screen. */
+    .masthead { padding:40px 0 34px; }
+    .masthead h1 { font-size:34px; letter-spacing:-.015em; }
+    .standfirst { font-size:15.5px; }
+
+    /* Justified text at this width opens rivers between words. */
+    .lrow span, .stk td { text-align:left; hyphens:none; }
+
+    /* A wide table needs to advertise that it scrolls. */
+    .stk-wrap { -webkit-overflow-scrolling:touch; }
+    .stk-wrap::after { content:'scroll 92'; display:block; font-family:var(--f-mono);
+                       font-size:10px; letter-spacing:.06em; color:var(--ink-faint);
+                       text-align:right; padding-top:6px; }
+    .stk th, .stk td { padding-right:14px; }
+  }
+  @media (max-width:380px) {
+    .masthead h1 { font-size:30px; }
+    .fact { font-size:11.5px; }
+  }
   /* masthead */
   .masthead {
     position:relative; padding:66px 0 54px; margin-bottom:40px; color:#EDEEF8;
@@ -343,6 +381,9 @@
             padding:0 10px 7px 0; border-bottom:1px solid var(--rule); }
   .stk td { padding:9px 10px 9px 0; border-bottom:1px solid var(--rule-soft);
             color:var(--ink-soft); vertical-align:top; line-height:1.6; }
+  .stk .logo { width:24px; height:24px; padding:3px; border-radius:6px;
+               background:var(--raise); border:1px solid var(--rule-soft); }
+  .stk td.ic { width:24px; padding-right:12px; }
   .stk td:first-child { color:var(--ink); font-weight:600; white-space:nowrap; }
   .stk tr:last-child td { border-bottom:0; }
   .stk-wrap { overflow-x:auto; }
@@ -781,11 +822,12 @@
     </div>
 
     <div class="mini">
-      <h4><svg class="hico"><use href="#s-mic"/></svg> 5 &middot; Speech, and the honest gap</h4>
-      <p><b>faster-whisper</b> turns a teacher speaking Hindi into text, offline, and it is genuinely good at Hindi. <b>Vosk</b> is the tiny fallback at around 50&nbsp;MB if Whisper is too slow on someone's laptop.</p>
-      <p>The gap is the other direction. <b>Nobody offers Santali text-to-speech</b> that we have been able to find &mdash; not Bhashini, not Piper, not Coqui. Since Santali literacy is low, spoken output is arguably the most valuable thing this tool could do, so we need to know before the day rather than discover it at hour eighteen.</p>
-      <p>If it does not exist, the answer is <b>Santali text plus pictures</b>, and we demonstrate the audio feature in Hindi. That is a design decision, not a failure &mdash; but only if we make it early.</p>
-      <div class="lrow"><svg class="logo"><use href="#l-openai"/></svg><span>Run <code>bhashini-test.mjs</code> in the project folder. It answers this question in about thirty seconds.</span></div>
+      <h4><svg class="hico"><use href="#s-mic"/></svg> 5 &middot; Speech, in both directions <span class="chip chip-ok">all three confirmed</span></h4>
+      <p>This was the open question for weeks, and the answer is better than we assumed. Checked against the government's public model catalogue, Bhashini carries all three pieces:</p>
+      <div class="lrow"><svg class="logo"><use href="#l-bhashini"/></svg><span><b>Santali speech output.</b> <i>Bhashini&ndash;IITM TTS for Santali</i>, FastPitch with a HiFi-GAN vocoder, in male and female voices. This is the one that matters: Santali literacy is low, so a child who cannot yet read Ol&nbsp;Chiki can still hear the lesson.</span></div>
+      <div class="lrow"><svg class="logo"><use href="#l-bhashini"/></svg><span><b>Santali speech input</b> exists too &mdash; <i>AI4Bharat ASR (conformer) Santhali</i>. We had not counted on this. It means a child can also <i>speak</i> and be understood, which opens up a two-way conversation rather than a one-way translation.</span></div>
+      <div class="lrow"><svg class="logo"><use href="#l-openai"/></svg><span><b>Hindi speech input</b> has five models to choose from, so the teacher speaks instead of typing. <b>faster-whisper</b> stays as the offline fallback, and <b>Vosk</b> at around 50&nbsp;MB if a laptop struggles.</span></div>
+      <p>Because both directions work, the demo can be a genuine spoken exchange: the teacher speaks Hindi, the child hears Santali, the child answers in Santali, the teacher hears Hindi. That is a much stronger thing to put in front of judges than a text box.</p>
     </div>
 
     <div class="mini">
@@ -816,27 +858,27 @@
       <h4><svg class="hico"><use href="#s-route"/></svg> The stack, decided <span class="chip chip-ok">no arguing on the day</span></h4>
       <p>Every choice below is already made. The point of writing it down now is that nobody spends hour three of the hackathon debating a database, and anyone who gets stuck knows exactly which tool owns that layer.</p>
       <div class="stk-wrap"><table class="stk">
-        <thead><tr><th>Layer</th><th>What we use</th><th>Why this one</th></tr></thead>
+        <thead><tr><th></th><th>Layer</th><th>What we use</th><th>Why this one</th></tr></thead>
         <tbody>
-          <tr><td>Editor</td><td>VS&nbsp;Code, with Copilot Pro switched on</td><td>Copilot is free with the Student Pack and most people never enable it. Antigravity IDE stays open alongside for testing the app in a browser.</td></tr>
-          <tr><td>Writing the code</td><td>Gemini CLI first, then freebuff and Codex</td><td>Spread the work across lanes so no single free quota runs dry. LM&nbsp;Studio is the fallback when the venue wifi dies.</td></tr>
-          <tr><td>Screens</td><td>React + Vite, Tailwind, shadcn/ui</td><td>Vite rebuilds instantly and shadcn components are ours to edit. Aceternity on the landing screen only.</td></tr>
-          <tr><td>Look</td><td>Stitch, driven by a <code>DESIGN.md</code></td><td>One file of visual rules that every agent reads, so four people's code still looks like one product.</td></tr>
-          <tr><td>Translation &mdash; online</td><td>Bhashini API</td><td>The government's own platform. Free, unlimited, and using MeitY infrastructure at a government hackathon is an angle most teams miss.</td></tr>
-          <tr><td>Translation &mdash; offline</td><td>IndicTrans2 <code>dist-320M</code> + CTranslate2</td><td>The same model Bhashini serves, running on our machine. A dead network can no longer kill the demo.</td></tr>
-          <tr><td>Speech in</td><td>faster-whisper (Hindi)</td><td>The teacher speaks instead of typing. Vosk is the fallback on a slow laptop.</td></tr>
-          <tr><td>Speech out</td><td><b>Undecided &mdash; blocked</b></td><td>No Santali TTS appears to exist. If confirmed, we ship Santali text with pictures and demo audio in Hindi. <code>bhashini-test.mjs</code> settles this.</td></tr>
-          <tr><td>Script</td><td>Noto Sans Ol&nbsp;Chiki, bundled in the repo</td><td>Without it every Santali word renders as an empty box. Self-hosted, never a CDN link.</td></tr>
-          <tr><td>Works offline</td><td>Transformers.js, Workbox, Dexie</td><td>So we can switch the wifi off in front of the judges and keep going.</td></tr>
-          <tr><td>Data and login</td><td>Supabase</td><td>Postgres plus auth in one free project. Wake it the morning of the demo &mdash; it sleeps after seven idle days.</td></tr>
-          <tr><td>Hosting the model</td><td>Presenting laptop, Render if we need a URL</td><td>Vercel and Cloudflare cannot run PyTorch. This is the decision people get wrong.</td></tr>
-          <tr><td>Hosting the app</td><td>Vercel</td><td>A preview link per push, which matters with four people committing at once.</td></tr>
-          <tr><td>Proof it works</td><td>FLORES-200</td><td>A measured Santali score instead of a confident claim.</td></tr>
-          <tr><td>Research</td><td>Perplexity (Search mode), NotebookLM</td><td>Everything on the slides needs a citable source, not a recollection.</td></tr>
-          <tr><td>The demo</td><td>OBS, cloudflared, Slidev</td><td>Record it the moment it first works. If anything breaks at judging, we present the recording.</td></tr>
+          <tr><td class="ic"><svg class="logo"><use href="#l-vscode"/></svg></td><td>Editor</td><td>VS&nbsp;Code, with Copilot Pro switched on</td><td>Copilot is free with the Student Pack and most people never enable it. Antigravity IDE stays open alongside for testing the app in a browser.</td></tr>
+          <tr><td class="ic"><svg class="logo"><use href="#l-gemini"/></svg></td><td>Writing the code</td><td>Gemini CLI first, then freebuff and Codex</td><td>Spread the work across lanes so no single free quota runs dry. LM&nbsp;Studio is the fallback when the venue wifi dies.</td></tr>
+          <tr><td class="ic"><svg class="logo"><use href="#l-shadcn"/></svg></td><td>Screens</td><td>React + Vite, Tailwind, shadcn/ui</td><td>Vite rebuilds instantly and shadcn components are ours to edit. Aceternity on the landing screen only.</td></tr>
+          <tr><td class="ic"><svg class="logo"><use href="#l-stitch"/></svg></td><td>Look</td><td>Stitch, driven by a <code>DESIGN.md</code></td><td>One file of visual rules that every agent reads, so four people's code still looks like one product.</td></tr>
+          <tr><td class="ic"><svg class="logo"><use href="#l-bhashini"/></svg></td><td>Translation &mdash; online</td><td>Bhashini API</td><td>The government's own platform. Free, unlimited, and using MeitY infrastructure at a government hackathon is an angle most teams miss.</td></tr>
+          <tr><td class="ic"><svg class="logo"><use href="#l-hf"/></svg></td><td>Translation &mdash; offline</td><td>IndicTrans2 <code>dist-320M</code> + CTranslate2</td><td>The same model Bhashini serves, running on our machine. A dead network can no longer kill the demo.</td></tr>
+          <tr><td class="ic"><svg class="logo"><use href="#l-openai"/></svg></td><td>Speech in</td><td>faster-whisper (Hindi)</td><td>The teacher speaks instead of typing. Vosk is the fallback on a slow laptop.</td></tr>
+          <tr><td class="ic"><svg class="logo"><use href="#l-bhashini"/></svg></td><td>Speech out</td><td>Bhashini&ndash;IITM TTS for Santali</td><td>It exists, in male and female voices &mdash; FastPitch with a HiFi-GAN vocoder. A child who cannot yet read Ol&nbsp;Chiki can still hear the lesson, which is the whole point of the project.</td></tr>
+          <tr><td class="ic"><svg class="logo"><use href="#l-google"/></svg></td><td>Script</td><td>Noto Sans Ol&nbsp;Chiki, bundled in the repo</td><td>Without it every Santali word renders as an empty box. Self-hosted, never a CDN link.</td></tr>
+          <tr><td class="ic"><svg class="logo"><use href="#l-node"/></svg></td><td>Works offline</td><td>Transformers.js, Workbox, Dexie</td><td>So we can switch the wifi off in front of the judges and keep going.</td></tr>
+          <tr><td class="ic"><svg class="logo"><use href="#l-supabase"/></svg></td><td>Data and login</td><td>Supabase</td><td>Postgres plus auth in one free project. Wake it the morning of the demo &mdash; it sleeps after seven idle days.</td></tr>
+          <tr><td class="ic"><svg class="logo"><use href="#l-render"/></svg></td><td>Hosting the model</td><td>Presenting laptop, Render if we need a URL</td><td>Vercel and Cloudflare cannot run PyTorch. This is the decision people get wrong.</td></tr>
+          <tr><td class="ic"><svg class="logo"><use href="#l-vercel"/></svg></td><td>Hosting the app</td><td>Vercel</td><td>A preview link per push, which matters with four people committing at once.</td></tr>
+          <tr><td class="ic"><svg class="logo"><use href="#l-python"/></svg></td><td>Proof it works</td><td>FLORES-200</td><td>A measured Santali score instead of a confident claim.</td></tr>
+          <tr><td class="ic"><svg class="logo"><use href="#l-perplexity"/></svg></td><td>Research</td><td>Perplexity (Search mode), NotebookLM</td><td>Everything on the slides needs a citable source, not a recollection.</td></tr>
+          <tr><td class="ic"><svg class="logo"><use href="#l-obs"/></svg></td><td>The demo</td><td>OBS, cloudflared, Slidev</td><td>Record it the moment it first works. If anything breaks at judging, we present the recording.</td></tr>
         </tbody>
       </table></div>
-      <div class="note note-warn" style="margin:16px 0 0"><svg class="logo note-ico"><use href="#l-warn"/></svg><div><b>One row is still open.</b> Speech output is the only unresolved line in this table, and it is the feature most likely to decide how the project is judged &mdash; Santali literacy is low, so being heard matters more than being read. Run <code>bhashini-test.mjs</code> before we write any code.</div></div>
+      <div class="note note-ok" style="margin:16px 0 0"><svg class="logo note-ico"><use href="#l-check"/></svg><div><b>Every row is settled.</b> The open question was whether Santali speech output existed at all. It does &mdash; confirmed against the government's public model catalogue, which also lists Santali speech <i>recognition</i>. Nothing in this table is waiting on an unknown any more.</div></div>
     </div>
 
     <div class="mini">
