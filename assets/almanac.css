@@ -768,7 +768,7 @@
   .themer button { min-height:0; padding:6px 10px; border-radius:6px; border:0;
                    font-family:var(--f-mono); font-size:10.5px; letter-spacing:.05em;
                    text-transform:uppercase; font-weight:600; cursor:pointer;
-                   background:transparent; color:var(--ink-faint); line-height:1;
+                   background:transparent; color:var(--ink-soft); line-height:1;
                    transition:background .16s ease, color .16s ease; }
   .themer button:hover { color:var(--ink); }
   .themer button[aria-pressed="true"] { background:var(--accent); color:#fff; }
@@ -807,6 +807,13 @@
     .pager { margin-top:44px; }
     .pg { padding:14px 16px; }
     .pg b { font-size:15px; }
+  }
+
+  /* Justification needs width to work. On a phone it opens rivers of
+     white space between the words, so every column of prose reads left. */
+  @media (max-width:700px) {
+    .step-body p, .mini p, .note div, .lrow span, .stk td, .dbody, .standfirst {
+      text-align:left; hyphens:none; }
   }
 
   @media (max-width:420px) {
