@@ -91,6 +91,19 @@
            border:1px solid var(--rule); border-radius:4px; padding:3px 8px; cursor:pointer; }
   .reset:hover { color:var(--ink); border-color:var(--ink-faint); }
 
+
+  /* theme toggle — sits in the masthead corner */
+  .themer { position:absolute; top:20px; right:0; display:flex; gap:2px; padding:3px;
+            border-radius:9px; background:rgba(255,255,255,.09);
+            border:1px solid rgba(255,255,255,.16); z-index:2; }
+  .themer button { appearance:none; border:0; cursor:pointer; background:transparent;
+                   font-family:var(--f-mono); font-size:10.5px; letter-spacing:.06em;
+                   text-transform:uppercase; color:rgba(237,238,248,.62);
+                   padding:5px 11px; border-radius:6px; line-height:1;
+                   transition:background .15s, color .15s; }
+  .themer button:hover { color:#EDEEF8; }
+  .themer button[aria-pressed="true"] { background:#EDEEF8; color:#131529; font-weight:600; }
+  @media (max-width:640px) { .themer { position:static; margin:0 0 22px; width:max-content; } }
   /* masthead */
   .masthead {
     position:relative; padding:66px 0 54px; margin-bottom:40px; color:#EDEEF8;
@@ -397,6 +410,11 @@
 <div class="wrap">
 
   <header class="masthead">
+    <div class="themer" role="group" aria-label="Colour theme">
+      <button type="button" data-set="light" aria-pressed="false">Light</button>
+      <button type="button" data-set="dark"  aria-pressed="false">Dark</button>
+      <button type="button" data-set="auto"  aria-pressed="true">Auto</button>
+    </div>
     <p class="eyebrow">Internal Hackathon · JAIN (Deemed-to-be University)</p>
     <h1>SIH 2026 Team Kit</h1>
     <div class="byline">
@@ -913,6 +931,26 @@
   });
 
   paintProgress();
+})();
+</script>
+<script>
+(function () {
+  var root = document.documentElement;
+  var btns = document.querySelectorAll('.themer button');
+  function apply(mode) {
+    if (mode === 'auto') root.removeAttribute('data-theme');
+    else root.setAttribute('data-theme', mode);
+    btns.forEach(function (b) {
+      b.setAttribute('aria-pressed', String(b.dataset.set === mode));
+    });
+    try { localStorage.setItem('sihkit-theme', mode); } catch (e) {}
+  }
+  btns.forEach(function (b) {
+    b.addEventListener('click', function () { apply(b.dataset.set); });
+  });
+  var saved;
+  try { saved = localStorage.getItem('sihkit-theme'); } catch (e) {}
+  apply(saved || 'auto');
 })();
 </script>
 
