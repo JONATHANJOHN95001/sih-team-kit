@@ -222,17 +222,19 @@
            padding:16px 18px; margin:14px 0; }
   .howto h5 { font-family:var(--f-display); font-weight:700; font-size:15px; margin:0 0 12px;
               letter-spacing:-.01em; display:flex; align-items:center; gap:9px; }
-  .howto ol { margin:0; padding-left:0; list-style:none; counter-reset:ht; display:grid; gap:10px; }
-  .howto li { counter-increment:ht; display:grid; grid-template-columns:24px 1fr; gap:12px;
-              font-size:14.5px; color:var(--ink-soft); align-items:start;
-              line-height:1.85; text-align:left; }
-  .howto li::before { content:counter(ht); font-family:var(--f-mono); font-size:11.5px; font-weight:600;
+  .howto ol { margin:0; padding-left:0; list-style:none; counter-reset:ht; display:grid; gap:12px; }
+  /* NOT a grid: the number is positioned, so the sentence stays one inline flow
+     and inline <span class="kbd"> elements are not promoted to grid items. */
+  .howto li { counter-increment:ht; position:relative; padding-left:38px;
+              font-size:14.5px; color:var(--ink-soft); line-height:1.9; text-align:left; }
+  .howto li::before { content:counter(ht); position:absolute; left:0; top:2px;
+                      font-family:var(--f-mono); font-size:11.5px; font-weight:600;
                       color:var(--accent-ink); background:var(--accent-wash); border-radius:5px;
-                      width:24px; text-align:center; padding:3px 0; line-height:1.4; margin-top:5px; }
-  .kbd { display:inline-block; font-family:var(--f-mono); font-size:12px; background:var(--card);
+                      width:24px; height:20px; display:grid; place-items:center; }
+  .kbd { display:inline-block; font-family:var(--f-mono); font-size:11.5px; background:var(--card);
          border:1px solid var(--rule); border-bottom-width:2px; border-radius:4px;
-         padding:0 7px; margin:0 1px; color:var(--ink); white-space:nowrap;
-         line-height:1.55; vertical-align:baseline; }
+         padding:1px 7px 0; margin:0 2px; color:var(--ink); white-space:nowrap;
+         line-height:1.35; vertical-align:baseline; position:relative; top:-1px; }
 
   /* terminal */
   .term { background:var(--term-bg); border-radius:8px; margin:12px 0; overflow:hidden; max-width:100%; }
