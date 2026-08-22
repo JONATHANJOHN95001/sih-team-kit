@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>John's Almanac</title>
-<meta name="description" content="Universal hackathon setup. Everything you need on your machine before a hackathon starts — six steps, about twenty minutes, every tool free. Kept by Jonathan John.">
+<meta name="description" content="Universal hackathon setup. Everything you need on your machine before a hackathon starts, in six steps that take about twenty minutes, with every tool free. Kept by Jonathan John.">
 <meta name="author" content="Jonathan John">
 <meta name="color-scheme" content="light dark">
 <meta property="og:type" content="website">
 <meta property="og:title" content="John's Almanac">
-<meta property="og:description" content="Universal hackathon setup. Everything you need on your machine before a hackathon starts — six steps, about twenty minutes, every tool free. Kept by Jonathan John.">
+<meta property="og:description" content="Universal hackathon setup. Everything you need on your machine before a hackathon starts, in six steps that take about twenty minutes, with every tool free. Kept by Jonathan John.">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#129520;</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -104,7 +104,7 @@
   .reset:hover { color:var(--ink); border-color:var(--ink-faint); }
 
 
-  /* theme toggle — sits in the masthead corner */
+  /* theme toggle, sits in the masthead corner */
   .themer { position:absolute; top:20px; right:0; display:flex; gap:2px; padding:3px;
             border-radius:9px; background:rgba(255,255,255,.09);
             border:1px solid rgba(255,255,255,.16); z-index:2; }
@@ -138,10 +138,51 @@
     50%  { filter:hue-rotate(-14deg) saturate(1.18); transform:translateX(-50%) scale(1.06); }
     100% { filter:hue-rotate(10deg)  saturate(1.05); transform:translateX(-50%) scale(1.02); }
   }
-  .masthead h1 { background:linear-gradient(96deg,#FFFFFF 6%,#C9C2FF 26%,#8FA6FF 44%,#6FE7D0 62%,#C9C2FF 80%,#FFFFFF 96%);
-                 background-size:280% 100%; -webkit-background-clip:text; background-clip:text;
-                 color:transparent; animation:sheen 14s linear infinite; }
-  @keyframes sheen { from { background-position:0% 50% } to { background-position:280% 50% } }
+  /* The title carries three motions at once: colour travelling through
+     the letters, a specular band sweeping across them, and a slow
+     breath in the glow. Each is unhurried on its own, so the three
+     together still read as calm. */
+  .masthead h1 {
+    position:relative; display:inline-block;
+    background-image:linear-gradient(100deg,
+      #FFFFFF 0%, #D6CDFF 16%, #8FA6FF 32%, #6FE7D0 48%,
+      #8FA6FF 64%, #D6CDFF 82%, #FFFFFF 100%);
+    background-size:300% 100%;
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    animation:settle .8s cubic-bezier(.2,.7,.3,1) both,
+              sheen 13s linear .8s infinite,
+              breathe 7s ease-in-out .8s infinite alternate;
+  }
+  @keyframes sheen { from { background-position:0% 50% } to { background-position:300% 50% } }
+  @keyframes breathe {
+    from { filter:drop-shadow(0 0 0 rgba(150,170,255,0)); }
+    to   { filter:drop-shadow(0 3px 22px rgba(140,160,255,.45)); }
+  }
+
+  /* The glint. A narrow band of light crossing the glyphs, clipped to
+     the text so it lights the letters rather than the box behind. */
+  .masthead h1::after {
+    content:attr(data-text); position:absolute; left:0; top:0; pointer-events:none;
+    background-image:linear-gradient(105deg,
+      transparent 40%, rgba(255,255,255,.95) 50%, transparent 60%);
+    background-size:300% 100%; background-repeat:no-repeat;
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    animation:glint 6.5s ease-in-out 1.4s infinite;
+  }
+  @keyframes glint {
+    0%       { background-position:170% 50%; opacity:0 }
+    10%      { opacity:1 }
+    45%,100% { background-position:-70% 50%; opacity:0 }
+  }
+
+  /* The masthead settles in on load instead of simply being there. */
+  .masthead .eyebrow, .masthead .byline, .masthead .standfirst, .masthead .facts {
+    animation:settle .75s cubic-bezier(.2,.7,.3,1) both; }
+  .masthead .eyebrow    { animation-delay:.02s }
+  .masthead .byline     { animation-delay:.16s }
+  .masthead .standfirst { animation-delay:.22s }
+  .masthead .facts      { animation-delay:.3s }
+  @keyframes settle { from { opacity:0; transform:translateY(14px) } }
 
   /* Spotlight: the card lights up under the cursor. Coordinates come from
      one delegated listener, written into --mx/--my. */
@@ -263,7 +304,11 @@
   html.js-reveal .rv.in { opacity:1; transform:none; }
 
   @media (prefers-reduced-motion:reduce) {
-    .masthead::before, .masthead h1 { animation:none; }
+    .masthead::before { animation:none; }
+    .masthead h1, .masthead .eyebrow, .masthead .byline,
+    .masthead .standfirst, .masthead .facts { animation:none; opacity:1; transform:none; }
+    .masthead h1 { background-position:18% 50%; filter:none; }
+    .masthead h1::after { display:none; }
     .mini, .tile { transform:none !important; }
     .mini h4, .tile-txt b, .mini .chip, .tile .chip, .mini .logo, .mini .hico { transform:none; }
     html.js-reveal .rv { opacity:1; transform:none; transition:none; }
@@ -660,12 +705,12 @@
       <button type="button" data-set="auto"  aria-pressed="false">Auto</button>
     </div>
     <p class="eyebrow">Universal hackathon setup · Works for any event, any team</p>
-    <h1>John&rsquo;s&nbsp;Almanac</h1>
+    <h1 data-text="John’s Almanac">John&rsquo;s&nbsp;Almanac</h1>
     <div class="byline">
       <span class="avatar">JJ</span>
       <span class="byline-t">Prepared by <b>Jonathan John</b> · August 2026</span>
     </div>
-    <p class="standfirst">Everything you need on your machine before a hackathon starts, in six steps that take about twenty minutes altogether. <span class="aur">Every tool here is free</span>, and I have installed and tested each one myself — including the parts that break in ways the documentation does not warn you about. Written for our SIH 2026 team, but <span class="aur">nothing here is specific to one event</span>.</p>
+    <p class="standfirst">Everything you need on your machine before a hackathon starts, in six steps that take about twenty minutes altogether. <span class="aur">Every tool here is free</span>, and I have installed and tested each one myself, including the parts that break in ways the documentation does not warn you about. Written for our SIH 2026 team, but <span class="aur">nothing here is specific to one event</span>.</p>
     <div class="facts">
       <span class="fact">Our event <b>4–5 Sept</b></span>
       <span class="fact">Setup by <b>3 Sept</b></span>
@@ -678,7 +723,7 @@
     <span class="alert-tag">Read first</span>
     <div>
       <p><b>Please do all of this at the hostel rather than at the venue.</b> The wifi on the day will be shared by several hundred people, so the downloads will crawl and the browser logins will fail outright. Arrive on 4 September with everything already working.</p>
-      <p>If you have never used a terminal before, that is completely fine. Every command on this page has a <b>Copy</b> button — you paste it in, press Enter, and wait for it to finish.</p>
+      <p>If you have never used a terminal before, that is completely fine. Every command on this page has a <b>Copy</b> button. You paste it in, press Enter, and wait for it to finish.</p>
     </div>
   </div>
 
@@ -700,7 +745,7 @@
     </a>
     <a class="tile" href="#project">
       <span class="tile-ico"><svg><use href="#s-wrench"/></svg></span>
-      <span class="tile-txt"><b>Team INNOV8 — SIH26042</b><span>What the translation tool needs on top of the setup.</span></span>
+      <span class="tile-txt"><b>Team INNOV8 · SIH26042</b><span>What the translation tool needs on top of the setup.</span></span>
       <svg class="go"><use href="#s-arrow"/></svg>
     </a>
     <a class="tile" href="#offline">
@@ -738,7 +783,7 @@
   <div class="flow">
     <div class="fstep"><span class="fn">01</span><span class="fw"><b>Research the problem</b><span>Find real government figures we can put on a slide and defend when a judge questions them.</span></span><span class="ft"><svg class="logo logo-sm"><use href="#l-perplexity"/></svg><svg class="logo logo-sm"><use href="#l-notebook"/></svg></span></div>
     <div class="fstep"><span class="fn">02</span><span class="fw"><b>Design the screens</b><span>Describe a screen in plain English and get a designed layout back in seconds.</span></span><span class="ft"><svg class="logo logo-sm"><use href="#l-stitch"/></svg></span></div>
-    <div class="fstep"><span class="fn">03</span><span class="fw"><b>Build it — prompt to task</b><span>Describe what we want and the agent writes it straight into the project files.</span></span><span class="ft"><svg class="logo logo-sm"><use href="#l-gemini"/></svg><svg class="logo logo-sm"><use href="#l-openai"/></svg></span></div>
+    <div class="fstep"><span class="fn">03</span><span class="fw"><b>Build it · prompt to task</b><span>Describe what we want and the agent writes it straight into the project files.</span></span><span class="ft"><svg class="logo logo-sm"><use href="#l-gemini"/></svg><svg class="logo logo-sm"><use href="#l-openai"/></svg></span></div>
     <div class="fstep"><span class="fn">04</span><span class="fw"><b>Review and run it</b><span>Read what changed, fix what is wrong, then open it in a browser and confirm it works.</span></span><span class="ft"><svg class="logo logo-sm"><use href="#l-vscode"/></svg><svg class="logo logo-sm"><use href="#l-antigravity"/></svg></span></div>
     <div class="fstep"><span class="fn">05</span><span class="fw"><b>Store the data</b><span>Database and login, hosted online, with nothing heavy running on our laptops.</span></span><span class="ft"><svg class="logo logo-sm"><use href="#l-supabase"/></svg></span></div>
     <div class="fstep"><span class="fn">06</span><span class="fw"><b>Record the demo</b><span>The moment it works. A recording that plays reliably beats a live demo that crashes.</span></span><span class="ft"><svg class="logo logo-sm"><use href="#l-obs"/></svg><svg class="logo logo-sm"><use href="#l-cloudflare"/></svg></span></div>
@@ -746,7 +791,7 @@
   </div>
 
   <div class="shead" id="setup">
-    <h2><svg class="sico"><use href="#s-wrench"/></svg> The setup — six steps</h2>
+    <h2><svg class="sico"><use href="#s-wrench"/></svg> The setup in six steps</h2>
     <p>Work your way down the page in order. Mark each step done as you finish it and your progress will be saved on this device, so you can stop partway and pick up later.</p>
   </div>
 
@@ -754,11 +799,11 @@
   <section class="step" id="s1" open-state="1">
     <button class="step-head" type="button" aria-expanded="true" aria-controls="b1">
       <span class="step-num">1</span>
-      <span><span class="step-title">Install the base</span><span class="step-sub">Node.js, Git and VS Code — everything else runs on top of these</span></span>
+      <span><span class="step-title">Install the base</span><span class="step-sub">Node.js, Git and VS Code, because everything else runs on top of these</span></span>
       <span class="step-meta"><span class="time">~8 min</span><span class="chev">▶</span></span>
     </button>
     <div class="step-body" id="b1">
-      <p>There are three downloads here. Click each button below, run the installer it gives you, and click Next through every screen — the default options are all correct and none of them need changing.</p>
+      <p>There are three downloads here. Click each button below, run the installer it gives you, and click Next through every screen. The default options are all correct and none of them need changing.</p>
 
       <a class="dl" href="https://nodejs.org" target="_blank" rel="noopener"><svg class="logo"><use href="#l-node"/></svg> Node.js <small>pick LTS</small></a>
       <a class="dl" href="https://git-scm.com/download/win" target="_blank" rel="noopener"><svg class="logo"><use href="#l-git"/></svg> Git</a>
@@ -786,7 +831,7 @@
         <h5><svg class="logo logo-sm"><use href="#l-info"/></svg> How to open PowerShell</h5>
         <ol>
           <li>Press the <span class="kbd">Windows</span> key on your keyboard. The Start menu opens with a search box.</li>
-          <li>Type the word <span class="kbd">powershell</span>. You do not need to click anything first — just start typing.</li>
+          <li>Type the word <span class="kbd">powershell</span>. You do not need to click anything first, just start typing.</li>
           <li>Press <span class="kbd">Enter</span>, or click <b>Windows PowerShell</b> in the results.</li>
           <li>A blue or black window opens with a line ending in <code>&gt;</code>. That blinking cursor is where commands go.</li>
         </ol>
@@ -833,7 +878,7 @@
         <div class="pick-row pick-no"><svg class="logo logo-sm"><use href="#l-warn"/></svg> Sign in with Google <span class="pick-tag">do not</span></div>
       </div>
 
-      <div class="note note-warn"><svg class="logo note-ico"><use href="#l-warn"/></svg><div><b>"Sign in with Google" no longer works.</b> It looks exactly like the right choice, it opens a browser, and it even tells you "Authentication succeeded" — and then it fails anyway, because Google discontinued that free tier for individual accounts. I lost twenty minutes to this, so please take the API key option instead.</div></div>
+      <div class="note note-warn"><svg class="logo note-ico"><use href="#l-warn"/></svg><div><b>"Sign in with Google" no longer works.</b> It looks exactly like the right choice, it opens a browser, and it even tells you "Authentication succeeded", and then it fails anyway, because Google discontinued that free tier for individual accounts. I lost twenty minutes to this, so please take the API key option instead.</div></div>
 
       <p>Get your key from the link below, copy it, and paste it into the terminal when it asks for one.</p>
       <a class="dl" href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener"><svg class="logo"><use href="#l-gemini"/></svg> Get your Gemini API key <small>free</small></a>
@@ -852,7 +897,7 @@
       <span class="step-meta"><span class="time">~5 min</span><span class="chev">▶</span></span>
     </button>
     <div class="step-body" id="b4">
-      <p><b>Antigravity</b> is Google's AI editor. It behaves much like VS Code, except that its AI can open our app in a real browser and check whether it genuinely works — which is something none of the other tools here can do.</p>
+      <p><b>Antigravity</b> is Google's AI editor. It behaves much like VS Code, except that its AI can open our app in a real browser and check whether it genuinely works, which is something none of the other tools here can do.</p>
 
       <a class="dl" href="https://antigravity.google/download" target="_blank" rel="noopener"><svg class="logo"><use href="#l-antigravity"/></svg> Antigravity</a>
 
@@ -878,7 +923,7 @@
       <span class="step-meta"><span class="time">~2 min</span><span class="chev">▶</span></span>
     </button>
     <div class="step-body" id="b5">
-      <p>Open VS Code and click the <b>Extensions</b> icon in the left sidebar — it looks like four small squares. Search for each of the following and click Install.</p>
+      <p>Open VS Code and click the <b>Extensions</b> icon in the left sidebar, which looks like four small squares. Search for each of the following and click Install.</p>
 
       <div class="exts">
         <div class="ext"><code>Error Lens</code><span>Shows errors directly on the line where they happen, so you do not have to hover over anything or hunt through a panel.</span></div>
@@ -930,7 +975,7 @@
 
 
   <div class="shead" id="project">
-    <h2><svg class="sico"><use href="#s-wrench"/></svg> Team INNOV8 — SIH26042</h2>
+    <h2><svg class="sico"><use href="#s-wrench"/></svg> Team INNOV8 · SIH26042</h2>
     <p><b>Team INNOV8</b> is building the <b>Vernacular Pedagogy and Real-Time Translation Tool</b> for Government of Jharkhand: a teacher records or types a lesson in Hindi, and a child reads and hears it in their mother tongue. Here is everything the project itself needs on top of the setup above.</p>
   </div>
 
@@ -940,7 +985,7 @@
 
     <div class="mini">
       <h4><svg class="hico"><use href="#s-key"/></svg> 1 · Bhashini API key <span class="chip chip-ok">free · required</span></h4>
-      <p>The Government of India's own language platform does all the translation, speech recognition and speech synthesis. <b>We are not building AI — we are building the teaching tool on top of theirs.</b></p>
+      <p>The Government of India's own language platform does all the translation, speech recognition and speech synthesis. <b>We are not building AI. We are building the teaching tool on top of theirs.</b></p>
       <p>Sign up, verify your email, then go to <b>My Profile</b> and generate a key. You need three values: <code>userID</code>, <code>ulcaApiKey</code> and an <code>Inference API key</code>.</p>
       <a class="dl" href="https://bhashini.gov.in" target="_blank" rel="noopener"><svg class="logo"><use href="#l-data"/></svg> Get a Bhashini key</a>
     </div>
@@ -960,18 +1005,18 @@
 
     <div class="mini">
       <h4><svg class="hico"><use href="#s-chip"/></svg> 4 &middot; The same model, offline <span class="chip chip-ok">removes our biggest risk</span></h4>
-      <p><b>IndicTrans2</b> is the translation model Bhashini actually serves, and AI4Bharat publish the weights openly. That means we can run it ourselves with no key, no network and no rate limit &mdash; and if Bhashini is down or the venue wifi dies during judging, the demo keeps working.</p>
+      <p><b>IndicTrans2</b> is the translation model Bhashini actually serves, and AI4Bharat publish the weights openly. That means we can run it ourselves with no key, no network and no rate limit, and if Bhashini is down or the venue wifi dies during judging, the demo keeps working.</p>
       <p>Take the distilled <code>indic-indic-dist-320M</code> rather than the 1B version. On a 4&nbsp;GB graphics card the small one leaves room for Chrome and the dev server; the large one does not, and judging is exactly when everything is open at once. Santali is <code>sat_Olck</code>.</p>
       <p><b>NLLB-200</b> from Meta also covers Santali and makes a useful second opinion when a translation looks wrong. <b>CTranslate2</b> shrinks either model to int8 and runs it several times faster on the processor alone.</p>
-      <div class="lrow"><svg class="logo"><use href="#l-hf"/></svg><span><a href="https://huggingface.co/ai4bharat" target="_blank" rel="noopener">Hugging Face &rarr; AI4Bharat</a> is where the weights live. You also need <code>IndicTransToolkit</code> for preprocessing &mdash; skipping it produces nonsense, not an error.</span></div>
+      <div class="lrow"><svg class="logo"><use href="#l-hf"/></svg><span><a href="https://huggingface.co/ai4bharat" target="_blank" rel="noopener">Hugging Face &rarr; AI4Bharat</a> is where the weights live. You also need <code>IndicTransToolkit</code> for preprocessing, because skipping it produces nonsense rather than an error.</span></div>
       <div class="lrow"><svg class="logo"><use href="#l-pytorch"/></svg><span>Install with <code>pip install torch transformers ctranslate2 sentencepiece</code>. This is a separate Python process, not something LM Studio can load.</span></div>
     </div>
 
     <div class="mini">
       <h4><svg class="hico"><use href="#s-mic"/></svg> 5 &middot; Speech, in both directions <span class="chip chip-ok">all three confirmed</span></h4>
       <p>This was the open question for weeks, and the answer is better than we assumed. Checked against the government's public model catalogue, Bhashini carries all three pieces:</p>
-      <div class="lrow"><svg class="logo"><use href="#l-bhashini"/></svg><span><b>Santali speech output.</b> <i>Bhashini&ndash;IITM TTS for Santali</i>, FastPitch with a HiFi-GAN vocoder, in male and female voices. This is the one that matters: Santali literacy is low, so a child who cannot yet read Ol&nbsp;Chiki can still hear the lesson.</span></div>
-      <div class="lrow"><svg class="logo"><use href="#l-bhashini"/></svg><span><b>Santali speech input</b> exists too &mdash; <i>AI4Bharat ASR (conformer) Santhali</i>. We had not counted on this. It means a child can also <i>speak</i> and be understood, which opens up a two-way conversation rather than a one-way translation.</span></div>
+      <div class="lrow"><svg class="logo"><use href="#l-bhashini"/></svg><span><b>Santali speech output.</b> <i>Bhashini IITM TTS for Santali</i>, FastPitch with a HiFi-GAN vocoder, in male and female voices. This is the one that matters: Santali literacy is low, so a child who cannot yet read Ol&nbsp;Chiki can still hear the lesson.</span></div>
+      <div class="lrow"><svg class="logo"><use href="#l-bhashini"/></svg><span><b>Santali speech input</b> exists too, in <i>AI4Bharat ASR (conformer) Santhali</i>. We had not counted on this. It means a child can also <i>speak</i> and be understood, which opens up a two-way conversation rather than a one-way translation.</span></div>
       <div class="lrow"><svg class="logo"><use href="#l-openai"/></svg><span><b>Hindi speech input</b> has five models to choose from, so the teacher speaks instead of typing. <b>faster-whisper</b> stays as the offline fallback, and <b>Vosk</b> at around 50&nbsp;MB if a laptop struggles.</span></div>
       <p>Because both directions work, the demo can be a genuine spoken exchange: the teacher speaks Hindi, the child hears Santali, the child answers in Santali, the teacher hears Hindi. That is a much stronger thing to put in front of judges than a text box.</p>
     </div>
@@ -992,12 +1037,12 @@
 
     <div class="mini">
       <h4><svg class="hico"><use href="#s-server"/></svg> 8 &middot; Where the Python model actually runs <span class="chip chip-req">easy to get wrong</span></h4>
-      <p>This is the one piece of the architecture that catches people out. <b>Neither Vercel nor Cloudflare Pages can run IndicTrans2.</b> They host static files and small JavaScript functions; our translation model is PyTorch and needs a real Python process with a couple of gigabytes of memory. Deploying the React app there is correct &mdash; expecting it to carry the model is not.</p>
+      <p>This is the one piece of the architecture that catches people out. <b>Neither Vercel nor Cloudflare Pages can run IndicTrans2.</b> They host static files and small JavaScript functions; our translation model is PyTorch and needs a real Python process with a couple of gigabytes of memory. Deploying the React app there is correct. Expecting it to carry the model is not.</p>
       <p>So the model lives in one of three places, and we should decide which before we start:</p>
       <div class="lrow"><svg class="logo"><use href="#l-python"/></svg><span><b>On the presenting laptop.</b> Simplest and fastest, no hosting at all, and it makes the offline story honest. This is the default and probably the right answer.</span></div>
       <div class="lrow"><svg class="logo"><use href="#l-render"/></svg><span><a href="https://render.com" target="_blank" rel="noopener">Render</a> if we want it reachable from any phone. Its free tier runs an actual Python service, which is exactly what Vercel cannot do. It sleeps when idle and takes about a minute to wake, so open it before judging starts.</span></div>
       <div class="lrow"><svg class="logo"><use href="#l-hf"/></svg><span><b>Hugging Face Inference</b> as the no-setup option, at the cost of depending on someone else's uptime during our demo.</span></div>
-      <div class="lrow"><svg class="logo"><use href="#l-streamlit"/></svg><span><a href="https://streamlit.io" target="_blank" rel="noopener">Streamlit</a> is worth knowing for hour two. It turns a Python script into a working web page, so we can have a real translate box on screen in about fifteen lines &mdash; long before the React app exists. Prove the model works, then build the proper interface around it.</span></div>
+      <div class="lrow"><svg class="logo"><use href="#l-streamlit"/></svg><span><a href="https://streamlit.io" target="_blank" rel="noopener">Streamlit</a> is worth knowing for hour two. It turns a Python script into a working web page, so we can have a real translate box on screen in about fifteen lines, long before the React app exists. Prove the model works, then build the proper interface around it.</span></div>
     </div>
 
     <div class="mini" style="grid-column:1/-1">
@@ -1010,13 +1055,13 @@
           <tr><td class="ic"><svg class="logo"><use href="#l-gemini"/></svg></td><td>Writing the code</td><td>Gemini CLI first, then freebuff and Codex</td><td>Spread the work across lanes so no single free quota runs dry. LM&nbsp;Studio is the fallback when the venue wifi dies.</td></tr>
           <tr><td class="ic"><svg class="logo"><use href="#l-shadcn"/></svg></td><td>Screens</td><td>React + Vite, Tailwind, shadcn/ui</td><td>Vite rebuilds instantly and shadcn components are ours to edit. Aceternity on the landing screen only.</td></tr>
           <tr><td class="ic"><svg class="logo"><use href="#l-stitch"/></svg></td><td>Look</td><td>Stitch, driven by a <code>DESIGN.md</code></td><td>One file of visual rules that every agent reads, so four people's code still looks like one product.</td></tr>
-          <tr><td class="ic"><svg class="logo"><use href="#l-bhashini"/></svg></td><td>Translation &mdash; online</td><td>Bhashini API</td><td>The government's own platform. Free, unlimited, and using MeitY infrastructure at a government hackathon is an angle most teams miss.</td></tr>
-          <tr><td class="ic"><svg class="logo"><use href="#l-hf"/></svg></td><td>Translation &mdash; offline</td><td>IndicTrans2 <code>dist-320M</code> + CTranslate2</td><td>The same model Bhashini serves, running on our machine. <span class="aur">A dead network can no longer kill the demo.</span></td></tr>
+          <tr><td class="ic"><svg class="logo"><use href="#l-bhashini"/></svg></td><td>Translation (online)</td><td>Bhashini API</td><td>The government's own platform. Free, unlimited, and using MeitY infrastructure at a government hackathon is an angle most teams miss.</td></tr>
+          <tr><td class="ic"><svg class="logo"><use href="#l-hf"/></svg></td><td>Translation (offline)</td><td>IndicTrans2 <code>dist-320M</code> + CTranslate2</td><td>The same model Bhashini serves, running on our machine. <span class="aur">A dead network can no longer kill the demo.</span></td></tr>
           <tr><td class="ic"><svg class="logo"><use href="#l-openai"/></svg></td><td>Speech in</td><td>faster-whisper (Hindi)</td><td>The teacher speaks instead of typing. Vosk is the fallback on a slow laptop.</td></tr>
-          <tr><td class="ic"><svg class="logo"><use href="#l-bhashini"/></svg></td><td>Speech out</td><td>Bhashini&ndash;IITM TTS for Santali</td><td><span class="aur">It exists, in male and female voices</span> &mdash; FastPitch with a HiFi-GAN vocoder. A child who cannot yet read Ol&nbsp;Chiki can still hear the lesson, which is the whole point of the project.</td></tr>
+          <tr><td class="ic"><svg class="logo"><use href="#l-bhashini"/></svg></td><td>Speech out</td><td>Bhashini IITM TTS for Santali</td><td><span class="aur">It exists, in male and female voices</span> , built with FastPitch and a HiFi-GAN vocoder. A child who cannot yet read Ol&nbsp;Chiki can still hear the lesson, which is the whole point of the project.</td></tr>
           <tr><td class="ic"><svg class="logo"><use href="#l-google"/></svg></td><td>Script</td><td>Noto Sans Ol&nbsp;Chiki, bundled in the repo</td><td>Without it every Santali word renders as an empty box. Self-hosted, never a CDN link.</td></tr>
           <tr><td class="ic"><svg class="logo"><use href="#l-node"/></svg></td><td>Works offline</td><td>Transformers.js, Workbox, Dexie</td><td>So we can switch the wifi off in front of the judges and keep going.</td></tr>
-          <tr><td class="ic"><svg class="logo"><use href="#l-supabase"/></svg></td><td>Data and login</td><td>Supabase</td><td>Postgres plus auth in one free project. Wake it the morning of the demo &mdash; it sleeps after seven idle days.</td></tr>
+          <tr><td class="ic"><svg class="logo"><use href="#l-supabase"/></svg></td><td>Data and login</td><td>Supabase</td><td>Postgres plus auth in one free project. Wake it the morning of the demo, because it sleeps after seven idle days.</td></tr>
           <tr><td class="ic"><svg class="logo"><use href="#l-render"/></svg></td><td>Hosting the model</td><td>Presenting laptop, Render if we need a URL</td><td>Vercel and Cloudflare cannot run PyTorch. This is the decision people get wrong.</td></tr>
           <tr><td class="ic"><svg class="logo"><use href="#l-vercel"/></svg></td><td>Hosting the app</td><td>Vercel</td><td>A preview link per push, which matters with four people committing at once.</td></tr>
           <tr><td class="ic"><svg class="logo"><use href="#l-python"/></svg></td><td>Proof it works</td><td>FLORES-200</td><td>A measured Santali score instead of a confident claim.</td></tr>
@@ -1024,7 +1069,7 @@
           <tr><td class="ic"><svg class="logo"><use href="#l-obs"/></svg></td><td>The demo</td><td>OBS, cloudflared, Slidev</td><td>Record it the moment it first works. If anything breaks at judging, we present the recording.</td></tr>
         </tbody>
       </table></div>
-      <div class="note note-ok" style="margin:16px 0 0"><svg class="logo note-ico"><use href="#l-check"/></svg><div><b>Every row is settled.</b> The open question was whether Santali speech output existed at all. It does &mdash; confirmed against the government's public model catalogue, which also lists Santali speech <i>recognition</i>. Nothing in this table is waiting on an unknown any more.</div></div>
+      <div class="note note-ok" style="margin:16px 0 0"><svg class="logo note-ico"><use href="#l-check"/></svg><div><b>Every row is settled.</b> The open question was whether Santali speech output existed at all. It does, confirmed against the government's public model catalogue, which also lists Santali speech <i>recognition</i>. Nothing in this table is waiting on an unknown any more.</div></div>
     </div>
 
     <div class="mini" style="grid-column:1/-1">
@@ -1033,16 +1078,16 @@
       <div class="dflow">
         <div class="dstep"><span class="dtime">0:00</span><span class="dbody"><span class="dbeat">The problem, in one sentence</span>A child in a Jharkhand classroom speaks Santali at home and is taught in Hindi. <b>Do not explain the technology yet.</b> Judges have heard forty pitches; open with the child, not the architecture.</span></div>
         <div class="dstep"><span class="dtime">0:30</span><span class="dbody"><span class="dbeat">Teacher speaks</span>Say a real sentence in Hindi into the microphone. Nobody types anything. The Hindi appears as text while you are still speaking.</span></div>
-        <div class="dstep"><span class="dtime">0:50</span><span class="dbody"><span class="dbeat">Child reads and hears</span>Santali appears in Ol&nbsp;Chiki, and then <b>plays aloud</b>. Let the audio finish before you speak over it &mdash; the silence is doing the work.</span></div>
-        <div class="dstep peak"><span class="dtime">1:20</span><span class="dbody"><span class="dbeat">The moment &mdash; the child answers back</span>Speak Santali into the app and let the teacher hear it in Hindi. <b class="aur">This is the whole demo.</b> Most teams show translation going one way; a two-way spoken exchange is a different category of thing, and it is worth pausing for a beat so the room registers what just happened.</span></div>
+        <div class="dstep"><span class="dtime">0:50</span><span class="dbody"><span class="dbeat">Child reads and hears</span>Santali appears in Ol&nbsp;Chiki, and then <b>plays aloud</b>. Let the audio finish before you speak over it, because the silence is doing the work.</span></div>
+        <div class="dstep peak"><span class="dtime">1:20</span><span class="dbody"><span class="dbeat">The moment she answers back</span>Speak Santali into the app and let the teacher hear it in Hindi. <b class="aur">This is the whole demo.</b> Most teams show translation going one way; a two-way spoken exchange is a different category of thing, and it is worth pausing for a beat so the room registers what just happened.</span></div>
         <div class="dstep peak"><span class="dtime">2:00</span><span class="dbody"><span class="dbeat">Turn the wifi off</span>Switch off connectivity in front of them, then do the exchange again. Every judge is going to ask how this works where these children live. Answer it before they ask, by doing it.</span></div>
-        <div class="dstep"><span class="dtime">2:40</span><span class="dbody"><span class="dbeat">Fix a wrong word</span>Correct a bad translation in the app, then use the phrase again and show the correction stuck. Santali is low-resource and the output <i>will</i> be imperfect &mdash; owning that beats hoping nobody notices.</span></div>
+        <div class="dstep"><span class="dtime">2:40</span><span class="dbody"><span class="dbeat">Fix a wrong word</span>Correct a bad translation in the app, then use the phrase again and show the correction stuck. Santali is low-resource and the output <i>will</i> be imperfect, and owning that beats hoping nobody notices.</span></div>
         <div class="dstep"><span class="dtime">3:10</span><span class="dbody"><span class="dbeat">Show the number</span>Our FLORES-200 score. One measured figure, honestly stated, lands harder than any adjective.</span></div>
         <div class="dstep"><span class="dtime">3:40</span><span class="dbody"><span class="dbeat">How it is built</span><i>Now</i> the architecture slide: Bhashini for the models, the same models locally for offline, Supabase for the glossary. Thirty seconds. They have already seen it work.</span></div>
         <div class="dstep"><span class="dtime">4:20</span><span class="dbody"><span class="dbeat">Who it reaches</span>Roughly 7.6&nbsp;million Santali speakers, and the same pipeline covers the other scheduled languages without new code. Say the number, name the source.</span></div>
         <div class="dstep"><span class="dtime">4:45</span><span class="dbody"><span class="dbeat">Stop talking</span>End early and leave time for questions. Running to the buzzer reads as poor preparation.</span></div>
       </div>
-      <div class="note note-warn" style="margin:18px 0 0"><svg class="logo note-ico"><use href="#l-warn"/></svg><div><b>Before you walk up:</b> microphone permission already granted, Supabase awake, the local model already loaded once so the first translation is not the slow one, phone hotspot ready, and the OBS recording open in a background tab. If anything fails live, switch to the recording and keep narrating &mdash; do not debug in front of judges.</div></div>
+      <div class="note note-warn" style="margin:18px 0 0"><svg class="logo note-ico"><use href="#l-warn"/></svg><div><b>Before you walk up:</b> microphone permission already granted, Supabase awake, the local model already loaded once so the first translation is not the slow one, phone hotspot ready, and the OBS recording open in a background tab. If anything fails live, switch to the recording and keep narrating. Do not debug in front of judges.</div></div>
     </div>
 
     <div class="mini">
@@ -1054,7 +1099,7 @@
   </div>
 
   <div class="shead" id="offline">
-    <h2><svg class="sico"><use href="#s-offline"/></svg> Optional — an AI that works offline</h2>
+    <h2><svg class="sico"><use href="#s-offline"/></svg> Optional: an AI that works offline</h2>
     <p>This is only worth doing if you want a backup for when the venue wifi gives out, which in my experience it will at some point during the night.</p>
   </div>
 
@@ -1082,7 +1127,7 @@
     <div class="mini">
       <h4><svg class="logo logo-lg"><use href="#l-github"/></svg> GitHub Student Pack <span class="chip chip-ok">free</span></h4>
       <p>This one includes <b>JetBrains Ultimate</b>, <b>$200 of DigitalOcean credit</b>, <b>$100 of Azure credit</b>, a free domain name, and <b>180 hours a month of Codespaces</b>, which is cloud development that runs perfectly well even on a slow laptop.</p>
-      <p>Two things in the pack are easy to miss. It includes <b>GitHub Copilot Pro free for as long as you are a student</b>, which most people never switch on &mdash; turn it on inside VS Code once the pack is approved. It also includes a <b>free domain for a year</b> through Namecheap, and a real web address on the slide reads better than a long github.io link.</p>
+      <p>Two things in the pack are easy to miss. It includes <b>GitHub Copilot Pro free for as long as you are a student</b>, which most people never switch on, so turn it on inside VS Code once the pack is approved. It also includes a <b>free domain for a year</b> through Namecheap, and a real web address on the slide reads better than a long github.io link.</p>
       <p>Set your GitHub profile location to Bangalore before you apply, because a mismatch between your location and your college is the most common reason applications get rejected.</p>
       <a class="dl" href="https://education.github.com/pack" target="_blank" rel="noopener"><svg class="logo"><use href="#l-github"/></svg> Claim the pack</a>
     </div>
@@ -1090,7 +1135,7 @@
 
 
   <div class="shead" id="webkit">
-    <h2><svg class="sico"><use href="#s-globe"/></svg> The web toolkit — nothing to install</h2>
+    <h2><svg class="sico"><use href="#s-globe"/></svg> The web toolkit, nothing to install</h2>
     <p>These all run in a browser tab, so there is no download and no setup beyond signing in. Please use the <b>same Google account</b> for every one of them, because sharing a design or a database project between us later becomes painful if we are scattered across different logins.</p>
   </div>
 
@@ -1122,7 +1167,7 @@
 
     <div class="mini">
       <h4><svg class="hico"><use href="#s-blocks"/></svg> Components you paste in <span class="chip">saves hours</span></h4>
-      <div class="lrow"><svg class="logo"><use href="#l-shadcn"/></svg><span><a href="https://ui.shadcn.com" target="_blank" rel="noopener">shadcn/ui</a> <span class="aur">is the single biggest time saver here</span>. You copy a component's code into your own project rather than installing a library, so buttons, dialogs and forms look finished immediately &mdash; and because the code is now yours, you can edit it on the spot instead of fighting someone else's settings.</span></div>
+      <div class="lrow"><svg class="logo"><use href="#l-shadcn"/></svg><span><a href="https://ui.shadcn.com" target="_blank" rel="noopener">shadcn/ui</a> <span class="aur">is the single biggest time saver here</span>. You copy a component's code into your own project rather than installing a library, so buttons, dialogs and forms look finished immediately, and because the code is now yours, you can edit it on the spot instead of fighting someone else's settings.</span></div>
       <div class="lrow"><svg class="logo"><use href="#l-aceternity"/></svg><span><a href="https://ui.aceternity.com" target="_blank" rel="noopener">Aceternity UI</a> is the same copy-paste idea for animated sections. Use it on the landing screen and nowhere else. Animation everywhere reads as a template, but one well-placed moving element makes the whole thing look considered.</span></div>
     </div>
 
@@ -1143,7 +1188,7 @@
       <h4><svg class="hico"><use href="#s-rocket"/></svg> Deploy, demo and compute</h4>
       <div class="lrow"><svg class="logo"><use href="#l-cloudflare"/></svg><span><a href="https://pages.cloudflare.com" target="_blank" rel="noopener">Cloudflare Pages</a> gives us a free permanent web address for the finished app, which is far better on a slide than <code>localhost</code>.</span></div>
       <div class="lrow"><svg class="logo"><use href="#l-colab"/></svg><span><a href="https://colab.research.google.com" target="_blank" rel="noopener">Google Colab</a> provides a free GPU in the browser, which we will need if any part of our solution involves training a model.</span></div>
-      <div class="lrow"><svg class="logo"><use href="#l-vercel"/></svg><span><a href="https://vercel.com" target="_blank" rel="noopener">Vercel</a> does the same job as Cloudflare Pages, and either is fine &mdash; pick one and stop thinking about it. The reason to prefer Vercel with four people pushing at once is that <b>every push gets its own preview link</b>, so you can send someone a working URL of your half without disturbing what is on the main address. The free plan is for non-commercial projects, which a hackathon entry is.</span></div>
+      <div class="lrow"><svg class="logo"><use href="#l-vercel"/></svg><span><a href="https://vercel.com" target="_blank" rel="noopener">Vercel</a> does the same job as Cloudflare Pages, and either is fine, so pick one and stop thinking about it. The reason to prefer Vercel with four people pushing at once is that <b>every push gets its own preview link</b>, so you can send someone a working URL of your half without disturbing what is on the main address. The free plan is for non-commercial projects, which a hackathon entry is.</span></div>
       <div class="lrow"><svg class="logo"><use href="#l-github"/></svg><span><a href="https://github.dev" target="_blank" rel="noopener">github.dev</a> opens VS Code inside a browser tab, which is a useful escape route if someone's laptop dies on the day.</span></div>
     </div>
 
