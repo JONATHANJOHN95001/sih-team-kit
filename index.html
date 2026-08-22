@@ -264,6 +264,47 @@
     }
     @keyframes parallax { to { transform:translate3d(0, -9%, 0) scale(1.2); } }
 
+    /* ---- Product-page panels -----------------------------------
+       Three moves lifted from phone and car launch pages.
+
+       One: the slab. A block enters slightly rotated and off-axis,
+       then straightens as it reaches reading position, so it feels
+       like it is being set down rather than sliding in flat. */
+    .grid.grid-2, .steps, .stk-wrap {
+      animation:slab linear both;
+      animation-timeline:view();
+      animation-range:entry 0% entry 92%;
+      transform-origin:50% 100%;
+    }
+    @keyframes slab {
+      from { opacity:.35; transform:perspective(1600px) rotateX(11deg) rotateZ(-1.1deg)
+                                    translateY(64px) scale(.94); }
+      to   { opacity:1;   transform:perspective(1600px) rotateX(0) rotateZ(0)
+                                    translateY(0) scale(1); }
+    }
+
+    /* Two: the pin. Section headings hold at the top while their cards
+       travel past, the way a product page keeps the claim on screen
+       while the evidence scrolls under it. */
+    .shead {
+      position:sticky; top:74px; z-index:3;
+      background:linear-gradient(var(--paper) 72%, transparent);
+      backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+      padding-bottom:14px;
+    }
+    /* Released once its own section is done, so headings never stack. */
+    .shead { animation:slab linear both, unpin linear both;
+             animation-timeline:view(), view();
+             animation-range:entry 0% entry 92%, exit 0% exit 100%; }
+    @keyframes unpin { to { opacity:0; transform:translateY(-18px) scale(.97); } }
+
+    /* Three: depth on the emblem as its row passes, so the medallion
+       and the words it belongs to travel at different rates. */
+    .lrow .logo { animation:strike linear both, lift linear both;
+                  animation-timeline:view(), view();
+                  animation-range:entry 5% entry 85%, entry 0% cover 100%; }
+    @keyframes lift { from { translate:0 9px } to { translate:0 -9px } }
+
     /* The stack table fills in row by row as it passes. */
     .stk tbody tr {
       animation:rowin linear both;
@@ -279,10 +320,12 @@
   /* Motion off means motion off, including the scrubbed kind. */
   @media (prefers-reduced-motion:reduce) {
     @supports (animation-timeline: view()) {
-      .mini, .stepcard, .dstep, .wrow, .shead h2, .masthead,
-      .lrow .logo, .stk tbody tr, body::before {
-        animation:none; opacity:1; transform:none; filter:none; letter-spacing:normal;
+      .mini, .stepcard, .dstep, .wrow, .shead h2, .masthead, .shead,
+      .grid.grid-2, .steps, .stk-wrap, .lrow .logo, .stk tbody tr, body::before {
+        animation:none; opacity:1; transform:none; filter:none;
+        letter-spacing:normal; translate:none;
       }
+      .shead { position:static; backdrop-filter:none; }
     }
   }
 
