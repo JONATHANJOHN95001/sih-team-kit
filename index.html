@@ -7,16 +7,14 @@
 <meta name="description" content="Setup guide for our JAIN Smart India Hackathon 2026 team. Six steps, about twenty minutes, everything free. Prepared by Jonathan John.">
 <meta name="author" content="Jonathan John">
 <meta name="color-scheme" content="light dark">
-
 <meta property="og:type" content="website">
 <meta property="og:title" content="SIH 2026 Team Kit">
 <meta property="og:description" content="Setup guide for our JAIN Smart India Hackathon 2026 team. Six steps, about twenty minutes, everything free. Prepared by Jonathan John.">
 <meta name="twitter:card" content="summary">
-
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#129520;</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap">
 <style>
   *,*::before,*::after { box-sizing: border-box; }
   html { -webkit-text-size-adjust: 100%; }
@@ -34,13 +32,13 @@
     --accent:#4B36D9; --accent-ink:#3524AB; --accent-wash:#EAE6FC;
     --req:#C22C4C; --req-wash:#FBE9ED;
     --ok:#147F5C; --ok-wash:#E2F2EC;
-    --term-bg:#171A34; --term-ink:#DCDDF2; --term-pre:#9E8CFF;
+    --term-bg:#111528; --term-ink:#DCDDF2; --term-pre:#9E8CFF;
     --mono-mark:#131529;
     --shadow-sm:0 1px 2px rgba(19,21,41,.07);
     --shadow:0 1px 2px rgba(19,21,41,.05), 0 12px 30px -16px rgba(19,21,41,.30);
     --f-display:'Archivo','Helvetica Neue',Arial,sans-serif;
     --f-body:'IBM Plex Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
-    --f-mono:'IBM Plex Mono',ui-monospace,Consolas,monospace;
+    --f-mono:'JetBrains Mono','IBM Plex Mono',ui-monospace,Consolas,monospace;
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
@@ -104,7 +102,7 @@
             font-family:var(--f-display); font-weight:700; font-size:14px; display:grid; place-items:center; }
   .byline-t { font-size:14.5px; color:var(--ink-soft); }
   .byline-t b { color:var(--ink); font-weight:600; }
-  .standfirst { font-size:18.5px; color:var(--ink-soft); max-width:62ch; margin:0 0 28px;
+  .standfirst { font-size:19.5px; line-height:1.55; color:var(--ink-soft); max-width:62ch; margin:0 0 28px;
                 text-align:justify; text-justify:inter-word; hyphens:auto; }
   .facts { display:flex; flex-wrap:wrap; gap:10px; }
   .fact { font-family:var(--f-mono); font-size:12.5px; color:var(--ink-soft); background:var(--card);
@@ -118,7 +116,7 @@
   .alert p { margin:0; font-size:15px; }
   .alert p + p { margin-top:8px; }
 
-  .shead { margin:52px 0 20px; scroll-margin-top:88px; }
+  .shead { margin:74px 0 22px; scroll-margin-top:92px; }
   .shead h2 { font-family:var(--f-display); font-weight:700; font-size:27px; letter-spacing:-.02em;
               margin:0 0 5px; display:flex; align-items:center; gap:12px; }
   .shead h2 .sico { width:27px; height:27px; flex:0 0 auto; color:var(--accent); }
@@ -179,7 +177,7 @@
   .step[open-state="1"] .chev { transform:rotate(90deg); }
   .step-body { padding:0 20px 20px; border-top:1px solid var(--rule-soft); }
   .step-body.hide { display:none; }
-  .step-body > p { font-size:15.5px; color:var(--ink-soft); margin:16px 0; max-width:68ch;
+  .step-body > p { font-size:16.5px; line-height:1.7; color:var(--ink-soft); margin:16px 0; max-width:68ch;
                    text-align:justify; text-justify:inter-word; hyphens:auto; }
   .step-body > p:first-child { margin-top:18px; }
 
@@ -204,7 +202,7 @@
   .term { background:var(--term-bg); border-radius:8px; margin:12px 0; overflow:hidden; }
   .term-row { display:flex; align-items:stretch; border-bottom:1px solid rgba(255,255,255,.07); }
   .term-row:last-child { border-bottom:0; }
-  .term-cmd { flex:1; font-family:var(--f-mono); font-size:13.5px; color:var(--term-ink);
+  .term-cmd { flex:1; font-family:var(--f-mono); font-size:13.5px; font-weight:500; color:var(--term-ink);
               padding:12px 14px; overflow-x:auto; white-space:pre; line-height:1.5; }
   .term-cmd::before { content:"> "; color:var(--term-pre); }
   .copy { flex:0 0 auto; background:rgba(255,255,255,.07); border:0; border-left:1px solid rgba(255,255,255,.1);
@@ -265,7 +263,7 @@
           padding:17px 19px; box-shadow:var(--shadow-sm); }
   .mini h4 { font-family:var(--f-display); font-weight:700; font-size:16.5px; margin:0 0 8px;
              letter-spacing:-.01em; display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
-  .mini p { margin:0 0 10px; font-size:14.5px; color:var(--ink-soft);
+  .mini p { margin:0 0 11px; font-size:15px; line-height:1.6; color:var(--ink-soft);
             text-align:justify; text-justify:inter-word; hyphens:auto; }
   .mini p:last-child { margin-bottom:0; }
   .lrow { display:flex; align-items:flex-start; gap:10px; margin-bottom:11px; font-size:14.5px; color:var(--ink-soft); }
@@ -280,7 +278,7 @@
   .gotcha { display:grid; grid-template-columns:200px 1fr; gap:22px; padding:15px 0;
             border-bottom:1px solid var(--rule-soft); }
   .gk { font-family:var(--f-mono); font-size:12.5px; color:var(--req); line-height:1.5; padding-top:2px; }
-  .gv { font-size:14.5px; color:var(--ink-soft); text-align:justify; text-justify:inter-word; hyphens:auto; }
+  .gv { font-size:15px; line-height:1.6; color:var(--ink-soft); text-align:justify; text-justify:inter-word; hyphens:auto; }
   .gv b { color:var(--ink); font-weight:600; }
 
   .final { background:var(--card); border:1px solid var(--rule); border-radius:10px;
