@@ -1,15 +1,15 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>John's Almanac</title>
-<meta name="description" content="Everything you need on your machine before a hackathon starts. Six steps, about twenty minutes, every tool free. Kept by Jonathan John for Team INNO8.">
+<meta name="description" content="Universal hackathon setup. Everything you need on your machine before a hackathon starts — six steps, about twenty minutes, every tool free. Kept by Jonathan John for Team INNO8.">
 <meta name="author" content="Jonathan John">
 <meta name="color-scheme" content="light dark">
 <meta property="og:type" content="website">
 <meta property="og:title" content="John's Almanac">
-<meta property="og:description" content="Everything you need on your machine before a hackathon starts. Six steps, about twenty minutes, every tool free. Kept by Jonathan John for Team INNO8.">
+<meta property="og:description" content="Universal hackathon setup. Everything you need on your machine before a hackathon starts — six steps, about twenty minutes, every tool free. Kept by Jonathan John for Team INNO8.">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#129520;</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,6 +23,15 @@
 </style>
 </head>
 <body>
+<script>
+/* Runs before first paint so the page never flashes the wrong theme.
+   Default is light; "auto" (follow the OS) is opt-in via the toggle. */
+(function () {
+  var m;
+  try { m = localStorage.getItem('almanac-theme'); } catch (e) {}
+  if (m !== 'auto') document.documentElement.setAttribute('data-theme', m === 'dark' ? 'dark' : 'light');
+})();
+</script>
 
 <style>
   :root {
@@ -411,11 +420,11 @@
 
   <header class="masthead">
     <div class="themer" role="group" aria-label="Colour theme">
-      <button type="button" data-set="light" aria-pressed="false">Light</button>
+      <button type="button" data-set="light" aria-pressed="true">Light</button>
       <button type="button" data-set="dark"  aria-pressed="false">Dark</button>
-      <button type="button" data-set="auto"  aria-pressed="true">Auto</button>
+      <button type="button" data-set="auto"  aria-pressed="false">Auto</button>
     </div>
-    <p class="eyebrow">Team INNO8 · A working reference for anyone who builds</p>
+    <p class="eyebrow">Team INNO8 · Universal hackathon setup</p>
     <h1>John&rsquo;s&nbsp;Almanac</h1>
     <div class="byline">
       <span class="avatar">JJ</span>
@@ -937,20 +946,21 @@
 (function () {
   var root = document.documentElement;
   var btns = document.querySelectorAll('.themer button');
-  function apply(mode) {
+  function paint(mode) {
     if (mode === 'auto') root.removeAttribute('data-theme');
     else root.setAttribute('data-theme', mode);
-    btns.forEach(function (b) {
-      b.setAttribute('aria-pressed', String(b.dataset.set === mode));
-    });
-    try { localStorage.setItem('sihkit-theme', mode); } catch (e) {}
+    btns.forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.set === mode)); });
   }
   btns.forEach(function (b) {
-    b.addEventListener('click', function () { apply(b.dataset.set); });
+    b.addEventListener('click', function () {
+      paint(b.dataset.set);
+      /* only a real click is remembered, so the default stays light */
+      try { localStorage.setItem('almanac-theme', b.dataset.set); } catch (e) {}
+    });
   });
   var saved;
-  try { saved = localStorage.getItem('sihkit-theme'); } catch (e) {}
-  apply(saved || 'auto');
+  try { saved = localStorage.getItem('almanac-theme'); } catch (e) {}
+  paint(saved === 'auto' || saved === 'dark' ? saved : 'light');
 })();
 </script>
 
