@@ -503,6 +503,13 @@
   .step-head { display:grid; grid-template-columns:42px 1fr auto; gap:15px; align-items:center;
                padding:17px 20px; cursor:pointer; user-select:none; background:none; border:0; width:100%;
                text-align:left; font-family:inherit; color:inherit; }
+  /* The step title and its one-line description sit in the same
+     unclassed div, both inline, so they ran together as one string.
+     The title is the heading of the row, so it takes its own line. */
+  .step-head > div > b { display:block; font-family:var(--f-display); font-size:16.5px;
+                         letter-spacing:-.012em; margin-bottom:2px; }
+  .step-head > div > span { display:block; font-size:13.5px; color:var(--ink-faint);
+                            line-height:1.55; }
   .step-head:hover { background:var(--raise); }
   .step-head:focus-visible { outline:2px solid var(--accent); outline-offset:-3px; }
   .step-num { width:44px; height:44px; border-radius:12px; background:var(--accent-wash);
