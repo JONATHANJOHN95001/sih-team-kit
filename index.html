@@ -196,6 +196,96 @@
   .mini > *, .tile > * { position:relative; z-index:1; }
   .mini, .tile { transition:transform .3s cubic-bezier(.2,.7,.3,1), box-shadow .3s ease, border-color .3s ease; }
 
+  /* ============ Scroll-scrubbed motion ===============================
+     The Apple and car-configurator feel comes from tying motion to
+     scroll POSITION rather than firing it once on entry, so the page
+     responds continuously as you move and reverses when you scroll
+     back. animation-timeline does this natively, with no library.
+
+     Everything here sits behind @supports, so browsers without it keep
+     the IntersectionObserver reveal and lose nothing. ---------------- */
+  @supports (animation-timeline: view()) {
+
+    /* The observer reveal would fight the scrubbed version, so stand it
+       down where the scrubbed one runs. */
+    html.js-reveal .rv { opacity:1; transform:none; transition:none; }
+
+    .grid, .dash, .steps, .dflow { perspective:1500px; }
+
+    /* Cards rise, scale and unrotate as they travel up the viewport. */
+    .mini, .stepcard, .dstep, .wrow {
+      animation:arrive linear both;
+      animation-timeline:view();
+      animation-range:entry 2% cover 30%;
+    }
+    @keyframes arrive {
+      from { opacity:0; transform:translateY(52px) scale(.93) rotateX(9deg); }
+      to   { opacity:1; transform:none; }
+    }
+
+    /* Section titles track in, letter-spacing closing as they settle. */
+    .shead h2 {
+      animation:trackin linear both;
+      animation-timeline:view();
+      animation-range:entry 4% cover 26%;
+    }
+    @keyframes trackin {
+      from { opacity:0; letter-spacing:.16em; transform:translateY(22px); }
+      to   { opacity:1; letter-spacing:-.015em; transform:none; }
+    }
+
+    /* The hero recedes as you leave it, the way a product page hands
+       the screen over to the next section. */
+    .masthead {
+      animation:recede linear both;
+      animation-timeline:view();
+      animation-range:exit 0% exit 100%;
+    }
+    @keyframes recede {
+      from { opacity:1; transform:none; filter:blur(0); }
+      to   { opacity:.3; transform:translateY(-34px) scale(.965); filter:blur(3px); }
+    }
+
+    /* Emblems settle last, a beat behind their card. */
+    .lrow .logo {
+      animation:strike linear both;
+      animation-timeline:view();
+      animation-range:entry 8% cover 34%;
+    }
+    @keyframes strike {
+      from { opacity:0; transform:scale(.5) rotate(-24deg); }
+      to   { opacity:1; transform:none; }
+    }
+
+    /* The aurora field drifts against the scroll, for parallax depth. */
+    body::before {
+      animation:field 40s ease-in-out infinite alternate, parallax linear both;
+      animation-timeline:auto, scroll();
+    }
+    @keyframes parallax { to { transform:translate3d(0, -9%, 0) scale(1.2); } }
+
+    /* The stack table fills in row by row as it passes. */
+    .stk tbody tr {
+      animation:rowin linear both;
+      animation-timeline:view();
+      animation-range:entry 0% cover 22%;
+    }
+    @keyframes rowin {
+      from { opacity:0; transform:translateX(-14px); }
+      to   { opacity:1; transform:none; }
+    }
+  }
+
+  /* Motion off means motion off, including the scrubbed kind. */
+  @media (prefers-reduced-motion:reduce) {
+    @supports (animation-timeline: view()) {
+      .mini, .stepcard, .dstep, .wrow, .shead h2, .masthead,
+      .lrow .logo, .stk tbody tr, body::before {
+        animation:none; opacity:1; transform:none; filter:none; letter-spacing:normal;
+      }
+    }
+  }
+
   /* ---- Aurora text ------------------------------------------------
      A colour cycling through the words, from the project's landing
      screen. Used sparingly: if every line glows, none of them reads as
