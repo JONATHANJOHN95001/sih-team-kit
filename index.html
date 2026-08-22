@@ -407,6 +407,8 @@
   <symbol id="l-hf" viewBox="0 0 24 24"><circle cx="12" cy="12.6" r="9.4" fill="#FFD21E"/><circle cx="8.9" cy="10.6" r="1.35" fill="#32343D"/><circle cx="15.1" cy="10.6" r="1.35" fill="#32343D"/><path d="M8.4 14.9a4.2 4.2 0 0 0 7.2 0" fill="none" stroke="#32343D" stroke-width="1.7" stroke-linecap="round"/></symbol>
   <symbol id="l-pytorch" viewBox="0 0 24 24"><path d="M12 1.9 8.2 5.7a5.4 5.4 0 1 0 7.6 0L12 1.9Z" fill="#EE4C2C"/><circle cx="14.6" cy="7.1" r="1.15" fill="#fff"/></symbol>
   <symbol id="l-md" viewBox="0 0 24 24"><rect x="1.9" y="5.4" width="20.2" height="13.2" rx="2.2" fill="none" stroke="var(--mono-mark)" stroke-width="1.9"/><path d="M5.4 15.6V8.9l3 3.6 3-3.6v6.7M16.2 8.9v6.7m0 0-2-2.2m2 2.2 2-2.2" fill="none" stroke="var(--mono-mark)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="s-key" viewBox="0 0 24 24"><circle cx="7.6" cy="16.4" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m10.6 13.4 9-9M17.2 6.8l2.4 2.4M14.8 9.2l2.4 2.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="s-gauge" viewBox="0 0 24 24"><path d="M3.2 17.4a9.6 9.6 0 1 1 17.6 0" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="m12 17.4 4.4-6" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/><circle cx="12" cy="17.4" r="1.5" fill="currentColor"/></symbol>
   <symbol id="s-type" viewBox="0 0 24 24"><path d="M3.4 6.2V4h17.2v2.2M12 4v16M8.6 20h6.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="s-save" viewBox="0 0 24 24"><path d="M3.4 5.6a2 2 0 0 1 2-2h10.2l4.8 4.8v10a2 2 0 0 1-2 2H5.4a2 2 0 0 1-2-2V5.6Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M7.6 3.6v5.2h7.2V3.6M7.6 20.4v-6h8.8v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
   <symbol id="s-chat" viewBox="0 0 24 24"><path d="M21 12.6a7.7 7.7 0 0 1-8.3 7.7L6.2 22l1.4-3.6A7.7 7.7 0 1 1 21 12.6Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
@@ -726,21 +728,21 @@
   <div class="grid grid-2">
 
     <div class="mini">
-      <h4><svg class="logo logo-lg"><use href="#l-data"/></svg> 1 · Bhashini API key <span class="chip chip-ok">free · required</span></h4>
+      <h4><svg class="hico"><use href="#s-key"/></svg> 1 · Bhashini API key <span class="chip chip-ok">free · required</span></h4>
       <p>The Government of India's own language platform does all the translation, speech recognition and speech synthesis. <b>We are not building AI — we are building the teaching tool on top of theirs.</b></p>
       <p>Sign up, verify your email, then go to <b>My Profile</b> and generate a key. You need three values: <code>userID</code>, <code>ulcaApiKey</code> and an <code>Inference API key</code>.</p>
       <a class="dl" href="https://bhashini.gov.in" target="_blank" rel="noopener"><svg class="logo"><use href="#l-data"/></svg> Get a Bhashini key</a>
     </div>
 
     <div class="mini">
-      <h4><svg class="logo logo-lg"><use href="#l-warn"/></svg> 2 · Noto Sans Ol Chiki <span class="chip">easy to miss</span></h4>
+      <h4><svg class="hico"><use href="#s-type"/></svg> 2 · Noto Sans Ol Chiki <span class="chip">easy to miss</span></h4>
       <p><b>Santali is written in the Ol Chiki script</b>, and Windows does not ship a font for it. Without this, every translated word renders as an empty box and the demo dies in front of the judges.</p>
       <p>It is free from Google Fonts. Add one line to <code>index.html</code> and set it as the font for any Santali text.</p>
       <div class="term"><div class="term-row"><div class="term-cmd">&lt;link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Ol+Chiki&amp;display=swap"&gt;</div><button class="copy" type="button">COPY</button></div></div>
     </div>
 
     <div class="mini">
-      <h4><svg class="logo logo-lg"><use href="#l-node"/></svg> 3 · idb <span class="chip">offline cache</span></h4>
+      <h4><svg class="hico"><use href="#s-save"/></svg> 3 · idb <span class="chip">offline cache</span></h4>
       <p>A small wrapper around IndexedDB for caching lessons and audio so the app works with no connection. <code>localStorage</code> can hold the text, but audio files need IndexedDB.</p>
       <div class="term"><div class="term-row"><div class="term-cmd">npm install idb</div><button class="copy" type="button">COPY</button></div></div>
     </div>
@@ -770,7 +772,7 @@
     </div>
 
     <div class="mini">
-      <h4><svg class="hico"><use href="#s-book"/></svg> 7 &middot; Proving it actually works</h4>
+      <h4><svg class="hico"><use href="#s-gauge"/></svg> 7 &middot; Proving it actually works</h4>
       <p>Translation into Santali will be mediocre, because it is a genuinely low-resource language. Every team hides this. We should measure it instead.</p>
       <p><b>FLORES-200</b> includes professionally translated Santali sentences. Running our output against it gives a real score, and showing judges a measured number instead of a confident claim is the kind of rigour that separates the top three from everyone else.</p>
       <p>Then add a <b>correction box</b>: when a user fixes a bad translation, save it to our glossary and reuse it. That turns the weakness into the feature, and it is about an hour of work.</p>
