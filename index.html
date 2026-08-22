@@ -138,10 +138,10 @@
     50%  { filter:hue-rotate(-14deg) saturate(1.18); transform:translateX(-50%) scale(1.06); }
     100% { filter:hue-rotate(10deg)  saturate(1.05); transform:translateX(-50%) scale(1.02); }
   }
-  .masthead h1 { background:linear-gradient(96deg,#FFFFFF 12%,#C9C2FF 42%,#8FA6FF 62%,#FFFFFF 88%);
-                 background-size:220% 100%; -webkit-background-clip:text; background-clip:text;
-                 color:transparent; animation:sheen 9s ease-in-out infinite; }
-  @keyframes sheen { 0%,100% { background-position:0% 50% } 50% { background-position:100% 50% } }
+  .masthead h1 { background:linear-gradient(96deg,#FFFFFF 6%,#C9C2FF 26%,#8FA6FF 44%,#6FE7D0 62%,#C9C2FF 80%,#FFFFFF 96%);
+                 background-size:280% 100%; -webkit-background-clip:text; background-clip:text;
+                 color:transparent; animation:sheen 14s linear infinite; }
+  @keyframes sheen { from { background-position:0% 50% } to { background-position:280% 50% } }
 
   /* Spotlight: the card lights up under the cursor. Coordinates come from
      one delegated listener, written into --mx/--my. */
@@ -154,6 +154,30 @@
   .mini:hover::before, .tile:hover::before { opacity:1; }
   .mini > *, .tile > * { position:relative; z-index:1; }
   .mini, .tile { transition:transform .3s cubic-bezier(.2,.7,.3,1), box-shadow .3s ease, border-color .3s ease; }
+
+  /* ---- Aurora text ------------------------------------------------
+     A colour cycling through the words, from the project's landing
+     screen. Used sparingly: if every line glows, none of them reads as
+     important. Reserved for the claims that actually carry the page. */
+  .aur {
+    background-image:linear-gradient(100deg,
+      var(--aur-1) 0%, var(--aur-2) 26%, var(--aur-3) 52%, var(--aur-2) 74%, var(--aur-1) 100%);
+    background-size:280% 100%;
+    -webkit-background-clip:text; background-clip:text;
+    color:transparent; font-weight:700;
+    animation:aurtext 11s linear infinite;
+  }
+  @keyframes aurtext { from { background-position:0% 50% } to { background-position:280% 50% } }
+  :root { --aur-1:#5B3FD6; --aur-2:#1878C4; --aur-3:#0F9E77; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+    --aur-1:#C0B4FF; --aur-2:#7FC4FF; --aur-3:#68E6C4; } }
+  :root[data-theme="dark"] { --aur-1:#C0B4FF; --aur-2:#7FC4FF; --aur-3:#68E6C4; }
+  /* Selecting the text has to reveal it - transparent glyphs are
+     invisible against a selection highlight otherwise. */
+  .aur::selection { -webkit-text-fill-color:var(--ink); color:var(--ink); }
+  @media (prefers-reduced-motion:reduce) {
+    .aur { animation:none; background-position:14% 50%; }
+  }
 
   /* ============ Emblems + ambient depth ==============================
      Borrowed from the project's own landing screen: an aurora field
@@ -641,7 +665,7 @@
       <span class="avatar">JJ</span>
       <span class="byline-t">Prepared by <b>Jonathan John</b> · August 2026</span>
     </div>
-    <p class="standfirst">Everything you need on your machine before a hackathon starts, in six steps that take about twenty minutes altogether. Every tool here is free, and I have installed and tested each one myself — including the parts that break in ways the documentation does not warn you about. Written for our SIH 2026 team, but nothing here is specific to one event.</p>
+    <p class="standfirst">Everything you need on your machine before a hackathon starts, in six steps that take about twenty minutes altogether. <span class="aur">Every tool here is free</span>, and I have installed and tested each one myself — including the parts that break in ways the documentation does not warn you about. Written for our SIH 2026 team, but <span class="aur">nothing here is specific to one event</span>.</p>
     <div class="facts">
       <span class="fact">Our event <b>4–5 Sept</b></span>
       <span class="fact">Setup by <b>3 Sept</b></span>
@@ -954,7 +978,7 @@
 
     <div class="mini">
       <h4><svg class="hico"><use href="#s-plug"/></svg> 6 &middot; Working with no signal <span class="chip">the winning answer</span></h4>
-      <p>Every judge will ask how this works in a village with no connectivity. The strongest possible answer is to turn the wifi off in front of them and keep using the app.</p>
+      <p>Every judge will ask how this works in a village with no connectivity. The strongest possible answer is to <span class="aur">turn the wifi off in front of them and keep using the app</span>.</p>
       <p><b>Transformers.js</b> runs a quantised model inside the browser tab itself, so translation happens on the device with nothing sent anywhere. <b>Workbox</b> generates the service worker that keeps the app and the model cached after the first visit, and <b>Dexie</b> stores the phrase history and glossary in the browser's own database.</p>
       <p>Pre-load everything before you present. The first visit downloads a few hundred megabytes, and that is not something to do live on venue wifi.</p>
     </div>
@@ -987,9 +1011,9 @@
           <tr><td class="ic"><svg class="logo"><use href="#l-shadcn"/></svg></td><td>Screens</td><td>React + Vite, Tailwind, shadcn/ui</td><td>Vite rebuilds instantly and shadcn components are ours to edit. Aceternity on the landing screen only.</td></tr>
           <tr><td class="ic"><svg class="logo"><use href="#l-stitch"/></svg></td><td>Look</td><td>Stitch, driven by a <code>DESIGN.md</code></td><td>One file of visual rules that every agent reads, so four people's code still looks like one product.</td></tr>
           <tr><td class="ic"><svg class="logo"><use href="#l-bhashini"/></svg></td><td>Translation &mdash; online</td><td>Bhashini API</td><td>The government's own platform. Free, unlimited, and using MeitY infrastructure at a government hackathon is an angle most teams miss.</td></tr>
-          <tr><td class="ic"><svg class="logo"><use href="#l-hf"/></svg></td><td>Translation &mdash; offline</td><td>IndicTrans2 <code>dist-320M</code> + CTranslate2</td><td>The same model Bhashini serves, running on our machine. A dead network can no longer kill the demo.</td></tr>
+          <tr><td class="ic"><svg class="logo"><use href="#l-hf"/></svg></td><td>Translation &mdash; offline</td><td>IndicTrans2 <code>dist-320M</code> + CTranslate2</td><td>The same model Bhashini serves, running on our machine. <span class="aur">A dead network can no longer kill the demo.</span></td></tr>
           <tr><td class="ic"><svg class="logo"><use href="#l-openai"/></svg></td><td>Speech in</td><td>faster-whisper (Hindi)</td><td>The teacher speaks instead of typing. Vosk is the fallback on a slow laptop.</td></tr>
-          <tr><td class="ic"><svg class="logo"><use href="#l-bhashini"/></svg></td><td>Speech out</td><td>Bhashini&ndash;IITM TTS for Santali</td><td>It exists, in male and female voices &mdash; FastPitch with a HiFi-GAN vocoder. A child who cannot yet read Ol&nbsp;Chiki can still hear the lesson, which is the whole point of the project.</td></tr>
+          <tr><td class="ic"><svg class="logo"><use href="#l-bhashini"/></svg></td><td>Speech out</td><td>Bhashini&ndash;IITM TTS for Santali</td><td><span class="aur">It exists, in male and female voices</span> &mdash; FastPitch with a HiFi-GAN vocoder. A child who cannot yet read Ol&nbsp;Chiki can still hear the lesson, which is the whole point of the project.</td></tr>
           <tr><td class="ic"><svg class="logo"><use href="#l-google"/></svg></td><td>Script</td><td>Noto Sans Ol&nbsp;Chiki, bundled in the repo</td><td>Without it every Santali word renders as an empty box. Self-hosted, never a CDN link.</td></tr>
           <tr><td class="ic"><svg class="logo"><use href="#l-node"/></svg></td><td>Works offline</td><td>Transformers.js, Workbox, Dexie</td><td>So we can switch the wifi off in front of the judges and keep going.</td></tr>
           <tr><td class="ic"><svg class="logo"><use href="#l-supabase"/></svg></td><td>Data and login</td><td>Supabase</td><td>Postgres plus auth in one free project. Wake it the morning of the demo &mdash; it sleeps after seven idle days.</td></tr>
@@ -1010,7 +1034,7 @@
         <div class="dstep"><span class="dtime">0:00</span><span class="dbody"><span class="dbeat">The problem, in one sentence</span>A child in a Jharkhand classroom speaks Santali at home and is taught in Hindi. <b>Do not explain the technology yet.</b> Judges have heard forty pitches; open with the child, not the architecture.</span></div>
         <div class="dstep"><span class="dtime">0:30</span><span class="dbody"><span class="dbeat">Teacher speaks</span>Say a real sentence in Hindi into the microphone. Nobody types anything. The Hindi appears as text while you are still speaking.</span></div>
         <div class="dstep"><span class="dtime">0:50</span><span class="dbody"><span class="dbeat">Child reads and hears</span>Santali appears in Ol&nbsp;Chiki, and then <b>plays aloud</b>. Let the audio finish before you speak over it &mdash; the silence is doing the work.</span></div>
-        <div class="dstep peak"><span class="dtime">1:20</span><span class="dbody"><span class="dbeat">The moment &mdash; the child answers back</span>Speak Santali into the app and let the teacher hear it in Hindi. <b>This is the whole demo.</b> Most teams show translation going one way; a two-way spoken exchange is a different category of thing, and it is worth pausing for a beat so the room registers what just happened.</span></div>
+        <div class="dstep peak"><span class="dtime">1:20</span><span class="dbody"><span class="dbeat">The moment &mdash; the child answers back</span>Speak Santali into the app and let the teacher hear it in Hindi. <b class="aur">This is the whole demo.</b> Most teams show translation going one way; a two-way spoken exchange is a different category of thing, and it is worth pausing for a beat so the room registers what just happened.</span></div>
         <div class="dstep peak"><span class="dtime">2:00</span><span class="dbody"><span class="dbeat">Turn the wifi off</span>Switch off connectivity in front of them, then do the exchange again. Every judge is going to ask how this works where these children live. Answer it before they ask, by doing it.</span></div>
         <div class="dstep"><span class="dtime">2:40</span><span class="dbody"><span class="dbeat">Fix a wrong word</span>Correct a bad translation in the app, then use the phrase again and show the correction stuck. Santali is low-resource and the output <i>will</i> be imperfect &mdash; owning that beats hoping nobody notices.</span></div>
         <div class="dstep"><span class="dtime">3:10</span><span class="dbody"><span class="dbeat">Show the number</span>Our FLORES-200 score. One measured figure, honestly stated, lands harder than any adjective.</span></div>
@@ -1098,7 +1122,7 @@
 
     <div class="mini">
       <h4><svg class="hico"><use href="#s-blocks"/></svg> Components you paste in <span class="chip">saves hours</span></h4>
-      <div class="lrow"><svg class="logo"><use href="#l-shadcn"/></svg><span><a href="https://ui.shadcn.com" target="_blank" rel="noopener">shadcn/ui</a> is the single biggest time saver here. You copy a component's code into your own project rather than installing a library, so buttons, dialogs and forms look finished immediately &mdash; and because the code is now yours, you can edit it on the spot instead of fighting someone else's settings.</span></div>
+      <div class="lrow"><svg class="logo"><use href="#l-shadcn"/></svg><span><a href="https://ui.shadcn.com" target="_blank" rel="noopener">shadcn/ui</a> <span class="aur">is the single biggest time saver here</span>. You copy a component's code into your own project rather than installing a library, so buttons, dialogs and forms look finished immediately &mdash; and because the code is now yours, you can edit it on the spot instead of fighting someone else's settings.</span></div>
       <div class="lrow"><svg class="logo"><use href="#l-aceternity"/></svg><span><a href="https://ui.aceternity.com" target="_blank" rel="noopener">Aceternity UI</a> is the same copy-paste idea for animated sections. Use it on the landing screen and nowhere else. Animation everywhere reads as a template, but one well-placed moving element makes the whole thing look considered.</span></div>
     </div>
 
@@ -1111,7 +1135,7 @@
 
     <div class="mini">
       <h4><svg class="hico"><use href="#s-lang"/></svg> Indian data and languages <span class="chip">our edge</span></h4>
-      <div class="lrow"><svg class="logo"><use href="#l-bhashini"/></svg><span><a href="https://bhashini.gov.in" target="_blank" rel="noopener">Bhashini</a> is the Government of India's own AI language platform, built by MeitY, covering <b>22 Indian languages</b> for speech and translation. It is free with no rate limit, and using the government's own infrastructure at a government hackathon is an angle most teams will not have considered.</span></div>
+      <div class="lrow"><svg class="logo"><use href="#l-bhashini"/></svg><span><a href="https://bhashini.gov.in" target="_blank" rel="noopener">Bhashini</a> is the Government of India's own AI language platform, built by MeitY, covering <b class="aur">22 Indian languages</b> for speech and translation. It is free with no rate limit, and using the government's own infrastructure at a government hackathon is an angle most teams will not have considered.</span></div>
       <div class="lrow"><svg class="logo"><use href="#l-datagov"/></svg><span><a href="https://data.gov.in" target="_blank" rel="noopener">data.gov.in</a> holds real government datasets covering agriculture, health, disaster management and more. Seeding our app with genuine data rather than invented rows is exactly what separates a prototype from a demo, and when we cite it we should name the dataset and year rather than just the portal.</span></div>
     </div>
 
