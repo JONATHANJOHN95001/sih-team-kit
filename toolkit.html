@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The web toolkit</title>
+<meta name="description" content="Everything that runs in a browser tab, with nothing to install, plus the student perks worth claiming.">
+<meta name="author" content="Jonathan John">
+<meta name="color-scheme" content="light dark">
+<meta property="og:type" content="website">
+<meta property="og:title" content="The web toolkit">
+<meta property="og:description" content="Everything that runs in a browser tab, with nothing to install, plus the student perks worth claiming.">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#129520;</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="./assets/almanac.css">
+<script>
+/* Before first paint, so no flash of the wrong theme. */
+(function () {
+  var m; try { m = localStorage.getItem('almanac-theme'); } catch (e) {}
+  if (m !== 'auto') document.documentElement.setAttribute('data-theme', m === 'dark' ? 'dark' : 'light');
+})();
+</script>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="l-gemini" viewBox="0 0 24 24"><path d="M11.04 19.32Q12 21.51 12 24q0-2.49.93-4.68.96-2.19 2.58-3.81t3.81-2.55Q21.51 12 24 12q-2.49 0-4.68-.93a12.3 12.3 0 0 1-3.81-2.58 12.3 12.3 0 0 1-2.58-3.81Q12 2.49 12 0q0 2.49-.96 4.68-.93 2.19-2.55 3.81a12.3 12.3 0 0 1-3.81 2.58Q2.49 12 0 12q2.49 0 4.68.96 2.19.93 3.81 2.55t2.55 3.81" fill="#4285F4"/></symbol>
+  <symbol id="l-openai" viewBox="0 0 24 24"><path d="M21.6 9.9a5.4 5.4 0 0 0-.5-4.5 5.5 5.5 0 0 0-5.9-2.6A5.4 5.4 0 0 0 11.1.9a5.5 5.5 0 0 0-5.2 3.8A5.4 5.4 0 0 0 2.3 7.3a5.5 5.5 0 0 0 .7 6.4 5.4 5.4 0 0 0 .5 4.5 5.5 5.5 0 0 0 5.9 2.6 5.4 5.4 0 0 0 4.1 1.8 5.5 5.5 0 0 0 5.2-3.8 5.4 5.4 0 0 0 3.6-2.6 5.5 5.5 0 0 0-.7-6.3Zm-8.2 11.4a4 4 0 0 1-2.6-.9l3.5-2a.6.6 0 0 0 .3-.5v-4.9l1.5.9v4.1a4.1 4.1 0 0 1-2.7 3.3ZM4.6 17.5a4 4 0 0 1-.5-2.7l3.5 2a.6.6 0 0 0 .6 0l4.3-2.5v1.7l-3.6 2.1a4.1 4.1 0 0 1-4.3-.6ZM3.7 8.4a4 4 0 0 1 2.1-1.8v4.2a.6.6 0 0 0 .3.5l4.3 2.5-1.5.9-3.6-2.1a4.1 4.1 0 0 1-1.6-4.2Zm14.3 3.3-4.3-2.5 1.5-.9 3.6 2.1a4.1 4.1 0 0 1-.6 7.4v-4.2a.6.6 0 0 0-.2-.5ZM19.5 9l-3.5-2a.6.6 0 0 0-.6 0l-4.3 2.5V7.8l3.6-2.1a4.1 4.1 0 0 1 6.1 4.4A4 4 0 0 1 19.5 9ZM10.3 12.6l-1.5-.9V7.6a4.1 4.1 0 0 1 6.7-3.2l-3.5 2a.6.6 0 0 0-.3.5v5.7Zm.8-1.8L13 9.7l1.9 1.1v2.2L13 14.1l-1.9-1.1v-2.2Z" fill="var(--mono-mark)"/></symbol>
+  <symbol id="l-supabase" viewBox="0 0 24 24"><path d="M11.9 1.036c-.015-.986-1.26-1.41-1.874-.637L.764 12.05C-.33 13.427.65 15.455 2.409 15.455h9.579l.113 7.51c.014.985 1.259 1.408 1.873.636l9.262-11.653c1.093-1.375.113-3.403-1.645-3.403h-9.642z" fill="#3FCF8E"/></symbol>
+  <symbol id="l-github" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" fill="var(--mono-mark)"/></symbol>
+  <symbol id="l-perplexity" viewBox="0 0 24 24"><path d="M22.3977 7.0896h-2.3106V.0676l-7.5094 6.3542V.1577h-1.1554v6.1966L4.4904 0v7.0896H1.6023v10.3976h2.8882V24l6.932-6.3591v6.2005h1.1554v-6.0469l6.9318 6.1807v-6.4879h2.8882V7.0896zm-3.4657-4.531v4.531h-5.355l5.355-4.531zm-13.2862.0676 4.8691 4.4634H5.6458V2.6262zM2.7576 16.332V8.245h7.8476l-6.1149 6.1147v1.9723H2.7576zm2.8882 5.0404v-3.8852h.0001v-2.6488l5.7763-5.7764v7.0111l-5.7764 5.2993zm12.7086.0248-5.7766-5.1509V9.0618l5.7766 5.7766v6.5588zm2.8882-5.0652h-1.733v-1.9723L13.3948 8.245h7.8478v8.087z" fill="#1FB8CD"/></symbol>
+  <symbol id="l-cloudflare" viewBox="0 0 24 24"><path d="M16.5088 16.8447c.1475-.5068.0908-.9707-.1553-1.3154-.2246-.3164-.6045-.499-1.0615-.5205l-8.6592-.1123a.1559.1559 0 0 1-.1333-.0713c-.0283-.042-.0351-.0986-.021-.1553.0278-.084.1123-.1484.2036-.1562l8.7359-.1123c1.0351-.0489 2.1601-.8868 2.5537-1.9136l.499-1.3013c.0215-.0561.0293-.1128.0147-.168-.5625-2.5463-2.835-4.4453-5.5499-4.4453-2.5039 0-4.6284 1.6177-5.3876 3.8614-.4927-.3658-1.1187-.5625-1.794-.499-1.2026.119-2.1665 1.083-2.2861 2.2856-.0283.31-.0069.6128.0635.894C1.5683 13.171 0 14.7754 0 16.752c0 .1748.0142.3515.0352.5273.0141.083.0844.1475.1689.1475h15.9814c.0909 0 .1758-.0645.2032-.1553l.12-.4268zm2.7568-5.5634c-.0771 0-.1611 0-.2383.0112-.0566 0-.1054.0415-.127.0976l-.3378 1.1744c-.1475.5068-.0918.9707.1543 1.3164.2256.3164.6055.498 1.0625.5195l1.8437.1133c.0557 0 .1055.0263.1329.0703.0283.043.0351.1074.0214.1562-.0283.084-.1132.1485-.204.1553l-1.921.1123c-1.041.0488-2.1582.8867-2.5527 1.914l-.1406.3585c-.0283.0713.0215.1416.0986.1416h6.5977c.0771 0 .1474-.0489.169-.126.1122-.4082.1757-.837.1757-1.2803 0-2.6025-2.125-4.727-4.7344-4.727" fill="#F38020"/></symbol>
+  <symbol id="l-stitch" viewBox="0 0 24 24"><path d="M4 12c0-4.4 3.6-8 8-8s8 3.6 8 8-3.6 8-8 8" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="2.6" fill="#8B5CF6"/></symbol>
+  <symbol id="l-google" viewBox="0 0 24 24"><path d="M21.6 12.2c0-.7-.1-1.4-.2-2H12v3.9h5.4a4.6 4.6 0 0 1-2 3v2.5h3.2c1.9-1.7 3-4.3 3-7.4Z" fill="#4285F4"/><path d="M12 22c2.7 0 5-.9 6.6-2.4l-3.2-2.5a6 6 0 0 1-9-3.2H3.1v2.6A10 10 0 0 0 12 22Z" fill="#34A853"/><path d="M6.4 13.9a6 6 0 0 1 0-3.8V7.5H3.1a10 10 0 0 0 0 9l3.3-2.6Z" fill="#FBBC05"/><path d="M12 6a5.4 5.4 0 0 1 3.8 1.5l2.8-2.8A9.6 9.6 0 0 0 12 2a10 10 0 0 0-8.9 5.5l3.3 2.6A6 6 0 0 1 12 6Z" fill="#EA4335"/></symbol>
+  <symbol id="l-notebook" viewBox="0 0 24 24"><rect x="4.6" y="2.8" width="15" height="18.4" rx="2.2" fill="none" stroke="#4285F4" stroke-width="1.8"/><path d="M8.4 2.8v18.4M11.6 8h5M11.6 12h5M11.6 16h3" fill="none" stroke="#4285F4" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="l-shadcn" viewBox="0 0 24 24"><path d="M22.219 11.784 11.784 22.219c-.407.407-.407 1.068 0 1.476.407.407 1.068.407 1.476 0L23.695 13.26c.407-.408.407-1.069 0-1.476-.408-.407-1.069-.407-1.476 0ZM20.132.305.305 20.132c-.407.407-.407 1.068 0 1.476.408.407 1.069.407 1.476 0L21.608 1.781c.407-.407.407-1.068 0-1.476-.408-.407-1.069-.407-1.476 0Z" fill="var(--mono-mark)"/></symbol>
+  <symbol id="l-aceternity" viewBox="0 0 24 24"><path d="M12 2.2 2.4 21.8h4.3L12 10.9l5.3 10.9h4.3L12 2.2Z" fill="var(--mono-mark)"/></symbol>
+  <symbol id="l-groq" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#F55036"/><path d="M12 5.5a6.5 6.5 0 1 0 4.35 11.33l-1.42-1.6A4.4 4.4 0 1 1 16.4 12v2.2a1.05 1.05 0 0 1-2.1 0V12a2.3 2.3 0 1 0-2.3 2.3v2.1A4.4 4.4 0 0 0 12 5.5Z" fill="#fff"/></symbol>
+  <symbol id="l-vercel" viewBox="0 0 24 24"><path d="m12 1.608 12 20.784H0Z" fill="var(--mono-mark)"/></symbol>
+  <symbol id="l-md" viewBox="0 0 24 24"><path d="M22.27 19.385H1.73A1.73 1.73 0 010 17.655V6.345a1.73 1.73 0 011.73-1.73h20.54A1.73 1.73 0 0124 6.345v11.308a1.73 1.73 0 01-1.73 1.731zM5.769 15.923v-4.5l2.308 2.885 2.307-2.885v4.5h2.308V8.078h-2.308l-2.307 2.885-2.308-2.885H3.46v7.847zM21.232 12h-2.309V8.077h-2.307V12h-2.308l3.461 4.039z" fill="var(--mono-mark)"/></symbol>
+  <symbol id="s-chat" viewBox="0 0 24 24"><path d="M21 12.6a7.7 7.7 0 0 1-8.3 7.7L6.2 22l1.4-3.6A7.7 7.7 0 1 1 21 12.6Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+  <symbol id="s-book" viewBox="0 0 24 24"><path d="M3.4 4.4h5.9a3.4 3.4 0 0 1 2.7 1.3 3.4 3.4 0 0 1 2.7-1.3h5.9v13.8h-5.9a3.4 3.4 0 0 0-2.7 1.3 3.4 3.4 0 0 0-2.7-1.3H3.4V4.4Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M12 7v12" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+  <symbol id="s-pen" viewBox="0 0 24 24"><path d="M16.4 3.3 20.7 7.6 8.2 20.1l-5.4 1.1 1.1-5.4L16.4 3.3Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="m13.9 5.8 4.3 4.3" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+  <symbol id="s-blocks" viewBox="0 0 24 24"><rect x="2.8" y="2.8" width="8" height="8" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.8"/><rect x="13.2" y="13.2" width="8" height="8" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.8"/><rect x="13.2" y="2.8" width="8" height="8" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-dasharray="3 2.4"/><rect x="2.8" y="13.2" width="8" height="8" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-dasharray="3 2.4"/></symbol>
+  <symbol id="s-db" viewBox="0 0 24 24"><ellipse cx="12" cy="5.6" rx="8.2" ry="3.2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3.8 5.6v12.8c0 1.8 3.7 3.2 8.2 3.2s8.2-1.4 8.2-3.2V5.6M3.8 12c0 1.8 3.7 3.2 8.2 3.2s8.2-1.4 8.2-3.2" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+  <symbol id="s-lang" viewBox="0 0 24 24"><path d="M2.8 5.4h9.4M7.5 3.1v2.3M9.9 5.4a11 11 0 0 1-6 8.6M6.1 9.7a10 10 0 0 0 5 4.1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="m11.6 21 4.3-10.4L20.2 21M13.3 17.4h5.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="s-rocket" viewBox="0 0 24 24"><path d="M13.4 3.6c3.8-1.6 7-1 7-1s.6 3.2-1 7c-1.3 3.1-6.7 7.6-6.7 7.6l-3.9-3.9S11.3 4.9 13.4 3.6Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="15.6" cy="8.4" r="1.7" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M8.8 13.3 6 14.4l-.9 4.5 4.5-.9 1.1-2.8M6.4 17.6l-2.6 2.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="l-colab" viewBox="0 0 24 24"><path d="M16.9414 4.9757a7.033 7.033 0 0 0-4.9308 2.0646 7.033 7.033 0 0 0-.1232 9.8068l2.395-2.395a3.6455 3.6455 0 0 1 5.1497-5.1478l2.397-2.3989a7.033 7.033 0 0 0-4.8877-1.9297zM7.07 4.9855a7.033 7.033 0 0 0-4.8878 1.9316l2.3911 2.3911a3.6434 3.6434 0 0 1 5.0227.1271l1.7341-2.9737-.0997-.0802A7.033 7.033 0 0 0 7.07 4.9855zm15.0093 2.1721l-2.3892 2.3911a3.6455 3.6455 0 0 1-5.1497 5.1497l-2.4067 2.4068a7.0362 7.0362 0 0 0 9.9456-9.9476zM1.932 7.1674a7.033 7.033 0 0 0-.002 9.6816l2.397-2.397a3.6434 3.6434 0 0 1-.004-4.8916zm7.664 7.4235c-1.38 1.3816-3.5863 1.411-5.0168.1134l-2.397 2.395c2.4693 2.3328 6.263 2.5753 9.0072.5455l.1368-.1115z" fill="#F9AB00"/></symbol>
+  <symbol id="l-excalidraw" viewBox="0 0 24 24"><path d="M23.9428 19.8058a.1962.1962 0 0 0-.1679-.0337c-1.26-1.8552-2.8727-3.6104-4.4186-5.3152l-.2521-.284c-.0016-.0732-.0667-.1207-.1342-.1504-.0284-.0277-.0562-.0558-.0843-.0837-.0505-.1005-.1685-.1673-.2858-.1005-.4706.2347-.9068.5855-1.3274.9195-.5536.4345-1.1085.8695-1.6296 1.354a5.0577 5.0577 0 0 0-.5879.6185c-.0842.1168-.0168.2172.0843.2672-.3701.3677-.7402.736-1.109 1.1198a.1896.1896 0 0 0-.0506.1342c0 .05.0337.1.0668.1168l.6559.5012v.0169c.9237.9194 2.5538 2.1729 4.2844 3.5268.2515.201.5205.4014.7727.6017.1173.1342.2346.2847.3357.4182.0506.0662.1685.0837.2353.0331.0337.0337.0843.0668.118.1005a.2395.2395 0 0 0 .1004.0337.1534.1534 0 0 0 .1348-.0668.2371.2371 0 0 0 .0331-.1004c.0175 0 .0169.0168.0337.0168a.1915.1915 0 0 0 .1348-.0505l3.058-3.3265c.1198-.1159.0135-.2668-.0005-.2672zm-7.6277-.1336-1.5459-1.1704-.151-.0998c-.0337-.0169-.0674-.0506-.1011-.0668l-.1174-.1005c.6597-.659 1.3297-1.3074 1.9996-1.9557-.4874.4844-1.4622 1.9057-1.2606 2.3733.0023 0 .0186.0419.0674.0842.3704.311.7398.6232 1.109.9357zm4.0997 3.1261-1.277-.97a26.9056 26.9056 0 0 0-1.5795-1.5044c.689.5181 1.2769.9694 1.3611 1.053.6722.585.6379.485 1.0922.8696l.5542.4008c-.0735.103-.151.1477-.151.151zm.3357.2503-.0337-.0168c.0506-.0331.1011-.0668.1517-.1168zM.5885 3.4751c.0331.2172.0843.4344.1174.6354.2015 1.103.4031 2.1061.7726 2.8583l.1516.568c.0506.2173.1342.485.2185.5519.8568.7521 2.1674 1.8714 3.5785 2.9419a.1775.1775 0 0 0 .2185 0s0 .0162.0168.0162a.1528.1528 0 0 0 .118.0506.1912.1912 0 0 0 .1341-.0506c1.798-1.9887 3.1418-3.6267 4.0997-4.9974.0674-.0668.0843-.1673.0843-.251.0668-.0668.1173-.1504.1847-.2004.0668-.0668.0668-.184 0-.2346l-.0168-.0163c0-.033-.0169-.0836-.0506-.1005-.42-.4007-.722-.6848-1.0416-.9856A93.5546 93.5546 0 0 1 6.822 1.9876c-.0169-.0169-.0337-.0337-.0674-.0337-.3358-.1168-1.0248-.2341-1.8817-.3845C3.596 1.3527 1.865 1.0519.3027.583c0 0-.1011 0-.118.0169L.1348.6505C.0498.7139.0222.7058 0 .7167.017.8172.017.884.0506 1.0013c0 .0331.0673.3009.0673.334zm7.1909 4.7802-.0337.0337a.0362.0362 0 0 1 .0337-.0337zM6.553 2.238c.101.1005.5211.5019.6216.5855-.4369-.201-1.5284-.7022-2.0333-.8695.5043.1005 1.1933.201 1.4117.284ZM.7901 1.4027c.2521.4344.4537 1.9388.6553 3.4095-.118-.4682-.2016-.9357-.3027-1.3708C.9917 2.673.84 1.9876.6385 1.3858c.1232 0 .1516.0212.1516.0169zm-.2858-.3683c0-.0162 0-.033-.0169-.033.0843 0 .1342.0168.2016.0499.0006.0057-.1448-.0169-.1847-.0169zM23.6738.8172c.0169-.0662-.3358-.367-.2184-.3845.2527-.0163.2527-.4008 0-.4008-.3358.0169-.6884.0999-1.008.1504-.5878.1168-1.1926.2341-1.781.3671-1.327.2846-2.6375.5855-3.9481.937-.4032.1167-.857.2003-1.2432.4007-.1348.0668-.118.2004-.0506.284-.0337.0169-.0505.0169-.0842.0337-.1174.0169-.2185.0337-.3358.05-.1011.0168-.1516.1004-.1348.201 0 .0162.0169.0499.0169.0661-.7059.9363-1.4954 1.9226-2.3523 2.9757-.84.9694-1.7306 1.9893-2.6212 3.0424-2.8396 3.3096-6.0487 7.0705-9.5936 10.38a.1613.1613 0 0 0 0 .2341c.0169.0163.0337.0331.0506.0331-.0506.0506-.1011.0843-.1517.1336-.0337.0337-.0505.0668-.0505.1005a.364.364 0 0 0-.0668.0837c-.0674.0667-.0674.1835.0169.234.0667.0662.1847.0662.2346-.0168.0175-.0169.0175-.0337.0337-.0337a.2648.2648 0 0 1 .3701 0c.2016.2178.4032.435.588.6186l-.4201-.3508c-.0674-.0668-.1847-.05-.2347.0168-.068.0662-.0511.1835.0163.234l4.4691 3.7273c.0337.0337.0674.0337.118.0337.0505 0 .0842-.0169.1173-.0506l.101-.0999c.017.0163.05.0163.0669.0163.0505 0 .0842-.0163.118-.05 6.0486-6.0505 10.9216-10.6141 16.4997-14.6927.05-.0331.0668-.1.0668-.1505.0674 0 .118-.05.151-.1167 1.0254-3.1255 1.227-5.9007 1.2938-7.2709 0-.0579.0169-.0371.0169-.0668.0168-.0337.0168-.0505.0168-.0505a.9784.9784 0 0 0-.0668-.6186zm-10.82 4.9144c.2684-.3008.5374-.6186.8064-.9026-1.7306 2.2734-4.6033 5.7665-8.67 9.9288C7.7626 11.699 10.5517 8.54 12.854 5.7316ZM5.1414 23.4662c-.0162-.0168-.0162-.0168 0-.0168zm2.5033-2.156c.1348-.1505.2695-.284.4206-.4345 0 0 0 .0163.0168.0163-.2236.1978-.4334.4182-.4374.4182zm.6896-.6686c.0994-.0993.14-.1724.2852-.3177.9917-1.0193 2.0164-2.0393 3.058-3.0755l.0169-.0168c.2521-.2004.5542-.4177.8232-.6186a228.0627 228.0627 0 0 0-4.1833 4.0286zm6.5187-16.732c-.5543.719-1.1759 1.6716-1.697 2.4238-1.6463 2.3733-6.9393 8.1735-7.0566 8.274A1189.6473 1189.6473 0 0 1 1.26 19.204l-.1005.1005c-.0843-.1005-.0843-.251.0168-.3346 7.476-7.0037 12.0132-12.837 13.845-15.3944-.0506.1167-.0843.2166-.1685.334zm2.9064 3.4269c-.6716-.3851-.9905-.9869-.8064-1.5712l.0506-.201a.7753.7753 0 0 1 .0842-.1666c.1848-.301.4538-.5518.7564-.7023.0163 0 .0331 0 .05-.0168-.0169-.0337-.0169-.0837-.0169-.1336.0169-.1005.0843-.1673.2016-.1673.2016 0 .8238.1841 1.059.3845.0669.05.1343.1168.2017.1836.0842.1004.2184.2677.2852.4013.0337.0169.0674.1841.118.2678.0336.1336.0667.284.0505.4176-.0169.0169 0 .1167-.0169.1167a1.6055 1.6055 0 0 1-.2184.6186c-.0307.0307.0064.0119-.0505.0668-.0843.1342-.2016.251-.319.3346-.3869.2672-.8238.3508-1.2606.234-.1105-.0473-.1672-.0667-.1685-.0667zm4.3692 1.4039c0 .0168-.0168.0499 0 .0667-.0337 0-.0505.0169-.0842.0337-1.3274.9689-2.6212 1.9888-3.915 3.0256 1.109-.9868 2.218-1.9894 3.3776-2.9756.3358-.3009.5711-.6854.6379-1.1199l.1685-1.003v-.0332c.0842-.201.4032-.1173.3526.1-.0042-.0012-.1731.795-.5374 1.9057z" fill="#6965DB"/></symbol>
+  <symbol id="l-photopea" viewBox="0 0 24 24"><path d="M20.098 0A3.899 3.899 0 0 1 24 3.903v16.194A3.899 3.899 0 0 1 20.098 24H6.393l-.051-10.34v-.074c0-3.92 3.112-7.09 6.963-7.09 2.31 0 4.177 1.902 4.177 4.254 0 2.352-1.867 4.254-4.177 4.254-.77 0-1.393-.634-1.393-1.418 0-.783.623-1.418 1.393-1.418.769 0 1.392-.634 1.392-1.418 0-.784-.623-1.418-1.392-1.418-2.31 0-4.178 1.9-4.178 4.253 0 2.352 1.868 4.254 4.178 4.254 3.85 0 6.962-3.169 6.962-7.09 0-3.92-3.112-7.089-6.962-7.089-5.39 0-9.75 4.436-9.75 9.925v.086l.023 10.315A3.899 3.899 0 0 1 0 20.097V3.903A3.899 3.899 0 0 1 3.902 0z" fill="#18A497"/></symbol>
+  <symbol id="l-neon" viewBox="0 0 24 24"><path d="M24 0V24l-9.365-8.045V24H0V0ZM2.942 21.087h8.751V9.563l9.365 8.204V2.919L2.942 2.914Z" fill="#00B37E"/></symbol>
+  <symbol id="l-bolt" viewBox="0 0 24 24"><path d="M10.797 14.182H3.635L16.728 0l-3.525 9.818h7.162L7.272 24l3.524-9.818Z" fill="#1269D3"/></symbol>
+  <symbol id="l-bhashini" viewBox="0 0 24 24"><rect x="1.6" y="1.6" width="20.8" height="20.8" rx="5" fill="#1A57C4"/><path d="M4.8 7.4h7.4M8.5 5.5v1.9M11 7.4a8.6 8.6 0 0 1-4.7 6.7M7.3 10.7a7.8 7.8 0 0 0 3.9 3.2" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/><path d="m11.8 19 3.4-8.1L18.6 19M13.2 15.9h4.1" fill="none" stroke="#FF9933" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="l-datagov" viewBox="0 0 24 24"><rect x="1.6" y="3.4" width="20.8" height="5.7" rx="1.4" fill="#FF9933"/><rect x="1.6" y="9.1" width="20.8" height="5.8" fill="#F4F4F8"/><rect x="1.6" y="14.9" width="20.8" height="5.7" rx="1.4" fill="#138808"/><circle cx="12" cy="12" r="2.5" fill="none" stroke="#0A3D91" stroke-width="1.3"/><circle cx="12" cy="12" r=".6" fill="#0A3D91"/></symbol>
+  <symbol id="l-sih" viewBox="0 0 24 24"><path d="M7.2 2.8h9.6v5.4a4.8 4.8 0 0 1-9.6 0V2.8Z" fill="#FF9933"/><path d="M7.2 4.2H4.4v1.9a3.2 3.2 0 0 0 3 3.2M16.8 4.2h2.8v1.9a3.2 3.2 0 0 1-3 3.2" fill="none" stroke="#0A3D91" stroke-width="1.5" stroke-linecap="round"/><path d="M12 13v3.6M8.6 21.2h6.8l-.8-3.2H9.4l-.8 3.2Z" fill="#138808" stroke="#138808" stroke-width="1.4" stroke-linejoin="round"/></symbol>
+  <symbol id="s-gift" viewBox="0 0 24 24"><rect x="3" y="9.4" width="18" height="11.6" rx="1.8" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M2 9.4h20M12 9.4v11.6" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 9.4C10.8 6 6.6 5.3 6.6 7.8c0 1.5 2.9 1.6 5.4 1.6Zm0 0c1.2-3.4 5.4-4.1 5.4-1.6 0 1.5-2.9 1.6-5.4 1.6Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+  <symbol id="s-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M2.8 12h18.4M12 2.8c2.4 2.5 3.7 5.8 3.7 9.2s-1.3 6.7-3.7 9.2c-2.4-2.5-3.7-5.8-3.7-9.2S9.6 5.3 12 2.8Z" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+</defs></svg>
+
+<div class="topbar">
+  <div class="topbar-in">
+    <a class="mark" href="./">John&rsquo;s Almanac</a>
+    <nav class="nav">
+      <a href="./">Start</a>
+      <a href="./setup.html">Setup</a>
+      <a href="./toolkit.html" aria-current="page">Toolkit</a>
+      <a href="./project.html">Project</a>
+      <a href="./gotchas.html">Gotchas</a>
+    </nav>
+    <div class="themer" role="group" aria-label="Colour theme">
+      <button type="button" data-set="light" aria-pressed="true">Light</button>
+      <button type="button" data-set="dark"  aria-pressed="false">Dark</button>
+      <button type="button" data-set="auto"  aria-pressed="false">Auto</button>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="shead" id="webkit">
+    <h2><svg class="sico"><use href="#s-globe"/></svg> The web toolkit, nothing to install</h2>
+    <p>These all run in a browser tab, so there is no download and no setup beyond signing in. Please use the <b>same Google account</b> for every one of them, because sharing a design or a database project between us later becomes painful if we are scattered across different logins.</p>
+  </div>
+
+  <div class="grid grid-2">
+
+    <div class="mini">
+      <h4><svg class="hico"><use href="#s-chat"/></svg> AI you can chat with</h4>
+      <div class="lrow"><svg class="logo"><use href="#l-gemini"/></svg><span><a href="https://gemini.google.com" target="_blank" rel="noopener">Gemini</a> is our main assistant for thinking through problems and drafting text. There is no desktop app for Windows, so the browser is the only option.</span></div>
+      <div class="lrow"><svg class="logo"><use href="#l-openai"/></svg><span><a href="https://chatgpt.com" target="_blank" rel="noopener">ChatGPT</a> works well as a second opinion. Please use the website rather than any desktop app you find, because the ones in the Windows package manager are all unofficial copies.</span></div>
+      <div class="lrow"><svg class="logo"><use href="#l-gemini"/></svg><span><a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener">Google AI Studio</a> is where your Gemini API key comes from, and where you can check how much of your daily quota is left.</span></div>
+      <div class="lrow"><svg class="logo"><use href="#l-groq"/></svg><span><a href="https://console.groq.com" target="_blank" rel="noopener">Groq</a> runs open models at several hundred words a second, which is fast enough that the answer appears the moment you stop typing. Worth wiring in if any part of the demo calls a model live on stage, because waiting in silence in front of judges feels much longer than it is. The free tier has an hourly limit, so do not point your whole app at it.</span></div>
+    </div>
+
+    <div class="mini">
+      <h4><svg class="hico"><use href="#s-book"/></svg> Research and sources</h4>
+      <div class="lrow"><svg class="logo"><use href="#l-perplexity"/></svg><span><a href="https://www.perplexity.ai" target="_blank" rel="noopener">Perplexity</a> answers with its sources attached, which is exactly what we need for the presentation. Use <b>Search</b> mode rather than Work mode, as Work burns through the free allowance quickly.</span></div>
+      <div class="lrow"><svg class="logo"><use href="#l-notebook"/></svg><span><a href="https://notebooklm.google.com" target="_blank" rel="noopener">NotebookLM</a> lets you upload a long government PDF and then ask questions about it, answering with page numbers so every claim we make can be traced back.</span></div>
+      <div class="lrow"><svg class="logo"><use href="#l-sih"/></svg><span><a href="https://sih.gov.in" target="_blank" rel="noopener">The SIH portal</a> carries the official rules, the timeline, and the published problem statements.</span></div>
+    </div>
+
+    <div class="mini">
+      <h4><svg class="hico"><use href="#s-pen"/></svg> Design and prototyping</h4>
+      <div class="lrow"><svg class="logo"><use href="#l-stitch"/></svg><span><a href="https://stitch.withgoogle.com" target="_blank" rel="noopener">Stitch</a> takes a plain-English description of a screen and designs it properly, including a mobile version. Remember to switch the toggle from App to <b>Web</b> before you generate anything.</span></div>
+      <div class="lrow"><svg class="logo"><use href="#l-bolt"/></svg><span><a href="https://bolt.new" target="_blank" rel="noopener">Bolt</a> takes a description of an entire app and builds a rough working version, which is genuinely useful in the first hour when we are staring at an empty folder.</span></div>
+      <div class="lrow"><svg class="logo"><use href="#l-excalidraw"/></svg><span><a href="https://excalidraw.com" target="_blank" rel="noopener">Excalidraw</a> is where we will draw the architecture diagram. Judges consistently respond to one clear picture of how the system fits together.</span></div>
+      <div class="lrow"><svg class="logo"><use href="#l-photopea"/></svg><span><a href="https://www.photopea.com" target="_blank" rel="noopener">Photopea</a> is a free Photoshop that runs in a tab, for any image editing the deck needs.</span></div>
+      <div class="lrow"><svg class="logo"><use href="#l-md"/></svg><span>A <b><code>DESIGN.md</code></b> file in the repo is the cheapest way to stop the app looking like four different apps. Write your colours, fonts and spacing rules into one markdown file, and every AI agent you use reads the same rules instead of inventing its own. Stitch can generate a design system straight from it.</span></div>
+    </div>
+
+    <div class="mini">
+      <h4><svg class="hico"><use href="#s-blocks"/></svg> Components you paste in <span class="chip">saves hours</span></h4>
+      <div class="lrow"><svg class="logo"><use href="#l-shadcn"/></svg><span><a href="https://ui.shadcn.com" target="_blank" rel="noopener">shadcn/ui</a> <span class="aur">is the single biggest time saver here</span>. You copy a component's code into your own project rather than installing a library, so buttons, dialogs and forms look finished immediately, and because the code is now yours, you can edit it on the spot instead of fighting someone else's settings.</span></div>
+      <div class="lrow"><svg class="logo"><use href="#l-aceternity"/></svg><span><a href="https://ui.aceternity.com" target="_blank" rel="noopener">Aceternity UI</a> is the same copy-paste idea for animated sections. Use it on the landing screen and nowhere else. Animation everywhere reads as a template, but one well-placed moving element makes the whole thing look considered.</span></div>
+    </div>
+
+    <div class="mini">
+      <h4><svg class="hico"><use href="#s-db"/></svg> Database and backend</h4>
+      <div class="lrow"><svg class="logo"><use href="#l-supabase"/></svg><span><a href="https://supabase.com/dashboard" target="_blank" rel="noopener">Supabase</a> is our database and login system. One important detail: a free project <b>goes to sleep after seven days of inactivity</b>, so whoever owns it should open this dashboard on the morning of the demo to wake it up.</span></div>
+      <div class="lrow"><svg class="logo"><use href="#l-neon"/></svg><span><a href="https://console.neon.tech" target="_blank" rel="noopener">Neon</a> is a second Postgres database we can use for throwaway experiments, and unlike Supabase it wakes itself up automatically.</span></div>
+      <div class="lrow"><svg class="logo"><use href="#l-github"/></svg><span><a href="https://github.com" target="_blank" rel="noopener">GitHub</a> holds our repository, and the submission link comes from here.</span></div>
+    </div>
+
+    <div class="mini">
+      <h4><svg class="hico"><use href="#s-lang"/></svg> Indian data and languages <span class="chip">our edge</span></h4>
+      <div class="lrow"><svg class="logo"><use href="#l-bhashini"/></svg><span><a href="https://bhashini.gov.in" target="_blank" rel="noopener">Bhashini</a> is the Government of India's own AI language platform, built by MeitY, covering <b class="aur">22 Indian languages</b> for speech and translation. It is free with no rate limit, and using the government's own infrastructure at a government hackathon is an angle most teams will not have considered.</span></div>
+      <div class="lrow"><svg class="logo"><use href="#l-datagov"/></svg><span><a href="https://data.gov.in" target="_blank" rel="noopener">data.gov.in</a> holds real government datasets covering agriculture, health, disaster management and more. Seeding our app with genuine data rather than invented rows is exactly what separates a prototype from a demo, and when we cite it we should name the dataset and year rather than just the portal.</span></div>
+    </div>
+
+    <div class="mini">
+      <h4><svg class="hico"><use href="#s-rocket"/></svg> Deploy, demo and compute</h4>
+      <div class="lrow"><svg class="logo"><use href="#l-cloudflare"/></svg><span><a href="https://pages.cloudflare.com" target="_blank" rel="noopener">Cloudflare Pages</a> gives us a free permanent web address for the finished app, which is far better on a slide than <code>localhost</code>.</span></div>
+      <div class="lrow"><svg class="logo"><use href="#l-colab"/></svg><span><a href="https://colab.research.google.com" target="_blank" rel="noopener">Google Colab</a> provides a free GPU in the browser, which we will need if any part of our solution involves training a model.</span></div>
+      <div class="lrow"><svg class="logo"><use href="#l-vercel"/></svg><span><a href="https://vercel.com" target="_blank" rel="noopener">Vercel</a> does the same job as Cloudflare Pages, and either is fine, so pick one and stop thinking about it. The reason to prefer Vercel with four people pushing at once is that <b>every push gets its own preview link</b>, so you can send someone a working URL of your half without disturbing what is on the main address. The free plan is for non-commercial projects, which a hackathon entry is.</span></div>
+      <div class="lrow"><svg class="logo"><use href="#l-github"/></svg><span><a href="https://github.dev" target="_blank" rel="noopener">github.dev</a> opens VS Code inside a browser tab, which is a useful escape route if someone's laptop dies on the day.</span></div>
+    </div>
+
+  </div>
+
+
+
+
+  <div class="shead" id="perks">
+    <h2><svg class="sico"><use href="#s-gift"/></svg> Free student perks worth claiming</h2>
+    <p>Both of these verify your student status using your college details, and both can take a few days to come through, so it is worth starting them now rather than the night before.</p>
+  </div>
+
+  <div class="grid grid-2">
+    <div class="mini">
+      <h4><svg class="logo logo-lg"><use href="#l-google"/></svg> Google AI Plus <span class="chip chip-ok">free 12 months</span></h4>
+      <p>This gives you <b>400 GB of storage</b> and full Gemini access, free for a year. Claim it using your JAIN college mail.</p>
+      <p>When it asks you for your school, you must <b>select "JAIN (Deemed-to-be University)" from the dropdown list</b> that appears. Typing the name and moving on will not work.</p>
+      <a class="dl" href="https://one.google.com/ai-student" target="_blank" rel="noopener"><svg class="logo"><use href="#l-gemini"/></svg> Claim AI Plus</a>
+    </div>
+
+    <div class="mini">
+      <h4><svg class="logo logo-lg"><use href="#l-github"/></svg> GitHub Student Pack <span class="chip chip-ok">free</span></h4>
+      <p>This one includes <b>JetBrains Ultimate</b>, <b>$200 of DigitalOcean credit</b>, <b>$100 of Azure credit</b>, a free domain name, and <b>180 hours a month of Codespaces</b>, which is cloud development that runs perfectly well even on a slow laptop.</p>
+      <p>Two things in the pack are easy to miss. It includes <b>GitHub Copilot Pro free for as long as you are a student</b>, which most people never switch on, so turn it on inside VS Code once the pack is approved. It also includes a <b>free domain for a year</b> through Namecheap, and a real web address on the slide reads better than a long github.io link.</p>
+      <p>Set your GitHub profile location to Bangalore before you apply, because a mismatch between your location and your college is the most common reason applications get rejected.</p>
+      <a class="dl" href="https://education.github.com/pack" target="_blank" rel="noopener"><svg class="logo"><use href="#l-github"/></svg> Claim the pack</a>
+    </div>
+  </div>
+
+
+
+  <nav class="pager">
+    <a class="pg pg-prev" href="./setup.html"><span>Previous</span><b>The setup in six steps</b></a>
+    <a class="pg pg-next" href="./project.html"><span>Next</span><b>Team INNOV8 · SIH26042</b></a>
+  </nav>
+
+</div>
+
+<script>
+
+/* Runs before first paint so the page never flashes the wrong theme.
+   Default is light; "auto" (follow the OS) is opt-in via the toggle. */
+(function () {
+  var m;
+  try { m = localStorage.getItem('almanac-theme'); } catch (e) {}
+  if (m !== 'auto') document.documentElement.setAttribute('data-theme', m === 'dark' ? 'dark' : 'light');
+})();
+
+</script>
+<script>
+
+(function () {
+  var root = document.documentElement;
+  var btns = document.querySelectorAll('.themer button');
+  function paint(mode) {
+    if (mode === 'auto') root.removeAttribute('data-theme');
+    else root.setAttribute('data-theme', mode);
+    btns.forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.set === mode)); });
+  }
+  btns.forEach(function (b) {
+    b.addEventListener('click', function () {
+      paint(b.dataset.set);
+      /* only a real click is remembered, so the default stays light */
+      try { localStorage.setItem('almanac-theme', b.dataset.set); } catch (e) {}
+    });
+  });
+  var saved;
+  try { saved = localStorage.getItem('almanac-theme'); } catch (e) {}
+  paint(saved === 'auto' || saved === 'dark' ? saved : 'light');
+})();
+
+</script>
+<script>
+
+(function () {
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var root = document.documentElement;
+
+  /* Spotlight - one listener for the whole page, coalesced into a frame. */
+  var pending = null;
+  document.addEventListener('pointermove', function (e) {
+    var card = e.target.closest && e.target.closest('.mini, .tile');
+    if (!card) return;
+    pending = [card, e];
+    requestAnimationFrame(function () {
+      if (!pending) return;
+      var c = pending[0], ev = pending[1], r = c.getBoundingClientRect();
+      var px = (ev.clientX - r.left) / r.width, py = (ev.clientY - r.top) / r.height;
+      c.style.setProperty('--mx', (px * 100) + '%');
+      c.style.setProperty('--my', (py * 100) + '%');
+      if (!reduce) {
+        /* +-5 degrees. Enough to read as depth, not enough to hurt the text. */
+        c.style.setProperty('--ry', ((px - 0.5) * 10).toFixed(2) + 'deg');
+        c.style.setProperty('--rx', ((0.5 - py) * 10).toFixed(2) + 'deg');
+      }
+      pending = null;
+    });
+  }, {passive: true});
+
+  document.addEventListener('pointerout', function (e) {
+    var card = e.target.closest && e.target.closest('.mini, .tile');
+    if (!card || card.contains(e.relatedTarget)) return;
+    card.style.setProperty('--rx', '0deg');
+    card.style.setProperty('--ry', '0deg');
+  }, {passive: true});
+
+  /* Reveal - only ever hides things when we can also reveal them. */
+  if (reduce || !('IntersectionObserver' in window)) return;
+  root.classList.add('js-reveal');
+  var items = document.querySelectorAll('.mini, .stepcard, .dstep, .wrow');
+  items.forEach(function (el) { el.classList.add('rv'); });
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (!en.isIntersecting) return;
+      en.target.classList.add('in');
+      io.unobserve(en.target);
+    });
+  }, {rootMargin: '0px 0px -8% 0px', threshold: 0.06});
+  items.forEach(function (el) { io.observe(el); });
+
+  /* Anything already on screen at load should not wait to fade in. */
+  requestAnimationFrame(function () {
+    items.forEach(function (el) {
+      if (el.getBoundingClientRect().top < innerHeight) el.classList.add('in');
+    });
+  });
+})();
+
+</script>
+</body>
+</html>

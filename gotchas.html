@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Things that will waste your time</title>
+<meta name="description" content="The traps that cost hours, and the checklist to clear before the hackathon starts.">
+<meta name="author" content="Jonathan John">
+<meta name="color-scheme" content="light dark">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Things that will waste your time">
+<meta property="og:description" content="The traps that cost hours, and the checklist to clear before the hackathon starts.">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#129520;</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="./assets/almanac.css">
+<script>
+/* Before first paint, so no flash of the wrong theme. */
+(function () {
+  var m; try { m = localStorage.getItem('almanac-theme'); } catch (e) {}
+  if (m !== 'auto') document.documentElement.setAttribute('data-theme', m === 'dark' ? 'dark' : 'light');
+})();
+</script>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="s-trap" viewBox="0 0 24 24"><path d="M9.4 4.6a3 3 0 0 1 5.2 0l7 12.2a3 3 0 0 1-2.6 4.5H5a3 3 0 0 1-2.6-4.5Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M12 9.4v4.4M12 17.2v.1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="s-clip" viewBox="0 0 24 24"><rect x="4.6" y="4" width="14.8" height="17" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><rect x="8.8" y="1.9" width="6.4" height="4.2" rx="1.4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m8.8 13 2.3 2.3 4.1-4.6" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</defs></svg>
+
+<div class="topbar">
+  <div class="topbar-in">
+    <a class="mark" href="./">John&rsquo;s Almanac</a>
+    <nav class="nav">
+      <a href="./">Start</a>
+      <a href="./setup.html">Setup</a>
+      <a href="./toolkit.html">Toolkit</a>
+      <a href="./project.html">Project</a>
+      <a href="./gotchas.html" aria-current="page">Gotchas</a>
+    </nav>
+    <div class="themer" role="group" aria-label="Colour theme">
+      <button type="button" data-set="light" aria-pressed="true">Light</button>
+      <button type="button" data-set="dark"  aria-pressed="false">Dark</button>
+      <button type="button" data-set="auto"  aria-pressed="false">Auto</button>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="shead" id="gotchas">
+    <h2><svg class="sico"><use href="#s-trap"/></svg> Things that will waste your time</h2>
+    <p>Every one of these cost me real hours during setup, and none of them are obvious until they happen to you.</p>
+  </div>
+
+  <div class="gotchas">
+    <div class="gotcha"><div class="gk">Gemini "Sign in with Google"</div><div class="gv"><b>This no longer works for individual accounts.</b> The login completes and then the account is refused. Use the API key option instead.</div></div>
+    <div class="gotcha"><div class="gk">Restart after Node.js</div><div class="gv">If npm commands fail with <code>npm is not recognised</code>, the restart was skipped. Windows does not refresh its PATH until you restart.</div></div>
+    <div class="gotcha"><div class="gk">Ad blockers break logins</div><div class="gv">An extension silently broke <b>three separate Google logins</b> during setup. If a sign-in button does nothing whatsoever when clicked, open the page in an <b>incognito window</b>.</div></div>
+    <div class="gotcha"><div class="gk">Model size against VRAM</div><div class="gv">A 4 GB graphics card runs roughly a <b>3B or 4B model</b>. Anything above about 3 GB will simply not load, however impressive it looks in the catalogue.</div></div>
+    <div class="gotcha"><div class="gk">Convincing fakes everywhere</div><div class="gv">Searching the VS Code marketplace for Antigravity returns impostors with <b>more installs than the real one</b>, and there is no official ChatGPT or Gemini desktop app in winget either. <b>Check the publisher rather than the install count.</b></div></div>
+    <div class="gotcha"><div class="gk"><code>npm create vite .</code></div><div class="gv">Scaffolding into a folder that already contains files will offer to <b>delete them</b>, and passing <code>-y</code> confirms that automatically. Scaffold into an empty subfolder and move the files up afterwards.</div></div>
+    <div class="gotcha"><div class="gk">Async from the first line</div><div class="gv">If our data layer starts out synchronous, <b>swapping in Supabase later means rewriting every file</b>. Every store method should return a Promise from the very beginning.</div></div>
+    <div class="gotcha"><div class="gk">RAM matters more than tools</div><div class="gv">Chrome with 28 tabs held <b>4.3 GB</b> on my machine, which is more than every tool in this kit combined. Close your browsers before we start.</div></div>
+    <div class="gotcha"><div class="gk">Do not install Docker</div><div class="gv">Nothing here needs it, and on a 16 GB laptop already running an editor and a dev server it will cause more problems than it solves.</div></div>
+  </div>
+
+
+
+
+  <div class="shead" id="checklist">
+    <h2><svg class="sico"><use href="#s-clip"/></svg> Before 3 September</h2>
+    <p>Tap each line to tick it off. Everything on this list needs a working internet connection, so none of it can be left until we are at the venue.</p>
+  </div>
+
+  <div class="final" id="finalList">
+    <div class="fitem" data-f="1"><span class="fbox">✓</span><span class="flabel"><b>All six steps above complete</b><span class="why">Node, Git, VS Code, the agents, the accounts and the extensions.</span></span></div>
+    <div class="fitem" data-f="2"><span class="fbox">✓</span><span class="flabel"><b>Local model downloaded and loaded at least once</b><span class="why">Confirm that it actually loads, not simply that the file finished downloading.</span></span></div>
+    <div class="fitem" data-f="3"><span class="fbox">✓</span><span class="flabel"><b>Student perks claimed</b><span class="why">Google AI Plus and the GitHub Student Pack. Verification can take several days.</span></span></div>
+    <div class="fitem" data-f="4"><span class="fbox">✓</span><span class="flabel"><b>Phone hotspot tested</b><span class="why">This is our genuine wifi backup, so please test it before we need it rather than after.</span></span></div>
+    <div class="fitem" data-f="5"><span class="fbox">✓</span><span class="flabel"><b>Charger, power bank and an extension board</b><span class="why">Six laptops over 24 hours, and there are never enough sockets.</span></span></div>
+    <div class="fitem" data-f="6"><span class="fbox">✓</span><span class="flabel"><b>Roles agreed between us</b><span class="why">Who owns the backend, the interface, the deck and the demo recording. Best decided now rather than at hour eighteen.</span></span></div>
+  </div>
+
+  <div class="foot">
+    <span class="avatar">JJ</span>
+    <p>Prepared by Jonathan John · JAIN (Deemed-to-be University) · August 2026<br>Compiled from a full end-to-end install and test. Every command verified on Windows 11.</p>
+  </div>
+
+</div>
+
+
+<script>
+(function () {
+  var root = document.documentElement;
+  var btns = document.querySelectorAll('.themer button');
+  function paint(mode) {
+    if (mode === 'auto') root.removeAttribute('data-theme');
+    else root.setAttribute('data-theme', mode);
+    btns.forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.set === mode)); });
+  }
+  btns.forEach(function (b) {
+    b.addEventListener('click', function () {
+      paint(b.dataset.set);
+      /* only a real click is remembered, so the default stays light */
+      try { localStorage.setItem('almanac-theme', b.dataset.set); } catch (e) {}
+    });
+  });
+  var saved;
+  try { saved = localStorage.getItem('almanac-theme'); } catch (e) {}
+  paint(saved === 'auto' || saved === 'dark' ? saved : 'light');
+})();
+</script>
+<script>
+(function () {
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var root = document.documentElement;
+
+  /* Spotlight - one listener for the whole page, coalesced into a frame. */
+  var pending = null;
+  document.addEventListener('pointermove', function (e) {
+    var card = e.target.closest && e.target.closest('.mini, .tile');
+    if (!card) return;
+    pending = [card, e];
+    requestAnimationFrame(function () {
+      if (!pending) return;
+      var c = pending[0], ev = pending[1], r = c.getBoundingClientRect();
+      var px = (ev.clientX - r.left) / r.width, py = (ev.clientY - r.top) / r.height;
+      c.style.setProperty('--mx', (px * 100) + '%');
+      c.style.setProperty('--my', (py * 100) + '%');
+      if (!reduce) {
+        /* +-5 degrees. Enough to read as depth, not enough to hurt the text. */
+        c.style.setProperty('--ry', ((px - 0.5) * 10).toFixed(2) + 'deg');
+        c.style.setProperty('--rx', ((0.5 - py) * 10).toFixed(2) + 'deg');
+      }
+      pending = null;
+    });
+  }, {passive: true});
+
+  document.addEventListener('pointerout', function (e) {
+    var card = e.target.closest && e.target.closest('.mini, .tile');
+    if (!card || card.contains(e.relatedTarget)) return;
+    card.style.setProperty('--rx', '0deg');
+    card.style.setProperty('--ry', '0deg');
+  }, {passive: true});
+
+  /* Reveal - only ever hides things when we can also reveal them. */
+  if (reduce || !('IntersectionObserver' in window)) return;
+  root.classList.add('js-reveal');
+  var items = document.querySelectorAll('.mini, .stepcard, .dstep, .wrow');
+  items.forEach(function (el) { el.classList.add('rv'); });
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (!en.isIntersecting) return;
+      en.target.classList.add('in');
+      io.unobserve(en.target);
+    });
+  }, {rootMargin: '0px 0px -8% 0px', threshold: 0.06});
+  items.forEach(function (el) { io.observe(el); });
+
+  /* Anything already on screen at load should not wait to fade in. */
+  requestAnimationFrame(function () {
+    items.forEach(function (el) {
+      if (el.getBoundingClientRect().top < innerHeight) el.classList.add('in');
+    });
+  });
+})();
+</script>
+
+  <nav class="pager">
+    <a class="pg pg-prev" href="./project.html"><span>Previous</span><b>Team INNOV8 · SIH26042</b></a>
+  </nav>
+
+</div>
+
+<script>
+
+/* Runs before first paint so the page never flashes the wrong theme.
+   Default is light; "auto" (follow the OS) is opt-in via the toggle. */
+(function () {
+  var m;
+  try { m = localStorage.getItem('almanac-theme'); } catch (e) {}
+  if (m !== 'auto') document.documentElement.setAttribute('data-theme', m === 'dark' ? 'dark' : 'light');
+})();
+
+</script>
+<script>
+
+(function () {
+  var root = document.documentElement;
+  var btns = document.querySelectorAll('.themer button');
+  function paint(mode) {
+    if (mode === 'auto') root.removeAttribute('data-theme');
+    else root.setAttribute('data-theme', mode);
+    btns.forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.set === mode)); });
+  }
+  btns.forEach(function (b) {
+    b.addEventListener('click', function () {
+      paint(b.dataset.set);
+      /* only a real click is remembered, so the default stays light */
+      try { localStorage.setItem('almanac-theme', b.dataset.set); } catch (e) {}
+    });
+  });
+  var saved;
+  try { saved = localStorage.getItem('almanac-theme'); } catch (e) {}
+  paint(saved === 'auto' || saved === 'dark' ? saved : 'light');
+})();
+
+</script>
+<script>
+
+(function () {
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var root = document.documentElement;
+
+  /* Spotlight - one listener for the whole page, coalesced into a frame. */
+  var pending = null;
+  document.addEventListener('pointermove', function (e) {
+    var card = e.target.closest && e.target.closest('.mini, .tile');
+    if (!card) return;
+    pending = [card, e];
+    requestAnimationFrame(function () {
+      if (!pending) return;
+      var c = pending[0], ev = pending[1], r = c.getBoundingClientRect();
+      var px = (ev.clientX - r.left) / r.width, py = (ev.clientY - r.top) / r.height;
+      c.style.setProperty('--mx', (px * 100) + '%');
+      c.style.setProperty('--my', (py * 100) + '%');
+      if (!reduce) {
+        /* +-5 degrees. Enough to read as depth, not enough to hurt the text. */
+        c.style.setProperty('--ry', ((px - 0.5) * 10).toFixed(2) + 'deg');
+        c.style.setProperty('--rx', ((0.5 - py) * 10).toFixed(2) + 'deg');
+      }
+      pending = null;
+    });
+  }, {passive: true});
+
+  document.addEventListener('pointerout', function (e) {
+    var card = e.target.closest && e.target.closest('.mini, .tile');
+    if (!card || card.contains(e.relatedTarget)) return;
+    card.style.setProperty('--rx', '0deg');
+    card.style.setProperty('--ry', '0deg');
+  }, {passive: true});
+
+  /* Reveal - only ever hides things when we can also reveal them. */
+  if (reduce || !('IntersectionObserver' in window)) return;
+  root.classList.add('js-reveal');
+  var items = document.querySelectorAll('.mini, .stepcard, .dstep, .wrow');
+  items.forEach(function (el) { el.classList.add('rv'); });
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (!en.isIntersecting) return;
+      en.target.classList.add('in');
+      io.unobserve(en.target);
+    });
+  }, {rootMargin: '0px 0px -8% 0px', threshold: 0.06});
+  items.forEach(function (el) { io.observe(el); });
+
+  /* Anything already on screen at load should not wait to fade in. */
+  requestAnimationFrame(function () {
+    items.forEach(function (el) {
+      if (el.getBoundingClientRect().top < innerHeight) el.classList.add('in');
+    });
+  });
+})();
+
+</script>
+</body>
+</html>

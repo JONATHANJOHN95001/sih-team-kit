@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The setup in six steps</title>
+<meta name="description" content="Node, Git, VS Code and the AI agents, installed and verified in about twenty minutes.">
+<meta name="author" content="Jonathan John">
+<meta name="color-scheme" content="light dark">
+<meta property="og:type" content="website">
+<meta property="og:title" content="The setup in six steps">
+<meta property="og:description" content="Node, Git, VS Code and the AI agents, installed and verified in about twenty minutes.">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#129520;</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="./assets/almanac.css">
+<script>
+/* Before first paint, so no flash of the wrong theme. */
+(function () {
+  var m; try { m = localStorage.getItem('almanac-theme'); } catch (e) {}
+  if (m !== 'auto') document.documentElement.setAttribute('data-theme', m === 'dark' ? 'dark' : 'light');
+})();
+</script>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="l-node" viewBox="0 0 24 24"><path d="M11.998,24c-0.321,0-0.641-0.084-0.922-0.247l-2.936-1.737c-0.438-0.245-0.224-0.332-0.08-0.383 c0.585-0.203,0.703-0.25,1.328-0.604c0.065-0.037,0.151-0.023,0.218,0.017l2.256,1.339c0.082,0.045,0.197,0.045,0.272,0l8.795-5.076 c0.082-0.047,0.134-0.141,0.134-0.238V6.921c0-0.099-0.053-0.192-0.137-0.242l-8.791-5.072c-0.081-0.047-0.189-0.047-0.271,0 L3.075,6.68C2.99,6.729,2.936,6.825,2.936,6.921v10.15c0,0.097,0.054,0.189,0.139,0.235l2.409,1.392 c1.307,0.654,2.108-0.116,2.108-0.89V7.787c0-0.142,0.114-0.253,0.256-0.253h1.115c0.139,0,0.255,0.112,0.255,0.253v10.021 c0,1.745-0.95,2.745-2.604,2.745c-0.508,0-0.909,0-2.026-0.551L2.28,18.675c-0.57-0.329-0.922-0.945-0.922-1.604V6.921 c0-0.659,0.353-1.275,0.922-1.603l8.795-5.082c0.557-0.315,1.296-0.315,1.848,0l8.794,5.082c0.57,0.329,0.924,0.944,0.924,1.603 v10.15c0,0.659-0.354,1.273-0.924,1.604l-8.794,5.078C12.643,23.916,12.324,24,11.998,24z M19.099,13.993 c0-1.9-1.284-2.406-3.987-2.763c-2.731-0.361-3.009-0.548-3.009-1.187c0-0.528,0.235-1.233,2.258-1.233 c1.807,0,2.473,0.389,2.747,1.607c0.024,0.115,0.129,0.199,0.247,0.199h1.141c0.071,0,0.138-0.031,0.186-0.081 c0.048-0.054,0.074-0.123,0.067-0.196c-0.177-2.098-1.571-3.076-4.388-3.076c-2.508,0-4.004,1.058-4.004,2.833 c0,1.925,1.488,2.457,3.895,2.695c2.88,0.282,3.103,0.703,3.103,1.269c0,0.983-0.789,1.402-2.642,1.402 c-2.327,0-2.839-0.584-3.011-1.742c-0.02-0.124-0.126-0.215-0.253-0.215h-1.137c-0.141,0-0.254,0.112-0.254,0.253 c0,1.482,0.806,3.248,4.655,3.248C17.501,17.007,19.099,15.91,19.099,13.993z" fill="#5FA04E"/></symbol>
+  <symbol id="l-git" viewBox="0 0 24 24"><path d="M13.09 23.549a1.54 1.54 0 0 1-2.18 0L.451 13.089a1.54 1.54 0 0 1 0-2.179l7.191-7.19 2.733 2.733a1.85 1.85 0 0 0 .964 2.326v6.66a1.849 1.849 0 1 0 1.54 0V8.957l2.508 2.508a1.85 1.85 0 1 0 1.09-1.09l-2.634-2.634a1.85 1.85 0 0 0-2.378-2.377L8.73 2.63 10.91.451a1.54 1.54 0 0 1 2.179 0l10.459 10.46a1.54 1.54 0 0 1 0 2.179z" fill="#F05032"/></symbol>
+  <symbol id="l-vscode" viewBox="0 0 24 24"><path d="M17.9 1.3 22.4 3.5a1 1 0 0 1 .6.9v15.2a1 1 0 0 1-.6.9l-4.5 2.2a1 1 0 0 1-1.1-.2l-8.6-7.8-4 3a.7.7 0 0 1-.9 0l-1.9-1.7a.7.7 0 0 1 0-1L4.3 12 1.4 9a.7.7 0 0 1 0-1l1.9-1.7a.7.7 0 0 1 .9 0l4 3 8.6-7.8a1 1 0 0 1 1.1-.2Zm.6 5.3L12 12l6.5 5.4V6.6Z" fill="#0078D4"/></symbol>
+  <symbol id="l-gemini" viewBox="0 0 24 24"><path d="M11.04 19.32Q12 21.51 12 24q0-2.49.93-4.68.96-2.19 2.58-3.81t3.81-2.55Q21.51 12 24 12q-2.49 0-4.68-.93a12.3 12.3 0 0 1-3.81-2.58 12.3 12.3 0 0 1-2.58-3.81Q12 2.49 12 0q0 2.49-.96 4.68-.93 2.19-2.55 3.81a12.3 12.3 0 0 1-3.81 2.58Q2.49 12 0 12q2.49 0 4.68.96 2.19.93 3.81 2.55t2.55 3.81" fill="#4285F4"/></symbol>
+  <symbol id="l-obs" viewBox="0 0 24 24"><path d="M12,24C5.383,24,0,18.617,0,12S5.383,0,12,0s12,5.383,12,12S18.617,24,12,24z M12,1.109 C5.995,1.109,1.11,5.995,1.11,12C1.11,18.005,5.995,22.89,12,22.89S22.89,18.005,22.89,12C22.89,5.995,18.005,1.109,12,1.109z M6.182,5.99c0.352-1.698,1.503-3.229,3.05-3.996c-0.269,0.273-0.595,0.483-0.844,0.78c-1.02,1.1-1.48,2.692-1.199,4.156 c0.355,2.235,2.455,4.06,4.732,4.028c1.765,0.079,3.485-0.937,4.348-2.468c1.848,0.063,3.645,1.017,4.7,2.548 c0.54,0.799,0.962,1.736,0.991,2.711c-0.342-1.295-1.202-2.446-2.375-3.095c-1.135-0.639-2.529-0.802-3.772-0.425 c-1.56,0.448-2.849,1.723-3.293,3.293c-0.377,1.25-0.216,2.628,0.377,3.772c-0.825,1.429-2.315,2.449-3.932,2.756 c-1.244,0.261-2.551,0.059-3.709-0.464c1.036,0.302,2.161,0.355,3.191-0.011c1.381-0.457,2.522-1.567,3.024-2.935 c0.556-1.49,0.345-3.261-0.591-4.54c-0.7-1.007-1.803-1.717-3.002-1.969c-0.38-0.068-0.764-0.098-1.148-0.134 c-0.611-1.231-0.834-2.66-0.528-3.996L6.182,5.99z" fill="#302E31"/></symbol>
+  <symbol id="l-antigravity" viewBox="0 0 24 24"><path d="M12 2.4 22.2 21H16l-4-7.6L8 21H1.8L12 2.4Z" fill="none" stroke="#4B36D9" stroke-width="1.9" stroke-linejoin="round"/></symbol>
+  <symbol id="l-lmstudio" viewBox="0 0 24 24"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="4.4" fill="#4E3BC4"/><path d="M8.3 7.6v8.8h7.1" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="l-warn" viewBox="0 0 24 24"><path d="M12 3.4 22.2 20.4H1.8L12 3.4Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M12 9.6v4.2M12 16.8v.1" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></symbol>
+  <symbol id="l-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 11v5.5M12 7.6v.1" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></symbol>
+  <symbol id="l-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m8 12.3 2.7 2.7L16 9.6" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="s-wrench" viewBox="0 0 24 24"><path d="M15.6 3.4a5.6 5.6 0 0 0-5 8.1L3.5 18.6a1.8 1.8 0 0 0 2.6 2.6l7.1-7.1a5.6 5.6 0 0 0 6.9-7.6l-3 3-2.6-2.6 3-3a5.6 5.6 0 0 0-1.9-.5Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+  <symbol id="s-offline" viewBox="0 0 24 24"><path d="M2.5 8.6a15 15 0 0 1 19 0M5.8 12.3a10 10 0 0 1 12.4 0M9.2 15.9a5 5 0 0 1 5.6 0M12 19.6v.1" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/><path d="m3 3 18 18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"/></symbol>
+</defs></svg>
+
+<div class="topbar">
+  <div class="topbar-in">
+    <a class="mark" href="./">John&rsquo;s Almanac</a>
+    <nav class="nav">
+      <a href="./">Start</a>
+      <a href="./setup.html" aria-current="page">Setup</a>
+      <a href="./toolkit.html">Toolkit</a>
+      <a href="./project.html">Project</a>
+      <a href="./gotchas.html">Gotchas</a>
+    </nav>
+    <div class="themer" role="group" aria-label="Colour theme">
+      <button type="button" data-set="light" aria-pressed="true">Light</button>
+      <button type="button" data-set="dark"  aria-pressed="false">Dark</button>
+      <button type="button" data-set="auto"  aria-pressed="false">Auto</button>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="shead" id="setup">
+    <h2><svg class="sico"><use href="#s-wrench"/></svg> The setup in six steps</h2>
+    <p>Work through these in order. Each one builds on the last, so a step skipped is a step you come back to.</p>
+  </div>
+
+  <!-- 1 -->
+  <section class="step" id="s1" open-state="1">
+    <button class="step-head" type="button" aria-expanded="true" aria-controls="b1">
+      <span class="step-num">1</span>
+      <span><span class="step-title">Install the base</span><span class="step-sub">Node.js, Git and VS Code, because everything else runs on top of these</span></span>
+      <span class="step-meta"><span class="time">~8 min</span><span class="chev">▶</span></span>
+    </button>
+    <div class="step-body" id="b1">
+      <p>There are three downloads here. Click each button below, run the installer it gives you, and click Next through every screen. The default options are all correct and none of them need changing.</p>
+
+      <a class="dl" href="https://nodejs.org" target="_blank" rel="noopener"><svg class="logo"><use href="#l-node"/></svg> Node.js <small>pick LTS</small></a>
+      <a class="dl" href="https://git-scm.com/download/win" target="_blank" rel="noopener"><svg class="logo"><use href="#l-git"/></svg> Git</a>
+      <a class="dl" href="https://code.visualstudio.com" target="_blank" rel="noopener"><svg class="logo"><use href="#l-vscode"/></svg> VS Code</a>
+
+      <p>To explain what each of these actually does: <b>Node.js</b> is what runs all the AI tools we install in step 2, so nothing else will work without it. <b>Git</b> is how six of us can edit the same code without overwriting each other's work. <b>VS Code</b> is the editor where we will actually see and change the project.</p>
+
+      <div class="note note-warn"><svg class="logo note-ico"><use href="#l-warn"/></svg><div><b>Please restart your PC now.</b> Windows will not recognise the <code>npm</code> command until you do, and step 2 will fail with the message "npm is not recognised". This catches almost everyone, so it is worth doing before you continue.</div></div>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section class="step" id="s2" open-state="1">
+    <button class="step-head" type="button" aria-expanded="true" aria-controls="b2">
+      <span class="step-num">2</span>
+      <span><span class="step-title">Install the AI agents</span><span class="step-sub">The tools that write our code from plain-English instructions</span></span>
+      <span class="step-meta"><span class="time">~6 min</span><span class="chev">▶</span></span>
+    </button>
+    <div class="step-body" id="b2">
+      <p>Everything in this step happens inside PowerShell, which is the terminal built into Windows. If you have never opened it before, here is exactly how.</p>
+
+      <div class="howto">
+        <h5><svg class="logo logo-sm"><use href="#l-info"/></svg> How to open PowerShell</h5>
+        <ol>
+          <li>Press the <span class="kbd">Windows</span> key on your keyboard. The Start menu opens with a search box.</li>
+          <li>Type the word <span class="kbd">powershell</span>. You do not need to click anything first, just start typing.</li>
+          <li>Press <span class="kbd">Enter</span>, or click <b>Windows PowerShell</b> in the results.</li>
+          <li>A blue or black window opens with a line ending in <code>&gt;</code>. That blinking cursor is where commands go.</li>
+        </ol>
+      </div>
+
+      <div class="note note-tip"><svg class="logo note-ico"><use href="#l-info"/></svg><div>Pasting into PowerShell works with <span class="kbd">Ctrl</span> + <span class="kbd">V</span> as normal, and right-clicking pastes as well. If nothing appears when you paste, click once inside the window first so it has focus.</div></div>
+
+      <p>Now copy each line below using its Copy button, paste it into that window, and press Enter. Do them <b>one at a time</b> and wait for each one to finish before starting the next. Each command prints a few lines and then returns you to the <code>&gt;</code> prompt, which is how you know it has completed.</p>
+
+      <div class="term">
+        <div class="term-row"><div class="term-cmd">npm install -g @google/gemini-cli</div><button class="copy" type="button">COPY</button></div>
+        <div class="term-row"><div class="term-cmd">npm install -g freebuff</div><button class="copy" type="button">COPY</button></div>
+        <div class="term-row"><div class="term-cmd">npm install -g @openai/codex</div><button class="copy" type="button">COPY</button></div>
+        <div class="term-row"><div class="term-cmd">npm install -g supabase</div><button class="copy" type="button">COPY</button></div>
+        <div class="term-row"><div class="term-cmd">npm install -g @slidev/cli</div><button class="copy" type="button">COPY</button></div>
+      </div>
+
+      <p>Here is what you have just installed. <b>Gemini CLI</b> is our main agent and gives us roughly 1,500 requests a day. <b>freebuff</b> and <b>Codex</b> are backups that each come with their own separate free limit, which matters because when one runs out we can switch to another instead of sitting idle. <b>Supabase</b> handles our database, and <b>Slidev</b> turns a plain text file into our presentation.</p>
+
+      <div class="note note-warn"><svg class="logo note-ico"><use href="#l-warn"/></svg><div>If you see <b>"npm is not recognised"</b>, it means the restart in step 1 was skipped. Restart your PC and run the commands again.</div></div>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section class="step" id="s3" open-state="1">
+    <button class="step-head" type="button" aria-expanded="true" aria-controls="b3">
+      <span class="step-num">3</span>
+      <span><span class="step-title">Log in to Gemini</span><span class="step-sub">The one step where the obvious choice is the wrong one</span></span>
+      <span class="step-meta"><span class="time">~3 min</span><span class="chev">▶</span></span>
+    </button>
+    <div class="step-body" id="b3">
+      <p>Staying in the same PowerShell window, run the following command.</p>
+
+      <div class="term">
+        <div class="term-row"><div class="term-cmd">gemini</div><button class="copy" type="button">COPY</button></div>
+      </div>
+
+      <p>It will ask how you would like to authenticate. Use the <b>arrow keys</b> to move down the list, then press Enter on the second option rather than the first.</p>
+
+      <div class="pick">
+        <div class="pick-row pick-yes"><svg class="logo logo-sm"><use href="#l-check"/></svg> Use Gemini API Key <span class="pick-tag">pick this</span></div>
+        <div class="pick-row pick-no"><svg class="logo logo-sm"><use href="#l-warn"/></svg> Sign in with Google <span class="pick-tag">do not</span></div>
+      </div>
+
+      <div class="note note-warn"><svg class="logo note-ico"><use href="#l-warn"/></svg><div><b>"Sign in with Google" no longer works.</b> It looks exactly like the right choice, it opens a browser, and it even tells you "Authentication succeeded", and then it fails anyway, because Google discontinued that free tier for individual accounts. I lost twenty minutes to this, so please take the API key option instead.</div></div>
+
+      <p>Get your key from the link below, copy it, and paste it into the terminal when it asks for one.</p>
+      <a class="dl" href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener"><svg class="logo"><use href="#l-gemini"/></svg> Get your Gemini API key <small>free</small></a>
+
+      <div class="note note-tip"><svg class="logo note-ico"><use href="#l-info"/></svg><div>If the page refuses to load, or the button does nothing at all when you click it, open the link in an <b>incognito window</b> instead. Ad-blocker extensions broke three separate Google logins while I was setting this up.</div></div>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section class="step" id="s4" open-state="1">
+    <button class="step-head" type="button" aria-expanded="true" aria-controls="b4">
+      <span class="step-num">4</span>
+      <span><span class="step-title">Install the apps</span><span class="step-sub">Antigravity for testing, OBS Studio for recording</span></span>
+      <span class="step-meta"><span class="time">~5 min</span><span class="chev">▶</span></span>
+    </button>
+    <div class="step-body" id="b4">
+      <p><b>Antigravity</b> is Google's AI editor. It behaves much like VS Code, except that its AI can open our app in a real browser and check whether it genuinely works, which is something none of the other tools here can do.</p>
+
+      <a class="dl" href="https://antigravity.google/download" target="_blank" rel="noopener"><svg class="logo"><use href="#l-antigravity"/></svg> Antigravity</a>
+
+      <p>Once it has installed, open it and click <b>"Install IDE"</b> inside the app to get the editor as well.</p>
+
+      <div class="note note-warn"><svg class="logo note-ico"><use href="#l-warn"/></svg><div><b>Antigravity only gives you 20 requests per day.</b> Please do not chat in it. We need to save every one of those for browser-testing the app and recording the demo walkthrough, because those are the two things nothing else in our toolkit can do.</div></div>
+
+      <p><b>OBS Studio</b> records your screen, and we will use it to capture the demo as soon as the app is working properly.</p>
+
+      <a class="dl" href="https://obsproject.com" target="_blank" rel="noopener"><svg class="logo"><use href="#l-obs"/></svg> OBS Studio</a>
+
+      <div class="note note-tip"><svg class="logo note-ico"><use href="#l-info"/></svg><div>A recording that plays reliably beats a live demo that crashes in front of the judges, and something almost always breaks on stage.</div></div>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section class="step" id="s5" open-state="1">
+    <button class="step-head" type="button" aria-expanded="true" aria-controls="b5">
+      <span class="step-num">5</span>
+      <span><span class="step-title">Add four VS Code extensions</span><span class="step-sub">These catch our mistakes before they turn into bugs</span></span>
+      <span class="step-meta"><span class="time">~2 min</span><span class="chev">▶</span></span>
+    </button>
+    <div class="step-body" id="b5">
+      <p>Open VS Code and click the <b>Extensions</b> icon in the left sidebar, which looks like four small squares. Search for each of the following and click Install.</p>
+
+      <div class="exts">
+        <div class="ext"><code>Error Lens</code><span>Shows errors directly on the line where they happen, so you do not have to hover over anything or hunt through a panel.</span></div>
+        <div class="ext"><code>Prettier</code><span>Formats code automatically when you save, which stops six people's formatting from clashing every time we merge.</span></div>
+        <div class="ext"><code>ES7 React snippets</code><span>Lets you type <code>rafce</code> and press Tab to generate a whole component.</span></div>
+        <div class="ext"><code>GitLens</code><span>Shows who changed each line and when, which matters a great deal when a merge goes wrong at three in the morning.</span></div>
+      </div>
+
+      <div class="note note-tip"><svg class="logo note-ico"><use href="#l-info"/></svg><div>If you would rather use the terminal, the command below installs all four of them at once.</div></div>
+
+      <div class="term">
+        <div class="term-row"><div class="term-cmd">code --install-extension usernamehw.errorlens --install-extension esbenp.prettier-vscode --install-extension dsznajder.es7-react-js-snippets --install-extension eamodio.gitlens</div><button class="copy" type="button">COPY</button></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 -->
+  <section class="step" id="s6" open-state="1">
+    <button class="step-head" type="button" aria-expanded="true" aria-controls="b6">
+      <span class="step-num">6</span>
+      <span><span class="step-title">Final logins</span><span class="step-sub">GitHub and Supabase, and then you are finished</span></span>
+      <span class="step-meta"><span class="time">~3 min</span><span class="chev">▶</span></span>
+    </button>
+    <div class="step-body" id="b6">
+      <p>Go back to PowerShell for the last two commands. Each one opens a browser window, and you should sign in with the <b>same Google account</b> you have used for everything else, so that sharing projects between us later does not become a mess.</p>
+
+      <div class="term">
+        <div class="term-row"><div class="term-cmd">gh auth login</div><button class="copy" type="button">COPY</button></div>
+        <div class="term-row"><div class="term-cmd">supabase login</div><button class="copy" type="button">COPY</button></div>
+      </div>
+
+      <p><b>GitHub</b> holds our code and is what we submit at the end, and <b>Supabase</b> is our database.</p>
+
+      <div class="note note-warn"><svg class="logo note-ico"><use href="#l-warn"/></svg><div>Once we have a Supabase project set up, please <b>never run <code>supabase start</code></b>. That command launches Docker with roughly fourteen containers and it will freeze your laptop. We are using the hosted version only.</div></div>
+
+      <p>Finally, check that everything worked by running the command below. If the Gemini interface opens, your setup is complete.</p>
+
+      <div class="term">
+        <div class="term-row"><div class="term-cmd">gemini</div><button class="copy" type="button">COPY</button></div>
+      </div>
+
+      <div class="note note-ok"><svg class="logo note-ico"><use href="#l-check"/></svg><div>That is the entire setup. Everything below this point is either optional or there for reference on the day.</div></div>
+    </div>
+  </section>
+
+
+
+
+  <div class="shead" id="offline">
+    <h2><svg class="sico"><use href="#s-offline"/></svg> Optional: an AI that works offline</h2>
+    <p>This is only worth doing if you want a backup for when the venue wifi gives out, which in my experience it will at some point during the night.</p>
+  </div>
+
+  <div class="mini">
+    <h4><svg class="logo logo-lg"><use href="#l-lmstudio"/></svg> LM Studio <span class="chip chip-ok">unlimited · offline</span></h4>
+    <p>LM Studio runs an AI model entirely on your own laptop with no internet connection at all. Install it, then download the model called <b>Nemotron 3 Nano 4B</b>, which is about 2.8 GB.</p>
+    <p><b>Check your graphics card before you download anything.</b> A 4 GB card can run a 3B or 4B model and nothing larger. The catalogue will cheerfully suggest 27B and 30B models that are 17 GB or more and can never load on our machines, so if it warns you that a model is "likely too large", please believe it.</p>
+    <a class="dl" href="https://lmstudio.ai" target="_blank" rel="noopener"><svg class="logo"><use href="#l-lmstudio"/></svg> LM Studio</a>
+  </div>
+
+
+
+  <nav class="pager">
+    <a class="pg pg-prev" href="./"><span>Previous</span><b>John’s Almanac</b></a>
+    <a class="pg pg-next" href="./toolkit.html"><span>Next</span><b>The web toolkit</b></a>
+  </nav>
+
+</div>
+
+<script>
+
+/* Runs before first paint so the page never flashes the wrong theme.
+   Default is light; "auto" (follow the OS) is opt-in via the toggle. */
+(function () {
+  var m;
+  try { m = localStorage.getItem('almanac-theme'); } catch (e) {}
+  if (m !== 'auto') document.documentElement.setAttribute('data-theme', m === 'dark' ? 'dark' : 'light');
+})();
+
+</script>
+<script>
+
+(function () {
+  var root = document.documentElement;
+  var btns = document.querySelectorAll('.themer button');
+  function paint(mode) {
+    if (mode === 'auto') root.removeAttribute('data-theme');
+    else root.setAttribute('data-theme', mode);
+    btns.forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.set === mode)); });
+  }
+  btns.forEach(function (b) {
+    b.addEventListener('click', function () {
+      paint(b.dataset.set);
+      /* only a real click is remembered, so the default stays light */
+      try { localStorage.setItem('almanac-theme', b.dataset.set); } catch (e) {}
+    });
+  });
+  var saved;
+  try { saved = localStorage.getItem('almanac-theme'); } catch (e) {}
+  paint(saved === 'auto' || saved === 'dark' ? saved : 'light');
+})();
+
+</script>
+<script>
+
+(function () {
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var root = document.documentElement;
+
+  /* Spotlight - one listener for the whole page, coalesced into a frame. */
+  var pending = null;
+  document.addEventListener('pointermove', function (e) {
+    var card = e.target.closest && e.target.closest('.mini, .tile');
+    if (!card) return;
+    pending = [card, e];
+    requestAnimationFrame(function () {
+      if (!pending) return;
+      var c = pending[0], ev = pending[1], r = c.getBoundingClientRect();
+      var px = (ev.clientX - r.left) / r.width, py = (ev.clientY - r.top) / r.height;
+      c.style.setProperty('--mx', (px * 100) + '%');
+      c.style.setProperty('--my', (py * 100) + '%');
+      if (!reduce) {
+        /* +-5 degrees. Enough to read as depth, not enough to hurt the text. */
+        c.style.setProperty('--ry', ((px - 0.5) * 10).toFixed(2) + 'deg');
+        c.style.setProperty('--rx', ((0.5 - py) * 10).toFixed(2) + 'deg');
+      }
+      pending = null;
+    });
+  }, {passive: true});
+
+  document.addEventListener('pointerout', function (e) {
+    var card = e.target.closest && e.target.closest('.mini, .tile');
+    if (!card || card.contains(e.relatedTarget)) return;
+    card.style.setProperty('--rx', '0deg');
+    card.style.setProperty('--ry', '0deg');
+  }, {passive: true});
+
+  /* Reveal - only ever hides things when we can also reveal them. */
+  if (reduce || !('IntersectionObserver' in window)) return;
+  root.classList.add('js-reveal');
+  var items = document.querySelectorAll('.mini, .stepcard, .dstep, .wrow');
+  items.forEach(function (el) { el.classList.add('rv'); });
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (!en.isIntersecting) return;
+      en.target.classList.add('in');
+      io.unobserve(en.target);
+    });
+  }, {rootMargin: '0px 0px -8% 0px', threshold: 0.06});
+  items.forEach(function (el) { io.observe(el); });
+
+  /* Anything already on screen at load should not wait to fade in. */
+  requestAnimationFrame(function () {
+    items.forEach(function (el) {
+      if (el.getBoundingClientRect().top < innerHeight) el.classList.add('in');
+    });
+  });
+})();
+
+</script>
+</body>
+</html>
