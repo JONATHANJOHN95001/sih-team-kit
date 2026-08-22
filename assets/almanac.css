@@ -55,6 +55,8 @@
   /* card headers use a neutral outline mark so they never duplicate the
      brand logo of the first item inside the card */
   .hico { width:20px; height:20px; flex:0 0 auto; color:var(--accent); }
+
+  /* progress */
   .topbar { position:sticky; top:0; z-index:40; background:color-mix(in srgb,var(--paper) 86%,transparent);
             backdrop-filter:blur(10px); border-bottom:1px solid var(--rule); }
   .topbar-in { max-width:940px; margin:0 auto; padding:11px 20px; display:flex; align-items:center; gap:14px; }
@@ -503,13 +505,6 @@
   .step-head { display:grid; grid-template-columns:42px 1fr auto; gap:15px; align-items:center;
                padding:17px 20px; cursor:pointer; user-select:none; background:none; border:0; width:100%;
                text-align:left; font-family:inherit; color:inherit; }
-  /* The step title and its one-line description sit in the same
-     unclassed div, both inline, so they ran together as one string.
-     The title is the heading of the row, so it takes its own line. */
-  .step-head > div > b { display:block; font-family:var(--f-display); font-size:16.5px;
-                         letter-spacing:-.012em; margin-bottom:2px; }
-  .step-head > div > span { display:block; font-size:13.5px; color:var(--ink-faint);
-                            line-height:1.55; }
   .step-head:hover { background:var(--raise); }
   .step-head:focus-visible { outline:2px solid var(--accent); outline-offset:-3px; }
   .step-num { width:44px; height:44px; border-radius:12px; background:var(--accent-wash);
@@ -517,8 +512,9 @@
               font-family:var(--f-display); font-weight:800; font-size:19px; display:grid; place-items:center;
               transition:background .25s, color .25s, border-color .25s; }
   .step[data-done="1"] .step-num { background:var(--ok); color:#fff; border-color:var(--ok); }
-  .step-title { font-family:var(--f-display); font-weight:700; font-size:19px; letter-spacing:-.015em; }
-  .step-sub { font-size:14px; color:var(--ink-faint); margin-top:1px; }
+  .step-title { display:block; font-family:var(--f-display); font-weight:700; font-size:19px;
+                 letter-spacing:-.015em; }
+  .step-sub { display:block; font-size:14px; color:var(--ink-faint); margin-top:2px; line-height:1.55; }
   .step-meta { display:flex; align-items:center; gap:11px; }
   .time { font-family:var(--f-mono); font-size:11.5px; color:var(--ink-faint); white-space:nowrap; }
   .chev { color:var(--ink-faint); transition:transform .25s; font-size:12px; }
