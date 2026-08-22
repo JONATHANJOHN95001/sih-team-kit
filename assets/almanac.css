@@ -263,6 +263,17 @@
              animation-range:entry 0% entry 92%, exit 0% exit 100%; }
     @keyframes unpin { to { opacity:0; transform:translateY(-18px) scale(.97); } }
 
+    /* Phones get none of the pinning. A sticky heading costs real
+       estate a small screen cannot spare, and the unpin fade can leave
+       the last section on a page faded out, which is how the offline AI
+       heading vanished on mobile. Reveal still runs, nothing else. */
+    @media (max-width:760px) {
+      .shead { position:static; backdrop-filter:none; -webkit-backdrop-filter:none;
+               background:none; animation:none; opacity:1; transform:none; }
+      .grid.grid-2, .steps, .stk-wrap { animation:none; opacity:1; transform:none; }
+      .lrow .logo { animation:none; opacity:1; transform:none; translate:none; }
+    }
+
     /* Three: depth on the emblem as its row passes, so the medallion
        and the words it belongs to travel at different rates. */
     .lrow .logo { animation:strike linear both, lift linear both;
