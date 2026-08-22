@@ -87,6 +87,9 @@
   .logo { width:24px; height:24px; flex:0 0 auto; display:block; }
   .logo-sm { width:18px; height:18px; }
   .logo-lg { width:30px; height:30px; }
+  /* card headers use a neutral outline mark so they never duplicate the
+     brand logo of the first item inside the card */
+  .hico { width:20px; height:20px; flex:0 0 auto; color:var(--accent); }
 
   /* progress */
   .topbar { position:sticky; top:0; z-index:40; background:color-mix(in srgb,var(--paper) 86%,transparent);
@@ -397,6 +400,25 @@
   <symbol id="l-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m8 12.3 2.7 2.7L16 9.6" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></symbol>
 
   <!-- section marks -->
+  <symbol id="l-shadcn" viewBox="0 0 24 24"><path d="M19.6 4.4 4.4 19.6M14.6 2.6 2.6 14.6" fill="none" stroke="var(--mono-mark)" stroke-width="2.2" stroke-linecap="round"/></symbol>
+  <symbol id="l-aceternity" viewBox="0 0 24 24"><path d="M12 1.8 22.2 22.2H1.8L12 1.8Z" fill="#A855F7"/><path d="M12 8.6 17.4 19H6.6L12 8.6Z" fill="#fff" fill-opacity=".85"/></symbol>
+  <symbol id="l-groq" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10.2" fill="#F55036"/><path d="M12 6.4a5.6 5.6 0 1 0 3.8 9.7l-1.5-1.5A3.5 3.5 0 1 1 15.5 12v3.9h2.1V12A5.6 5.6 0 0 0 12 6.4Z" fill="#fff"/></symbol>
+  <symbol id="l-vercel" viewBox="0 0 24 24"><path d="M12 2.6 23 21.4H1L12 2.6Z" fill="var(--mono-mark)"/></symbol>
+  <symbol id="l-hf" viewBox="0 0 24 24"><circle cx="12" cy="12.6" r="9.4" fill="#FFD21E"/><circle cx="8.9" cy="10.6" r="1.35" fill="#32343D"/><circle cx="15.1" cy="10.6" r="1.35" fill="#32343D"/><path d="M8.4 14.9a4.2 4.2 0 0 0 7.2 0" fill="none" stroke="#32343D" stroke-width="1.7" stroke-linecap="round"/></symbol>
+  <symbol id="l-pytorch" viewBox="0 0 24 24"><path d="M12 1.9 8.2 5.7a5.4 5.4 0 1 0 7.6 0L12 1.9Z" fill="#EE4C2C"/><circle cx="14.6" cy="7.1" r="1.15" fill="#fff"/></symbol>
+  <symbol id="l-md" viewBox="0 0 24 24"><rect x="1.9" y="5.4" width="20.2" height="13.2" rx="2.2" fill="none" stroke="var(--mono-mark)" stroke-width="1.9"/><path d="M5.4 15.6V8.9l3 3.6 3-3.6v6.7M16.2 8.9v6.7m0 0-2-2.2m2 2.2 2-2.2" fill="none" stroke="var(--mono-mark)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="s-type" viewBox="0 0 24 24"><path d="M3.4 6.2V4h17.2v2.2M12 4v16M8.6 20h6.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="s-save" viewBox="0 0 24 24"><path d="M3.4 5.6a2 2 0 0 1 2-2h10.2l4.8 4.8v10a2 2 0 0 1-2 2H5.4a2 2 0 0 1-2-2V5.6Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M7.6 3.6v5.2h7.2V3.6M7.6 20.4v-6h8.8v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+  <symbol id="s-chat" viewBox="0 0 24 24"><path d="M21 12.6a7.7 7.7 0 0 1-8.3 7.7L6.2 22l1.4-3.6A7.7 7.7 0 1 1 21 12.6Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+  <symbol id="s-book" viewBox="0 0 24 24"><path d="M3.4 4.4h5.9a3.4 3.4 0 0 1 2.7 1.3 3.4 3.4 0 0 1 2.7-1.3h5.9v13.8h-5.9a3.4 3.4 0 0 0-2.7 1.3 3.4 3.4 0 0 0-2.7-1.3H3.4V4.4Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M12 7v12" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+  <symbol id="s-pen" viewBox="0 0 24 24"><path d="M16.4 3.3 20.7 7.6 8.2 20.1l-5.4 1.1 1.1-5.4L16.4 3.3Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="m13.9 5.8 4.3 4.3" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+  <symbol id="s-blocks" viewBox="0 0 24 24"><rect x="2.8" y="2.8" width="8" height="8" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.8"/><rect x="13.2" y="13.2" width="8" height="8" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.8"/><rect x="13.2" y="2.8" width="8" height="8" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-dasharray="3 2.4"/><rect x="2.8" y="13.2" width="8" height="8" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-dasharray="3 2.4"/></symbol>
+  <symbol id="s-db" viewBox="0 0 24 24"><ellipse cx="12" cy="5.6" rx="8.2" ry="3.2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3.8 5.6v12.8c0 1.8 3.7 3.2 8.2 3.2s8.2-1.4 8.2-3.2V5.6M3.8 12c0 1.8 3.7 3.2 8.2 3.2s8.2-1.4 8.2-3.2" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+  <symbol id="s-lang" viewBox="0 0 24 24"><path d="M2.8 5.4h9.4M7.5 3.1v2.3M9.9 5.4a11 11 0 0 1-6 8.6M6.1 9.7a10 10 0 0 0 5 4.1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="m11.6 21 4.3-10.4L20.2 21M13.3 17.4h5.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="s-rocket" viewBox="0 0 24 24"><path d="M13.4 3.6c3.8-1.6 7-1 7-1s.6 3.2-1 7c-1.3 3.1-6.7 7.6-6.7 7.6l-3.9-3.9S11.3 4.9 13.4 3.6Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="15.6" cy="8.4" r="1.7" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M8.8 13.3 6 14.4l-.9 4.5 4.5-.9 1.1-2.8M6.4 17.6l-2.6 2.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="s-chip" viewBox="0 0 24 24"><rect x="6.6" y="6.6" width="10.8" height="10.8" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M9.8 3.2v3.4M14.2 3.2v3.4M9.8 17.4v3.4M14.2 17.4v3.4M3.2 9.8h3.4M3.2 14.2h3.4M17.4 9.8h3.4M17.4 14.2h3.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="s-mic" viewBox="0 0 24 24"><rect x="9" y="2.6" width="6" height="11.2" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M5.4 11.6a6.6 6.6 0 0 0 13.2 0M12 18.2v3.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="s-plug" viewBox="0 0 24 24"><path d="M9.1 2.8v5.1M14.9 2.8v5.1M6.4 7.9h11.2v3.4a5.6 5.6 0 0 1-11.2 0V7.9ZM12 16.9v4.3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="s-route" viewBox="0 0 24 24"><circle cx="5.5" cy="5.5" r="2.6" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="18.5" cy="18.5" r="2.6" fill="none" stroke="currentColor" stroke-width="1.9"/><path d="M8.1 5.5h6.4a3.6 3.6 0 0 1 0 7.2H9.5a3.6 3.6 0 0 0 0 7.2h6.4" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></symbol>
   <symbol id="s-wrench" viewBox="0 0 24 24"><path d="M15.6 3.4a5.6 5.6 0 0 0-5 8.1L3.5 18.6a1.8 1.8 0 0 0 2.6 2.6l7.1-7.1a5.6 5.6 0 0 0 6.9-7.6l-3 3-2.6-2.6 3-3a5.6 5.6 0 0 0-1.9-.5Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
   <symbol id="s-offline" viewBox="0 0 24 24"><path d="M2.5 8.6a15 15 0 0 1 19 0M5.8 12.3a10 10 0 0 1 12.4 0M9.2 15.9a5 5 0 0 1 5.6 0M12 19.6v.1" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/><path d="m3 3 18 18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"/></symbol>
@@ -724,6 +746,37 @@
     </div>
 
     <div class="mini">
+      <h4><svg class="hico"><use href="#s-chip"/></svg> 4 &middot; The same model, offline <span class="chip chip-ok">removes our biggest risk</span></h4>
+      <p><b>IndicTrans2</b> is the translation model Bhashini actually serves, and AI4Bharat publish the weights openly. That means we can run it ourselves with no key, no network and no rate limit &mdash; and if Bhashini is down or the venue wifi dies during judging, the demo keeps working.</p>
+      <p>Take the distilled <code>indic-indic-dist-320M</code> rather than the 1B version. On a 4&nbsp;GB graphics card the small one leaves room for Chrome and the dev server; the large one does not, and judging is exactly when everything is open at once. Santali is <code>sat_Olck</code>.</p>
+      <p><b>NLLB-200</b> from Meta also covers Santali and makes a useful second opinion when a translation looks wrong. <b>CTranslate2</b> shrinks either model to int8 and runs it several times faster on the processor alone.</p>
+      <div class="lrow"><svg class="logo"><use href="#l-hf"/></svg><span><a href="https://huggingface.co/ai4bharat" target="_blank" rel="noopener">Hugging Face &rarr; AI4Bharat</a> is where the weights live. You also need <code>IndicTransToolkit</code> for preprocessing &mdash; skipping it produces nonsense, not an error.</span></div>
+      <div class="lrow"><svg class="logo"><use href="#l-pytorch"/></svg><span>Install with <code>pip install torch transformers ctranslate2 sentencepiece</code>. This is a separate Python process, not something LM Studio can load.</span></div>
+    </div>
+
+    <div class="mini">
+      <h4><svg class="hico"><use href="#s-mic"/></svg> 5 &middot; Speech, and the honest gap</h4>
+      <p><b>faster-whisper</b> turns a teacher speaking Hindi into text, offline, and it is genuinely good at Hindi. <b>Vosk</b> is the tiny fallback at around 50&nbsp;MB if Whisper is too slow on someone's laptop.</p>
+      <p>The gap is the other direction. <b>Nobody offers Santali text-to-speech</b> that we have been able to find &mdash; not Bhashini, not Piper, not Coqui. Since Santali literacy is low, spoken output is arguably the most valuable thing this tool could do, so we need to know before the day rather than discover it at hour eighteen.</p>
+      <p>If it does not exist, the answer is <b>Santali text plus pictures</b>, and we demonstrate the audio feature in Hindi. That is a design decision, not a failure &mdash; but only if we make it early.</p>
+      <div class="lrow"><svg class="logo"><use href="#l-openai"/></svg><span>Run <code>bhashini-test.mjs</code> in the project folder. It answers this question in about thirty seconds.</span></div>
+    </div>
+
+    <div class="mini">
+      <h4><svg class="hico"><use href="#s-plug"/></svg> 6 &middot; Working with no signal <span class="chip">the winning answer</span></h4>
+      <p>Every judge will ask how this works in a village with no connectivity. The strongest possible answer is to turn the wifi off in front of them and keep using the app.</p>
+      <p><b>Transformers.js</b> runs a quantised model inside the browser tab itself, so translation happens on the device with nothing sent anywhere. <b>Workbox</b> generates the service worker that keeps the app and the model cached after the first visit, and <b>Dexie</b> stores the phrase history and glossary in the browser's own database.</p>
+      <p>Pre-load everything before you present. The first visit downloads a few hundred megabytes, and that is not something to do live on venue wifi.</p>
+    </div>
+
+    <div class="mini">
+      <h4><svg class="hico"><use href="#s-book"/></svg> 7 &middot; Proving it actually works</h4>
+      <p>Translation into Santali will be mediocre, because it is a genuinely low-resource language. Every team hides this. We should measure it instead.</p>
+      <p><b>FLORES-200</b> includes professionally translated Santali sentences. Running our output against it gives a real score, and showing judges a measured number instead of a confident claim is the kind of rigour that separates the top three from everyone else.</p>
+      <p>Then add a <b>correction box</b>: when a user fixes a bad translation, save it to our glossary and reuse it. That turns the weakness into the feature, and it is about an hour of work.</p>
+    </div>
+
+    <div class="mini">
       <h4><svg class="logo logo-lg"><use href="#l-check"/></svg> Already installed</h4>
       <p><code>react</code> · <code>react-dom</code> · <code>react-router-dom</code> · <code>lucide-react</code> · <code>vite-plugin-pwa</code> · Vite · oxlint</p>
       <p>Plus the browser gives us <b>MediaRecorder</b> for voice input and a <b>Service Worker</b> for offline, neither of which needs installing.</p>
@@ -775,52 +828,53 @@
   <div class="grid grid-2">
 
     <div class="mini">
-      <h4><svg class="logo"><use href="#l-gemini"/></svg> AI you can chat with</h4>
+      <h4><svg class="hico"><use href="#s-chat"/></svg> AI you can chat with</h4>
       <div class="lrow"><svg class="logo"><use href="#l-gemini"/></svg><span><a href="https://gemini.google.com" target="_blank" rel="noopener">Gemini</a> is our main assistant for thinking through problems and drafting text. There is no desktop app for Windows, so the browser is the only option.</span></div>
       <div class="lrow"><svg class="logo"><use href="#l-openai"/></svg><span><a href="https://chatgpt.com" target="_blank" rel="noopener">ChatGPT</a> works well as a second opinion. Please use the website rather than any desktop app you find, because the ones in the Windows package manager are all unofficial copies.</span></div>
       <div class="lrow"><svg class="logo"><use href="#l-gemini"/></svg><span><a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener">Google AI Studio</a> is where your Gemini API key comes from, and where you can check how much of your daily quota is left.</span></div>
-      <div class="lrow"><svg class="logo"><use href="#l-node"/></svg><span><a href="https://console.groq.com" target="_blank" rel="noopener">Groq</a> runs open models at several hundred words a second, which is fast enough that the answer appears the moment you stop typing. Worth wiring in if any part of the demo calls a model live on stage, because waiting in silence in front of judges feels much longer than it is. The free tier has an hourly limit, so do not point your whole app at it.</span></div>
+      <div class="lrow"><svg class="logo"><use href="#l-groq"/></svg><span><a href="https://console.groq.com" target="_blank" rel="noopener">Groq</a> runs open models at several hundred words a second, which is fast enough that the answer appears the moment you stop typing. Worth wiring in if any part of the demo calls a model live on stage, because waiting in silence in front of judges feels much longer than it is. The free tier has an hourly limit, so do not point your whole app at it.</span></div>
     </div>
 
     <div class="mini">
-      <h4><svg class="logo"><use href="#l-perplexity"/></svg> Research and sources</h4>
+      <h4><svg class="hico"><use href="#s-book"/></svg> Research and sources</h4>
       <div class="lrow"><svg class="logo"><use href="#l-perplexity"/></svg><span><a href="https://www.perplexity.ai" target="_blank" rel="noopener">Perplexity</a> answers with its sources attached, which is exactly what we need for the presentation. Use <b>Search</b> mode rather than Work mode, as Work burns through the free allowance quickly.</span></div>
       <div class="lrow"><svg class="logo"><use href="#l-notebook"/></svg><span><a href="https://notebooklm.google.com" target="_blank" rel="noopener">NotebookLM</a> lets you upload a long government PDF and then ask questions about it, answering with page numbers so every claim we make can be traced back.</span></div>
       <div class="lrow"><svg class="logo"><use href="#l-data"/></svg><span><a href="https://sih.gov.in" target="_blank" rel="noopener">The SIH portal</a> carries the official rules, the timeline, and the published problem statements.</span></div>
     </div>
 
     <div class="mini">
-      <h4><svg class="logo"><use href="#l-stitch"/></svg> Design and prototyping</h4>
+      <h4><svg class="hico"><use href="#s-pen"/></svg> Design and prototyping</h4>
       <div class="lrow"><svg class="logo"><use href="#l-stitch"/></svg><span><a href="https://stitch.withgoogle.com" target="_blank" rel="noopener">Stitch</a> takes a plain-English description of a screen and designs it properly, including a mobile version. Remember to switch the toggle from App to <b>Web</b> before you generate anything.</span></div>
       <div class="lrow"><svg class="logo"><use href="#l-vscode"/></svg><span><a href="https://bolt.new" target="_blank" rel="noopener">Bolt</a> takes a description of an entire app and builds a rough working version, which is genuinely useful in the first hour when we are staring at an empty folder.</span></div>
       <div class="lrow"><svg class="logo"><use href="#l-slidev"/></svg><span><a href="https://excalidraw.com" target="_blank" rel="noopener">Excalidraw</a> is where we will draw the architecture diagram. Judges consistently respond to one clear picture of how the system fits together.</span></div>
       <div class="lrow"><svg class="logo"><use href="#l-obs"/></svg><span><a href="https://www.photopea.com" target="_blank" rel="noopener">Photopea</a> is a free Photoshop that runs in a tab, for any image editing the deck needs.</span></div>
-      <div class="lrow"><svg class="logo"><use href="#l-stitch"/></svg><span>A <b><code>DESIGN.md</code></b> file in the repo is the cheapest way to stop the app looking like four different apps. Write your colours, fonts and spacing rules into one markdown file, and every AI agent you use reads the same rules instead of inventing its own. Stitch can generate a design system straight from it.</span></div>
+      <div class="lrow"><svg class="logo"><use href="#l-md"/></svg><span>A <b><code>DESIGN.md</code></b> file in the repo is the cheapest way to stop the app looking like four different apps. Write your colours, fonts and spacing rules into one markdown file, and every AI agent you use reads the same rules instead of inventing its own. Stitch can generate a design system straight from it.</span></div>
     </div>
 
     <div class="mini">
-      <h4><svg class="logo"><use href="#l-vscode"/></svg> Components you paste in <span class="chip">saves hours</span></h4>
-      <div class="lrow"><svg class="logo"><use href="#l-vscode"/></svg><span><a href="https://ui.shadcn.com" target="_blank" rel="noopener">shadcn/ui</a> is the single biggest time saver here. You copy a component's code into your own project rather than installing a library, so buttons, dialogs and forms look finished immediately &mdash; and because the code is now yours, you can edit it on the spot instead of fighting someone else's settings.</span></div>
-      <div class="lrow"><svg class="logo"><use href="#l-stitch"/></svg><span><a href="https://ui.aceternity.com" target="_blank" rel="noopener">Aceternity UI</a> is the same copy-paste idea for animated sections. Use it on the landing screen and nowhere else. Animation everywhere reads as a template, but one well-placed moving element makes the whole thing look considered.</span></div>
+      <h4><svg class="hico"><use href="#s-blocks"/></svg> Components you paste in <span class="chip">saves hours</span></h4>
+      <div class="lrow"><svg class="logo"><use href="#l-shadcn"/></svg><span><a href="https://ui.shadcn.com" target="_blank" rel="noopener">shadcn/ui</a> is the single biggest time saver here. You copy a component's code into your own project rather than installing a library, so buttons, dialogs and forms look finished immediately &mdash; and because the code is now yours, you can edit it on the spot instead of fighting someone else's settings.</span></div>
+      <div class="lrow"><svg class="logo"><use href="#l-aceternity"/></svg><span><a href="https://ui.aceternity.com" target="_blank" rel="noopener">Aceternity UI</a> is the same copy-paste idea for animated sections. Use it on the landing screen and nowhere else. Animation everywhere reads as a template, but one well-placed moving element makes the whole thing look considered.</span></div>
     </div>
 
     <div class="mini">
-      <h4><svg class="logo"><use href="#l-supabase"/></svg> Database and backend</h4>
+      <h4><svg class="hico"><use href="#s-db"/></svg> Database and backend</h4>
       <div class="lrow"><svg class="logo"><use href="#l-supabase"/></svg><span><a href="https://supabase.com/dashboard" target="_blank" rel="noopener">Supabase</a> is our database and login system. One important detail: a free project <b>goes to sleep after seven days of inactivity</b>, so whoever owns it should open this dashboard on the morning of the demo to wake it up.</span></div>
       <div class="lrow"><svg class="logo"><use href="#l-supabase"/></svg><span><a href="https://console.neon.tech" target="_blank" rel="noopener">Neon</a> is a second Postgres database we can use for throwaway experiments, and unlike Supabase it wakes itself up automatically.</span></div>
       <div class="lrow"><svg class="logo"><use href="#l-github"/></svg><span><a href="https://github.com" target="_blank" rel="noopener">GitHub</a> holds our repository, and the submission link comes from here.</span></div>
     </div>
 
     <div class="mini">
-      <h4><svg class="logo"><use href="#l-data"/></svg> Indian data and languages <span class="chip">our edge</span></h4>
+      <h4><svg class="hico"><use href="#s-lang"/></svg> Indian data and languages <span class="chip">our edge</span></h4>
       <div class="lrow"><svg class="logo"><use href="#l-data"/></svg><span><a href="https://bhashini.gov.in" target="_blank" rel="noopener">Bhashini</a> is the Government of India's own AI language platform, built by MeitY, covering <b>22 Indian languages</b> for speech and translation. It is free with no rate limit, and using the government's own infrastructure at a government hackathon is an angle most teams will not have considered.</span></div>
       <div class="lrow"><svg class="logo"><use href="#l-data"/></svg><span><a href="https://data.gov.in" target="_blank" rel="noopener">data.gov.in</a> holds real government datasets covering agriculture, health, disaster management and more. Seeding our app with genuine data rather than invented rows is exactly what separates a prototype from a demo, and when we cite it we should name the dataset and year rather than just the portal.</span></div>
     </div>
 
     <div class="mini">
-      <h4><svg class="logo"><use href="#l-cloudflare"/></svg> Deploy, demo and compute</h4>
+      <h4><svg class="hico"><use href="#s-rocket"/></svg> Deploy, demo and compute</h4>
       <div class="lrow"><svg class="logo"><use href="#l-cloudflare"/></svg><span><a href="https://pages.cloudflare.com" target="_blank" rel="noopener">Cloudflare Pages</a> gives us a free permanent web address for the finished app, which is far better on a slide than <code>localhost</code>.</span></div>
       <div class="lrow"><svg class="logo"><use href="#l-google"/></svg><span><a href="https://colab.research.google.com" target="_blank" rel="noopener">Google Colab</a> provides a free GPU in the browser, which we will need if any part of our solution involves training a model.</span></div>
+      <div class="lrow"><svg class="logo"><use href="#l-vercel"/></svg><span><a href="https://vercel.com" target="_blank" rel="noopener">Vercel</a> does the same job as Cloudflare Pages, and either is fine &mdash; pick one and stop thinking about it. The reason to prefer Vercel with four people pushing at once is that <b>every push gets its own preview link</b>, so you can send someone a working URL of your half without disturbing what is on the main address. The free plan is for non-commercial projects, which a hackathon entry is.</span></div>
       <div class="lrow"><svg class="logo"><use href="#l-github"/></svg><span><a href="https://github.dev" target="_blank" rel="noopener">github.dev</a> opens VS Code inside a browser tab, which is a useful escape route if someone's laptop dies on the day.</span></div>
     </div>
 
