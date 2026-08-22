@@ -153,8 +153,20 @@
                color-mix(in srgb, var(--accent) 13%, transparent) 0%, transparent 62%); }
   .mini:hover::before, .tile:hover::before { opacity:1; }
   .mini > *, .tile > * { position:relative; z-index:1; }
-  .mini { transition:transform .28s cubic-bezier(.2,.7,.3,1), box-shadow .28s ease, border-color .28s ease; }
-  .mini:hover { transform:translateY(-3px); box-shadow:var(--shadow); border-color:var(--rule); }
+  .mini, .tile { transition:transform .3s cubic-bezier(.2,.7,.3,1), box-shadow .3s ease, border-color .3s ease; }
+
+  /* 3D tilt, after Aceternity's card effect. Spline would need a CDN
+     script the artifact CSP blocks, so this is perspective done in CSS:
+     the same sense of depth, nothing to download. */
+  .grid, .dash { perspective:1400px; }
+  .mini, .tile { transform-style:preserve-3d;
+                 transform:perspective(1400px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateZ(0); }
+  .mini:hover, .tile:hover { will-change:transform; }
+  .mini h4, .tile-txt b { transform:translateZ(26px); }
+  .mini .chip, .tile .chip { transform:translateZ(34px); }
+  .mini .logo, .mini .hico { transform:translateZ(16px); }
+  /* The lift is folded into the tilt transform, so it cannot fight it. */
+  .mini:hover { box-shadow:var(--shadow); border-color:var(--rule); }
 
   /* Reveal on scroll. The hidden state is applied by script, so with no
      JavaScript every card simply stays visible. */
@@ -164,7 +176,8 @@
 
   @media (prefers-reduced-motion:reduce) {
     .masthead::before, .masthead h1 { animation:none; }
-    .mini:hover { transform:none; }
+    .mini, .tile { transform:none !important; }
+    .mini h4, .tile-txt b, .mini .chip, .tile .chip, .mini .logo, .mini .hico { transform:none; }
     html.js-reveal .rv { opacity:1; transform:none; transition:none; }
   }
   .masthead::after {
@@ -1213,10 +1226,23 @@
     requestAnimationFrame(function () {
       if (!pending) return;
       var c = pending[0], ev = pending[1], r = c.getBoundingClientRect();
-      c.style.setProperty('--mx', ((ev.clientX - r.left) / r.width * 100) + '%');
-      c.style.setProperty('--my', ((ev.clientY - r.top) / r.height * 100) + '%');
+      var px = (ev.clientX - r.left) / r.width, py = (ev.clientY - r.top) / r.height;
+      c.style.setProperty('--mx', (px * 100) + '%');
+      c.style.setProperty('--my', (py * 100) + '%');
+      if (!reduce) {
+        /* +-5 degrees. Enough to read as depth, not enough to hurt the text. */
+        c.style.setProperty('--ry', ((px - 0.5) * 10).toFixed(2) + 'deg');
+        c.style.setProperty('--rx', ((0.5 - py) * 10).toFixed(2) + 'deg');
+      }
       pending = null;
     });
+  }, {passive: true});
+
+  document.addEventListener('pointerout', function (e) {
+    var card = e.target.closest && e.target.closest('.mini, .tile');
+    if (!card || card.contains(e.relatedTarget)) return;
+    card.style.setProperty('--rx', '0deg');
+    card.style.setProperty('--ry', '0deg');
   }, {passive: true});
 
   /* Reveal - only ever hides things when we can also reveal them. */
