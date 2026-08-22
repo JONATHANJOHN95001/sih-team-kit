@@ -350,6 +350,21 @@
   .stk td:first-child { color:var(--ink); font-weight:600; white-space:nowrap; }
   .stk tr:last-child td { border-bottom:0; }
   .stk-wrap { overflow-x:auto; }
+  /* demo run sheet */
+  .dflow { display:grid; gap:0; margin:4px 0 0; }
+  .dstep { display:grid; grid-template-columns:56px 1fr; gap:16px; padding:13px 0;
+           border-bottom:1px solid var(--rule-soft); }
+  .dstep:last-child { border-bottom:0; }
+  .dtime { font-family:var(--f-mono); font-size:11.5px; font-weight:600; color:var(--accent-ink);
+           background:var(--accent-wash); border-radius:5px; height:21px; display:grid;
+           place-items:center; margin-top:2px; }
+  .dbody { min-width:0; font-size:14.5px; color:var(--ink-soft); line-height:1.75; }
+  .dbody b { color:var(--ink); }
+  .dbeat { display:block; font-family:var(--f-mono); font-size:10.5px; letter-spacing:.06em;
+           text-transform:uppercase; color:var(--ink-faint); margin-bottom:3px; }
+  .dstep.peak .dtime { background:var(--ok-wash); color:var(--ok); }
+  @media (max-width:560px) { .dstep { grid-template-columns:1fr; gap:5px; }
+                             .dtime { width:56px; } }
   .chip { font-family:var(--f-mono); font-size:10.5px; letter-spacing:.05em; padding:3px 8px;
           border-radius:99px; background:var(--accent-wash); color:var(--accent-ink); font-weight:500; white-space:nowrap; }
   .chip-ok { background:var(--ok-wash); color:var(--ok); }
@@ -877,6 +892,24 @@
         </tbody>
       </table></div>
       <div class="note note-ok" style="margin:16px 0 0"><svg class="logo note-ico"><use href="#l-check"/></svg><div><b>Every row is settled.</b> The open question was whether Santali speech output existed at all. It does &mdash; confirmed against the government's public model catalogue, which also lists Santali speech <i>recognition</i>. Nothing in this table is waiting on an unknown any more.</div></div>
+    </div>
+
+    <div class="mini" style="grid-column:1/-1">
+      <h4><svg class="hico"><use href="#s-mic"/></svg> The demo, minute by minute <span class="chip chip-ok">rehearse this</span></h4>
+      <p>Now that speech works in both directions, the demo stops being a translation box and becomes a conversation. That changes what we show and the order we show it in. Five minutes, rehearsed until nobody has to think.</p>
+      <div class="dflow">
+        <div class="dstep"><span class="dtime">0:00</span><span class="dbody"><span class="dbeat">The problem, in one sentence</span>A child in a Jharkhand classroom speaks Santali at home and is taught in Hindi. <b>Do not explain the technology yet.</b> Judges have heard forty pitches; open with the child, not the architecture.</span></div>
+        <div class="dstep"><span class="dtime">0:30</span><span class="dbody"><span class="dbeat">Teacher speaks</span>Say a real sentence in Hindi into the microphone. Nobody types anything. The Hindi appears as text while you are still speaking.</span></div>
+        <div class="dstep"><span class="dtime">0:50</span><span class="dbody"><span class="dbeat">Child reads and hears</span>Santali appears in Ol&nbsp;Chiki, and then <b>plays aloud</b>. Let the audio finish before you speak over it &mdash; the silence is doing the work.</span></div>
+        <div class="dstep peak"><span class="dtime">1:20</span><span class="dbody"><span class="dbeat">The moment &mdash; the child answers back</span>Speak Santali into the app and let the teacher hear it in Hindi. <b>This is the whole demo.</b> Most teams show translation going one way; a two-way spoken exchange is a different category of thing, and it is worth pausing for a beat so the room registers what just happened.</span></div>
+        <div class="dstep peak"><span class="dtime">2:00</span><span class="dbody"><span class="dbeat">Turn the wifi off</span>Switch off connectivity in front of them, then do the exchange again. Every judge is going to ask how this works where these children live. Answer it before they ask, by doing it.</span></div>
+        <div class="dstep"><span class="dtime">2:40</span><span class="dbody"><span class="dbeat">Fix a wrong word</span>Correct a bad translation in the app, then use the phrase again and show the correction stuck. Santali is low-resource and the output <i>will</i> be imperfect &mdash; owning that beats hoping nobody notices.</span></div>
+        <div class="dstep"><span class="dtime">3:10</span><span class="dbody"><span class="dbeat">Show the number</span>Our FLORES-200 score. One measured figure, honestly stated, lands harder than any adjective.</span></div>
+        <div class="dstep"><span class="dtime">3:40</span><span class="dbody"><span class="dbeat">How it is built</span><i>Now</i> the architecture slide: Bhashini for the models, the same models locally for offline, Supabase for the glossary. Thirty seconds. They have already seen it work.</span></div>
+        <div class="dstep"><span class="dtime">4:20</span><span class="dbody"><span class="dbeat">Who it reaches</span>Roughly 7.6&nbsp;million Santali speakers, and the same pipeline covers the other scheduled languages without new code. Say the number, name the source.</span></div>
+        <div class="dstep"><span class="dtime">4:45</span><span class="dbody"><span class="dbeat">Stop talking</span>End early and leave time for questions. Running to the buzzer reads as poor preparation.</span></div>
+      </div>
+      <div class="note note-warn" style="margin:18px 0 0"><svg class="logo note-ico"><use href="#l-warn"/></svg><div><b>Before you walk up:</b> microphone permission already granted, Supabase awake, the local model already loaded once so the first translation is not the slow one, phone hotspot ready, and the OBS recording open in a background tab. If anything fails live, switch to the recording and keep narrating &mdash; do not debug in front of judges.</div></div>
     </div>
 
     <div class="mini">
