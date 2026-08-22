@@ -130,6 +130,43 @@
       radial-gradient(60rem 30rem at 8% 110%, #1B2A6B 0%, transparent 60%),
       #0F1124;
   }
+  /* Aurora, after Aceternity's masthead treatment. A slow second layer
+     over the static gradient - 34s, so it reads as depth, not motion. */
+  .masthead::before { animation:aurora 34s ease-in-out infinite alternate; }
+  @keyframes aurora {
+    0%   { filter:hue-rotate(0deg)   saturate(1);    transform:translateX(-50%) scale(1); }
+    50%  { filter:hue-rotate(-14deg) saturate(1.18); transform:translateX(-50%) scale(1.06); }
+    100% { filter:hue-rotate(10deg)  saturate(1.05); transform:translateX(-50%) scale(1.02); }
+  }
+  .masthead h1 { background:linear-gradient(96deg,#FFFFFF 12%,#C9C2FF 42%,#8FA6FF 62%,#FFFFFF 88%);
+                 background-size:220% 100%; -webkit-background-clip:text; background-clip:text;
+                 color:transparent; animation:sheen 9s ease-in-out infinite; }
+  @keyframes sheen { 0%,100% { background-position:0% 50% } 50% { background-position:100% 50% } }
+
+  /* Spotlight: the card lights up under the cursor. Coordinates come from
+     one delegated listener, written into --mx/--my. */
+  .mini, .tile { position:relative; }
+  .mini::before, .tile::before {
+    content:''; position:absolute; inset:0; border-radius:inherit; pointer-events:none;
+    opacity:0; transition:opacity .35s ease; z-index:0;
+    background:radial-gradient(16rem 16rem at var(--mx,50%) var(--my,50%),
+               color-mix(in srgb, var(--accent) 13%, transparent) 0%, transparent 62%); }
+  .mini:hover::before, .tile:hover::before { opacity:1; }
+  .mini > *, .tile > * { position:relative; z-index:1; }
+  .mini { transition:transform .28s cubic-bezier(.2,.7,.3,1), box-shadow .28s ease, border-color .28s ease; }
+  .mini:hover { transform:translateY(-3px); box-shadow:var(--shadow); border-color:var(--rule); }
+
+  /* Reveal on scroll. The hidden state is applied by script, so with no
+     JavaScript every card simply stays visible. */
+  html.js-reveal .rv { opacity:0; transform:translateY(16px);
+                       transition:opacity .6s cubic-bezier(.2,.7,.3,1), transform .6s cubic-bezier(.2,.7,.3,1); }
+  html.js-reveal .rv.in { opacity:1; transform:none; }
+
+  @media (prefers-reduced-motion:reduce) {
+    .masthead::before, .masthead h1 { animation:none; }
+    .mini:hover { transform:none; }
+    html.js-reveal .rv { opacity:1; transform:none; transition:none; }
+  }
   .masthead::after {
     content:''; position:absolute; z-index:-1; inset:0;
     left:50%; width:100vw; transform:translateX(-50%);
@@ -1160,6 +1197,48 @@
   var saved;
   try { saved = localStorage.getItem('almanac-theme'); } catch (e) {}
   paint(saved === 'auto' || saved === 'dark' ? saved : 'light');
+})();
+</script>
+<script>
+(function () {
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var root = document.documentElement;
+
+  /* Spotlight - one listener for the whole page, coalesced into a frame. */
+  var pending = null;
+  document.addEventListener('pointermove', function (e) {
+    var card = e.target.closest && e.target.closest('.mini, .tile');
+    if (!card) return;
+    pending = [card, e];
+    requestAnimationFrame(function () {
+      if (!pending) return;
+      var c = pending[0], ev = pending[1], r = c.getBoundingClientRect();
+      c.style.setProperty('--mx', ((ev.clientX - r.left) / r.width * 100) + '%');
+      c.style.setProperty('--my', ((ev.clientY - r.top) / r.height * 100) + '%');
+      pending = null;
+    });
+  }, {passive: true});
+
+  /* Reveal - only ever hides things when we can also reveal them. */
+  if (reduce || !('IntersectionObserver' in window)) return;
+  root.classList.add('js-reveal');
+  var items = document.querySelectorAll('.mini, .stepcard, .dstep, .wrow');
+  items.forEach(function (el) { el.classList.add('rv'); });
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (!en.isIntersecting) return;
+      en.target.classList.add('in');
+      io.unobserve(en.target);
+    });
+  }, {rootMargin: '0px 0px -8% 0px', threshold: 0.06});
+  items.forEach(function (el) { io.observe(el); });
+
+  /* Anything already on screen at load should not wait to fade in. */
+  requestAnimationFrame(function () {
+    items.forEach(function (el) {
+      if (el.getBoundingClientRect().top < innerHeight) el.classList.add('in');
+    });
+  });
 })();
 </script>
 
