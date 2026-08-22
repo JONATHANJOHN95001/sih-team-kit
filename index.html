@@ -117,43 +117,6 @@
   .themer button[aria-pressed="true"] { background:#EDEEF8; color:#131529; font-weight:600; }
   @media (max-width:640px) { .themer { position:static; margin:0 0 22px; width:max-content; } }
 
-  /* ---- phones ---------------------------------------------------------
-     The layout already reflows; these fix what a finger notices rather
-     than what the grid does. ------------------------------------------ */
-  @media (max-width:560px) {
-    /* Names and descriptions fight over the width in two columns. */
-    .ext { grid-template-columns:1fr; gap:3px; }
-    .ext code { font-size:14px; }
-
-    /* The command scrolls under the COPY button without this. */
-    .term-cmd { padding-right:14px; }
-    .term-row { align-items:center; }
-
-    /* Comfortable targets. Anything tapped needs real height. */
-    .themer button { padding:11px 16px; font-size:11.5px; }
-    .reset { padding:9px 14px; font-size:11.5px; }
-    .copy { padding-left:16px; padding-right:16px; min-height:46px; }
-    .donebtn, .dl { min-height:46px; }
-
-    /* 42px of display type eats a phone screen. */
-    .masthead { padding:40px 0 34px; }
-    .masthead h1 { font-size:34px; letter-spacing:-.015em; }
-    .standfirst { font-size:15.5px; }
-
-    /* Justified text at this width opens rivers between words. */
-    .lrow span, .stk td { text-align:left; hyphens:none; }
-
-    /* A wide table needs to advertise that it scrolls. */
-    .stk-wrap { -webkit-overflow-scrolling:touch; }
-    .stk-wrap::after { content:'scroll 92'; display:block; font-family:var(--f-mono);
-                       font-size:10px; letter-spacing:.06em; color:var(--ink-faint);
-                       text-align:right; padding-top:6px; }
-    .stk th, .stk td { padding-right:14px; }
-  }
-  @media (max-width:380px) {
-    .masthead h1 { font-size:30px; }
-    .fact { font-size:11.5px; }
-  }
   /* masthead */
   .masthead {
     position:relative; padding:66px 0 54px; margin-bottom:40px; color:#EDEEF8;
@@ -427,6 +390,41 @@
     .step-title { font-size:17px; }
     .time { display:none; }
     .step-body { padding:0 16px 18px; }
+  }
+
+  /* ---- phones ---------------------------------------------------------
+     Last in the sheet on purpose: these have to win against the base
+     rules above, and same-specificity ties go to whichever comes last.
+     The grid already reflows, so this targets what a finger notices. --- */
+  @media (max-width:560px) {
+    .ext { grid-template-columns:1fr; gap:3px; }
+    .ext code { font-size:14px; }
+
+    .term-cmd { padding-right:14px; }
+    .term-row { align-items:center; }
+
+    /* Real tap targets. min-height beats padding maths on short labels. */
+    .themer button { min-height:44px; padding:0 18px; font-size:11.5px; }
+    .reset { min-height:40px; padding:0 15px; font-size:11.5px; }
+    .copy { min-height:46px; padding-left:16px; padding-right:16px; }
+    .donebtn, .dl { min-height:46px; }
+
+    .masthead { padding:40px 0 34px; }
+    .masthead h1 { font-size:34px; letter-spacing:-.015em; }
+    .standfirst { font-size:15.5px; }
+
+    /* Justified text this narrow opens rivers between the words. */
+    .lrow span, .stk td, .mini p { text-align:left; hyphens:none; }
+
+    .stk-wrap { -webkit-overflow-scrolling:touch; }
+    .stk-wrap::after { content:'scroll 92'; display:block; font-family:var(--f-mono);
+                       font-size:10px; letter-spacing:.06em; color:var(--ink-faint);
+                       text-align:right; padding-top:6px; }
+    .stk th, .stk td { padding-right:14px; }
+  }
+  @media (max-width:380px) {
+    .masthead h1 { font-size:30px; }
+    .fact { font-size:11.5px; }
   }
 </style>
 
