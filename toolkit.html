@@ -7,15 +7,28 @@
 <meta name="description" content="Everything that runs in a browser tab, with nothing to install, plus the student perks worth claiming.">
 <meta name="author" content="Jonathan John">
 <meta name="color-scheme" content="light dark">
+<link rel="canonical" href="https://jonathanjohn95001.github.io/sih-team-kit/toolkit.html">
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="John’s Almanac">
+<meta property="og:url" content="https://jonathanjohn95001.github.io/sih-team-kit/toolkit.html">
 <meta property="og:title" content="The web toolkit">
 <meta property="og:description" content="Everything that runs in a browser tab, with nothing to install, plus the student perks worth claiming.">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://jonathanjohn95001.github.io/sih-team-kit/assets/share.png">
+<meta property="og:image:secure_url" content="https://jonathanjohn95001.github.io/sih-team-kit/assets/share.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="John’s Almanac, a universal hackathon setup guide">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The web toolkit">
+<meta name="twitter:description" content="Everything that runs in a browser tab, with nothing to install, plus the student perks worth claiming.">
+<meta name="twitter:image" content="https://jonathanjohn95001.github.io/sih-team-kit/assets/share.png">
+<meta name="theme-color" content="#0F1124">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#129520;</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="./assets/almanac.css?v=b0a684e2">
+<link rel="stylesheet" href="./assets/almanac.css?v=ddf37c13">
 <style>
   /* The masthead backdrop is 100vw, which counts the scrollbar, so
      without this the page scrolls sideways by the scrollbar width. */
@@ -96,53 +109,53 @@
 
     <div class="mini">
       <h4><svg class="hico"><use href="#s-chat"/></svg> AI you can chat with</h4>
-      <div class="lrow"><svg class="logo"><use href="#l-gemini"/></svg><span><a href="https://gemini.google.com" target="_blank" rel="noopener">Gemini</a> is our main assistant for thinking through problems and drafting text. There is no desktop app for Windows, so the browser is the only option.</span></div>
-      <div class="lrow"><svg class="logo"><use href="#l-openai"/></svg><span><a href="https://chatgpt.com" target="_blank" rel="noopener">ChatGPT</a> works well as a second opinion. Please use the website rather than any desktop app you find, because the ones in the Windows package manager are all unofficial copies.</span></div>
-      <div class="lrow"><svg class="logo"><use href="#l-gemini"/></svg><span><a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener">Google AI Studio</a> is where your Gemini API key comes from, and where you can check how much of your daily quota is left.</span></div>
-      <div class="lrow"><svg class="logo"><use href="#l-groq"/></svg><span><a href="https://console.groq.com" target="_blank" rel="noopener">Groq</a> runs open models at several hundred words a second, which is fast enough that the answer appears the moment you stop typing. Worth wiring in if any part of the demo calls a model live on stage, because waiting in silence in front of judges feels much longer than it is. The free tier has an hourly limit, so do not point your whole app at it.</span></div>
+      <div class="lrow"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><use class="gh" href="#l-gemini"/><use href="#l-gemini"/></svg><span><a href="https://gemini.google.com" target="_blank" rel="noopener">Gemini</a> is our main assistant for thinking through problems and drafting text. There is no desktop app for Windows, so the browser is the only option.</span></div>
+      <div class="lrow"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><use class="gh" href="#l-openai"/><use href="#l-openai"/></svg><span><a href="https://chatgpt.com" target="_blank" rel="noopener">ChatGPT</a> works well as a second opinion. Please use the website rather than any desktop app you find, because the ones in the Windows package manager are all unofficial copies.</span></div>
+      <div class="lrow"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><use class="gh" href="#l-gemini"/><use href="#l-gemini"/></svg><span><a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener">Google AI Studio</a> is where your Gemini API key comes from, and where you can check how much of your daily quota is left.</span></div>
+      <div class="lrow"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><use class="gh" href="#l-groq"/><use href="#l-groq"/></svg><span><a href="https://console.groq.com" target="_blank" rel="noopener">Groq</a> runs open models at several hundred words a second, which is fast enough that the answer appears the moment you stop typing. Worth wiring in if any part of the demo calls a model live on stage, because waiting in silence in front of judges feels much longer than it is. The free tier has an hourly limit, so do not point your whole app at it.</span></div>
     </div>
 
     <div class="mini">
       <h4><svg class="hico"><use href="#s-book"/></svg> Research and sources</h4>
-      <div class="lrow"><svg class="logo"><use href="#l-perplexity"/></svg><span><a href="https://www.perplexity.ai" target="_blank" rel="noopener">Perplexity</a> answers with its sources attached, which is exactly what we need for the presentation. Use <b>Search</b> mode rather than Work mode, as Work burns through the free allowance quickly.</span></div>
-      <div class="lrow"><svg class="logo"><use href="#l-notebook"/></svg><span><a href="https://notebooklm.google.com" target="_blank" rel="noopener">NotebookLM</a> lets you upload a long government PDF and then ask questions about it, answering with page numbers so every claim we make can be traced back.</span></div>
-      <div class="lrow"><svg class="logo"><use href="#l-sih"/></svg><span><a href="https://sih.gov.in" target="_blank" rel="noopener">The SIH portal</a> carries the official rules, the timeline, and the published problem statements.</span></div>
+      <div class="lrow"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><use class="gh" href="#l-perplexity"/><use href="#l-perplexity"/></svg><span><a href="https://www.perplexity.ai" target="_blank" rel="noopener">Perplexity</a> answers with its sources attached, which is exactly what we need for the presentation. Use <b>Search</b> mode rather than Work mode, as Work burns through the free allowance quickly.</span></div>
+      <div class="lrow"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><use class="gh" href="#l-notebook"/><use href="#l-notebook"/></svg><span><a href="https://notebooklm.google.com" target="_blank" rel="noopener">NotebookLM</a> lets you upload a long government PDF and then ask questions about it, answering with page numbers so every claim we make can be traced back.</span></div>
+      <div class="lrow"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><use class="gh" href="#l-sih"/><use href="#l-sih"/></svg><span><a href="https://sih.gov.in" target="_blank" rel="noopener">The SIH portal</a> carries the official rules, the timeline, and the published problem statements.</span></div>
     </div>
 
     <div class="mini">
       <h4><svg class="hico"><use href="#s-pen"/></svg> Design and prototyping</h4>
-      <div class="lrow"><svg class="logo"><use href="#l-stitch"/></svg><span><a href="https://stitch.withgoogle.com" target="_blank" rel="noopener">Stitch</a> takes a plain-English description of a screen and designs it properly, including a mobile version. Remember to switch the toggle from App to <b>Web</b> before you generate anything.</span></div>
-      <div class="lrow"><svg class="logo"><use href="#l-bolt"/></svg><span><a href="https://bolt.new" target="_blank" rel="noopener">Bolt</a> takes a description of an entire app and builds a rough working version, which is genuinely useful in the first hour when we are staring at an empty folder.</span></div>
-      <div class="lrow"><svg class="logo"><use href="#l-excalidraw"/></svg><span><a href="https://excalidraw.com" target="_blank" rel="noopener">Excalidraw</a> is where we will draw the architecture diagram. Judges consistently respond to one clear picture of how the system fits together.</span></div>
-      <div class="lrow"><svg class="logo"><use href="#l-photopea"/></svg><span><a href="https://www.photopea.com" target="_blank" rel="noopener">Photopea</a> is a free Photoshop that runs in a tab, for any image editing the deck needs.</span></div>
-      <div class="lrow"><svg class="logo"><use href="#l-md"/></svg><span>A <b><code>DESIGN.md</code></b> file in the repo is the cheapest way to stop the app looking like four different apps. Write your colours, fonts and spacing rules into one markdown file, and every AI agent you use reads the same rules instead of inventing its own. Stitch can generate a design system straight from it.</span></div>
+      <div class="lrow"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><use class="gh" href="#l-stitch"/><use href="#l-stitch"/></svg><span><a href="https://stitch.withgoogle.com" target="_blank" rel="noopener">Stitch</a> takes a plain-English description of a screen and designs it properly, including a mobile version. Remember to switch the toggle from App to <b>Web</b> before you generate anything.</span></div>
+      <div class="lrow"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><use class="gh" href="#l-bolt"/><use href="#l-bolt"/></svg><span><a href="https://bolt.new" target="_blank" rel="noopener">Bolt</a> takes a description of an entire app and builds a rough working version, which is genuinely useful in the first hour when we are staring at an empty folder.</span></div>
+      <div class="lrow"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><use class="gh" href="#l-excalidraw"/><use href="#l-excalidraw"/></svg><span><a href="https://excalidraw.com" target="_blank" rel="noopener">Excalidraw</a> is where we will draw the architecture diagram. Judges consistently respond to one clear picture of how the system fits together.</span></div>
+      <div class="lrow"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><use class="gh" href="#l-photopea"/><use href="#l-photopea"/></svg><span><a href="https://www.photopea.com" target="_blank" rel="noopener">Photopea</a> is a free Photoshop that runs in a tab, for any image editing the deck needs.</span></div>
+      <div class="lrow"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><use class="gh" href="#l-md"/><use href="#l-md"/></svg><span>A <b><code>DESIGN.md</code></b> file in the repo is the cheapest way to stop the app looking like four different apps. Write your colours, fonts and spacing rules into one markdown file, and every AI agent you use reads the same rules instead of inventing its own. Stitch can generate a design system straight from it.</span></div>
     </div>
 
     <div class="mini">
       <h4><svg class="hico"><use href="#s-blocks"/></svg> Components you paste in <span class="chip">saves hours</span></h4>
-      <div class="lrow"><svg class="logo"><use href="#l-shadcn"/></svg><span><a href="https://ui.shadcn.com" target="_blank" rel="noopener">shadcn/ui</a> <span class="aur">is the single biggest time saver here</span>. You copy a component's code into your own project rather than installing a library, so buttons, dialogs and forms look finished immediately, and because the code is now yours, you can edit it on the spot instead of fighting someone else's settings.</span></div>
-      <div class="lrow"><svg class="logo"><use href="#l-aceternity"/></svg><span><a href="https://ui.aceternity.com" target="_blank" rel="noopener">Aceternity UI</a> is the same copy-paste idea for animated sections. Use it on the landing screen and nowhere else. Animation everywhere reads as a template, but one well-placed moving element makes the whole thing look considered.</span></div>
+      <div class="lrow"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><use class="gh" href="#l-shadcn"/><use href="#l-shadcn"/></svg><span><a href="https://ui.shadcn.com" target="_blank" rel="noopener">shadcn/ui</a> <span class="aur">is the single biggest time saver here</span>. You copy a component's code into your own project rather than installing a library, so buttons, dialogs and forms look finished immediately, and because the code is now yours, you can edit it on the spot instead of fighting someone else's settings.</span></div>
+      <div class="lrow"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><use class="gh" href="#l-aceternity"/><use href="#l-aceternity"/></svg><span><a href="https://ui.aceternity.com" target="_blank" rel="noopener">Aceternity UI</a> is the same copy-paste idea for animated sections. Use it on the landing screen and nowhere else. Animation everywhere reads as a template, but one well-placed moving element makes the whole thing look considered.</span></div>
     </div>
 
     <div class="mini">
       <h4><svg class="hico"><use href="#s-db"/></svg> Database and backend</h4>
-      <div class="lrow"><svg class="logo"><use href="#l-supabase"/></svg><span><a href="https://supabase.com/dashboard" target="_blank" rel="noopener">Supabase</a> is our database and login system. One important detail: a free project <b>goes to sleep after seven days of inactivity</b>, so whoever owns it should open this dashboard on the morning of the demo to wake it up.</span></div>
-      <div class="lrow"><svg class="logo"><use href="#l-neon"/></svg><span><a href="https://console.neon.tech" target="_blank" rel="noopener">Neon</a> is a second Postgres database we can use for throwaway experiments, and unlike Supabase it wakes itself up automatically.</span></div>
-      <div class="lrow"><svg class="logo"><use href="#l-github"/></svg><span><a href="https://github.com" target="_blank" rel="noopener">GitHub</a> holds our repository, and the submission link comes from here.</span></div>
+      <div class="lrow"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><use class="gh" href="#l-supabase"/><use href="#l-supabase"/></svg><span><a href="https://supabase.com/dashboard" target="_blank" rel="noopener">Supabase</a> is our database and login system. One important detail: a free project <b>goes to sleep after seven days of inactivity</b>, so whoever owns it should open this dashboard on the morning of the demo to wake it up.</span></div>
+      <div class="lrow"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><use class="gh" href="#l-neon"/><use href="#l-neon"/></svg><span><a href="https://console.neon.tech" target="_blank" rel="noopener">Neon</a> is a second Postgres database we can use for throwaway experiments, and unlike Supabase it wakes itself up automatically.</span></div>
+      <div class="lrow"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><use class="gh" href="#l-github"/><use href="#l-github"/></svg><span><a href="https://github.com" target="_blank" rel="noopener">GitHub</a> holds our repository, and the submission link comes from here.</span></div>
     </div>
 
     <div class="mini">
       <h4><svg class="hico"><use href="#s-lang"/></svg> Indian data and languages <span class="chip">our edge</span></h4>
-      <div class="lrow"><svg class="logo"><use href="#l-bhashini"/></svg><span><a href="https://bhashini.gov.in" target="_blank" rel="noopener">Bhashini</a> is the Government of India's own AI language platform, built by MeitY, covering <b class="aur">22 Indian languages</b> for speech and translation. It is free with no rate limit, and using the government's own infrastructure at a government hackathon is an angle most teams will not have considered.</span></div>
-      <div class="lrow"><svg class="logo"><use href="#l-datagov"/></svg><span><a href="https://data.gov.in" target="_blank" rel="noopener">data.gov.in</a> holds real government datasets covering agriculture, health, disaster management and more. Seeding our app with genuine data rather than invented rows is exactly what separates a prototype from a demo, and when we cite it we should name the dataset and year rather than just the portal.</span></div>
+      <div class="lrow"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><use class="gh" href="#l-bhashini"/><use href="#l-bhashini"/></svg><span><a href="https://bhashini.gov.in" target="_blank" rel="noopener">Bhashini</a> is the Government of India's own AI language platform, built by MeitY, covering <b class="aur">22 Indian languages</b> for speech and translation. It is free with no rate limit, and using the government's own infrastructure at a government hackathon is an angle most teams will not have considered.</span></div>
+      <div class="lrow"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><use class="gh" href="#l-datagov"/><use href="#l-datagov"/></svg><span><a href="https://data.gov.in" target="_blank" rel="noopener">data.gov.in</a> holds real government datasets covering agriculture, health, disaster management and more. Seeding our app with genuine data rather than invented rows is exactly what separates a prototype from a demo, and when we cite it we should name the dataset and year rather than just the portal.</span></div>
     </div>
 
     <div class="mini">
       <h4><svg class="hico"><use href="#s-rocket"/></svg> Deploy, demo and compute</h4>
-      <div class="lrow"><svg class="logo"><use href="#l-cloudflare"/></svg><span><a href="https://pages.cloudflare.com" target="_blank" rel="noopener">Cloudflare Pages</a> gives us a free permanent web address for the finished app, which is far better on a slide than <code>localhost</code>.</span></div>
-      <div class="lrow"><svg class="logo"><use href="#l-colab"/></svg><span><a href="https://colab.research.google.com" target="_blank" rel="noopener">Google Colab</a> provides a free GPU in the browser, which we will need if any part of our solution involves training a model.</span></div>
-      <div class="lrow"><svg class="logo"><use href="#l-vercel"/></svg><span><a href="https://vercel.com" target="_blank" rel="noopener">Vercel</a> does the same job as Cloudflare Pages, and either is fine, so pick one and stop thinking about it. The reason to prefer Vercel with four people pushing at once is that <b>every push gets its own preview link</b>, so you can send someone a working URL of your half without disturbing what is on the main address. The free plan is for non-commercial projects, which a hackathon entry is.</span></div>
-      <div class="lrow"><svg class="logo"><use href="#l-github"/></svg><span><a href="https://github.dev" target="_blank" rel="noopener">github.dev</a> opens VS Code inside a browser tab, which is a useful escape route if someone's laptop dies on the day.</span></div>
+      <div class="lrow"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><use class="gh" href="#l-cloudflare"/><use href="#l-cloudflare"/></svg><span><a href="https://pages.cloudflare.com" target="_blank" rel="noopener">Cloudflare Pages</a> gives us a free permanent web address for the finished app, which is far better on a slide than <code>localhost</code>.</span></div>
+      <div class="lrow"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><use class="gh" href="#l-colab"/><use href="#l-colab"/></svg><span><a href="https://colab.research.google.com" target="_blank" rel="noopener">Google Colab</a> provides a free GPU in the browser, which we will need if any part of our solution involves training a model.</span></div>
+      <div class="lrow"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><use class="gh" href="#l-vercel"/><use href="#l-vercel"/></svg><span><a href="https://vercel.com" target="_blank" rel="noopener">Vercel</a> does the same job as Cloudflare Pages, and either is fine, so pick one and stop thinking about it. The reason to prefer Vercel with four people pushing at once is that <b>every push gets its own preview link</b>, so you can send someone a working URL of your half without disturbing what is on the main address. The free plan is for non-commercial projects, which a hackathon entry is.</span></div>
+      <div class="lrow"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><use class="gh" href="#l-github"/><use href="#l-github"/></svg><span><a href="https://github.dev" target="_blank" rel="noopener">github.dev</a> opens VS Code inside a browser tab, which is a useful escape route if someone's laptop dies on the day.</span></div>
     </div>
 
   </div>
@@ -160,7 +173,7 @@
       <h4><svg class="logo logo-lg"><use href="#l-google"/></svg> Google AI Plus <span class="chip chip-ok">free 12 months</span></h4>
       <p>This gives you <b>400 GB of storage</b> and full Gemini access, free for a year. Claim it using your JAIN college mail.</p>
       <p>When it asks you for your school, you must <b>select "JAIN (Deemed-to-be University)" from the dropdown list</b> that appears. Typing the name and moving on will not work.</p>
-      <a class="dl" href="https://one.google.com/ai-student" target="_blank" rel="noopener"><svg class="logo"><use href="#l-gemini"/></svg> Claim AI Plus</a>
+      <a class="dl" href="https://one.google.com/ai-student" target="_blank" rel="noopener"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><use class="gh" href="#l-gemini"/><use href="#l-gemini"/></svg> Claim AI Plus</a>
     </div>
 
     <div class="mini">
@@ -168,7 +181,7 @@
       <p>This one includes <b>JetBrains Ultimate</b>, <b>$200 of DigitalOcean credit</b>, <b>$100 of Azure credit</b>, a free domain name, and <b>180 hours a month of Codespaces</b>, which is cloud development that runs perfectly well even on a slow laptop.</p>
       <p>Two things in the pack are easy to miss. It includes <b>GitHub Copilot Pro free for as long as you are a student</b>, which most people never switch on, so turn it on inside VS Code once the pack is approved. It also includes a <b>free domain for a year</b> through Namecheap, and a real web address on the slide reads better than a long github.io link.</p>
       <p>Set your GitHub profile location to Bangalore before you apply, because a mismatch between your location and your college is the most common reason applications get rejected.</p>
-      <a class="dl" href="https://education.github.com/pack" target="_blank" rel="noopener"><svg class="logo"><use href="#l-github"/></svg> Claim the pack</a>
+      <a class="dl" href="https://education.github.com/pack" target="_blank" rel="noopener"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><use class="gh" href="#l-github"/><use href="#l-github"/></svg> Claim the pack</a>
     </div>
   </div>
 

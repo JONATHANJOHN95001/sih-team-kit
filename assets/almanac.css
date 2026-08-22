@@ -821,3 +821,15 @@
     .themer button { padding:7px 8px; letter-spacing:.02em; }
     .shead h2 { font-size:21px; }
   }
+
+  /* Each emblem carries an enlarged, faint copy of its own mark behind
+     the crisp one. The svg viewport clips it to the medallion, so the
+     logo becomes the texture of its own badge. */
+  .lrow .logo, .stk .logo { overflow:hidden; }
+  .logo .gh { transform-origin:50% 50%; transform:scale(2.6) translate(1px,1px);
+              opacity:.14; filter:saturate(1.3); }
+  .lrow:hover .logo .gh { opacity:.2; transform:scale(2.9) translate(1px,1px);
+                          transition:transform .4s cubic-bezier(.2,.7,.3,1), opacity .3s ease; }
+  :root[data-theme="dark"] .logo .gh { opacity:.2; }
+  /* Only the emblems get it. Icons sitting inline in prose stay plain. */
+  .note .logo .gh, .dl .logo .gh, .step-head .logo .gh { display:none; }

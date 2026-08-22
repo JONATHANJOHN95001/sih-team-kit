@@ -7,15 +7,28 @@
 <meta name="description" content="The vernacular translation tool: the decided stack, the offline models, and the demo run sheet.">
 <meta name="author" content="Jonathan John">
 <meta name="color-scheme" content="light dark">
+<link rel="canonical" href="https://jonathanjohn95001.github.io/sih-team-kit/project.html">
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="John’s Almanac">
+<meta property="og:url" content="https://jonathanjohn95001.github.io/sih-team-kit/project.html">
 <meta property="og:title" content="Team INNOV8 · SIH26042">
 <meta property="og:description" content="The vernacular translation tool: the decided stack, the offline models, and the demo run sheet.">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://jonathanjohn95001.github.io/sih-team-kit/assets/share.png">
+<meta property="og:image:secure_url" content="https://jonathanjohn95001.github.io/sih-team-kit/assets/share.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="John’s Almanac, a universal hackathon setup guide">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Team INNOV8 · SIH26042">
+<meta name="twitter:description" content="The vernacular translation tool: the decided stack, the offline models, and the demo run sheet.">
+<meta name="twitter:image" content="https://jonathanjohn95001.github.io/sih-team-kit/assets/share.png">
+<meta name="theme-color" content="#0F1124">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#129520;</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="./assets/almanac.css?v=b0a684e2">
+<link rel="stylesheet" href="./assets/almanac.css?v=ddf37c13">
 <style>
   /* The masthead backdrop is 100vw, which counts the scrollbar, so
      without this the page scrolls sideways by the scrollbar width. */
@@ -99,7 +112,7 @@
       <h4><svg class="hico"><use href="#s-key"/></svg> 1 · Bhashini API key <span class="chip chip-ok">free · required</span></h4>
       <p>The Government of India's own language platform does all the translation, speech recognition and speech synthesis. <b>We are not building AI. We are building the teaching tool on top of theirs.</b></p>
       <p>Sign up, verify your email, then go to <b>My Profile</b> and generate a key. You need three values: <code>userID</code>, <code>ulcaApiKey</code> and an <code>Inference API key</code>.</p>
-      <a class="dl" href="https://bhashini.gov.in" target="_blank" rel="noopener"><svg class="logo"><use href="#l-data"/></svg> Get a Bhashini key</a>
+      <a class="dl" href="https://bhashini.gov.in" target="_blank" rel="noopener"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><use class="gh" href="#l-data"/><use href="#l-data"/></svg> Get a Bhashini key</a>
     </div>
 
     <div class="mini">
@@ -120,16 +133,16 @@
       <p><b>IndicTrans2</b> is the translation model Bhashini actually serves, and AI4Bharat publish the weights openly. That means we can run it ourselves with no key, no network and no rate limit, and if Bhashini is down or the venue wifi dies during judging, the demo keeps working.</p>
       <p>Take the distilled <code>indic-indic-dist-320M</code> rather than the 1B version. On a 4&nbsp;GB graphics card the small one leaves room for Chrome and the dev server; the large one does not, and judging is exactly when everything is open at once. Santali is <code>sat_Olck</code>.</p>
       <p><b>NLLB-200</b> from Meta also covers Santali and makes a useful second opinion when a translation looks wrong. <b>CTranslate2</b> shrinks either model to int8 and runs it several times faster on the processor alone.</p>
-      <div class="lrow"><svg class="logo"><use href="#l-hf"/></svg><span><a href="https://huggingface.co/ai4bharat" target="_blank" rel="noopener">Hugging Face &rarr; AI4Bharat</a> is where the weights live. You also need <code>IndicTransToolkit</code> for preprocessing, because skipping it produces nonsense rather than an error.</span></div>
-      <div class="lrow"><svg class="logo"><use href="#l-pytorch"/></svg><span>Install with <code>pip install torch transformers ctranslate2 sentencepiece</code>. This is a separate Python process, not something LM Studio can load.</span></div>
+      <div class="lrow"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><use class="gh" href="#l-hf"/><use href="#l-hf"/></svg><span><a href="https://huggingface.co/ai4bharat" target="_blank" rel="noopener">Hugging Face &rarr; AI4Bharat</a> is where the weights live. You also need <code>IndicTransToolkit</code> for preprocessing, because skipping it produces nonsense rather than an error.</span></div>
+      <div class="lrow"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><use class="gh" href="#l-pytorch"/><use href="#l-pytorch"/></svg><span>Install with <code>pip install torch transformers ctranslate2 sentencepiece</code>. This is a separate Python process, not something LM Studio can load.</span></div>
     </div>
 
     <div class="mini">
       <h4><svg class="hico"><use href="#s-mic"/></svg> 5 &middot; Speech, in both directions <span class="chip chip-ok">all three confirmed</span></h4>
       <p>This was the open question for weeks, and the answer is better than we assumed. Checked against the government's public model catalogue, Bhashini carries all three pieces:</p>
-      <div class="lrow"><svg class="logo"><use href="#l-bhashini"/></svg><span><b>Santali speech output.</b> <i>Bhashini IITM TTS for Santali</i>, FastPitch with a HiFi-GAN vocoder, in male and female voices. This is the one that matters: Santali literacy is low, so a child who cannot yet read Ol&nbsp;Chiki can still hear the lesson.</span></div>
-      <div class="lrow"><svg class="logo"><use href="#l-bhashini"/></svg><span><b>Santali speech input</b> exists too, in <i>AI4Bharat ASR (conformer) Santhali</i>. We had not counted on this. It means a child can also <i>speak</i> and be understood, which opens up a two-way conversation rather than a one-way translation.</span></div>
-      <div class="lrow"><svg class="logo"><use href="#l-openai"/></svg><span><b>Hindi speech input</b> has five models to choose from, so the teacher speaks instead of typing. <b>faster-whisper</b> stays as the offline fallback, and <b>Vosk</b> at around 50&nbsp;MB if a laptop struggles.</span></div>
+      <div class="lrow"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><use class="gh" href="#l-bhashini"/><use href="#l-bhashini"/></svg><span><b>Santali speech output.</b> <i>Bhashini IITM TTS for Santali</i>, FastPitch with a HiFi-GAN vocoder, in male and female voices. This is the one that matters: Santali literacy is low, so a child who cannot yet read Ol&nbsp;Chiki can still hear the lesson.</span></div>
+      <div class="lrow"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><use class="gh" href="#l-bhashini"/><use href="#l-bhashini"/></svg><span><b>Santali speech input</b> exists too, in <i>AI4Bharat ASR (conformer) Santhali</i>. We had not counted on this. It means a child can also <i>speak</i> and be understood, which opens up a two-way conversation rather than a one-way translation.</span></div>
+      <div class="lrow"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><use class="gh" href="#l-openai"/><use href="#l-openai"/></svg><span><b>Hindi speech input</b> has five models to choose from, so the teacher speaks instead of typing. <b>faster-whisper</b> stays as the offline fallback, and <b>Vosk</b> at around 50&nbsp;MB if a laptop struggles.</span></div>
       <p>Because both directions work, the demo can be a genuine spoken exchange: the teacher speaks Hindi, the child hears Santali, the child answers in Santali, the teacher hears Hindi. That is a much stronger thing to put in front of judges than a text box.</p>
     </div>
 
@@ -151,10 +164,10 @@
       <h4><svg class="hico"><use href="#s-server"/></svg> 8 &middot; Where the Python model actually runs <span class="chip chip-req">easy to get wrong</span></h4>
       <p>This is the one piece of the architecture that catches people out. <b>Neither Vercel nor Cloudflare Pages can run IndicTrans2.</b> They host static files and small JavaScript functions; our translation model is PyTorch and needs a real Python process with a couple of gigabytes of memory. Deploying the React app there is correct. Expecting it to carry the model is not.</p>
       <p>So the model lives in one of three places, and we should decide which before we start:</p>
-      <div class="lrow"><svg class="logo"><use href="#l-python"/></svg><span><b>On the presenting laptop.</b> Simplest and fastest, no hosting at all, and it makes the offline story honest. This is the default and probably the right answer.</span></div>
-      <div class="lrow"><svg class="logo"><use href="#l-render"/></svg><span><a href="https://render.com" target="_blank" rel="noopener">Render</a> if we want it reachable from any phone. Its free tier runs an actual Python service, which is exactly what Vercel cannot do. It sleeps when idle and takes about a minute to wake, so open it before judging starts.</span></div>
-      <div class="lrow"><svg class="logo"><use href="#l-hf"/></svg><span><b>Hugging Face Inference</b> as the no-setup option, at the cost of depending on someone else's uptime during our demo.</span></div>
-      <div class="lrow"><svg class="logo"><use href="#l-streamlit"/></svg><span><a href="https://streamlit.io" target="_blank" rel="noopener">Streamlit</a> is worth knowing for hour two. It turns a Python script into a working web page, so we can have a real translate box on screen in about fifteen lines, long before the React app exists. Prove the model works, then build the proper interface around it.</span></div>
+      <div class="lrow"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><use class="gh" href="#l-python"/><use href="#l-python"/></svg><span><b>On the presenting laptop.</b> Simplest and fastest, no hosting at all, and it makes the offline story honest. This is the default and probably the right answer.</span></div>
+      <div class="lrow"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><use class="gh" href="#l-render"/><use href="#l-render"/></svg><span><a href="https://render.com" target="_blank" rel="noopener">Render</a> if we want it reachable from any phone. Its free tier runs an actual Python service, which is exactly what Vercel cannot do. It sleeps when idle and takes about a minute to wake, so open it before judging starts.</span></div>
+      <div class="lrow"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><use class="gh" href="#l-hf"/><use href="#l-hf"/></svg><span><b>Hugging Face Inference</b> as the no-setup option, at the cost of depending on someone else's uptime during our demo.</span></div>
+      <div class="lrow"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><use class="gh" href="#l-streamlit"/><use href="#l-streamlit"/></svg><span><a href="https://streamlit.io" target="_blank" rel="noopener">Streamlit</a> is worth knowing for hour two. It turns a Python script into a working web page, so we can have a real translate box on screen in about fifteen lines, long before the React app exists. Prove the model works, then build the proper interface around it.</span></div>
     </div>
 
     <div class="mini" style="grid-column:1/-1">
@@ -163,22 +176,22 @@
       <div class="stk-wrap"><table class="stk">
         <thead><tr><th></th><th>Layer</th><th>What we use</th><th>Why this one</th></tr></thead>
         <tbody>
-          <tr><td class="ic"><svg class="logo"><use href="#l-vscode"/></svg></td><td>Editor</td><td>VS&nbsp;Code, with Copilot Pro switched on</td><td>Copilot is free with the Student Pack and most people never enable it. Antigravity IDE stays open alongside for testing the app in a browser.</td></tr>
-          <tr><td class="ic"><svg class="logo"><use href="#l-gemini"/></svg></td><td>Writing the code</td><td>Gemini CLI first, then freebuff and Codex</td><td>Spread the work across lanes so no single free quota runs dry. LM&nbsp;Studio is the fallback when the venue wifi dies.</td></tr>
-          <tr><td class="ic"><svg class="logo"><use href="#l-shadcn"/></svg></td><td>Screens</td><td>React + Vite, Tailwind, shadcn/ui</td><td>Vite rebuilds instantly and shadcn components are ours to edit. Aceternity on the landing screen only.</td></tr>
-          <tr><td class="ic"><svg class="logo"><use href="#l-stitch"/></svg></td><td>Look</td><td>Stitch, driven by a <code>DESIGN.md</code></td><td>One file of visual rules that every agent reads, so four people's code still looks like one product.</td></tr>
-          <tr><td class="ic"><svg class="logo"><use href="#l-bhashini"/></svg></td><td>Translation (online)</td><td>Bhashini API</td><td>The government's own platform. Free, unlimited, and using MeitY infrastructure at a government hackathon is an angle most teams miss.</td></tr>
-          <tr><td class="ic"><svg class="logo"><use href="#l-hf"/></svg></td><td>Translation (offline)</td><td>IndicTrans2 <code>dist-320M</code> + CTranslate2</td><td>The same model Bhashini serves, running on our machine. <span class="aur">A dead network can no longer kill the demo.</span></td></tr>
-          <tr><td class="ic"><svg class="logo"><use href="#l-openai"/></svg></td><td>Speech in</td><td>faster-whisper (Hindi)</td><td>The teacher speaks instead of typing. Vosk is the fallback on a slow laptop.</td></tr>
-          <tr><td class="ic"><svg class="logo"><use href="#l-bhashini"/></svg></td><td>Speech out</td><td>Bhashini IITM TTS for Santali</td><td><span class="aur">It exists, in male and female voices</span> , built with FastPitch and a HiFi-GAN vocoder. A child who cannot yet read Ol&nbsp;Chiki can still hear the lesson, which is the whole point of the project.</td></tr>
-          <tr><td class="ic"><svg class="logo"><use href="#l-google"/></svg></td><td>Script</td><td>Noto Sans Ol&nbsp;Chiki, bundled in the repo</td><td>Without it every Santali word renders as an empty box. Self-hosted, never a CDN link.</td></tr>
-          <tr><td class="ic"><svg class="logo"><use href="#l-node"/></svg></td><td>Works offline</td><td>Transformers.js, Workbox, Dexie</td><td>So we can switch the wifi off in front of the judges and keep going.</td></tr>
-          <tr><td class="ic"><svg class="logo"><use href="#l-supabase"/></svg></td><td>Data and login</td><td>Supabase</td><td>Postgres plus auth in one free project. Wake it the morning of the demo, because it sleeps after seven idle days.</td></tr>
-          <tr><td class="ic"><svg class="logo"><use href="#l-render"/></svg></td><td>Hosting the model</td><td>Presenting laptop, Render if we need a URL</td><td>Vercel and Cloudflare cannot run PyTorch. This is the decision people get wrong.</td></tr>
-          <tr><td class="ic"><svg class="logo"><use href="#l-vercel"/></svg></td><td>Hosting the app</td><td>Vercel</td><td>A preview link per push, which matters with four people committing at once.</td></tr>
-          <tr><td class="ic"><svg class="logo"><use href="#l-python"/></svg></td><td>Proof it works</td><td>FLORES-200</td><td>A measured Santali score instead of a confident claim.</td></tr>
-          <tr><td class="ic"><svg class="logo"><use href="#l-perplexity"/></svg></td><td>Research</td><td>Perplexity (Search mode), NotebookLM</td><td>Everything on the slides needs a citable source, not a recollection.</td></tr>
-          <tr><td class="ic"><svg class="logo"><use href="#l-obs"/></svg></td><td>The demo</td><td>OBS, cloudflared, Slidev</td><td>Record it the moment it first works. If anything breaks at judging, we present the recording.</td></tr>
+          <tr><td class="ic"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><use class="gh" href="#l-vscode"/><use href="#l-vscode"/></svg></td><td>Editor</td><td>VS&nbsp;Code, with Copilot Pro switched on</td><td>Copilot is free with the Student Pack and most people never enable it. Antigravity IDE stays open alongside for testing the app in a browser.</td></tr>
+          <tr><td class="ic"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><use class="gh" href="#l-gemini"/><use href="#l-gemini"/></svg></td><td>Writing the code</td><td>Gemini CLI first, then freebuff and Codex</td><td>Spread the work across lanes so no single free quota runs dry. LM&nbsp;Studio is the fallback when the venue wifi dies.</td></tr>
+          <tr><td class="ic"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><use class="gh" href="#l-shadcn"/><use href="#l-shadcn"/></svg></td><td>Screens</td><td>React + Vite, Tailwind, shadcn/ui</td><td>Vite rebuilds instantly and shadcn components are ours to edit. Aceternity on the landing screen only.</td></tr>
+          <tr><td class="ic"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><use class="gh" href="#l-stitch"/><use href="#l-stitch"/></svg></td><td>Look</td><td>Stitch, driven by a <code>DESIGN.md</code></td><td>One file of visual rules that every agent reads, so four people's code still looks like one product.</td></tr>
+          <tr><td class="ic"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><use class="gh" href="#l-bhashini"/><use href="#l-bhashini"/></svg></td><td>Translation (online)</td><td>Bhashini API</td><td>The government's own platform. Free, unlimited, and using MeitY infrastructure at a government hackathon is an angle most teams miss.</td></tr>
+          <tr><td class="ic"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><use class="gh" href="#l-hf"/><use href="#l-hf"/></svg></td><td>Translation (offline)</td><td>IndicTrans2 <code>dist-320M</code> + CTranslate2</td><td>The same model Bhashini serves, running on our machine. <span class="aur">A dead network can no longer kill the demo.</span></td></tr>
+          <tr><td class="ic"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><use class="gh" href="#l-openai"/><use href="#l-openai"/></svg></td><td>Speech in</td><td>faster-whisper (Hindi)</td><td>The teacher speaks instead of typing. Vosk is the fallback on a slow laptop.</td></tr>
+          <tr><td class="ic"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><use class="gh" href="#l-bhashini"/><use href="#l-bhashini"/></svg></td><td>Speech out</td><td>Bhashini IITM TTS for Santali</td><td><span class="aur">It exists, in male and female voices</span> , built with FastPitch and a HiFi-GAN vocoder. A child who cannot yet read Ol&nbsp;Chiki can still hear the lesson, which is the whole point of the project.</td></tr>
+          <tr><td class="ic"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><use class="gh" href="#l-google"/><use href="#l-google"/></svg></td><td>Script</td><td>Noto Sans Ol&nbsp;Chiki, bundled in the repo</td><td>Without it every Santali word renders as an empty box. Self-hosted, never a CDN link.</td></tr>
+          <tr><td class="ic"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><use class="gh" href="#l-node"/><use href="#l-node"/></svg></td><td>Works offline</td><td>Transformers.js, Workbox, Dexie</td><td>So we can switch the wifi off in front of the judges and keep going.</td></tr>
+          <tr><td class="ic"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><use class="gh" href="#l-supabase"/><use href="#l-supabase"/></svg></td><td>Data and login</td><td>Supabase</td><td>Postgres plus auth in one free project. Wake it the morning of the demo, because it sleeps after seven idle days.</td></tr>
+          <tr><td class="ic"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><use class="gh" href="#l-render"/><use href="#l-render"/></svg></td><td>Hosting the model</td><td>Presenting laptop, Render if we need a URL</td><td>Vercel and Cloudflare cannot run PyTorch. This is the decision people get wrong.</td></tr>
+          <tr><td class="ic"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><use class="gh" href="#l-vercel"/><use href="#l-vercel"/></svg></td><td>Hosting the app</td><td>Vercel</td><td>A preview link per push, which matters with four people committing at once.</td></tr>
+          <tr><td class="ic"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><use class="gh" href="#l-python"/><use href="#l-python"/></svg></td><td>Proof it works</td><td>FLORES-200</td><td>A measured Santali score instead of a confident claim.</td></tr>
+          <tr><td class="ic"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><use class="gh" href="#l-perplexity"/><use href="#l-perplexity"/></svg></td><td>Research</td><td>Perplexity (Search mode), NotebookLM</td><td>Everything on the slides needs a citable source, not a recollection.</td></tr>
+          <tr><td class="ic"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><use class="gh" href="#l-obs"/><use href="#l-obs"/></svg></td><td>The demo</td><td>OBS, cloudflared, Slidev</td><td>Record it the moment it first works. If anything breaks at judging, we present the recording.</td></tr>
         </tbody>
       </table></div>
       <div class="note note-ok" style="margin:16px 0 0"><svg class="logo note-ico"><use href="#l-check"/></svg><div><b>Every row is settled.</b> The open question was whether Santali speech output existed at all. It does, confirmed against the government's public model catalogue, which also lists Santali speech <i>recognition</i>. Nothing in this table is waiting on an unknown any more.</div></div>
