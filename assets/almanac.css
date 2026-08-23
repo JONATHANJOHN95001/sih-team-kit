@@ -913,3 +913,15 @@
     .mast-art { max-width:330px; justify-self:end; margin-top:0; }
   }
   @media (prefers-reduced-motion:reduce) { .mast-art { animation:none; } }
+
+  /* The name is set in Cinzel, matching the share cards and the resume
+     the whole identity came from. Only the name: this is a display face
+     for a wordmark, not for running headings. */
+  .masthead h1 { font-family:'Cinzel', var(--f-display), serif; font-weight:700;
+                 letter-spacing:.005em; }
+  .mark { font-family:'Cinzel', var(--f-display), serif; font-weight:700;
+          letter-spacing:.01em; }
+  /* Cinzel sets lowercase as small capitals and runs wider than Archivo,
+     so the title needs a touch less size to hold the same measure. */
+  @media (max-width:560px) { .masthead h1 { font-size:30px; } }
+  @media (max-width:380px) { .masthead h1 { font-size:26px; } }
