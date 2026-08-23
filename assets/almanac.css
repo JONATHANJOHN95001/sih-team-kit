@@ -938,3 +938,41 @@
   :root[data-theme="dark"][data-page="toolkit"] { --accent:#9BD3F2; --accent-ink:#9BD3F2; --accent-wash:rgba(255,255,255,.10); }
   :root[data-theme="dark"][data-page="project"] { --accent:#79E7C6; --accent-ink:#79E7C6; --accent-wash:rgba(255,255,255,.10); }
   :root[data-theme="dark"][data-page="gotchas"] { --accent:#FFA7B8; --accent-ink:#FFA7B8; --accent-wash:rgba(255,255,255,.10); }
+
+  /* ---- read-first markers -------------------------------------------
+     Five pages, and a teammate opening the link cannot tell which two
+     are homework. Red is used nowhere else on the site, so it reads as
+     an instruction rather than decoration. */
+  .readfirst {
+    display:flex; gap:16px; align-items:flex-start;
+    margin:0 0 30px; padding:18px 20px;
+    border-radius:14px;
+    border:1px solid color-mix(in srgb, var(--req) 38%, transparent);
+    border-left:5px solid var(--req);
+    background:var(--req-wash);
+  }
+  .readfirst-tag {
+    flex:0 0 auto; font-family:var(--f-mono); font-size:10.5px; font-weight:700;
+    letter-spacing:.09em; text-transform:uppercase; color:#fff;
+    background:var(--req); border-radius:6px; padding:5px 9px; margin-top:2px;
+    white-space:nowrap;
+  }
+  .readfirst b { display:block; font-size:16px; color:var(--ink); margin-bottom:4px; }
+  .readfirst span { font-size:14.5px; line-height:1.7; color:var(--ink-soft); }
+  @media (max-width:560px) { .readfirst { flex-direction:column; gap:10px; padding:15px 16px; } }
+
+  /* the two nav items carry a dot, so the marker travels with you */
+  .nav a[href*="project"]::after,
+  .nav a[href*="toolkit"]::after {
+    content:''; display:inline-block; width:6px; height:6px; border-radius:50%;
+    background:var(--req); margin-left:6px; vertical-align:1px;
+  }
+
+  /* and a flag on their tiles on the start page */
+  .flag {
+    font-style:normal; font-family:var(--f-mono); font-size:9.5px; font-weight:700;
+    letter-spacing:.08em; text-transform:uppercase;
+    color:#fff; background:var(--req); border-radius:5px;
+    padding:2px 6px; margin-left:8px; vertical-align:2px; white-space:nowrap;
+  }
+  .tile:has(.flag) { border-color:color-mix(in srgb, var(--req) 45%, transparent); }
