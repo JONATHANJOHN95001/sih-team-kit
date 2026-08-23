@@ -10,8 +10,8 @@
     --mono-mark:#131529;
     --shadow-sm:0 1px 2px rgba(19,21,41,.07);
     --shadow:0 1px 2px rgba(19,21,41,.05), 0 12px 30px -16px rgba(19,21,41,.30);
-    --f-display:'Archivo','Helvetica Neue',Arial,sans-serif;
-    --f-body:'IBM Plex Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+    --f-display:'DM Sans','Helvetica Neue',Arial,sans-serif;
+    --f-body:'DM Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
     --f-mono:'JetBrains Mono','IBM Plex Mono',ui-monospace,Consolas,monospace;
   }
   @media (prefers-color-scheme: dark) {
@@ -925,3 +925,16 @@
      so the title needs a touch less size to hold the same measure. */
   @media (max-width:560px) { .masthead h1 { font-size:30px; } }
   @media (max-width:380px) { .masthead h1 { font-size:26px; } }
+
+  /* Each page wears the accent of its own share card, so the site
+     and a link preview of it are recognisably the same thing. */
+  :root[data-page="index"] { --accent:#5B3FD6; --accent-ink:#4429B8; --accent-wash:#EAE6FC; }
+  :root[data-page="setup"] { --accent:#4B4FD9; --accent-ink:#3A3DB4; --accent-wash:#E7E8FC; }
+  :root[data-page="toolkit"] { --accent:#1A6FA8; --accent-ink:#155A88; --accent-wash:#E2EFF8; }
+  :root[data-page="project"] { --accent:#0F8F6B; --accent-ink:#0B7053; --accent-wash:#E1F4EE; }
+  :root[data-page="gotchas"] { --accent:#C0304F; --accent-ink:#9B2540; --accent-wash:#FBE7EC; }
+  :root[data-theme="dark"][data-page="index"] { --accent:#C0B4FF; --accent-ink:#C0B4FF; --accent-wash:rgba(255,255,255,.10); }
+  :root[data-theme="dark"][data-page="setup"] { --accent:#B9BCFF; --accent-ink:#B9BCFF; --accent-wash:rgba(255,255,255,.10); }
+  :root[data-theme="dark"][data-page="toolkit"] { --accent:#9BD3F2; --accent-ink:#9BD3F2; --accent-wash:rgba(255,255,255,.10); }
+  :root[data-theme="dark"][data-page="project"] { --accent:#79E7C6; --accent-ink:#79E7C6; --accent-wash:rgba(255,255,255,.10); }
+  :root[data-theme="dark"][data-page="gotchas"] { --accent:#FFA7B8; --accent-ink:#FFA7B8; --accent-wash:rgba(255,255,255,.10); }
