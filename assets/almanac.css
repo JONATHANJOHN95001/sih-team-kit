@@ -961,12 +961,6 @@
   .readfirst span { font-size:14.5px; line-height:1.7; color:var(--ink-soft); }
   @media (max-width:560px) { .readfirst { flex-direction:column; gap:10px; padding:15px 16px; } }
 
-  /* the two nav items carry a dot, so the marker travels with you */
-  .nav a[href*="project"]::after,
-  .nav a[href*="toolkit"]::after {
-    content:''; display:inline-block; width:6px; height:6px; border-radius:50%;
-    background:var(--req); margin-left:6px; vertical-align:1px;
-  }
 
   /* and a flag on their tiles on the start page */
   .flag {
@@ -1021,3 +1015,23 @@
   .signpost-stop { margin:22px 0 14px; cursor:default; }
   .signpost-stop:hover { transform:none;
     box-shadow:0 10px 30px -18px color-mix(in srgb, var(--req) 70%, transparent); }
+
+  /* ---- Toolkit, as a street sign -------------------------------------
+     A sign standing in a row of plain text links, so the eye lands on it
+     before it reads any of them. Coloured ground, white lettering, and a
+     white border held in from the edge, which is the detail that makes a
+     real sign read as a sign rather than a coloured button. */
+  .nav a[href*="toolkit"] {
+    background:var(--req); color:#fff; font-weight:700;
+    letter-spacing:.02em; border-radius:7px; padding:7px 14px; margin:0 3px;
+    box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.92),
+               0 2px 9px -2px color-mix(in srgb, var(--req) 70%, transparent);
+    text-shadow:0 1px 1px rgba(0,0,0,.20);
+  }
+  .nav a[href*="toolkit"]:hover {
+    background:color-mix(in srgb, var(--req) 86%, #000); color:#fff;
+  }
+  .nav a[href*="toolkit"][aria-current="page"] {
+    background:color-mix(in srgb, var(--req) 92%, #000); color:#fff;
+    box-shadow:inset 0 0 0 1.5px #fff;
+  }

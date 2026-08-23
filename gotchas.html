@@ -30,6 +30,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="./assets/almanac.css?v=ed099316">
+<link rel="stylesheet" href="./assets/almanac.css?v=05f7f536">
 <style>
   /* The masthead backdrop is 100vw, which counts the scrollbar, so
      without this the page scrolls sideways by the scrollbar width. */
@@ -88,7 +89,6 @@
     <div class="gotcha"><div class="gk">RAM matters more than tools</div><div class="gv">Chrome with 28 tabs held <b>4.3 GB</b> on my machine, which is more than every tool in this kit combined. Close your browsers before we start.</div></div>
     <div class="gotcha"><div class="gk">Do not install Docker</div><div class="gv">Nothing here needs it, and on a 16 GB laptop already running an editor and a dev server it will cause more problems than it solves.</div></div>
   </div>
-
 
 
 
@@ -258,23 +258,13 @@
 })();
 </script>
 
+
   <nav class="pager">
     <a class="pg pg-prev" href="./project.html"><span>Previous</span><b>Team INNOV8 · SIH26042</b></a>
   </nav>
 
 </div>
 
-<script>
-
-/* Runs before first paint so the page never flashes the wrong theme.
-   Default is light; "auto" (follow the OS) is opt-in via the toggle. */
-(function () {
-  var m;
-  try { m = localStorage.getItem('almanac-theme'); } catch (e) {}
-  if (m !== 'auto') document.documentElement.setAttribute('data-theme', m === 'dark' ? 'dark' : 'light');
-})();
-
-</script>
 <script>
 
 (function () {
@@ -422,6 +412,161 @@
 
   restore();
 })();
+
+</script>
+<script>
+
+
+(function () {
+  var root = document.documentElement;
+  var btns = document.querySelectorAll('.themer button');
+  function paint(mode) {
+    if (mode === 'auto') root.removeAttribute('data-theme');
+    else root.setAttribute('data-theme', mode);
+    btns.forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.set === mode)); });
+  }
+  btns.forEach(function (b) {
+    b.addEventListener('click', function () {
+      paint(b.dataset.set);
+      /* only a real click is remembered, so the default stays light */
+      try { localStorage.setItem('almanac-theme', b.dataset.set); } catch (e) {}
+    });
+  });
+  var saved;
+  try { saved = localStorage.getItem('almanac-theme'); } catch (e) {}
+  paint(saved === 'auto' || saved === 'dark' ? saved : 'light');
+})();
+
+
+</script>
+<script>
+
+
+(function () {
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var root = document.documentElement;
+
+  /* Spotlight - one listener for the whole page, coalesced into a frame. */
+  var pending = null;
+  document.addEventListener('pointermove', function (e) {
+    var card = e.target.closest && e.target.closest('.mini, .tile');
+    if (!card) return;
+    pending = [card, e];
+    requestAnimationFrame(function () {
+      if (!pending) return;
+      var c = pending[0], ev = pending[1], r = c.getBoundingClientRect();
+      var px = (ev.clientX - r.left) / r.width, py = (ev.clientY - r.top) / r.height;
+      c.style.setProperty('--mx', (px * 100) + '%');
+      c.style.setProperty('--my', (py * 100) + '%');
+      if (!reduce) {
+        /* +-5 degrees. Enough to read as depth, not enough to hurt the text. */
+        c.style.setProperty('--ry', ((px - 0.5) * 10).toFixed(2) + 'deg');
+        c.style.setProperty('--rx', ((0.5 - py) * 10).toFixed(2) + 'deg');
+      }
+      pending = null;
+    });
+  }, {passive: true});
+
+  document.addEventListener('pointerout', function (e) {
+    var card = e.target.closest && e.target.closest('.mini, .tile');
+    if (!card || card.contains(e.relatedTarget)) return;
+    card.style.setProperty('--rx', '0deg');
+    card.style.setProperty('--ry', '0deg');
+  }, {passive: true});
+
+  /* Reveal - only ever hides things when we can also reveal them. */
+  /* Same reasoning: no reveal-on-scroll on a phone. */
+  if (reduce || innerWidth < 760 || !('IntersectionObserver' in window)) return;
+  root.classList.add('js-reveal');
+  var items = document.querySelectorAll('.mini, .stepcard, .dstep, .wrow');
+  items.forEach(function (el) { el.classList.add('rv'); });
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (!en.isIntersecting) return;
+      en.target.classList.add('in');
+      io.unobserve(en.target);
+    });
+  }, {rootMargin: '0px 0px -8% 0px', threshold: 0.06});
+  items.forEach(function (el) { io.observe(el); });
+
+  /* Anything already on screen at load should not wait to fade in. */
+  requestAnimationFrame(function () {
+    items.forEach(function (el) {
+      if (el.getBoundingClientRect().top < innerHeight) el.classList.add('in');
+    });
+  });
+})();
+
+
+</script>
+<script>
+
+
+/* Swap roles by dragging, or by tapping one name then another.
+   Both exist because drag and drop does nothing on a touchscreen, and
+   this page is read on phones as much as laptops. */
+(function () {
+  var table = document.getElementById('roles');
+  if (!table) return;                       /* other pages share this bundle */
+
+  var KEY = 'innov8-roles';
+  var cells = [].slice.call(table.querySelectorAll('.who'));
+  var start = cells.map(function (c) { return c.textContent; });
+  var picked = null;
+
+  function save() {
+    try { localStorage.setItem(KEY, JSON.stringify(cells.map(function (c) { return c.textContent; }))); } catch (e) {}
+  }
+  function restore() {
+    var v; try { v = JSON.parse(localStorage.getItem(KEY) || 'null'); } catch (e) {}
+    if (Array.isArray(v) && v.length === cells.length &&
+        v.slice().sort().join() === start.slice().sort().join()) {
+      cells.forEach(function (c, i) { c.textContent = v[i]; });
+    }
+  }
+  function swap(a, b) {
+    if (!a || !b || a === b) return;
+    var t = a.textContent; a.textContent = b.textContent; b.textContent = t;
+    save();
+  }
+  function clearPick() {
+    if (picked) picked.classList.remove('picked');
+    picked = null;
+  }
+
+  cells.forEach(function (cell) {
+    cell.addEventListener('click', function () {
+      if (!picked) { picked = cell; cell.classList.add('picked'); return; }
+      swap(picked, cell); clearPick();
+    });
+
+    cell.addEventListener('dragstart', function (e) {
+      picked = cell; cell.classList.add('dragging');
+      e.dataTransfer.effectAllowed = 'move';
+      e.dataTransfer.setData('text/plain', cell.dataset.slot);
+    });
+    cell.addEventListener('dragend', function () {
+      cell.classList.remove('dragging'); clearPick();
+      cells.forEach(function (c) { c.classList.remove('over'); });
+    });
+    cell.addEventListener('dragover', function (e) {
+      e.preventDefault(); e.dataTransfer.dropEffect = 'move'; cell.classList.add('over');
+    });
+    cell.addEventListener('dragleave', function () { cell.classList.remove('over'); });
+    cell.addEventListener('drop', function (e) {
+      e.preventDefault(); cell.classList.remove('over');
+      swap(picked, cell); clearPick();
+    });
+  });
+
+  document.getElementById('rolesReset').addEventListener('click', function () {
+    cells.forEach(function (c, i) { c.textContent = start[i]; });
+    clearPick(); save();
+  });
+
+  restore();
+})();
+
 
 </script>
 </body>

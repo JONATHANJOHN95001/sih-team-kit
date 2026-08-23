@@ -30,6 +30,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="./assets/almanac.css?v=ed099316">
+<link rel="stylesheet" href="./assets/almanac.css?v=05f7f536">
 <style>
   /* The masthead backdrop is 100vw, which counts the scrollbar, so
      without this the page scrolls sideways by the scrollbar width. */
@@ -49,7 +50,6 @@
 <body>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
-  <symbol id="l-node" viewBox="0 0 24 24"><path d="M11.998,24c-0.321,0-0.641-0.084-0.922-0.247l-2.936-1.737c-0.438-0.245-0.224-0.332-0.08-0.383 c0.585-0.203,0.703-0.25,1.328-0.604c0.065-0.037,0.151-0.023,0.218,0.017l2.256,1.339c0.082,0.045,0.197,0.045,0.272,0l8.795-5.076 c0.082-0.047,0.134-0.141,0.134-0.238V6.921c0-0.099-0.053-0.192-0.137-0.242l-8.791-5.072c-0.081-0.047-0.189-0.047-0.271,0 L3.075,6.68C2.99,6.729,2.936,6.825,2.936,6.921v10.15c0,0.097,0.054,0.189,0.139,0.235l2.409,1.392 c1.307,0.654,2.108-0.116,2.108-0.89V7.787c0-0.142,0.114-0.253,0.256-0.253h1.115c0.139,0,0.255,0.112,0.255,0.253v10.021 c0,1.745-0.95,2.745-2.604,2.745c-0.508,0-0.909,0-2.026-0.551L2.28,18.675c-0.57-0.329-0.922-0.945-0.922-1.604V6.921 c0-0.659,0.353-1.275,0.922-1.603l8.795-5.082c0.557-0.315,1.296-0.315,1.848,0l8.794,5.082c0.57,0.329,0.924,0.944,0.924,1.603 v10.15c0,0.659-0.354,1.273-0.924,1.604l-8.794,5.078C12.643,23.916,12.324,24,11.998,24z M19.099,13.993 c0-1.9-1.284-2.406-3.987-2.763c-2.731-0.361-3.009-0.548-3.009-1.187c0-0.528,0.235-1.233,2.258-1.233 c1.807,0,2.473,0.389,2.747,1.607c0.024,0.115,0.129,0.199,0.247,0.199h1.141c0.071,0,0.138-0.031,0.186-0.081 c0.048-0.054,0.074-0.123,0.067-0.196c-0.177-2.098-1.571-3.076-4.388-3.076c-2.508,0-4.004,1.058-4.004,2.833 c0,1.925,1.488,2.457,3.895,2.695c2.88,0.282,3.103,0.703,3.103,1.269c0,0.983-0.789,1.402-2.642,1.402 c-2.327,0-2.839-0.584-3.011-1.742c-0.02-0.124-0.126-0.215-0.253-0.215h-1.137c-0.141,0-0.254,0.112-0.254,0.253 c0,1.482,0.806,3.248,4.655,3.248C17.501,17.007,19.099,15.91,19.099,13.993z" fill="#5FA04E"/></symbol>
   <symbol id="l-vscode" viewBox="0 0 24 24"><path d="M17.9 1.3 22.4 3.5a1 1 0 0 1 .6.9v15.2a1 1 0 0 1-.6.9l-4.5 2.2a1 1 0 0 1-1.1-.2l-8.6-7.8-4 3a.7.7 0 0 1-.9 0l-1.9-1.7a.7.7 0 0 1 0-1L4.3 12 1.4 9a.7.7 0 0 1 0-1l1.9-1.7a.7.7 0 0 1 .9 0l4 3 8.6-7.8a1 1 0 0 1 1.1-.2Zm.6 5.3L12 12l6.5 5.4V6.6Z" fill="#0078D4"/></symbol>
   <symbol id="l-gemini" viewBox="0 0 24 24"><path d="M11.04 19.32Q12 21.51 12 24q0-2.49.93-4.68.96-2.19 2.58-3.81t3.81-2.55Q21.51 12 24 12q-2.49 0-4.68-.93a12.3 12.3 0 0 1-3.81-2.58 12.3 12.3 0 0 1-2.58-3.81Q12 2.49 12 0q0 2.49-.96 4.68-.93 2.19-2.55 3.81a12.3 12.3 0 0 1-3.81 2.58Q2.49 12 0 12q2.49 0 4.68.96 2.19.93 3.81 2.55t2.55 3.81" fill="#4285F4"/></symbol>
   <symbol id="l-openai" viewBox="0 0 24 24"><path d="M21.6 9.9a5.4 5.4 0 0 0-.5-4.5 5.5 5.5 0 0 0-5.9-2.6A5.4 5.4 0 0 0 11.1.9a5.5 5.5 0 0 0-5.2 3.8A5.4 5.4 0 0 0 2.3 7.3a5.5 5.5 0 0 0 .7 6.4 5.4 5.4 0 0 0 .5 4.5 5.5 5.5 0 0 0 5.9 2.6 5.4 5.4 0 0 0 4.1 1.8 5.5 5.5 0 0 0 5.2-3.8 5.4 5.4 0 0 0 3.6-2.6 5.5 5.5 0 0 0-.7-6.3Zm-8.2 11.4a4 4 0 0 1-2.6-.9l3.5-2a.6.6 0 0 0 .3-.5v-4.9l1.5.9v4.1a4.1 4.1 0 0 1-2.7 3.3ZM4.6 17.5a4 4 0 0 1-.5-2.7l3.5 2a.6.6 0 0 0 .6 0l4.3-2.5v1.7l-3.6 2.1a4.1 4.1 0 0 1-4.3-.6ZM3.7 8.4a4 4 0 0 1 2.1-1.8v4.2a.6.6 0 0 0 .3.5l4.3 2.5-1.5.9-3.6-2.1a4.1 4.1 0 0 1-1.6-4.2Zm14.3 3.3-4.3-2.5 1.5-.9 3.6 2.1a4.1 4.1 0 0 1-.6 7.4v-4.2a.6.6 0 0 0-.2-.5ZM19.5 9l-3.5-2a.6.6 0 0 0-.6 0l-4.3 2.5V7.8l3.6-2.1a4.1 4.1 0 0 1 6.1 4.4A4 4 0 0 1 19.5 9ZM10.3 12.6l-1.5-.9V7.6a4.1 4.1 0 0 1 6.7-3.2l-3.5 2a.6.6 0 0 0-.3.5v5.7Zm.8-1.8L13 9.7l1.9 1.1v2.2L13 14.1l-1.9-1.1v-2.2Z" fill="var(--mono-mark)"/></symbol>
@@ -57,17 +57,17 @@
   <symbol id="l-obs" viewBox="0 0 24 24"><path d="M12,24C5.383,24,0,18.617,0,12S5.383,0,12,0s12,5.383,12,12S18.617,24,12,24z M12,1.109 C5.995,1.109,1.11,5.995,1.11,12C1.11,18.005,5.995,22.89,12,22.89S22.89,18.005,22.89,12C22.89,5.995,18.005,1.109,12,1.109z M6.182,5.99c0.352-1.698,1.503-3.229,3.05-3.996c-0.269,0.273-0.595,0.483-0.844,0.78c-1.02,1.1-1.48,2.692-1.199,4.156 c0.355,2.235,2.455,4.06,4.732,4.028c1.765,0.079,3.485-0.937,4.348-2.468c1.848,0.063,3.645,1.017,4.7,2.548 c0.54,0.799,0.962,1.736,0.991,2.711c-0.342-1.295-1.202-2.446-2.375-3.095c-1.135-0.639-2.529-0.802-3.772-0.425 c-1.56,0.448-2.849,1.723-3.293,3.293c-0.377,1.25-0.216,2.628,0.377,3.772c-0.825,1.429-2.315,2.449-3.932,2.756 c-1.244,0.261-2.551,0.059-3.709-0.464c1.036,0.302,2.161,0.355,3.191-0.011c1.381-0.457,2.522-1.567,3.024-2.935 c0.556-1.49,0.345-3.261-0.591-4.54c-0.7-1.007-1.803-1.717-3.002-1.969c-0.38-0.068-0.764-0.098-1.148-0.134 c-0.611-1.231-0.834-2.66-0.528-3.996L6.182,5.99z" fill="#302E31"/></symbol>
   <symbol id="l-perplexity" viewBox="0 0 24 24"><path d="M22.3977 7.0896h-2.3106V.0676l-7.5094 6.3542V.1577h-1.1554v6.1966L4.4904 0v7.0896H1.6023v10.3976h2.8882V24l6.932-6.3591v6.2005h1.1554v-6.0469l6.9318 6.1807v-6.4879h2.8882V7.0896zm-3.4657-4.531v4.531h-5.355l5.355-4.531zm-13.2862.0676 4.8691 4.4634H5.6458V2.6262zM2.7576 16.332V8.245h7.8476l-6.1149 6.1147v1.9723H2.7576zm2.8882 5.0404v-3.8852h.0001v-2.6488l5.7763-5.7764v7.0111l-5.7764 5.2993zm12.7086.0248-5.7766-5.1509V9.0618l5.7766 5.7766v6.5588zm2.8882-5.0652h-1.733v-1.9723L13.3948 8.245h7.8478v8.087z" fill="#1FB8CD"/></symbol>
   <symbol id="l-stitch" viewBox="0 0 24 24"><path d="M4 12c0-4.4 3.6-8 8-8s8 3.6 8 8-3.6 8-8 8" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="2.6" fill="#8B5CF6"/></symbol>
-  <symbol id="l-google" viewBox="0 0 24 24"><path d="M21.6 12.2c0-.7-.1-1.4-.2-2H12v3.9h5.4a4.6 4.6 0 0 1-2 3v2.5h3.2c1.9-1.7 3-4.3 3-7.4Z" fill="#4285F4"/><path d="M12 22c2.7 0 5-.9 6.6-2.4l-3.2-2.5a6 6 0 0 1-9-3.2H3.1v2.6A10 10 0 0 0 12 22Z" fill="#34A853"/><path d="M6.4 13.9a6 6 0 0 1 0-3.8V7.5H3.1a10 10 0 0 0 0 9l3.3-2.6Z" fill="#FBBC05"/><path d="M12 6a5.4 5.4 0 0 1 3.8 1.5l2.8-2.8A9.6 9.6 0 0 0 12 2a10 10 0 0 0-8.9 5.5l3.3 2.6A6 6 0 0 1 12 6Z" fill="#EA4335"/></symbol>
-  <symbol id="l-data" viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7.6" ry="3.2" fill="#FF9933"/><path d="M4.4 6v12c0 1.8 3.4 3.2 7.6 3.2s7.6-1.4 7.6-3.2V6" fill="none" stroke="#138808" stroke-width="1.8"/><path d="M4.4 12c0 1.8 3.4 3.2 7.6 3.2s7.6-1.4 7.6-3.2" fill="none" stroke="#138808" stroke-width="1.8"/></symbol>
+  <symbol id="s-route" viewBox="0 0 24 24"><circle cx="5.5" cy="5.5" r="2.6" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="18.5" cy="18.5" r="2.6" fill="none" stroke="currentColor" stroke-width="1.9"/><path d="M8.1 5.5h6.4a3.6 3.6 0 0 1 0 7.2H9.5a3.6 3.6 0 0 0 0 7.2h6.4" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></symbol>
+  <symbol id="s-wrench" viewBox="0 0 24 24"><path d="M15.6 3.4a5.6 5.6 0 0 0-5 8.1L3.5 18.6a1.8 1.8 0 0 0 2.6 2.6l7.1-7.1a5.6 5.6 0 0 0 6.9-7.6l-3 3-2.6-2.6 3-3a5.6 5.6 0 0 0-1.9-.5Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+  <symbol id="s-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M2.8 12h18.4M12 2.8c2.4 2.5 3.7 5.8 3.7 9.2s-1.3 6.7-3.7 9.2c-2.4-2.5-3.7-5.8-3.7-9.2S9.6 5.3 12 2.8Z" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+  <symbol id="s-trap" viewBox="0 0 24 24"><path d="M9.4 4.6a3 3 0 0 1 5.2 0l7 12.2a3 3 0 0 1-2.6 4.5H5a3 3 0 0 1-2.6-4.5Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M12 9.4v4.4M12 17.2v.1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="s-clip" viewBox="0 0 24 24"><rect x="4.6" y="4" width="14.8" height="17" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><rect x="8.8" y="1.9" width="6.4" height="4.2" rx="1.4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m8.8 13 2.3 2.3 4.1-4.6" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="l-node" viewBox="0 0 24 24"><path d="M11.998,24c-0.321,0-0.641-0.084-0.922-0.247l-2.936-1.737c-0.438-0.245-0.224-0.332-0.08-0.383 c0.585-0.203,0.703-0.25,1.328-0.604c0.065-0.037,0.151-0.023,0.218,0.017l2.256,1.339c0.082,0.045,0.197,0.045,0.272,0l8.795-5.076 c0.082-0.047,0.134-0.141,0.134-0.238V6.921c0-0.099-0.053-0.192-0.137-0.242l-8.791-5.072c-0.081-0.047-0.189-0.047-0.271,0 L3.075,6.68C2.99,6.729,2.936,6.825,2.936,6.921v10.15c0,0.097,0.054,0.189,0.139,0.235l2.409,1.392 c1.307,0.654,2.108-0.116,2.108-0.89V7.787c0-0.142,0.114-0.253,0.256-0.253h1.115c0.139,0,0.255,0.112,0.255,0.253v10.021 c0,1.745-0.95,2.745-2.604,2.745c-0.508,0-0.909,0-2.026-0.551L2.28,18.675c-0.57-0.329-0.922-0.945-0.922-1.604V6.921 c0-0.659,0.353-1.275,0.922-1.603l8.795-5.082c0.557-0.315,1.296-0.315,1.848,0l8.794,5.082c0.57,0.329,0.924,0.944,0.924,1.603 v10.15c0,0.659-0.354,1.273-0.924,1.604l-8.794,5.078C12.643,23.916,12.324,24,11.998,24z M19.099,13.993 c0-1.9-1.284-2.406-3.987-2.763c-2.731-0.361-3.009-0.548-3.009-1.187c0-0.528,0.235-1.233,2.258-1.233 c1.807,0,2.473,0.389,2.747,1.607c0.024,0.115,0.129,0.199,0.247,0.199h1.141c0.071,0,0.138-0.031,0.186-0.081 c0.048-0.054,0.074-0.123,0.067-0.196c-0.177-2.098-1.571-3.076-4.388-3.076c-2.508,0-4.004,1.058-4.004,2.833 c0,1.925,1.488,2.457,3.895,2.695c2.88,0.282,3.103,0.703,3.103,1.269c0,0.983-0.789,1.402-2.642,1.402 c-2.327,0-2.839-0.584-3.011-1.742c-0.02-0.124-0.126-0.215-0.253-0.215h-1.137c-0.141,0-0.254,0.112-0.254,0.253 c0,1.482,0.806,3.248,4.655,3.248C17.501,17.007,19.099,15.91,19.099,13.993z" fill="#5FA04E"/></symbol>
   <symbol id="l-warn" viewBox="0 0 24 24"><path d="M12 3.4 22.2 20.4H1.8L12 3.4Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M12 9.6v4.2M12 16.8v.1" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></symbol>
   <symbol id="l-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m8 12.3 2.7 2.7L16 9.6" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="l-google" viewBox="0 0 24 24"><path d="M21.6 12.2c0-.7-.1-1.4-.2-2H12v3.9h5.4a4.6 4.6 0 0 1-2 3v2.5h3.2c1.9-1.7 3-4.3 3-7.4Z" fill="#4285F4"/><path d="M12 22c2.7 0 5-.9 6.6-2.4l-3.2-2.5a6 6 0 0 1-9-3.2H3.1v2.6A10 10 0 0 0 12 22Z" fill="#34A853"/><path d="M6.4 13.9a6 6 0 0 1 0-3.8V7.5H3.1a10 10 0 0 0 0 9l3.3-2.6Z" fill="#FBBC05"/><path d="M12 6a5.4 5.4 0 0 1 3.8 1.5l2.8-2.8A9.6 9.6 0 0 0 12 2a10 10 0 0 0-8.9 5.5l3.3 2.6A6 6 0 0 1 12 6Z" fill="#EA4335"/></symbol>
   <symbol id="l-shadcn" viewBox="0 0 24 24"><path d="M22.219 11.784 11.784 22.219c-.407.407-.407 1.068 0 1.476.407.407 1.068.407 1.476 0L23.695 13.26c.407-.408.407-1.069 0-1.476-.408-.407-1.069-.407-1.476 0ZM20.132.305.305 20.132c-.407.407-.407 1.068 0 1.476.408.407 1.069.407 1.476 0L21.608 1.781c.407-.407.407-1.068 0-1.476-.408-.407-1.069-.407-1.476 0Z" fill="var(--mono-mark)"/></symbol>
   <symbol id="l-vercel" viewBox="0 0 24 24"><path d="m12 1.608 12 20.784H0Z" fill="var(--mono-mark)"/></symbol>
-  <symbol id="l-hf" viewBox="0 0 24 24"><path d="M12.025 1.13c-5.77 0-10.449 4.647-10.449 10.378 0 1.112.178 2.181.503 3.185.064-.222.203-.444.416-.577a.96.96 0 0 1 .524-.15c.293 0 .584.124.84.284.278.173.48.408.71.694.226.282.458.611.684.951v-.014c.017-.324.106-.622.264-.874s.403-.487.762-.543c.3-.047.596.06.787.203s.31.313.4.467c.15.257.212.468.233.542.01.026.653 1.552 1.657 2.54.616.605 1.01 1.223 1.082 1.912.055.537-.096 1.059-.38 1.572.637.121 1.294.187 1.967.187.657 0 1.298-.063 1.921-.178-.287-.517-.44-1.041-.384-1.581.07-.69.465-1.307 1.081-1.913 1.004-.987 1.647-2.513 1.657-2.539.021-.074.083-.285.233-.542.09-.154.208-.323.4-.467a1.08 1.08 0 0 1 .787-.203c.359.056.604.29.762.543s.247.55.265.874v.015c.225-.34.457-.67.683-.952.23-.286.432-.52.71-.694.257-.16.547-.284.84-.285a.97.97 0 0 1 .524.151c.228.143.373.388.43.625l.006.04a10.3 10.3 0 0 0 .534-3.273c0-5.731-4.678-10.378-10.449-10.378M8.327 6.583a1.5 1.5 0 0 1 .713.174 1.487 1.487 0 0 1 .617 2.013c-.183.343-.762-.214-1.102-.094-.38.134-.532.914-.917.71a1.487 1.487 0 0 1 .69-2.803m7.486 0a1.487 1.487 0 0 1 .689 2.803c-.385.204-.536-.576-.916-.71-.34-.12-.92.437-1.103.094a1.487 1.487 0 0 1 .617-2.013 1.5 1.5 0 0 1 .713-.174m-10.68 1.55a.96.96 0 1 1 0 1.921.96.96 0 0 1 0-1.92m13.838 0a.96.96 0 1 1 0 1.92.96.96 0 0 1 0-1.92M8.489 11.458c.588.01 1.965 1.157 3.572 1.164 1.607-.007 2.984-1.155 3.572-1.164.196-.003.305.12.305.454 0 .886-.424 2.328-1.563 3.202-.22-.756-1.396-1.366-1.63-1.32q-.011.001-.02.006l-.044.026-.01.008-.03.024q-.018.017-.035.036l-.032.04a1 1 0 0 0-.058.09l-.014.025q-.049.088-.11.19a1 1 0 0 1-.083.116 1.2 1.2 0 0 1-.173.18q-.035.029-.075.058a1.3 1.3 0 0 1-.251-.243 1 1 0 0 1-.076-.107c-.124-.193-.177-.363-.337-.444-.034-.016-.104-.008-.2.022q-.094.03-.216.087-.06.028-.125.063l-.13.074q-.067.04-.136.086a3 3 0 0 0-.135.096 3 3 0 0 0-.26.219 2 2 0 0 0-.12.121 2 2 0 0 0-.106.128l-.002.002a2 2 0 0 0-.09.132l-.001.001a1.2 1.2 0 0 0-.105.212q-.013.036-.024.073c-1.139-.875-1.563-2.317-1.563-3.203 0-.334.109-.457.305-.454m.836 10.354c.824-1.19.766-2.082-.365-3.194-1.13-1.112-1.789-2.738-1.789-2.738s-.246-.945-.806-.858-.97 1.499.202 2.362c1.173.864-.233 1.45-.685.64-.45-.812-1.683-2.896-2.322-3.295s-1.089-.175-.938.647 2.822 2.813 2.562 3.244-1.176-.506-1.176-.506-2.866-2.567-3.49-1.898.473 1.23 2.037 2.16c1.564.932 1.686 1.178 1.464 1.53s-3.675-2.511-4-1.297c-.323 1.214 3.524 1.567 3.287 2.405-.238.839-2.71-1.587-3.216-.642-.506.946 3.49 2.056 3.522 2.064 1.29.33 4.568 1.028 5.713-.624m5.349 0c-.824-1.19-.766-2.082.365-3.194 1.13-1.112 1.789-2.738 1.789-2.738s.246-.945.806-.858.97 1.499-.202 2.362c-1.173.864.233 1.45.685.64.451-.812 1.683-2.896 2.322-3.295s1.089-.175.938.647-2.822 2.813-2.562 3.244 1.176-.506 1.176-.506 2.866-2.567 3.49-1.898-.473 1.23-2.037 2.16c-1.564.932-1.686 1.178-1.464 1.53s3.675-2.511 4-1.297c.323 1.214-3.524 1.567-3.287 2.405.238.839 2.71-1.587 3.216-.642.506.946-3.49 2.056-3.522 2.064-1.29.33-4.568 1.028-5.713-.624" fill="#FFD21E"/></symbol>
-  <symbol id="s-key" viewBox="0 0 24 24"><circle cx="7.6" cy="16.4" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m10.6 13.4 9-9M17.2 6.8l2.4 2.4M14.8 9.2l2.4 2.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
-  <symbol id="s-gauge" viewBox="0 0 24 24"><path d="M3.2 17.4a9.6 9.6 0 1 1 17.6 0" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="m12 17.4 4.4-6" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/><circle cx="12" cy="17.4" r="1.5" fill="currentColor"/></symbol>
-  <symbol id="s-type" viewBox="0 0 24 24"><path d="M3.4 6.2V4h17.2v2.2M12 4v16M8.6 20h6.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-  <symbol id="s-save" viewBox="0 0 24 24"><path d="M3.4 5.6a2 2 0 0 1 2-2h10.2l4.8 4.8v10a2 2 0 0 1-2 2H5.4a2 2 0 0 1-2-2V5.6Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M7.6 3.6v5.2h7.2V3.6M7.6 20.4v-6h8.8v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
   <symbol id="s-chat" viewBox="0 0 24 24"><path d="M21 12.6a7.7 7.7 0 0 1-8.3 7.7L6.2 22l1.4-3.6A7.7 7.7 0 1 1 21 12.6Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
   <symbol id="s-book" viewBox="0 0 24 24"><path d="M3.4 4.4h5.9a3.4 3.4 0 0 1 2.7 1.3 3.4 3.4 0 0 1 2.7-1.3h5.9v13.8h-5.9a3.4 3.4 0 0 0-2.7 1.3 3.4 3.4 0 0 0-2.7-1.3H3.4V4.4Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M12 7v12" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
   <symbol id="s-pen" viewBox="0 0 24 24"><path d="M16.4 3.3 20.7 7.6 8.2 20.1l-5.4 1.1 1.1-5.4L16.4 3.3Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="m13.9 5.8 4.3 4.3" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
@@ -75,6 +75,14 @@
   <symbol id="s-db" viewBox="0 0 24 24"><ellipse cx="12" cy="5.6" rx="8.2" ry="3.2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3.8 5.6v12.8c0 1.8 3.7 3.2 8.2 3.2s8.2-1.4 8.2-3.2V5.6M3.8 12c0 1.8 3.7 3.2 8.2 3.2s8.2-1.4 8.2-3.2" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
   <symbol id="s-lang" viewBox="0 0 24 24"><path d="M2.8 5.4h9.4M7.5 3.1v2.3M9.9 5.4a11 11 0 0 1-6 8.6M6.1 9.7a10 10 0 0 0 5 4.1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="m11.6 21 4.3-10.4L20.2 21M13.3 17.4h5.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="s-rocket" viewBox="0 0 24 24"><path d="M13.4 3.6c3.8-1.6 7-1 7-1s.6 3.2-1 7c-1.3 3.1-6.7 7.6-6.7 7.6l-3.9-3.9S11.3 4.9 13.4 3.6Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="15.6" cy="8.4" r="1.7" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M8.8 13.3 6 14.4l-.9 4.5 4.5-.9 1.1-2.8M6.4 17.6l-2.6 2.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="l-bhashini" viewBox="0 0 24 24"><rect x="1.6" y="1.6" width="20.8" height="20.8" rx="5" fill="#1A57C4"/><path d="M4.8 7.4h7.4M8.5 5.5v1.9M11 7.4a8.6 8.6 0 0 1-4.7 6.7M7.3 10.7a7.8 7.8 0 0 0 3.9 3.2" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/><path d="m11.8 19 3.4-8.1L18.6 19M13.2 15.9h4.1" fill="none" stroke="#FF9933" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="l-datagov" viewBox="0 0 24 24"><rect x="1.6" y="3.4" width="20.8" height="5.7" rx="1.4" fill="#FF9933"/><rect x="1.6" y="9.1" width="20.8" height="5.8" fill="#F4F4F8"/><rect x="1.6" y="14.9" width="20.8" height="5.7" rx="1.4" fill="#138808"/><circle cx="12" cy="12" r="2.5" fill="none" stroke="#0A3D91" stroke-width="1.3"/><circle cx="12" cy="12" r=".6" fill="#0A3D91"/></symbol>
+  <symbol id="l-data" viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7.6" ry="3.2" fill="#FF9933"/><path d="M4.4 6v12c0 1.8 3.4 3.2 7.6 3.2s7.6-1.4 7.6-3.2V6" fill="none" stroke="#138808" stroke-width="1.8"/><path d="M4.4 12c0 1.8 3.4 3.2 7.6 3.2s7.6-1.4 7.6-3.2" fill="none" stroke="#138808" stroke-width="1.8"/></symbol>
+  <symbol id="l-hf" viewBox="0 0 24 24"><path d="M12.025 1.13c-5.77 0-10.449 4.647-10.449 10.378 0 1.112.178 2.181.503 3.185.064-.222.203-.444.416-.577a.96.96 0 0 1 .524-.15c.293 0 .584.124.84.284.278.173.48.408.71.694.226.282.458.611.684.951v-.014c.017-.324.106-.622.264-.874s.403-.487.762-.543c.3-.047.596.06.787.203s.31.313.4.467c.15.257.212.468.233.542.01.026.653 1.552 1.657 2.54.616.605 1.01 1.223 1.082 1.912.055.537-.096 1.059-.38 1.572.637.121 1.294.187 1.967.187.657 0 1.298-.063 1.921-.178-.287-.517-.44-1.041-.384-1.581.07-.69.465-1.307 1.081-1.913 1.004-.987 1.647-2.513 1.657-2.539.021-.074.083-.285.233-.542.09-.154.208-.323.4-.467a1.08 1.08 0 0 1 .787-.203c.359.056.604.29.762.543s.247.55.265.874v.015c.225-.34.457-.67.683-.952.23-.286.432-.52.71-.694.257-.16.547-.284.84-.285a.97.97 0 0 1 .524.151c.228.143.373.388.43.625l.006.04a10.3 10.3 0 0 0 .534-3.273c0-5.731-4.678-10.378-10.449-10.378M8.327 6.583a1.5 1.5 0 0 1 .713.174 1.487 1.487 0 0 1 .617 2.013c-.183.343-.762-.214-1.102-.094-.38.134-.532.914-.917.71a1.487 1.487 0 0 1 .69-2.803m7.486 0a1.487 1.487 0 0 1 .689 2.803c-.385.204-.536-.576-.916-.71-.34-.12-.92.437-1.103.094a1.487 1.487 0 0 1 .617-2.013 1.5 1.5 0 0 1 .713-.174m-10.68 1.55a.96.96 0 1 1 0 1.921.96.96 0 0 1 0-1.92m13.838 0a.96.96 0 1 1 0 1.92.96.96 0 0 1 0-1.92M8.489 11.458c.588.01 1.965 1.157 3.572 1.164 1.607-.007 2.984-1.155 3.572-1.164.196-.003.305.12.305.454 0 .886-.424 2.328-1.563 3.202-.22-.756-1.396-1.366-1.63-1.32q-.011.001-.02.006l-.044.026-.01.008-.03.024q-.018.017-.035.036l-.032.04a1 1 0 0 0-.058.09l-.014.025q-.049.088-.11.19a1 1 0 0 1-.083.116 1.2 1.2 0 0 1-.173.18q-.035.029-.075.058a1.3 1.3 0 0 1-.251-.243 1 1 0 0 1-.076-.107c-.124-.193-.177-.363-.337-.444-.034-.016-.104-.008-.2.022q-.094.03-.216.087-.06.028-.125.063l-.13.074q-.067.04-.136.086a3 3 0 0 0-.135.096 3 3 0 0 0-.26.219 2 2 0 0 0-.12.121 2 2 0 0 0-.106.128l-.002.002a2 2 0 0 0-.09.132l-.001.001a1.2 1.2 0 0 0-.105.212q-.013.036-.024.073c-1.139-.875-1.563-2.317-1.563-3.203 0-.334.109-.457.305-.454m.836 10.354c.824-1.19.766-2.082-.365-3.194-1.13-1.112-1.789-2.738-1.789-2.738s-.246-.945-.806-.858-.97 1.499.202 2.362c1.173.864-.233 1.45-.685.64-.45-.812-1.683-2.896-2.322-3.295s-1.089-.175-.938.647 2.822 2.813 2.562 3.244-1.176-.506-1.176-.506-2.866-2.567-3.49-1.898.473 1.23 2.037 2.16c1.564.932 1.686 1.178 1.464 1.53s-3.675-2.511-4-1.297c-.323 1.214 3.524 1.567 3.287 2.405-.238.839-2.71-1.587-3.216-.642-.506.946 3.49 2.056 3.522 2.064 1.29.33 4.568 1.028 5.713-.624m5.349 0c-.824-1.19-.766-2.082.365-3.194 1.13-1.112 1.789-2.738 1.789-2.738s.246-.945.806-.858.97 1.499-.202 2.362c-1.173.864.233 1.45.685.64.451-.812 1.683-2.896 2.322-3.295s1.089-.175.938.647-2.822 2.813-2.562 3.244 1.176-.506 1.176-.506 2.866-2.567 3.49-1.898-.473 1.23-2.037 2.16c-1.564.932-1.686 1.178-1.464 1.53s3.675-2.511 4-1.297c.323 1.214-3.524 1.567-3.287 2.405.238.839 2.71-1.587 3.216-.642.506.946-3.49 2.056-3.522 2.064-1.29.33-4.568 1.028-5.713-.624" fill="#FFD21E"/></symbol>
+  <symbol id="s-key" viewBox="0 0 24 24"><circle cx="7.6" cy="16.4" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m10.6 13.4 9-9M17.2 6.8l2.4 2.4M14.8 9.2l2.4 2.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="s-gauge" viewBox="0 0 24 24"><path d="M3.2 17.4a9.6 9.6 0 1 1 17.6 0" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="m12 17.4 4.4-6" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/><circle cx="12" cy="17.4" r="1.5" fill="currentColor"/></symbol>
+  <symbol id="s-type" viewBox="0 0 24 24"><path d="M3.4 6.2V4h17.2v2.2M12 4v16M8.6 20h6.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="s-save" viewBox="0 0 24 24"><path d="M3.4 5.6a2 2 0 0 1 2-2h10.2l4.8 4.8v10a2 2 0 0 1-2 2H5.4a2 2 0 0 1-2-2V5.6Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M7.6 3.6v5.2h7.2V3.6M7.6 20.4v-6h8.8v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
   <symbol id="s-chip" viewBox="0 0 24 24"><rect x="6.6" y="6.6" width="10.8" height="10.8" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M9.8 3.2v3.4M14.2 3.2v3.4M9.8 17.4v3.4M14.2 17.4v3.4M3.2 9.8h3.4M3.2 14.2h3.4M17.4 9.8h3.4M17.4 14.2h3.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
   <symbol id="s-mic" viewBox="0 0 24 24"><rect x="9" y="2.6" width="6" height="11.2" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M5.4 11.6a6.6 6.6 0 0 0 13.2 0M12 18.2v3.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
   <symbol id="s-plug" viewBox="0 0 24 24"><path d="M9.1 2.8v5.1M14.9 2.8v5.1M6.4 7.9h11.2v3.4a5.6 5.6 0 0 1-11.2 0V7.9ZM12 16.9v4.3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
@@ -82,18 +90,11 @@
   <symbol id="l-streamlit" viewBox="0 0 24 24"><path d="M16.673 11.32l6.862-3.618c.233-.136.554.12.442.387L20.463 17.1zm-8.556-.229l3.473-5.187c.203-.328.578-.316.793-.028l7.886 11.75zm-3.375 7.25c-.28 0-.835-.284-.993-.716l-3.72-9.46c-.118-.331.139-.614.48-.464l19.474 10.306c-.149.147-.453.337-.72.334z" fill="#FF4B4B"/></symbol>
   <symbol id="l-render" viewBox="0 0 24 24"><path d="M18.263.007c-3.121-.147-5.744 2.109-6.192 5.082-.018.138-.045.272-.067.405-.696 3.703-3.936 6.507-7.827 6.507-1.388 0-2.691-.356-3.825-.979a.2024.2024 0 0 0-.302.178V24H12v-8.999c0-1.656 1.338-3 2.987-3h2.988c3.382 0 6.103-2.817 5.97-6.244-.12-3.084-2.61-5.603-5.682-5.75" fill="#12B886"/></symbol>
   <symbol id="s-server" viewBox="0 0 24 24"><rect x="2.6" y="3.4" width="18.8" height="7" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><rect x="2.6" y="13.6" width="18.8" height="7" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M6.4 6.9v.1M6.4 17.1v.1" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
-  <symbol id="l-bhashini" viewBox="0 0 24 24"><rect x="1.6" y="1.6" width="20.8" height="20.8" rx="5" fill="#1A57C4"/><path d="M4.8 7.4h7.4M8.5 5.5v1.9M11 7.4a8.6 8.6 0 0 1-4.7 6.7M7.3 10.7a7.8 7.8 0 0 0 3.9 3.2" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/><path d="m11.8 19 3.4-8.1L18.6 19M13.2 15.9h4.1" fill="none" stroke="#FF9933" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-  <symbol id="l-datagov" viewBox="0 0 24 24"><rect x="1.6" y="3.4" width="20.8" height="5.7" rx="1.4" fill="#FF9933"/><rect x="1.6" y="9.1" width="20.8" height="5.8" fill="#F4F4F8"/><rect x="1.6" y="14.9" width="20.8" height="5.7" rx="1.4" fill="#138808"/><circle cx="12" cy="12" r="2.5" fill="none" stroke="#0A3D91" stroke-width="1.3"/><circle cx="12" cy="12" r=".6" fill="#0A3D91"/></symbol>
   <symbol id="l-diksha" viewBox="0 0 24 24"><rect x="1.8" y="3.6" width="20.4" height="16.8" rx="2.6" fill="#F26522"/><path d="M6 8.4h12M6 12h12M6 15.6h7.5" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round"/></symbol>
   <symbol id="l-chart" viewBox="0 0 24 24"><rect x="2.4" y="13" width="4.4" height="8.4" rx="1.1" fill="#8884D8"/><rect x="9.8" y="7.4" width="4.4" height="14" rx="1.1" fill="#82CA9D"/><rect x="17.2" y="10.4" width="4.4" height="11" rx="1.1" fill="#FFC658"/><path d="M2 4.4h20" fill="none" stroke="var(--mono-mark)" stroke-width="1.4" stroke-linecap="round" opacity=".35"/></symbol>
   <symbol id="s-scale" viewBox="0 0 24 24"><path d="M12 3.2v17.6M7.4 20.8h9.2M4.2 6.6h15.6M12 6.6 4.2 6.6 1.8 13a4.2 4.2 0 0 0 4.8 0L4.2 6.6ZM19.8 6.6 17.4 13a4.2 4.2 0 0 0 4.8 0L19.8 6.6Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="s-upload" viewBox="0 0 24 24"><path d="M12 16.4V3.6M7.4 8.2 12 3.6l4.6 4.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M3.4 15.2v3.6a1.8 1.8 0 0 0 1.8 1.8h13.6a1.8 1.8 0 0 0 1.8-1.8v-3.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
   <symbol id="s-swap" viewBox="0 0 24 24"><path d="M3.4 8.2h13.2M13 4.6l3.6 3.6L13 11.8M20.6 15.8H7.4M11 12.2l-3.6 3.6L11 19.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-  <symbol id="s-route" viewBox="0 0 24 24"><circle cx="5.5" cy="5.5" r="2.6" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="18.5" cy="18.5" r="2.6" fill="none" stroke="currentColor" stroke-width="1.9"/><path d="M8.1 5.5h6.4a3.6 3.6 0 0 1 0 7.2H9.5a3.6 3.6 0 0 0 0 7.2h6.4" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></symbol>
-  <symbol id="s-wrench" viewBox="0 0 24 24"><path d="M15.6 3.4a5.6 5.6 0 0 0-5 8.1L3.5 18.6a1.8 1.8 0 0 0 2.6 2.6l7.1-7.1a5.6 5.6 0 0 0 6.9-7.6l-3 3-2.6-2.6 3-3a5.6 5.6 0 0 0-1.9-.5Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
-  <symbol id="s-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M2.8 12h18.4M12 2.8c2.4 2.5 3.7 5.8 3.7 9.2s-1.3 6.7-3.7 9.2c-2.4-2.5-3.7-5.8-3.7-9.2S9.6 5.3 12 2.8Z" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
-  <symbol id="s-trap" viewBox="0 0 24 24"><path d="M9.4 4.6a3 3 0 0 1 5.2 0l7 12.2a3 3 0 0 1-2.6 4.5H5a3 3 0 0 1-2.6-4.5Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M12 9.4v4.4M12 17.2v.1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
-  <symbol id="s-clip" viewBox="0 0 24 24"><rect x="4.6" y="4" width="14.8" height="17" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><rect x="8.8" y="1.9" width="6.4" height="4.2" rx="1.4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m8.8 13 2.3 2.3 4.1-4.6" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></symbol>
 </defs></svg>
 
 <div class="topbar">
@@ -428,18 +429,7 @@
         </tbody>
       </table></div>
 
-      <div class="signpost signpost-stop">
-        <span class="sign-face" aria-hidden="true">
-          <svg viewBox="0 0 100 100"><polygon points="30,2 70,2 98,30 98,70 70,98 30,98 2,70 2,30"/></svg>
-          <b>DO<br>NOT</b>
-        </span>
-        <span class="sign-body">
-          <b>Do not install anything on this list</b>
-          <span>Every one of these was on our plan at some point and was taken off for a reason.
-          A teammate reading an older note, or asking an AI, will be told to install several of
-          them. Each costs about a day and buys nothing.</span>
-        </span>
-      </div>
+      <p style="margin:22px 0 8px"><b>Deliberately not using</b></p>
 
       <div class="lrow"><span><b>Transformers.js.</b> A model inside the browser tab. Hundreds of megabytes and a day of WASM for what the cache does in an hour.</span></div>
       <div class="lrow"><span><b>Dexie.</b> A wrapper over IndexedDB we do not need, because the store is forty lines.</span></div>
@@ -515,17 +505,6 @@
 
 </div>
 
-<script>
-
-/* Runs before first paint so the page never flashes the wrong theme.
-   Default is light; "auto" (follow the OS) is opt-in via the toggle. */
-(function () {
-  var m;
-  try { m = localStorage.getItem('almanac-theme'); } catch (e) {}
-  if (m !== 'auto') document.documentElement.setAttribute('data-theme', m === 'dark' ? 'dark' : 'light');
-})();
-
-</script>
 <script>
 
 (function () {
@@ -673,6 +652,161 @@
 
   restore();
 })();
+
+</script>
+<script>
+
+
+(function () {
+  var root = document.documentElement;
+  var btns = document.querySelectorAll('.themer button');
+  function paint(mode) {
+    if (mode === 'auto') root.removeAttribute('data-theme');
+    else root.setAttribute('data-theme', mode);
+    btns.forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.set === mode)); });
+  }
+  btns.forEach(function (b) {
+    b.addEventListener('click', function () {
+      paint(b.dataset.set);
+      /* only a real click is remembered, so the default stays light */
+      try { localStorage.setItem('almanac-theme', b.dataset.set); } catch (e) {}
+    });
+  });
+  var saved;
+  try { saved = localStorage.getItem('almanac-theme'); } catch (e) {}
+  paint(saved === 'auto' || saved === 'dark' ? saved : 'light');
+})();
+
+
+</script>
+<script>
+
+
+(function () {
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var root = document.documentElement;
+
+  /* Spotlight - one listener for the whole page, coalesced into a frame. */
+  var pending = null;
+  document.addEventListener('pointermove', function (e) {
+    var card = e.target.closest && e.target.closest('.mini, .tile');
+    if (!card) return;
+    pending = [card, e];
+    requestAnimationFrame(function () {
+      if (!pending) return;
+      var c = pending[0], ev = pending[1], r = c.getBoundingClientRect();
+      var px = (ev.clientX - r.left) / r.width, py = (ev.clientY - r.top) / r.height;
+      c.style.setProperty('--mx', (px * 100) + '%');
+      c.style.setProperty('--my', (py * 100) + '%');
+      if (!reduce) {
+        /* +-5 degrees. Enough to read as depth, not enough to hurt the text. */
+        c.style.setProperty('--ry', ((px - 0.5) * 10).toFixed(2) + 'deg');
+        c.style.setProperty('--rx', ((0.5 - py) * 10).toFixed(2) + 'deg');
+      }
+      pending = null;
+    });
+  }, {passive: true});
+
+  document.addEventListener('pointerout', function (e) {
+    var card = e.target.closest && e.target.closest('.mini, .tile');
+    if (!card || card.contains(e.relatedTarget)) return;
+    card.style.setProperty('--rx', '0deg');
+    card.style.setProperty('--ry', '0deg');
+  }, {passive: true});
+
+  /* Reveal - only ever hides things when we can also reveal them. */
+  /* Same reasoning: no reveal-on-scroll on a phone. */
+  if (reduce || innerWidth < 760 || !('IntersectionObserver' in window)) return;
+  root.classList.add('js-reveal');
+  var items = document.querySelectorAll('.mini, .stepcard, .dstep, .wrow');
+  items.forEach(function (el) { el.classList.add('rv'); });
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (!en.isIntersecting) return;
+      en.target.classList.add('in');
+      io.unobserve(en.target);
+    });
+  }, {rootMargin: '0px 0px -8% 0px', threshold: 0.06});
+  items.forEach(function (el) { io.observe(el); });
+
+  /* Anything already on screen at load should not wait to fade in. */
+  requestAnimationFrame(function () {
+    items.forEach(function (el) {
+      if (el.getBoundingClientRect().top < innerHeight) el.classList.add('in');
+    });
+  });
+})();
+
+
+</script>
+<script>
+
+
+/* Swap roles by dragging, or by tapping one name then another.
+   Both exist because drag and drop does nothing on a touchscreen, and
+   this page is read on phones as much as laptops. */
+(function () {
+  var table = document.getElementById('roles');
+  if (!table) return;                       /* other pages share this bundle */
+
+  var KEY = 'innov8-roles';
+  var cells = [].slice.call(table.querySelectorAll('.who'));
+  var start = cells.map(function (c) { return c.textContent; });
+  var picked = null;
+
+  function save() {
+    try { localStorage.setItem(KEY, JSON.stringify(cells.map(function (c) { return c.textContent; }))); } catch (e) {}
+  }
+  function restore() {
+    var v; try { v = JSON.parse(localStorage.getItem(KEY) || 'null'); } catch (e) {}
+    if (Array.isArray(v) && v.length === cells.length &&
+        v.slice().sort().join() === start.slice().sort().join()) {
+      cells.forEach(function (c, i) { c.textContent = v[i]; });
+    }
+  }
+  function swap(a, b) {
+    if (!a || !b || a === b) return;
+    var t = a.textContent; a.textContent = b.textContent; b.textContent = t;
+    save();
+  }
+  function clearPick() {
+    if (picked) picked.classList.remove('picked');
+    picked = null;
+  }
+
+  cells.forEach(function (cell) {
+    cell.addEventListener('click', function () {
+      if (!picked) { picked = cell; cell.classList.add('picked'); return; }
+      swap(picked, cell); clearPick();
+    });
+
+    cell.addEventListener('dragstart', function (e) {
+      picked = cell; cell.classList.add('dragging');
+      e.dataTransfer.effectAllowed = 'move';
+      e.dataTransfer.setData('text/plain', cell.dataset.slot);
+    });
+    cell.addEventListener('dragend', function () {
+      cell.classList.remove('dragging'); clearPick();
+      cells.forEach(function (c) { c.classList.remove('over'); });
+    });
+    cell.addEventListener('dragover', function (e) {
+      e.preventDefault(); e.dataTransfer.dropEffect = 'move'; cell.classList.add('over');
+    });
+    cell.addEventListener('dragleave', function () { cell.classList.remove('over'); });
+    cell.addEventListener('drop', function (e) {
+      e.preventDefault(); cell.classList.remove('over');
+      swap(picked, cell); clearPick();
+    });
+  });
+
+  document.getElementById('rolesReset').addEventListener('click', function () {
+    cells.forEach(function (c, i) { c.textContent = start[i]; });
+    clearPick(); save();
+  });
+
+  restore();
+})();
+
 
 </script>
 </body>
