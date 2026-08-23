@@ -28,7 +28,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="./assets/almanac.css?v=3b0e465f">
+<link rel="stylesheet" href="./assets/almanac.css?v=dda2b778">
 <style>
   /* The masthead backdrop is 100vw, which counts the scrollbar, so
      without this the page scrolls sideways by the scrollbar width. */
@@ -316,26 +316,28 @@
     </div>
 
     <div class="mini" style="grid-column:1/-1">
-      <h4><svg class="hico"><use href="#s-db"/></svg> Team INNOV8 <span class="chip">swap these on Monday</span></h4>
-      <p>Names are against roles so there is no vacuum on Monday morning, but only one of them is settled. <b>Read the &ldquo;take this if&rdquo; column and trade until it fits.</b> Five minutes of swapping now is worth more than any amount of planning, because a role that does not match the person is a bottleneck that shows up at 2am.</p>
-      <div class="stk-wrap"><table class="stk">
+      <h4><svg class="hico"><use href="#s-db"/></svg> Who does what <span class="chip">drag a name to swap</span></h4>
+      <p>The roles are fixed. The names are not. <b>Drag one name onto another to trade places</b>, or on a phone tap one then tap the other. It saves on this device, so the arrangement is still there tomorrow.</p>
+      <p>Read the last column before settling. A role that does not match the person is a bottleneck that only shows up at 2am, and five minutes of trading now is worth more than any amount of planning.</p>
+      <div class="stk-wrap"><table class="stk" id="roles">
         <thead><tr><th>Who</th><th>Role and what it owns</th><th>Take this if</th></tr></thead>
         <tbody>
-          <tr><td><b>Jonathan John</b></td><td><b>Lead.</b> Architecture, merges, the API contract, the demo, and saying no to scope.</td><td>Settled. You have built everything so far and you know where all of it is.</td></tr>
-          <tr><td><b>Shinjini Pal</b></td><td><b>Language.</b> Bhashini in both directions, the cache, the FLORES score.</td><td>You are comfortable with APIs, async and reading docs, and you do not mind a 401 that turns out to be the wrong header.</td></tr>
-          <tr><td><b>Sujina V Nair</b></td><td><b>Frontend.</b> React shell, state, the three screens.</td><td>You have written React before and you like making an interface behave.</td></tr>
-          <tr><td><b>V Sri Subangi</b></td><td><b>Design.</b> Screens, Ol&nbsp;Chiki type, the child-facing view, the ten illustrations.</td><td>You notice when spacing is wrong and you can cut a picture out of a PDF without it looking cut out.</td></tr>
-          <tr><td><b>Varshini T</b></td><td><b>Data.</b> Supabase, the glossary, corrections, the teacher chart.</td><td>You are fine with SQL and schemas, and you would rather model the data than style a button.</td></tr>
-          <tr><td><b>Shaik Suhana</b></td><td><b>Story.</b> The official PS text, citations, the deck, the OBS recording, the run sheet.</td><td>You write and present well. <b>This is not the leftover role.</b> A team that presents badly with a good product loses to one that presents well with a decent one.</td></tr>
+          <tr><td><button class="who" type="button" draggable="true" data-slot="0">Jonathan John</button></td><td><b>Lead.</b> Architecture, merges, the API contract, the demo, and saying no to scope.</td><td>You can hold the whole shape in your head and are willing to be unpopular about scope.</td></tr>
+          <tr><td><button class="who" type="button" draggable="true" data-slot="1">Shinjini Pal</button></td><td><b>Language.</b> Bhashini in both directions, the cache, the FLORES score.</td><td>You are comfortable with APIs and async, and a 401 that turns out to be the wrong header does not ruin your afternoon.</td></tr>
+          <tr><td><button class="who" type="button" draggable="true" data-slot="2">Sujina V Nair</button></td><td><b>Frontend.</b> React shell, state, the three screens.</td><td>You have written React before and you enjoy making an interface behave.</td></tr>
+          <tr><td><button class="who" type="button" draggable="true" data-slot="3">V Sri Subangi</button></td><td><b>Design.</b> Screens, Ol&nbsp;Chiki type, the child-facing view, the ten illustrations.</td><td>You notice when spacing is wrong, and you can cut a picture out of a PDF without it looking cut out.</td></tr>
+          <tr><td><button class="who" type="button" draggable="true" data-slot="4">Varshini T</button></td><td><b>Data.</b> Supabase, the glossary, corrections, the teacher chart.</td><td>You are fine with SQL and schemas, and you would rather model the data than style a button.</td></tr>
+          <tr><td><button class="who" type="button" draggable="true" data-slot="5">Shaik Suhana</button></td><td><b>Story.</b> The official PS text, citations, the deck, the OBS recording, the run sheet.</td><td>You write and present well. <b>This is not the leftover role.</b> A team that presents badly with a good product loses to one that presents well with a decent product.</td></tr>
         </tbody>
       </table></div>
+      <p class="roles-note"><button class="reset" type="button" id="rolesReset">reset to the starting order</button></p>
 
       <p style="margin:18px 0 8px"><b>Everyone has a second</b></p>
-      <p>Pair each role with a backup so nobody is a single point of failure at 3am: Language with Data, Frontend with Design, Lead with Story. The second does not do the work, they just have to know enough to keep it moving if the first is asleep or stuck.</p>
+      <p>Pair each role with a backup so nobody is a single point of failure at 3am: Language with Data, Frontend with Design, Lead with Story. The second does not do the work, they only need to know enough to keep it moving while the first is asleep or stuck.</p>
 
-      <div class="note note-warn" style="margin:16px 0 0"><svg class="logo note-ico"><use href="#l-warn"/></svg><div><b>Two rules that matter more than who has which role.</b> Nobody owns two things on the critical path. And <b>Language and Frontend agree the API contract on Monday, in writing, in the repo</b>, because that seam between the Bhashini layer and the screens is where twenty-four hour teams lose the night.</div></div>
+      <div class="note note-warn" style="margin:16px 0 0"><svg class="logo note-ico"><use href="#l-warn"/></svg><div><b>Two rules that outrank who holds which role.</b> Nobody owns two things on the critical path. And <b>Language and Frontend agree the API contract on Monday, in writing, in the repo</b>, because the seam between the Bhashini layer and the screens is where twenty-four hour teams lose the night.</div></div>
 
-      <p style="margin-top:14px"><b>Monday, first hour, together:</b> read the official problem statement aloud, trade roles until they fit, write the contract, and say the not-building list out loud. Then Jonathan runs the Bhashini test while everyone else finishes the setup.</p>
+      <p style="margin-top:14px"><b>Monday, first hour, all six together:</b> read the official problem statement aloud, trade roles until they fit, write the contract, and say the not-building list out loud. Then Lead runs the Bhashini test while everyone else finishes their setup.</p>
     </div>
 
     <div class="mini" style="grid-column:1/-1">
@@ -577,6 +579,74 @@
       if (el.getBoundingClientRect().top < innerHeight) el.classList.add('in');
     });
   });
+})();
+
+</script>
+<script>
+
+/* Swap roles by dragging, or by tapping one name then another.
+   Both exist because drag and drop does nothing on a touchscreen, and
+   this page is read on phones as much as laptops. */
+(function () {
+  var table = document.getElementById('roles');
+  if (!table) return;                       /* other pages share this bundle */
+
+  var KEY = 'innov8-roles';
+  var cells = [].slice.call(table.querySelectorAll('.who'));
+  var start = cells.map(function (c) { return c.textContent; });
+  var picked = null;
+
+  function save() {
+    try { localStorage.setItem(KEY, JSON.stringify(cells.map(function (c) { return c.textContent; }))); } catch (e) {}
+  }
+  function restore() {
+    var v; try { v = JSON.parse(localStorage.getItem(KEY) || 'null'); } catch (e) {}
+    if (Array.isArray(v) && v.length === cells.length &&
+        v.slice().sort().join() === start.slice().sort().join()) {
+      cells.forEach(function (c, i) { c.textContent = v[i]; });
+    }
+  }
+  function swap(a, b) {
+    if (!a || !b || a === b) return;
+    var t = a.textContent; a.textContent = b.textContent; b.textContent = t;
+    save();
+  }
+  function clearPick() {
+    if (picked) picked.classList.remove('picked');
+    picked = null;
+  }
+
+  cells.forEach(function (cell) {
+    cell.addEventListener('click', function () {
+      if (!picked) { picked = cell; cell.classList.add('picked'); return; }
+      swap(picked, cell); clearPick();
+    });
+
+    cell.addEventListener('dragstart', function (e) {
+      picked = cell; cell.classList.add('dragging');
+      e.dataTransfer.effectAllowed = 'move';
+      e.dataTransfer.setData('text/plain', cell.dataset.slot);
+    });
+    cell.addEventListener('dragend', function () {
+      cell.classList.remove('dragging'); clearPick();
+      cells.forEach(function (c) { c.classList.remove('over'); });
+    });
+    cell.addEventListener('dragover', function (e) {
+      e.preventDefault(); e.dataTransfer.dropEffect = 'move'; cell.classList.add('over');
+    });
+    cell.addEventListener('dragleave', function () { cell.classList.remove('over'); });
+    cell.addEventListener('drop', function (e) {
+      e.preventDefault(); cell.classList.remove('over');
+      swap(picked, cell); clearPick();
+    });
+  });
+
+  document.getElementById('rolesReset').addEventListener('click', function () {
+    cells.forEach(function (c, i) { c.textContent = start[i]; });
+    clearPick(); save();
+  });
+
+  restore();
 })();
 
 </script>
