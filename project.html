@@ -126,21 +126,21 @@
   <div class="readfirst">
     <span class="readfirst-tag">Please read</span>
     <div>
-      <b>Everyone reads this page before Monday.</b>
-      <span>It is the whole project in one place: what we are building and why, which languages
-      actually work, the three rings, the twelve days, who does what, and the list of things we
-      are deliberately not building. Twenty minutes. Come on Monday having read it and the first
-      hour is a decision rather than a briefing.</span>
+      <b>Read this before Monday.</b>
+      <span>The whole project is on this page: what we are building, which languages actually
+      work, the four rings, the twelve days, who does what, and what we are deliberately leaving
+      out. It takes about twenty minutes. If everyone reads it first, Monday starts with
+      decisions instead of explanations.</span>
     </div>
   </div>
 
-  <div class="note note-ok" style="margin-bottom:18px"><svg class="logo note-ico"><use href="#l-check"/></svg><div><b>Total new installs: four npm packages and one font.</b> <code>idb</code> for the offline cache, <code>jspdf</code> for the worksheets, and Capacitor for the Android build the statement asks for. Everything else is already on your machine after the six steps above. It went up from one because the official text asks for a tablet and a printable worksheet, and we would rather carry three small packages than miss two named deliverables.</div></div>
+  <div class="note note-ok" style="margin-bottom:18px"><svg class="logo note-ico"><use href="#l-check"/></svg><div><b>Total new installs: four npm packages and one font.</b> <code>idb</code> for the offline cache, <code>jspdf</code> for the worksheets, Capacitor for the Android build, and Noto Sans Ol&nbsp;Chiki for the script. Everything else is already on your machine after the six steps above.</div></div>
 
   <div class="grid grid-2">
 
     <div class="mini" style="grid-column:1/-1">
-      <h4><svg class="hico"><use href="#l-sih"/></svg> The official problem statement, at last <span class="chip chip-ok">verbatim</span></h4>
-      <p>SIH 2026 released all <b>226 problem statements on 21 August</b>. Until then this whole page was planned against the title and a photocopied spreadsheet. Here is the real thing, and it is far more specific than we assumed. Read it before anything else on this page.</p>
+      <h4><svg class="hico"><use href="#l-sih"/></svg> The official problem statement <span class="chip chip-ok">verbatim</span></h4>
+      <p>SIH 2026 published all <b>226 problem statements on 21 August</b>. This is ours, copied from the portal. Read it before anything else on this page, because it asks for more than the title suggests.</p>
       <div class="stk-wrap"><table class="stk">
         <tbody>
           <tr><td><b>PS number</b></td><td>SIH26042</td></tr>
@@ -148,31 +148,31 @@
           <tr><td><b>Organisation</b></td><td>Government of Jharkhand</td></tr>
           <tr><td><b>Department</b></td><td>Department of Higher &amp; Technical Education</td></tr>
           <tr><td><b>Category &middot; Theme</b></td><td>Software &middot; Smart Education</td></tr>
-          <tr><td><b>Dataset or video supplied</b></td><td>Neither. We source our own content, which is exactly why the NCERT work below matters.</td></tr>
+          <tr><td><b>Dataset or video supplied</b></td><td>Neither. We find our own content, which is why the NCERT work below matters.</td></tr>
         </tbody>
       </table></div>
-      <p style="margin-top:16px"><b>Background, as written.</b> Jharkhand&rsquo;s <b>PALASH</b> Mother Tongue-Based Multilingual Education programme has shown measurable gains in foundational literacy among tribal children, but scaling it is bottlenecked by a shortage of teachers who speak <b>Ho, Mundari and Santhali</b>. Most teachers posted to tribal-area primary schools are Hindi-medium trained. Without a technology bridge, children in <b>over 5,000 tribal-area primary schools</b> keep receiving instruction in a language they do not speak at home.</p>
-      <p><b>What it asks for, as written.</b> An AI-assisted translation and curriculum-generation suite that lets a non-native-speaking teacher deliver mother-tongue instruction without prior language training. It must translate standard Hindi <b>FLN</b> curriculum content, meaning lesson scripts, activity instructions and assessment prompts, into accurate text <b>and synthesised audio</b>. It must carry real-time voice-to-voice classroom dialogue at <b>under three seconds latency</b>. It must auto-generate <b>bilingual worksheets and visual flashcard sets aligned to NIPUN Bharat</b>. And because the target schools have no reliable internet, <b>the entire application must run offline on a low-cost tablet, 2&nbsp;GB RAM, Android&nbsp;9 or newer</b>, after an initial content sync.</p>
-      <p><b>The expected solution, as written.</b> A working app showing Hindi to tribal-language translation in <b>at least one</b> tribal language, real-time voice translation under three seconds, auto-generated bilingual worksheet output, and full offline operation on a low-end Android tablet, submitted with a <b>demo video and a GitHub repository</b>.</p>
-      <div class="lrow"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><use class="gh" href="#l-sih"/><use href="#l-sih"/></svg><span>The full list is public at <a href="https://www.sih.gov.in/sih2026PS" target="_blank" rel="noopener">sih.gov.in/sih2026PS</a>. <b>Everyone should read our entry there themselves rather than trust this summary.</b> 226 statements in total, 172 software and 54 hardware.</span></div>
-      <div class="note note-ok" style="margin:14px 0 0"><svg class="logo note-ico"><use href="#l-check"/></svg><div><b>Read the phrase &ldquo;minimum one tribal language at prototype stage&rdquo; carefully.</b> It is the most forgiving sentence in the document and it protects the plan we already had. Santali alone satisfies the expected solution. Ho and Mundari are named in the background, so they belong in the pitch and in the architecture story, not necessarily in the build.</div></div>
+      <p style="margin-top:16px"><b>The background.</b> Jharkhand&rsquo;s <b>PALASH</b> programme teaches tribal children in their mother tongue, and it works. What stops it spreading is teachers. Almost everyone posted to a tribal-area primary school was trained in Hindi and does not speak <b>Ho, Mundari or Santhali</b>. So children in <b>more than 5,000 schools</b> are still taught in a language they do not use at home.</p>
+      <p><b>What it asks for.</b> Software that lets a teacher who does not speak the language teach in it anyway, with no training first. It has to turn Hindi <b>FLN</b> material, meaning lesson scripts, activity instructions and assessment prompts, into accurate text <b>and spoken audio</b>. It has to carry live two-way conversation in <b>under three seconds</b>. It has to produce <b>bilingual worksheets and flashcards that match NIPUN Bharat</b>. And since these schools have no reliable internet, all of it has to keep working <b>offline on a cheap tablet with 2&nbsp;GB of RAM running Android&nbsp;9</b>, once the content has been synced.</p>
+      <p><b>What counts as finished.</b> A working app that translates Hindi into <b>at least one</b> tribal language, does live voice translation in under three seconds, prints a bilingual worksheet, and runs fully offline on a low-end Android tablet. Handed in with a <b>demo video and a GitHub repository</b>.</p>
+      <div class="lrow"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><use class="gh" href="#l-sih"/><use href="#l-sih"/></svg><span>The full list is at <a href="https://www.sih.gov.in/sih2026PS" target="_blank" rel="noopener">sih.gov.in/sih2026PS</a>, 226 statements, 172 software and 54 hardware. <b>Read ours there yourself rather than trusting this summary.</b></span></div>
+      <div class="note note-ok" style="margin:14px 0 0"><svg class="logo note-ico"><use href="#l-check"/></svg><div><b>One phrase is worth reading twice: &ldquo;minimum one tribal language at prototype stage&rdquo;.</b> Santali on its own is enough to count as finished. Ho and Mundari are named in the background, so they belong in the pitch, but we do not have to ship them.</div></div>
     </div>
 
     <div class="mini" style="grid-column:1/-1">
-      <h4><svg class="hico"><use href="#s-scale"/></svg> What the real text changes <span class="chip chip-req">four gaps, two of them serious</span></h4>
-      <p>Most of the plan survives contact with the official wording. Four things do not. Two are phrasing we can satisfy cheaply and two are genuine holes, and it is much better to find them today than on 4 September.</p>
+      <h4><svg class="hico"><use href="#s-scale"/></svg> What the official text changes <span class="chip chip-req">two real gaps</span></h4>
+      <p>Six things are asked for. Two we already had, one is a risk we have to measure, two were missing, and one we can only answer in part. Better to find that out today than on 4 September.</p>
       <div class="stk-wrap"><table class="stk">
         <thead><tr><th>What it demands</th><th>Where we stand</th><th>What we do about it</th></tr></thead>
         <tbody>
-          <tr><td>Hindi FLN content to tribal text <b>and audio</b></td><td>Covered</td><td>Bhashini translate plus text to speech. This is ring 1 and was already the plan.</td></tr>
-          <tr><td>Voice to voice dialogue, <b>under 3 seconds</b></td><td>At risk</td><td>Bhashini speech recognition is <b>batch, not streaming</b>, so we press to talk rather than caption live. Three seconds is reachable for a short utterance, but we must <b>measure it and put the real number on the slide</b> rather than claim it.</td></tr>
-          <tr><td><b>Bilingual worksheets and flashcards, aligned to NIPUN Bharat</b></td><td>Missing entirely</td><td>We had not planned this at all and it is named in the expected solution. It moves into ring&nbsp;1. It is a print sheet: Hindi line, tribal line, the lesson picture, and the NIPUN outcome code in the footer.</td></tr>
-          <tr><td><b>Offline on an Android 9 tablet with 2 GB RAM</b></td><td>Wrong shape</td><td>We are building a web app. A judge holding this text will look for a tablet. <b>Wrap it with Capacitor and ship a real APK.</b> One evening of work, same code underneath.</td></tr>
-          <tr><td>Ho, Mundari and Santhali by name</td><td>Partly</td><td>Santali is complete on Bhashini. Ho is translation only. <b>Mundari is on neither, except Adi Vaani</b>, which is precisely why that platform has stopped being optional.</td></tr>
-          <tr><td>Demo video and GitHub repository</td><td>Covered</td><td>The rehearsal recording is the demo video. <b>Check the repository is public</b>, because a private one reads as no repository at all.</td></tr>
+          <tr><td>Hindi FLN content to tribal text <b>and audio</b></td><td>Covered</td><td>Bhashini does both. This was always ring 1.</td></tr>
+          <tr><td>Voice to voice dialogue, <b>under 3 seconds</b></td><td>At risk</td><td>Bhashini listens in <b>batches, not a live stream</b>, so the teacher presses to talk instead of getting live captions. Three seconds is reachable for a short sentence. <b>Measure it and put the real figure on the slide</b> instead of claiming one.</td></tr>
+          <tr><td><b>Bilingual worksheets and flashcards, aligned to NIPUN Bharat</b></td><td>Missing entirely</td><td>It is on the finished list, so it belongs in ring&nbsp;1. It is one printed sheet: Hindi line, tribal line, the lesson picture, and the NIPUN code in the footer.</td></tr>
+          <tr><td><b>Offline on an Android 9 tablet with 2 GB RAM</b></td><td>Wrong shape</td><td>We are building a web app and the statement says tablet twice. <b>Capacitor turns the same code into a real APK</b>, so this costs an evening rather than a rewrite.</td></tr>
+          <tr><td>Ho, Mundari and Santhali by name</td><td>Partly</td><td>Santali is complete on Bhashini. Ho has translation but no voice. <b>Mundari is only on Adi Vaani</b>, which is why that platform is now part of the plan.</td></tr>
+          <tr><td>Demo video and GitHub repository</td><td>Covered</td><td>The rehearsal recording doubles as the demo video. <b>Make sure the repository is public</b>, because a private one counts as none.</td></tr>
         </tbody>
       </table></div>
-      <div class="note note-warn" style="margin:16px 0 0"><svg class="logo note-ico"><use href="#l-warn"/></svg><div><b>The one contradiction inside the statement, and they will ask how we resolved it.</b> It wants sub-three-second live voice translation <em>and</em> it wants the entire application to work offline. Those two pull against each other, because the fast path is a cloud API and the offline path is an on-device model. Our answer is that the two halves have different needs. <b>Lesson delivery is pre-synced and genuinely offline</b>, since the content is known in advance and cached before the class starts. <b>Live dialogue uses the network when there is one and a smaller on-device model when there is not.</b> Say that out loud with a measured number beside it. A team that noticed the tension and answered it sounds completely different from one that never read closely enough to see it.</div></div>
+      <div class="note note-warn" style="margin:16px 0 0"><svg class="logo note-ico"><use href="#l-warn"/></svg><div><b>The statement contradicts itself, and the judges will ask how we handled it.</b> It wants live translation in under three seconds, and it wants the whole thing to work offline. Those pull in opposite directions, because speed comes from a cloud API and offline comes from a model on the device. Our answer splits them. <b>Lesson content is synced before the class and runs entirely offline</b>, since we know in advance what the lesson is. <b>Live conversation uses the network when there is one and a smaller on-device model when there is not.</b> Say that with a measured number next to it.</div></div>
     </div>
 
     <div class="mini" style="grid-column:1/-1">
@@ -351,23 +351,23 @@
     </div>
 
     <div class="mini" style="grid-column:1/-1">
-      <h4><svg class="hico"><use href="#s-clip"/></svg> Build it in four rings <span class="chip chip-req">re-cut against the official text</span></h4>
-      <p>Every earlier version of this card was our opinion of what mattered, because all we had was the title. The document now names its own deliverables, so <b>ring 1 stops being a judgement call and becomes the Expected Solution, item for item</b>. Four things are listed there. Those four are ring 1. Nothing else is.</p>
+      <h4><svg class="hico"><use href="#s-clip"/></svg> Build it in four rings <span class="chip chip-req">ring 1 is their list, not ours</span></h4>
+      <p>The statement spells out what counts as finished, and it lists four things. <b>Ring 1 is that list, item for item.</b> Everything else waits.</p>
       <div class="stk-wrap"><table class="stk">
         <thead><tr><th>Ring</th><th>What</th><th>Why here</th></tr></thead>
         <tbody>
-          <tr><td>1 &middot; must work</td><td><b>a.</b> Hindi to Santali, text and audio, both directions. <b>b.</b> Voice to voice, measured, under three seconds. <b>c.</b> A printable bilingual worksheet with the NIPUN outcome code. <b>d.</b> An APK that runs offline on an Android tablet after sync. Three NCERT FLN lessons loaded.</td><td>This is not our list, it is theirs, copied out of the Expected Solution paragraph. A judge can tick these four off while watching. Miss one and we are visibly incomplete against a document they are holding.</td></tr>
-          <tr><td>2 &middot; the pedagogy</td><td>Comprehension check. Correction box. The example swap. Devanagari under the Ol&nbsp;Chiki. Visual flashcard sets.</td><td>The title says <b>Pedagogy</b>, not translation, and this is the only part of the build that earns that word. Flashcards sit here rather than ring 1 because the document names worksheets in the Expected Solution and flashcards only in the description.</td></tr>
-          <tr><td>3 &middot; the reach</td><td>The other twenty languages behind a picker. Ho via Bhashini translation. <b>Mundari via Adi Vaani.</b> Teacher chart. PDF upload with OCR.</td><td>The statement names three languages and we ship one. This ring is the answer to the obvious question. Adi Vaani has moved up from optional, because it is the <b>only</b> route to Mundari and Mundari is named on the first line of their background.</td></tr>
+          <tr><td>1 &middot; must work</td><td><b>a.</b> Hindi to Santali, text and audio, both directions. <b>b.</b> Voice to voice, measured, under three seconds. <b>c.</b> A printable bilingual worksheet with the NIPUN outcome code. <b>d.</b> An APK that runs offline on an Android tablet after sync. Three NCERT FLN lessons loaded.</td><td>A judge can tick these four off while watching us. Miss one and we are visibly short against a document they have in front of them.</td></tr>
+          <tr><td>2 &middot; the pedagogy</td><td>Comprehension check. Correction box. The example swap. Devanagari under the Ol&nbsp;Chiki. Visual flashcard sets.</td><td>The title says <b>Pedagogy</b>, not translation, and this is the only part of the build that earns the word. Flashcards sit here rather than in ring 1 because worksheets are on the finished list and flashcards are only in the description.</td></tr>
+          <tr><td>3 &middot; the reach</td><td>The other twenty languages behind a picker. Ho via Bhashini translation. <b>Mundari via Adi Vaani.</b> Teacher chart. PDF upload with OCR.</td><td>The statement names three languages and we ship one, so this ring is the answer to the obvious question. Adi Vaani matters here because it is the <b>only</b> route to Mundari.</td></tr>
           <tr><td>4 &middot; only if we are early</td><td>Local IndicTrans2 on a laptop. The Telegram channel.</td><td>Genuinely good, genuinely optional, and nobody will ask for either.</td></tr>
         </tbody>
       </table></div>
-      <div class="note note-warn" style="margin:16px 0 0"><svg class="logo note-ico"><use href="#l-warn"/></svg><div><b>Two things moved into ring 1 that were not in any earlier plan, and both came straight from the official text.</b> The <b>worksheet generator</b>, which we had simply never thought of, and the <b>Android APK</b>, because we had assumed a web app was enough and the document says tablet twice. Neither is hard. Capacitor wraps the app we already have, and the worksheet is a print stylesheet. They are only dangerous because we would not have built them.</div></div>
-      <div class="note note-ok" style="margin:12px 0 0"><svg class="logo note-ico"><use href="#l-check"/></svg><div><b>The twenty extra languages are still ring 3, not ring 1.</b> They cost almost nothing, because the lesson is Hindi and the target is a parameter, but they are worth nothing until the Santali path works end to end. Their own document asks for a <b>minimum of one</b>. Breadth on top of a working demo is impressive; breadth instead of one is not.</div></div>
+      <div class="note note-warn" style="margin:16px 0 0"><svg class="logo note-ico"><use href="#l-warn"/></svg><div><b>The worksheet and the APK are the two easiest to forget.</b> Both are named in the official text and neither is hard. Capacitor wraps the app we already have, and the worksheet is a print stylesheet. The danger is leaving them out, not building them.</div></div>
+      <div class="note note-ok" style="margin:12px 0 0"><svg class="logo note-ico"><use href="#l-check"/></svg><div><b>The twenty extra languages stay in ring 3.</b> They cost almost nothing, since the lesson is Hindi and the target language is just a parameter, but they are worth nothing until Santali works from end to end. The statement asks for one. Breadth on top of a working demo is impressive, and breadth instead of one is not.</div></div>
     </div>
 
     <div class="mini" style="grid-column:1/-1">
-      <h4><svg class="hico"><use href="#s-pen"/></svg> Day by day <span class="chip chip-req">twelve days, re-cut</span></h4>
+      <h4><svg class="hico"><use href="#s-pen"/></svg> Day by day <span class="chip chip-req">twelve days</span></h4>
       <div class="stk-wrap"><table class="stk">
         <thead><tr><th>Day</th><th>What happens</th><th>Done when</th></tr></thead>
         <tbody>
@@ -376,7 +376,7 @@
           <tr><td>Tue 26</td><td>Bhashini live in the app, both directions. Supabase schema. Design starts cutting the ten NCERT illustrations.</td><td>Hindi in, Santali audio out, on one laptop.</td></tr>
           <tr><td>Wed 27</td><td>Ring 1a and 1b on screen. Three lessons entered and <b>hand-checked</b>, because extraction breaks conjuncts. <b>Map each lesson to its NIPUN Bharat outcome code</b>, which the worksheet footer needs.</td><td>A teacher can deliver one real line.</td></tr>
           <tr><td>Thu 28</td><td><b>Ring 1c: the bilingual worksheet.</b> Hindi line, Santali line, picture, outcome code, prints to one page. Pictures into the app.</td><td><b>The ninety-second scene runs, and a worksheet comes out of it.</b></td></tr>
-          <tr><td>Fri 29</td><td>Ring 2. Comprehension check, correction box, example swap, Devanagari line, flashcards.</td><td>A class can be asked, and answer, and be corrected.</td></tr>
+          <tr><td>Fri 29</td><td>Ring 2. Comprehension check, correction box, example swap, Devanagari line, flashcards.</td><td>A class can be asked a question, answer it, and be corrected.</td></tr>
           <tr><td>Sat 30</td><td><b>Ring 1d: Capacitor build, installed on the actual tablet.</b> Offline cache pre-warmed and tested in aeroplane mode on that device, not on a laptop. The language picker, all twenty-one.</td><td><b>Tablet in flight mode, lesson still teaches.</b></td></tr>
           <tr><td>Sun 31</td><td>Buffer, and the first honest full run-through. <b>Measure the voice-to-voice round trip ten times and write down the median.</b></td><td>A latency number on paper. No blockers left on the board.</td></tr>
           <tr><td>Mon 1</td><td>Teacher chart. FLORES score measured. PDF upload with OCR if the week has gone well. Adi Vaani Mundari screenshot for the reach slide.</td><td>Two numbers we can put on a slide.</td></tr>
@@ -526,7 +526,7 @@
           <tr><td class="ic"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><use class="gh" href="#l-diksha"/><use href="#l-diksha"/></svg></td><td>Lesson content</td><td>DIKSHA and NCERT</td><td>Real Class 1 to 5 material from the government&rsquo;s own platform, so the demo teaches something that exists.</td></tr>
           <tr><td class="ic"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><use class="gh" href="#l-datagov"/><use href="#l-datagov"/></svg></td><td>The numbers</td><td>UDISE+, Census 2011, ASER</td><td>Every figure on a slide has a named source and a year behind it.</td></tr>
           <tr><td class="ic"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><use class="gh" href="#l-chart"/><use href="#l-chart"/></svg></td><td>Teacher view</td><td>Recharts</td><td>Who is falling behind, shown rather than listed. This is the pedagogy half of the statement.</td></tr>
-          <tr><td class="ic"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><use class="gh" href="#s-book"/><use href="#s-book"/></svg></td><td><b>Worksheets</b></td><td>A print stylesheet, plus <a href="https://github.com/parallax/jsPDF" target="_blank" rel="noopener">jsPDF</a> on the tablet</td><td><b>Named in the Expected Solution and absent from every earlier plan.</b> Hindi line, tribal line, the lesson picture, the NIPUN Bharat outcome code in the footer, one page. In a browser this is CSS. In the APK it needs jsPDF, because there is no print dialogue to fall back on.</td></tr>
+          <tr><td class="ic"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><use class="gh" href="#s-book"/><use href="#s-book"/></svg></td><td><b>Worksheets</b></td><td>A print stylesheet, plus <a href="https://github.com/parallax/jsPDF" target="_blank" rel="noopener">jsPDF</a> on the tablet</td><td><b>On the list of things that count as finished.</b> One page: Hindi line, tribal line, the lesson picture, and the NIPUN Bharat code in the footer. In a browser this is CSS. In the APK it needs jsPDF, because there is no print dialogue to fall back on.</td></tr>
           <tr><td class="ic"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><use class="gh" href="#l-perplexity"/><use href="#l-perplexity"/></svg></td><td>Research</td><td>Perplexity (Search mode), Gemini Notebook</td><td>Everything on the slides needs a citable source, not a recollection.</td></tr>
           <tr><td class="ic"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><use class="gh" href="#l-obs"/><use href="#l-obs"/></svg></td><td>The demo</td><td>OBS, cloudflared, Slidev</td><td>Record it the moment it first works. If anything breaks at judging, we present the recording.</td></tr>
         </tbody>
