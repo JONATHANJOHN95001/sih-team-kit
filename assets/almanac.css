@@ -871,3 +871,23 @@
   :root[data-theme="dark"] .logo .gh { opacity:.2; }
   /* Only the emblems get it. Icons sitting inline in prose stay plain. */
   .note .logo .gh, .dl .logo .gh, .step-head .logo .gh { display:none; }
+
+  /* The reader sits beside the title on wide screens. It is a JPEG on a
+     dark ground, so a radial mask fades its edges into the masthead
+     instead of leaving a visible rectangle. */
+  .masthead { display:grid; grid-template-columns:1fr; gap:26px; align-items:center; }
+  .mast-text { min-width:0; }
+  .mast-art {
+    display:none;
+    width:100%; max-width:330px; height:auto; justify-self:end;
+    mix-blend-mode:screen; opacity:.95;
+    -webkit-mask-image:radial-gradient(closest-side ellipse at 50% 46%, #000 52%, transparent 92%);
+    mask-image:radial-gradient(closest-side ellipse at 50% 46%, #000 52%, transparent 92%);
+    animation:mastfloat 11s ease-in-out infinite alternate;
+  }
+  @keyframes mastfloat { from { transform:translateY(-6px) } to { transform:translateY(6px) } }
+  @media (min-width:880px) {
+    .masthead { grid-template-columns:minmax(0,1fr) 330px; gap:40px; }
+    .mast-art { display:block; }
+  }
+  @media (prefers-reduced-motion:reduce) { .mast-art { animation:none; } }
