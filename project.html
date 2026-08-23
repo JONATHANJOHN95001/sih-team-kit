@@ -86,6 +86,8 @@
   <symbol id="l-diksha" viewBox="0 0 24 24"><rect x="1.8" y="3.6" width="20.4" height="16.8" rx="2.6" fill="#F26522"/><path d="M6 8.4h12M6 12h12M6 15.6h7.5" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round"/></symbol>
   <symbol id="l-chart" viewBox="0 0 24 24"><rect x="2.4" y="13" width="4.4" height="8.4" rx="1.1" fill="#8884D8"/><rect x="9.8" y="7.4" width="4.4" height="14" rx="1.1" fill="#82CA9D"/><rect x="17.2" y="10.4" width="4.4" height="11" rx="1.1" fill="#FFC658"/><path d="M2 4.4h20" fill="none" stroke="var(--mono-mark)" stroke-width="1.4" stroke-linecap="round" opacity=".35"/></symbol>
   <symbol id="s-scale" viewBox="0 0 24 24"><path d="M12 3.2v17.6M7.4 20.8h9.2M4.2 6.6h15.6M12 6.6 4.2 6.6 1.8 13a4.2 4.2 0 0 0 4.8 0L4.2 6.6ZM19.8 6.6 17.4 13a4.2 4.2 0 0 0 4.8 0L19.8 6.6Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="s-upload" viewBox="0 0 24 24"><path d="M12 16.4V3.6M7.4 8.2 12 3.6l4.6 4.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M3.4 15.2v3.6a1.8 1.8 0 0 0 1.8 1.8h13.6a1.8 1.8 0 0 0 1.8-1.8v-3.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="s-swap" viewBox="0 0 24 24"><path d="M3.4 8.2h13.2M13 4.6l3.6 3.6L13 11.8M20.6 15.8H7.4M11 12.2l-3.6 3.6L11 19.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="s-route" viewBox="0 0 24 24"><circle cx="5.5" cy="5.5" r="2.6" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="18.5" cy="18.5" r="2.6" fill="none" stroke="currentColor" stroke-width="1.9"/><path d="M8.1 5.5h6.4a3.6 3.6 0 0 1 0 7.2H9.5a3.6 3.6 0 0 0 0 7.2h6.4" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></symbol>
   <symbol id="s-wrench" viewBox="0 0 24 24"><path d="M15.6 3.4a5.6 5.6 0 0 0-5 8.1L3.5 18.6a1.8 1.8 0 0 0 2.6 2.6l7.1-7.1a5.6 5.6 0 0 0 6.9-7.6l-3 3-2.6-2.6 3-3a5.6 5.6 0 0 0-1.9-.5Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
   <symbol id="s-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M2.8 12h18.4M12 2.8c2.4 2.5 3.7 5.8 3.7 9.2s-1.3 6.7-3.7 9.2c-2.4-2.5-3.7-5.8-3.7-9.2S9.6 5.3 12 2.8Z" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
@@ -247,14 +249,46 @@
     </div>
 
     <div class="mini" style="grid-column:1/-1">
+      <h4><svg class="hico"><use href="#s-upload"/></svg> Any chapter, any subject <span class="chip chip-ok">answers the question judges ask</span></h4>
+      <p>Three hand-entered lessons invites one obvious question: <i>does this only work for the lessons you prepared?</i> Right now the honest answer is yes. Upload changes that. A teacher points it at any chapter of any textbook and it becomes a lesson.</p>
+
+      <p style="margin:18px 0 8px"><b>Use OCR, not text extraction, and this is not a preference</b></p>
+      <p>When we pulled four NCERT chapters, the PDF text layer <b>dropped conjunct consonants</b>: <code>कयों</code> for क्यों, <code>शबद</code> for शब्द, on roughly half the lines. Those are not Hindi words and Bhashini would translate them into confident nonsense. It is why <code>lessons.json</code> had to be corrected by eye.</p>
+      <p>But the page <i>renders</i> perfectly. Only the embedded text mapping is broken. <span class="aur">OCR reads the rendered pixels, so it gets right what extraction gets wrong.</span> And Bhashini has Hindi OCR, four models covering printed and handwritten, so this stays on the government stack with nothing new to install.</p>
+
+      <div class="lrow"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><use class="gh" href="#l-diksha"/><use href="#l-diksha"/></svg><span><b>The pipeline.</b> Upload, render the page to an image with PDF.js in the browser, send it to Bhashini OCR, get lines back, <b>the teacher reviews and edits</b>, and it becomes a lesson. The review step is the design rather than a compromise: a teacher should approve what her class is about to hear, and it means OCR does not have to be perfect to be useful.</span></div>
+
+      <p style="margin:20px 0 8px"><b>Which subjects this opens up</b></p>
+      <div class="stk-wrap"><table class="stk">
+        <thead><tr><th>Subject</th><th>NCERT code</th><th>How well it works</th></tr></thead>
+        <tbody>
+          <tr><td>Hindi</td><td><code>bhsr1NN</code></td><td>Perfectly. Pure prose, which is what the models are built for.</td></tr>
+          <tr><td>EVS</td><td><code>deap1NN</code>, <code>eeap1NN</code></td><td><b>The best fit of the four.</b> EVS is about the child's own surroundings, family, food, water, animals, so mother-tongue teaching helps most and the example swap has the most to do.</td></tr>
+          <tr><td>English</td><td><code>bemr1NN</code></td><td>Fine. English to Santali is supported, nine models on the pair.</td></tr>
+          <tr><td>Maths</td><td><code>bhjm1NN</code></td><td>Word problems translate. <b>The arithmetic must not.</b> See below.</td></tr>
+        </tbody>
+      </table></div>
+      <p style="margin-top:12px">Primary school has only these four subjects, so <b>all subjects, Class 1 to 5</b> is a genuinely achievable claim rather than a stretch. Hindi-medium editions exist for maths and EVS too, so the source language stays Hindi throughout.</p>
+
+      <div class="note note-warn" style="margin:16px 0 0"><svg class="logo note-ico"><use href="#l-warn"/></svg><div><b>Maths needs one rule.</b> Never send an equation to a translation model. Mask anything that looks like a numeral or an operator before translating and restore it after, or <code>2 + 3 = 5</code> comes back mangled. Same mechanism as the example swap, running in reverse, and about twenty lines. Also decide early whether numbers show as Latin digits, Devanagari, or Ol Chiki's own numerals.</div></div>
+    </div>
+
+    <div class="mini" style="grid-column:1/-1">
+      <h4><svg class="hico"><use href="#s-swap"/></svg> Let the teacher read it too <span class="chip chip-ok">one call, nobody else will do this</span></h4>
+      <p>Here is a problem hiding in our own demo. <b>The teacher cannot read Ol Chiki.</b> She is holding a device showing Santali she has no way to pronounce, check or correct. She has to trust it completely, which is exactly the position the tool was supposed to get her out of.</p>
+      <p>The catalogue has <b>transliteration</b>, twenty models from Santali. Show the Santali in Devanagari underneath the Ol Chiki and she can read it aloud herself, hear whether it sounds right, and fix it properly instead of guessing.</p>
+      <p>One extra API call. It belongs in <b>ring 2</b> with the other pedagogy work, because it is the difference between a teacher operating a black box and a teacher teaching.</p>
+    </div>
+
+    <div class="mini" style="grid-column:1/-1">
       <h4><svg class="hico"><use href="#s-clip"/></svg> Build it in three rings <span class="chip">in this order</span></h4>
       <p>Each ring is independently demoable, so stopping after any of them still leaves something to show. <b>Do not start ring 2 before ring 1 runs end to end on one machine.</b> That discipline is what decides hackathons.</p>
       <div class="stk-wrap"><table class="stk">
         <thead><tr><th>Ring</th><th>What</th><th>Why it sits here</th></tr></thead>
         <tbody>
           <tr><td>1 &middot; must work</td><td>Tap or speak Hindi in. Santali audio and Ol&nbsp;Chiki out. Child speaks Santali, teacher gets Hindi.</td><td>Both directions, because both are confirmed working and one direction is what everyone else will demo. This alone is the whole demo if the rest fails.</td></tr>
-          <tr><td>2 &middot; the pedagogy</td><td>Comprehension check every few lines. A correction box that persists. The example swap.</td><td>This is what makes it a teaching tool rather than a translator, which is the actual thing being asked for. Roughly six hours.</td></tr>
-          <tr><td>3 &middot; the edge</td><td>Offline cache. Teacher chart. Telegram channel.</td><td>The differentiators, but only once 1 and 2 are solid. Telegram is the first thing to cut.</td></tr>
+          <tr><td>2 &middot; the pedagogy</td><td>Comprehension check every few lines. A correction box that persists. The example swap. Devanagari under the Ol&nbsp;Chiki so the teacher can read it.</td><td>This is what makes it a teaching tool rather than a translator, which is the actual thing being asked for. Roughly six hours.</td></tr>
+          <tr><td>3 &middot; the edge</td><td>Offline cache. Teacher chart. PDF upload with OCR. Telegram channel.</td><td>The differentiators, but only once 1 and 2 are solid. Telegram is the first thing to cut.</td></tr>
         </tbody>
       </table></div>
     </div>
