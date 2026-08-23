@@ -637,6 +637,9 @@
   .stk td.ic { width:24px; padding-right:12px; }
   .stk td:first-child { color:var(--ink); font-weight:600; white-space:nowrap; }
   .stk tr:last-child td { border-bottom:0; }
+  .stk td a { color:var(--accent-ink); text-decoration:underline;
+              text-underline-offset:2px; text-decoration-thickness:1px; font-weight:600; }
+  .stk td a:hover { text-decoration-thickness:2px; }
   .stk-wrap { overflow-x:auto; }
   /* demo run sheet */
   .dflow { display:grid; gap:0; margin:4px 0 0; }

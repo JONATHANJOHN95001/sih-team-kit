@@ -28,7 +28,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="./assets/almanac.css?v=17123fb9">
+<link rel="stylesheet" href="./assets/almanac.css?v=3b0e465f">
 <style>
   /* The masthead backdrop is 100vw, which counts the scrollbar, so
      without this the page scrolls sideways by the scrollbar width. */
@@ -338,64 +338,72 @@
     </div>
 
     <div class="mini" style="grid-column:1/-1">
-      <h4><svg class="hico"><use href="#s-blocks"/></svg> Every tool we need <span class="chip chip-ok">45, all free</span></h4>
-      <p>The complete list: what goes into the product, and what we build it with. Check here before installing anything, because the list below it matters just as much.</p>
+      <h4><svg class="hico"><use href="#s-blocks"/></svg> Every tool we need <span class="chip chip-ok">53, all free, all linked</span></h4>
+      <p>The complete list, product and toolchain together, with every link checked. Read the second list too, because knowing what not to install saves more time than knowing what to.</p>
       <div class="stk-wrap"><table class="stk">
         <thead><tr><th>Tool</th><th>What it does here</th><th>Status</th></tr></thead>
         <tbody>
           <tr><td colspan="3" style="padding-top:18px;color:var(--accent-ink);font-weight:700;border-bottom:0">The AI inside the product</td></tr>
-          <tr><td>Bhashini</td><td>Hindi to Santali, speech out, speech in. The whole product rests on it. Free, unlimited, Government of India.</td><td><span class="chip chip-ok">keys pending</span></td></tr>
-          <tr><td>Gemini API</td><td>One call to simplify a sentence to Class 2 reading level before translating, and to suggest local swaps for the example list.</td><td><span class="chip chip-ok">have it</span></td></tr>
-          <tr><td>Web Speech API</td><td>Browser-native voice. The last rung of the fallback ladder when Bhashini is slow on stage.</td><td><span class="chip chip-ok">built in</span></td></tr>
-          <tr><td>IndicTrans2 + CTranslate2</td><td>The same model Bhashini serves, run locally. Only helps for a sentence never seen before, offline.</td><td><span class="chip">optional</span></td></tr>
-          <tr><td>faster-whisper or Vosk</td><td>Speech recognition with no network. Bhashini already covers Hindi and Santali online.</td><td><span class="chip">optional</span></td></tr>
+          <tr><td><a href="https://bhashini.gov.in" target="_blank" rel="noopener">Bhashini</a></td><td>Translation, voice out, voice in, across 21 languages. The product rests on it.</td><td><span class="chip chip-ok">keys pending</span></td></tr>
+          <tr><td><a href="https://bhashini.gov.in" target="_blank" rel="noopener">Bhashini OCR</a></td><td>Four Hindi models, printed and handwritten. Reads an uploaded page correctly where text extraction mangles it.</td><td><span class="chip chip-ok">same key</span></td></tr>
+          <tr><td><a href="https://bhashini.gov.in" target="_blank" rel="noopener">Bhashini transliteration</a></td><td>Santali written in Devanagari, so the teacher can read aloud what she cannot read in Ol Chiki.</td><td><span class="chip chip-ok">same key</span></td></tr>
+          <tr><td><a href="https://aistudio.google.com" target="_blank" rel="noopener">Gemini API</a></td><td>One call to pitch a sentence at Class 2 reading level, and to suggest local swaps for the example list.</td><td><span class="chip chip-ok">have it</span></td></tr>
+          <tr><td><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API" target="_blank" rel="noopener">Web Speech API</a></td><td>Browser-native voice. The last rung of the fallback ladder.</td><td><span class="chip chip-ok">built in</span></td></tr>
+          <tr><td><a href="https://github.com/AI4Bharat/IndicTrans2" target="_blank" rel="noopener">IndicTrans2</a></td><td>The model Bhashini serves, run locally. Only helps for an unseen sentence, offline.</td><td><span class="chip">optional</span></td></tr>
+          <tr><td><a href="https://github.com/OpenNMT/CTranslate2" target="_blank" rel="noopener">CTranslate2</a></td><td>Quantises that model to int8 so it runs on the processor alone.</td><td><span class="chip">optional</span></td></tr>
+          <tr><td><a href="https://github.com/SYSTRAN/faster-whisper" target="_blank" rel="noopener">faster-whisper</a></td><td>Speech recognition with no network. Bhashini already covers Hindi and Santali online.</td><td><span class="chip">optional</span></td></tr>
           <tr><td colspan="3" style="padding-top:18px;color:var(--accent-ink);font-weight:700;border-bottom:0">The AI we build with</td></tr>
-          <tr><td>Gemini CLI</td><td>Main coding agent. Largest free allowance of the lanes we have.</td><td><span class="chip chip-ok">installed</span></td></tr>
-          <tr><td>GitHub Copilot</td><td>Inline completion in VS Code. Free with the Student Pack and most people never switch it on.</td><td><span class="chip chip-ok">turn it on</span></td></tr>
-          <tr><td>Claude</td><td>Planning, architecture, reading the problem statement closely.</td><td><span class="chip chip-ok">installed</span></td></tr>
-          <tr><td>ChatGPT</td><td>Second opinion when an agent gets stuck in a loop.</td><td><span class="chip chip-ok">installed</span></td></tr>
+          <tr><td><a href="https://github.com/google-gemini/gemini-cli" target="_blank" rel="noopener">Gemini CLI</a></td><td>Main coding agent, largest free allowance of the lanes we have.</td><td><span class="chip chip-ok">installed</span></td></tr>
+          <tr><td><a href="https://github.com/features/copilot" target="_blank" rel="noopener">GitHub Copilot</a></td><td>Inline completion. Free with the Student Pack and most people never switch it on.</td><td><span class="chip chip-ok">turn it on</span></td></tr>
+          <tr><td><a href="https://claude.ai" target="_blank" rel="noopener">Claude</a></td><td>Planning, architecture, reading the statement closely.</td><td><span class="chip chip-ok">installed</span></td></tr>
+          <tr><td><a href="https://chatgpt.com" target="_blank" rel="noopener">ChatGPT</a></td><td>Second opinion when an agent loops.</td><td><span class="chip chip-ok">installed</span></td></tr>
+          <tr><td><a href="https://github.com/openai/codex" target="_blank" rel="noopener">Codex CLI</a></td><td>Another lane, so no single quota runs dry on the night.</td><td><span class="chip chip-ok">installed</span></td></tr>
           <tr><td>freebuff</td><td>Six sessions a day, an hour each. End the session or it burns.</td><td><span class="chip chip-ok">installed</span></td></tr>
-          <tr><td>Codex CLI</td><td>Another lane, so no single quota runs dry on the night.</td><td><span class="chip chip-ok">installed</span></td></tr>
-          <tr><td>LM Studio</td><td>Offline model on the laptop. The one that still works when the venue wifi dies.</td><td><span class="chip chip-ok">installed</span></td></tr>
-          <tr><td>Groq</td><td>Several hundred words a second, if anything needs to feel instant on stage.</td><td><span class="chip chip-ok">free tier</span></td></tr>
+          <tr><td><a href="https://lmstudio.ai" target="_blank" rel="noopener">LM Studio</a></td><td>Offline model on the laptop, for when the venue wifi dies.</td><td><span class="chip chip-ok">installed</span></td></tr>
+          <tr><td><a href="https://console.groq.com" target="_blank" rel="noopener">Groq</a></td><td>Several hundred words a second, if anything must feel instant on stage.</td><td><span class="chip chip-ok">free tier</span></td></tr>
           <tr><td colspan="3" style="padding-top:18px;color:var(--accent-ink);font-weight:700;border-bottom:0">Code and framework</td></tr>
-          <tr><td>Node.js, Git, VS Code</td><td>The base. Everything else runs on top.</td><td><span class="chip chip-ok">installed</span></td></tr>
-          <tr><td>React 19 + Vite 8</td><td>The app. Scaffolded and building clean.</td><td><span class="chip chip-ok">installed</span></td></tr>
-          <tr><td>lucide-react</td><td>Icons. Already used in the classroom screen.</td><td><span class="chip chip-ok">installed</span></td></tr>
-          <tr><td>vite-plugin-pwa</td><td>Wraps Workbox and makes the app shell load with no network. Already a dependency.</td><td><span class="chip chip-ok">installed</span></td></tr>
-          <tr><td>Plain IndexedDB</td><td>Caches every translation and audio clip. Forty lines, no library.</td><td><span class="chip chip-ok">written</span></td></tr>
-          <tr><td>Tailwind + shadcn/ui</td><td>Components we own and can edit on the spot.</td><td><span class="chip chip-req">to add</span></td></tr>
-          <tr><td>Recharts</td><td>The teacher dashboard. The pedagogy half made visible.</td><td><span class="chip chip-req">to add</span></td></tr>
+          <tr><td><a href="https://nodejs.org" target="_blank" rel="noopener">Node.js</a></td><td>Everything else runs on top of it.</td><td><span class="chip chip-ok">installed</span></td></tr>
+          <tr><td><a href="https://git-scm.com" target="_blank" rel="noopener">Git</a></td><td>Six people, one codebase.</td><td><span class="chip chip-ok">installed</span></td></tr>
+          <tr><td><a href="https://code.visualstudio.com" target="_blank" rel="noopener">VS Code</a></td><td>The editor.</td><td><span class="chip chip-ok">installed</span></td></tr>
+          <tr><td><a href="https://react.dev" target="_blank" rel="noopener">React 19</a></td><td>The app.</td><td><span class="chip chip-ok">installed</span></td></tr>
+          <tr><td><a href="https://vite.dev" target="_blank" rel="noopener">Vite 8</a></td><td>Instant reloads, static output.</td><td><span class="chip chip-ok">installed</span></td></tr>
+          <tr><td><a href="https://lucide.dev" target="_blank" rel="noopener">lucide-react</a></td><td>Icons, already used in the classroom screen.</td><td><span class="chip chip-ok">installed</span></td></tr>
+          <tr><td><a href="https://vite-pwa-org.netlify.app" target="_blank" rel="noopener">vite-plugin-pwa</a></td><td>Wraps Workbox and makes the app shell load with no network. Already a dependency.</td><td><span class="chip chip-ok">installed</span></td></tr>
+          <tr><td><a href="https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API" target="_blank" rel="noopener">IndexedDB</a></td><td>Caches every translation and clip. Forty lines, no library.</td><td><span class="chip chip-ok">written</span></td></tr>
+          <tr><td><a href="https://mozilla.github.io/pdf.js/" target="_blank" rel="noopener">PDF.js</a></td><td>Renders an uploaded page to an image so OCR can read it.</td><td><span class="chip chip-req">to add</span></td></tr>
+          <tr><td><a href="https://tailwindcss.com" target="_blank" rel="noopener">Tailwind CSS</a></td><td>Styling without writing CSS by hand.</td><td><span class="chip chip-req">to add</span></td></tr>
+          <tr><td><a href="https://ui.shadcn.com" target="_blank" rel="noopener">shadcn/ui</a></td><td>Components we own and can edit on the spot.</td><td><span class="chip chip-req">to add</span></td></tr>
+          <tr><td><a href="https://recharts.org" target="_blank" rel="noopener">Recharts</a></td><td>The teacher dashboard, which is the pedagogy half made visible.</td><td><span class="chip chip-req">to add</span></td></tr>
           <tr><td colspan="3" style="padding-top:18px;color:var(--accent-ink);font-weight:700;border-bottom:0">Design</td></tr>
-          <tr><td>Stitch</td><td>Describe a screen, get the design. Switch the toggle to Web first.</td><td><span class="chip chip-ok">installed</span></td></tr>
-          <tr><td>Noto Sans Ol Chiki</td><td>Self-hosted. Without it every Santali word is an empty box on the projector.</td><td><span class="chip chip-ok">verified</span></td></tr>
-          <tr><td>Photopea</td><td>Cut the ten illustrations out of the NCERT PDFs.</td><td><span class="chip chip-ok">browser</span></td></tr>
-          <tr><td>Excalidraw</td><td>The one architecture diagram judges actually respond to.</td><td><span class="chip chip-ok">browser</span></td></tr>
-          <tr><td>DESIGN.md</td><td>One file of visual rules so six people and their agents produce one product.</td><td><span class="chip chip-req">to write</span></td></tr>
-          <tr><td>Rive or Lottie</td><td>Animated characters on the child screen. Only if design finishes early.</td><td><span class="chip">optional</span></td></tr>
+          <tr><td><a href="https://stitch.withgoogle.com" target="_blank" rel="noopener">Stitch</a></td><td>Describe a screen, get the design. Switch the toggle to Web first.</td><td><span class="chip chip-ok">installed</span></td></tr>
+          <tr><td><a href="https://fonts.google.com/noto/specimen/Noto+Sans+Ol+Chiki" target="_blank" rel="noopener">Noto Sans Ol Chiki</a></td><td>Self-hosted. Without it every Santali word is an empty box on the projector.</td><td><span class="chip chip-ok">verified</span></td></tr>
+          <tr><td><a href="https://www.photopea.com" target="_blank" rel="noopener">Photopea</a></td><td>Cut the ten illustrations out of the NCERT PDFs.</td><td><span class="chip chip-ok">browser</span></td></tr>
+          <tr><td><a href="https://excalidraw.com" target="_blank" rel="noopener">Excalidraw</a></td><td>The one architecture diagram judges respond to.</td><td><span class="chip chip-ok">browser</span></td></tr>
+          <tr><td><a href="https://rive.app" target="_blank" rel="noopener">Rive</a></td><td>Animated characters on the child screen, if design finishes early.</td><td><span class="chip">optional</span></td></tr>
           <tr><td colspan="3" style="padding-top:18px;color:var(--accent-ink);font-weight:700;border-bottom:0">Data and hosting</td></tr>
-          <tr><td>Supabase</td><td>Glossary, teacher corrections, progress. Wake it the morning of the demo.</td><td><span class="chip chip-ok">configured</span></td></tr>
-          <tr><td>Vercel</td><td>The public URL, and a preview link per push, which matters with six committing.</td><td><span class="chip chip-ok">account</span></td></tr>
-          <tr><td>GitHub</td><td>The repository and the submission link.</td><td><span class="chip chip-ok">configured</span></td></tr>
-          <tr><td>Render</td><td>Only if the local Python model needs to be reachable from a phone.</td><td><span class="chip">optional</span></td></tr>
-          <tr><td>cloudflared</td><td>Instant public tunnel if the deploy misbehaves during judging.</td><td><span class="chip chip-ok">installed</span></td></tr>
+          <tr><td><a href="https://supabase.com/dashboard" target="_blank" rel="noopener">Supabase</a></td><td>Glossary, corrections, progress. Wake it the morning of the demo.</td><td><span class="chip chip-ok">configured</span></td></tr>
+          <tr><td><a href="https://vercel.com" target="_blank" rel="noopener">Vercel</a></td><td>The public URL, and a preview link per push.</td><td><span class="chip chip-ok">account</span></td></tr>
+          <tr><td><a href="https://github.com" target="_blank" rel="noopener">GitHub</a></td><td>The repository and the submission link.</td><td><span class="chip chip-ok">configured</span></td></tr>
+          <tr><td><a href="https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/" target="_blank" rel="noopener">cloudflared</a></td><td>Instant public tunnel if the deploy misbehaves during judging.</td><td><span class="chip chip-ok">installed</span></td></tr>
+          <tr><td><a href="https://render.com" target="_blank" rel="noopener">Render</a></td><td>Only if the local Python model must be reachable from a phone.</td><td><span class="chip">optional</span></td></tr>
           <tr><td colspan="3" style="padding-top:18px;color:var(--accent-ink);font-weight:700;border-bottom:0">Lesson content</td></tr>
-          <tr><td>NCERT textbooks</td><td>Real Class 2 Hindi. Four chapters downloaded. The PDFs drop conjuncts, so hand-check every line.</td><td><span class="chip chip-ok">downloaded</span></td></tr>
-          <tr><td>DIKSHA</td><td>The government school platform, curriculum by state and grade.</td><td><span class="chip chip-ok">browser</span></td></tr>
-          <tr><td>PyMuPDF</td><td>How the chapters were extracted. One line per PDF.</td><td><span class="chip chip-ok">installed</span></td></tr>
-          <tr><td>Hugging Face</td><td>Where the weights and FLORES live, if we go local.</td><td><span class="chip chip-ok">browser</span></td></tr>
+          <tr><td><a href="https://ncert.nic.in/textbook.php" target="_blank" rel="noopener">NCERT textbooks</a></td><td>Real Class 1 to 5 material. Four chapters downloaded. The site is slow, the PDFs are quick.</td><td><span class="chip chip-ok">downloaded</span></td></tr>
+          <tr><td><a href="https://diksha.gov.in" target="_blank" rel="noopener">DIKSHA</a></td><td>The government school platform, curriculum by state and grade.</td><td><span class="chip chip-ok">browser</span></td></tr>
+          <tr><td><a href="https://pymupdf.readthedocs.io" target="_blank" rel="noopener">PyMuPDF</a></td><td>How the chapters were extracted. Remember it drops conjuncts, so hand-check.</td><td><span class="chip chip-ok">installed</span></td></tr>
+          <tr><td><a href="https://huggingface.co/ai4bharat" target="_blank" rel="noopener">Hugging Face</a></td><td>Where the AI4Bharat weights live, if we go local.</td><td><span class="chip chip-ok">browser</span></td></tr>
           <tr><td colspan="3" style="padding-top:18px;color:var(--accent-ink);font-weight:700;border-bottom:0">Numbers for the slides</td></tr>
-          <tr><td>FLORES-200</td><td>Professionally translated Santali, so the quality claim is measured rather than asserted.</td><td><span class="chip chip-req">to run</span></td></tr>
-          <tr><td>UDISE+</td><td>Real Jharkhand enrolment and dropout figures, per district.</td><td><span class="chip chip-ok">browser</span></td></tr>
-          <tr><td>Census 2011</td><td>Actual speaker counts. Cite the table and the year.</td><td><span class="chip chip-ok">browser</span></td></tr>
-          <tr><td>ASER</td><td>Evidence that children cannot read at grade level, so the problem is real.</td><td><span class="chip chip-ok">browser</span></td></tr>
-          <tr><td>NEP 2020 and NIPUN Bharat</td><td>The policy this answers. Name both in the pitch.</td><td><span class="chip chip-ok">browser</span></td></tr>
+          <tr><td><a href="https://github.com/facebookresearch/flores" target="_blank" rel="noopener">FLORES-200</a></td><td>Professionally translated Santali, so the quality claim is measured.</td><td><span class="chip chip-req">to run</span></td></tr>
+          <tr><td><a href="https://udiseplus.gov.in" target="_blank" rel="noopener">UDISE+</a></td><td>Real Jharkhand enrolment and dropout figures, per district.</td><td><span class="chip chip-ok">browser</span></td></tr>
+          <tr><td><a href="https://censusindia.gov.in/census.website/data/census-tables" target="_blank" rel="noopener">Census 2011</a></td><td>Actual speaker counts. Cite the table and the year.</td><td><span class="chip chip-ok">browser</span></td></tr>
+          <tr><td><a href="https://asercentre.org" target="_blank" rel="noopener">ASER</a></td><td>Evidence children cannot read at grade level, so the problem is real.</td><td><span class="chip chip-ok">browser</span></td></tr>
+          <tr><td><a href="https://www.education.gov.in/nep" target="_blank" rel="noopener">NEP 2020</a></td><td>Mother-tongue instruction through Grade 5. Why a state is asking.</td><td><span class="chip chip-ok">browser</span></td></tr>
+          <tr><td><a href="https://dsel.education.gov.in/nipun-bharat" target="_blank" rel="noopener">NIPUN Bharat</a></td><td>The FLN mission this sits under. Name it in the pitch.</td><td><span class="chip chip-ok">browser</span></td></tr>
           <tr><td colspan="3" style="padding-top:18px;color:var(--accent-ink);font-weight:700;border-bottom:0">Research and the pitch</td></tr>
-          <tr><td>Perplexity</td><td>Answers with sources attached. Search mode, never Work mode.</td><td><span class="chip chip-ok">installed</span></td></tr>
-          <tr><td>NotebookLM</td><td>Drop a government PDF in and get answers that cite page numbers.</td><td><span class="chip chip-ok">browser</span></td></tr>
-          <tr><td>OBS Studio</td><td>Record the demo the moment it first works. This is not optional.</td><td><span class="chip chip-ok">installed</span></td></tr>
-          <tr><td>Slidev or GenOffice</td><td>The deck. Markdown in, PDF out.</td><td><span class="chip chip-ok">installed</span></td></tr>
-          <tr><td>Telegram Bot API</td><td>The no-app channel: voice note in, Santali audio back. Free, no approval.</td><td><span class="chip">optional</span></td></tr>
+          <tr><td><a href="https://www.perplexity.ai" target="_blank" rel="noopener">Perplexity</a></td><td>Answers with sources. Search mode, never Work mode.</td><td><span class="chip chip-ok">installed</span></td></tr>
+          <tr><td><a href="https://notebooklm.google.com" target="_blank" rel="noopener">NotebookLM</a></td><td>Drop a government PDF in, get answers citing page numbers.</td><td><span class="chip chip-ok">browser</span></td></tr>
+          <tr><td><a href="https://obsproject.com" target="_blank" rel="noopener">OBS Studio</a></td><td>Record the demo the moment it works. Not optional.</td><td><span class="chip chip-ok">installed</span></td></tr>
+          <tr><td><a href="https://sli.dev" target="_blank" rel="noopener">Slidev</a></td><td>The deck. Markdown in, PDF out.</td><td><span class="chip chip-ok">installed</span></td></tr>
+          <tr><td><a href="https://core.telegram.org/bots/api" target="_blank" rel="noopener">Telegram Bot API</a></td><td>Voice note in, Santali audio back. No app to install, no approval needed.</td><td><span class="chip">optional</span></td></tr>
         </tbody>
       </table></div>
 
@@ -403,11 +411,11 @@
       <div class="lrow"><span><b>Transformers.js.</b> A model inside the browser tab. Hundreds of megabytes and a day of WASM for what the cache does in an hour.</span></div>
       <div class="lrow"><span><b>Dexie.</b> A wrapper over IndexedDB we do not need, because the store is forty lines.</span></div>
       <div class="lrow"><span><b>Spline.</b> Installed but unused. The 3D landing scene is on the not-building list, so uninstall it.</span></div>
-      <div class="lrow"><span><b>NLLB-200.</b> Was a second opinion on bad translations. The correction box does that better.</span></div>
-      <div class="lrow"><span><b>MeloTTS, Google TTS.</b> Suggested elsewhere for Santali. Neither supports it. Bhashini does.</span></div>
+      <div class="lrow"><span><b>NLLB-200.</b> Was a second opinion on bad translations. The correction box does it better.</span></div>
+      <div class="lrow"><span><b>MeloTTS and Google TTS.</b> Suggested elsewhere for Santali. Neither supports it. Bhashini does.</span></div>
       <div class="lrow"><span><b>LangChain, Flutter, FastAPI, MongoDB.</b> Each solves a problem we do not have, and each costs a day.</span></div>
 
-      <div class="note note-ok" style="margin:16px 0 0"><svg class="logo note-ico"><use href="#l-check"/></svg><div><b>Four things to install, everything else is ready.</b> Tailwind with shadcn/ui, Recharts, the DESIGN.md, and the FLORES run. The build is not waiting on tooling any more, it is waiting on the Bhashini keys.</div></div>
+      <div class="note note-ok" style="margin:16px 0 0"><svg class="logo note-ico"><use href="#l-check"/></svg><div><b>5 things left to install, everything else is ready.</b> PDF.js, Tailwind with shadcn/ui, Recharts, and the FLORES run. The build is not waiting on tooling, it is waiting on the Bhashini keys.</div></div>
     </div>
 
     <div class="mini" style="grid-column:1/-1">
