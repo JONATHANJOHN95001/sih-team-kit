@@ -267,11 +267,28 @@
        estate a small screen cannot spare, and the unpin fade can leave
        the last section on a page faded out, which is how the offline AI
        heading vanished on mobile. Reveal still runs, nothing else. */
+    /* Phones get no scroll-linked motion at all. Content that moves as
+       you scroll fights the scroll on a touchscreen, where the finger is
+       already doing the moving, and it costs frames on the hardware most
+       likely to be reading this. Ambient motion stays; anything tied to
+       scroll position goes. */
     @media (max-width:760px) {
       .shead { position:static; backdrop-filter:none; -webkit-backdrop-filter:none;
-               background:none; animation:none; opacity:1; transform:none; }
-      .grid.grid-2, .steps, .stk-wrap { animation:none; opacity:1; transform:none; }
-      .lrow .logo { animation:none; opacity:1; transform:none; translate:none; }
+               background:none; }
+      .shead, .shead h2, .masthead,
+      .mini, .stepcard, .dstep, .wrow,
+      .grid.grid-2, .steps, .stk-wrap,
+      .stk tbody tr, .lrow .logo {
+        animation:none !important;
+        opacity:1 !important;
+        transform:none !important;
+        translate:none !important;
+        filter:none !important;
+        letter-spacing:normal;
+      }
+      /* the field keeps drifting, it just stops tracking the scroll */
+      body::before { animation:field 40s ease-in-out infinite alternate;
+                     animation-timeline:auto; }
     }
 
     /* Three: depth on the emblem as its row passes, so the medallion
