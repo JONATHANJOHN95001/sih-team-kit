@@ -895,16 +895,21 @@
   .masthead { display:grid; grid-template-columns:1fr; gap:26px; align-items:center; }
   .mast-text { min-width:0; }
   .mast-art {
-    display:none;
-    width:100%; max-width:330px; height:auto; justify-self:end;
+    /* Shown at every width. On a phone the masthead is one column, so it
+       falls below the text and sits centred, which keeps the words first
+       without hiding the artwork. */
+    display:block;
+    width:100%; max-width:220px; height:auto; justify-self:center;
+    margin-top:6px;
     mix-blend-mode:screen; opacity:.95;
     -webkit-mask-image:radial-gradient(closest-side ellipse at 50% 46%, #000 52%, transparent 92%);
     mask-image:radial-gradient(closest-side ellipse at 50% 46%, #000 52%, transparent 92%);
     animation:mastfloat 11s ease-in-out infinite alternate;
   }
   @keyframes mastfloat { from { transform:translateY(-6px) } to { transform:translateY(6px) } }
+  @media (min-width:640px) { .mast-art { max-width:270px; } }
   @media (min-width:880px) {
     .masthead { grid-template-columns:minmax(0,1fr) 330px; gap:40px; }
-    .mast-art { display:block; }
+    .mast-art { max-width:330px; justify-self:end; margin-top:0; }
   }
   @media (prefers-reduced-motion:reduce) { .mast-art { animation:none; } }
