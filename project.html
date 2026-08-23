@@ -130,18 +130,24 @@
     </div>
 
     <div class="mini" style="grid-column:1/-1">
-      <h4><svg class="hico"><use href="#s-lang"/></svg> Which mother tongues actually work <span class="chip chip-ok">checked, not assumed</span></h4>
-      <p>We had been planning for Santali alone. Jharkhand recognises several tribal and regional languages, so here is every one of them queried against the government&rsquo;s own model catalogue:</p>
+      <h4><svg class="hico"><use href="#s-lang"/></svg> How many languages we can carry <span class="chip chip-ok">21, and they are nearly free</span></h4>
+      <p>We scoped this to Santali, then checked properly. Every one of the 22 scheduled languages was queried against the government catalogue, and <b>21 of them have the complete pipeline</b>: translate, speak and listen. Only Konkani has nothing.</p>
+      <p><b>Supporting all of them costs almost no work.</b> The lesson content is written in Hindi and the output language is a parameter, so a language is a row in an array rather than a feature. We built the hardest one first and the rest came free.</p>
       <div class="stk-wrap"><table class="stk">
-        <thead><tr><th>Language</th><th>Translate</th><th>Speaks</th><th>Listens</th><th>What that means for us</th></tr></thead>
+        <thead><tr><th>Group</th><th>Languages</th><th>What works</th></tr></thead>
         <tbody>
-          <tr><td>Santali</td><td>3 models</td><td>Yes</td><td>Yes</td><td>The full experience, so this is the flagship.</td></tr>
-          <tr><td>Ho</td><td>2 models</td><td>No</td><td>No</td><td>Text only. Still worth shipping, because it proves the architecture is not hard-wired to one language.</td></tr>
-          <tr><td>Mundari, Kurukh, Kharia, Sadri, Kurmali</td><td colspan="3">Not on the platform at all</td><td>Name them in the pitch as the honest gap and the next milestone.</td></tr>
-          <tr><td>Bengali, Odia, Urdu, Maithili</td><td>4 each</td><td>Yes</td><td>Yes</td><td>Spoken across Jharkhand&rsquo;s border districts and free to add, so breadth costs us almost nothing.</td></tr>
+          <tr><td>Jharkhand, spoken</td><td>Santali</td><td><b>Everything.</b> Three translation models, a voice, and speech recognition. The flagship and the demo language.</td></tr>
+          <tr><td>Jharkhand, text</td><td>Ho</td><td>Translation only. Still shipped, because it proves nothing is hard-wired to one language.</td></tr>
+          <tr><td>Jharkhand borders</td><td>Bengali, Odia, Urdu, Maithili</td><td>Full pipeline. Real speakers in the border districts, and no extra work.</td></tr>
+          <tr><td>The rest of the Eighth Schedule</td><td>Assamese, Bodo, Dogri, Gujarati, Kannada, Kashmiri, Malayalam, Manipuri, Marathi, Nepali, Punjabi, Sanskrit, Sindhi, Tamil, Telugu, English</td><td>Full pipeline on every one. This is the national scale answer.</td></tr>
+          <tr><td>Missing</td><td>Konkani</td><td>Scheduled, but nothing on the platform.</td></tr>
+          <tr><td>The honest gap</td><td>Mundari, Kurukh, Kharia, Sadri, Kurmali</td><td>Absent, and the reason matters.</td></tr>
         </tbody>
       </table></div>
-      <p style="margin-top:14px">So the app is <b>multi-language with honest degradation</b>: full speech in Santali, text in Ho, and the scheduled languages for reach. Telling judges exactly which capability each language has is a stronger answer than quietly shipping one and calling it mother-tongue support.</p>
+
+      <div class="note note-warn" style="margin:16px 0 0"><svg class="logo note-ico"><use href="#l-warn"/></svg><div><b>Why those five are missing is a point worth making in the pitch.</b> Bhashini covers the <b>Eighth Schedule</b>. Santali was added to it in 2003; Mundari, Kurukh, Kharia, Sadri and Kurmali never were. So the gap in our tool is not an engineering limitation, it is a consequence of which languages the constitution recognises. Our architecture is ready for them the day the platform adds them, and saying that shows we understand the system we are building inside.</div></div>
+
+      <p style="margin-top:16px"><b>How to pitch it.</b> Lead with Jharkhand and demonstrate in Santali, because that is who asked and that is the hard case. Then show the picker. <span class="aur">One classroom tool, twenty-one languages, and we solved the lowest-resource one first.</span> Breadth alone reads as shallow; depth in the hardest language with breadth behind it does not.</p>
     </div>
 
     <div class="mini">
@@ -380,7 +386,7 @@
           <tr><td class="ic"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><use class="gh" href="#l-gemini"/><use href="#l-gemini"/></svg></td><td>Writing the code</td><td>Gemini CLI first, then freebuff and Codex</td><td>Spread the work across lanes so no single free quota runs dry. LM&nbsp;Studio is the fallback when the venue wifi dies.</td></tr>
           <tr><td class="ic"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><use class="gh" href="#l-shadcn"/><use href="#l-shadcn"/></svg></td><td>Screens</td><td>React + Vite, Tailwind, shadcn/ui</td><td>Vite rebuilds instantly and shadcn components are ours to edit. Aceternity on the landing screen only.</td></tr>
           <tr><td class="ic"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><use class="gh" href="#l-stitch"/><use href="#l-stitch"/></svg></td><td>Look</td><td>Stitch, driven by a <code>DESIGN.md</code></td><td>One file of visual rules that every agent reads, so four people's code still looks like one product.</td></tr>
-          <tr><td class="ic"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><use class="gh" href="#l-bhashini"/><use href="#l-bhashini"/></svg></td><td>Translation (online)</td><td>Bhashini API</td><td>The government's own platform. Free, unlimited, and using MeitY infrastructure at a government hackathon is an angle most teams miss.</td></tr>
+          <tr><td class="ic"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><use class="gh" href="#l-bhashini"/><use href="#l-bhashini"/></svg></td><td>Translation (online)</td><td>Bhashini API, 21 languages</td><td>The government's own platform. Free, unlimited, and using MeitY infrastructure at a government hackathon is an angle most teams miss.</td></tr>
           <tr><td class="ic"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><use class="gh" href="#l-hf"/><use href="#l-hf"/></svg></td><td>Translation (offline)</td><td>IndicTrans2 <code>dist-320M</code> + CTranslate2</td><td>The same model Bhashini serves, running on our machine. <span class="aur">A dead network can no longer kill the demo.</span></td></tr>
           <tr><td class="ic"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><use class="gh" href="#l-openai"/><use href="#l-openai"/></svg></td><td>Speech in</td><td>faster-whisper (Hindi)</td><td>The teacher speaks instead of typing. Vosk is the fallback on a slow laptop.</td></tr>
           <tr><td class="ic"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><use class="gh" href="#l-bhashini"/><use href="#l-bhashini"/></svg></td><td>Speech out</td><td>Bhashini IITM TTS, with Web Speech API as fallback</td><td><span class="aur">It exists, in male and female voices</span> , built with FastPitch and a HiFi-GAN vocoder. A child who cannot yet read Ol&nbsp;Chiki can still hear the lesson, which is the whole point of the project.</td></tr>
