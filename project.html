@@ -299,7 +299,7 @@
         <thead><tr><th>Day</th><th>What happens</th><th>Done when</th></tr></thead>
         <tbody>
           <tr><td>Before Mon</td><td>Register on Bhashini and run <code>bhashini-test.mjs</code>.</td><td>Output pasted in the group chat.</td></tr>
-          <tr><td>Mon 25</td><td>Get the official PS text. Six names against six roles. Language and Frontend agree the API contract in writing.</td><td>Contract committed. Everyone set up.</td></tr>
+          <tr><td>Mon 25</td><td>Get the official PS text. Trade roles until they fit. Language and Frontend agree the API contract in writing.</td><td>Contract committed. Everyone set up.</td></tr>
           <tr><td>Tue 26</td><td>Bhashini live in the app, both directions. Supabase schema.</td><td>Hindi in, Santali audio out, on one laptop.</td></tr>
           <tr><td>Wed 27</td><td>Ring 1 on screen. Three NCERT lessons entered and hand-checked.</td><td>A teacher can deliver one real line.</td></tr>
           <tr><td>Thu 28</td><td>Ring 1 complete, both directions, illustrations cut out.</td><td><b>The ninety-second scene runs.</b></td></tr>
@@ -316,19 +316,26 @@
     </div>
 
     <div class="mini" style="grid-column:1/-1">
-      <h4><svg class="hico"><use href="#s-db"/></svg> Six people, six roles <span class="chip">names in on Monday</span></h4>
+      <h4><svg class="hico"><use href="#s-db"/></svg> Team INNOV8 <span class="chip">swap these on Monday</span></h4>
+      <p>Names are against roles so there is no vacuum on Monday morning, but only one of them is settled. <b>Read the &ldquo;take this if&rdquo; column and trade until it fits.</b> Five minutes of swapping now is worth more than any amount of planning, because a role that does not match the person is a bottleneck that shows up at 2am.</p>
       <div class="stk-wrap"><table class="stk">
-        <thead><tr><th>Role</th><th>Owns</th><th>First task</th></tr></thead>
+        <thead><tr><th>Who</th><th>Role and what it owns</th><th>Take this if</th></tr></thead>
         <tbody>
-          <tr><td>Lead</td><td>Architecture, merges, the demo, and saying no to scope</td><td>Runs the Bhashini test, writes the API contract</td></tr>
-          <tr><td>Language</td><td>Bhashini in both directions, the cache, the FLORES score</td><td>The translate and speak service</td></tr>
-          <tr><td>Frontend</td><td>React shell, state, the screens</td><td>The teacher controls</td></tr>
-          <tr><td>Design</td><td>Screens, Ol&nbsp;Chiki type, the child-facing view, the pictures</td><td>Cut ten illustrations out of the NCERT PDFs</td></tr>
-          <tr><td>Data</td><td>Supabase, glossary, corrections, the teacher chart</td><td>Schema and the correction store</td></tr>
-          <tr><td>Story</td><td>Official PS, citations, deck, OBS, the run sheet</td><td>Pick and hand-check three lessons</td></tr>
+          <tr><td><b>Jonathan John</b></td><td><b>Lead.</b> Architecture, merges, the API contract, the demo, and saying no to scope.</td><td>Settled. You have built everything so far and you know where all of it is.</td></tr>
+          <tr><td><b>Shinjini Pal</b></td><td><b>Language.</b> Bhashini in both directions, the cache, the FLORES score.</td><td>You are comfortable with APIs, async and reading docs, and you do not mind a 401 that turns out to be the wrong header.</td></tr>
+          <tr><td><b>Sujina V Nair</b></td><td><b>Frontend.</b> React shell, state, the three screens.</td><td>You have written React before and you like making an interface behave.</td></tr>
+          <tr><td><b>V Sri Subangi</b></td><td><b>Design.</b> Screens, Ol&nbsp;Chiki type, the child-facing view, the ten illustrations.</td><td>You notice when spacing is wrong and you can cut a picture out of a PDF without it looking cut out.</td></tr>
+          <tr><td><b>Varshini T</b></td><td><b>Data.</b> Supabase, the glossary, corrections, the teacher chart.</td><td>You are fine with SQL and schemas, and you would rather model the data than style a button.</td></tr>
+          <tr><td><b>Shaik Suhana</b></td><td><b>Story.</b> The official PS text, citations, the deck, the OBS recording, the run sheet.</td><td>You write and present well. <b>This is not the leftover role.</b> A team that presents badly with a good product loses to one that presents well with a decent one.</td></tr>
         </tbody>
       </table></div>
-      <p style="margin-top:14px">Two rules matter more than the split itself. <b>Nobody owns two things on the critical path.</b> And <b>Language and Frontend agree the contract on Monday, in writing</b>, because that seam is where twenty-four hour teams lose the night.</p>
+
+      <p style="margin:18px 0 8px"><b>Everyone has a second</b></p>
+      <p>Pair each role with a backup so nobody is a single point of failure at 3am: Language with Data, Frontend with Design, Lead with Story. The second does not do the work, they just have to know enough to keep it moving if the first is asleep or stuck.</p>
+
+      <div class="note note-warn" style="margin:16px 0 0"><svg class="logo note-ico"><use href="#l-warn"/></svg><div><b>Two rules that matter more than who has which role.</b> Nobody owns two things on the critical path. And <b>Language and Frontend agree the API contract on Monday, in writing, in the repo</b>, because that seam between the Bhashini layer and the screens is where twenty-four hour teams lose the night.</div></div>
+
+      <p style="margin-top:14px"><b>Monday, first hour, together:</b> read the official problem statement aloud, trade roles until they fit, write the contract, and say the not-building list out loud. Then Jonathan runs the Bhashini test while everyone else finishes the setup.</p>
     </div>
 
     <div class="mini" style="grid-column:1/-1">
