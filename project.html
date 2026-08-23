@@ -29,7 +29,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="./assets/almanac.css?v=253a4e3b">
+<link rel="stylesheet" href="./assets/almanac.css?v=ed099316">
 <style>
   /* The masthead backdrop is 100vw, which counts the scrollbar, so
      without this the page scrolls sideways by the scrollbar width. */
@@ -428,7 +428,19 @@
         </tbody>
       </table></div>
 
-      <p style="margin:22px 0 8px"><b>Deliberately not using</b></p>
+      <div class="signpost signpost-stop">
+        <span class="sign-face" aria-hidden="true">
+          <svg viewBox="0 0 100 100"><polygon points="30,2 70,2 98,30 98,70 70,98 30,98 2,70 2,30"/></svg>
+          <b>DO<br>NOT</b>
+        </span>
+        <span class="sign-body">
+          <b>Do not install anything on this list</b>
+          <span>Every one of these was on our plan at some point and was taken off for a reason.
+          A teammate reading an older note, or asking an AI, will be told to install several of
+          them. Each costs about a day and buys nothing.</span>
+        </span>
+      </div>
+
       <div class="lrow"><span><b>Transformers.js.</b> A model inside the browser tab. Hundreds of megabytes and a day of WASM for what the cache does in an hour.</span></div>
       <div class="lrow"><span><b>Dexie.</b> A wrapper over IndexedDB we do not need, because the store is forty lines.</span></div>
       <div class="lrow"><span><b>Spline.</b> Installed but unused. The 3D landing scene is on the not-building list, so uninstall it.</span></div>

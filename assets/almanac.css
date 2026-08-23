@@ -1015,3 +1015,9 @@
     .sign-face b { font-size:11px; }
     .sign-body > b { font-size:17px; }
   }
+
+  /* The same sign, used where "stop" is the literal meaning: the list of
+     tools we removed. Not a link, so no hover lift. */
+  .signpost-stop { margin:22px 0 14px; cursor:default; }
+  .signpost-stop:hover { transform:none;
+    box-shadow:0 10px 30px -18px color-mix(in srgb, var(--req) 70%, transparent); }
