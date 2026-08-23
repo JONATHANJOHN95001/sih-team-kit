@@ -28,7 +28,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="./assets/almanac.css?v=dda2b778">
+<link rel="stylesheet" href="./assets/almanac.css?v=344aa7bb">
 <style>
   /* The masthead backdrop is 100vw, which counts the scrollbar, so
      without this the page scrolls sideways by the scrollbar width. */
@@ -89,11 +89,6 @@
 
 <div class="wrap">
   <header class="masthead">
-    <div class="themer" role="group" aria-label="Colour theme">
-      <button type="button" data-set="light" aria-pressed="true">Light</button>
-      <button type="button" data-set="dark"  aria-pressed="false">Dark</button>
-      <button type="button" data-set="auto"  aria-pressed="false">Auto</button>
-    </div>
     <p class="eyebrow">Universal hackathon setup · Works for any event, any team</p>
     <h1 data-text="John’s Almanac">John&rsquo;s&nbsp;Almanac</h1>
     <div class="byline">
@@ -115,42 +110,42 @@
   </div>
 
   <nav class="dash">
-    <a class="tile" href="#workflow">
+    <a class="tile" href="./#workflow">
       <span class="tile-ico"><svg><use href="#s-route"/></svg></span>
       <span class="tile-txt"><b>How the day goes</b><span>The seven stages of our 24 hours and which tool does each one.</span></span>
       <svg class="go"><use href="#s-arrow"/></svg>
     </a>
-    <a class="tile" href="#setup">
+    <a class="tile" href="./setup.html#setup">
       <span class="tile-ico"><svg><use href="#s-wrench"/></svg></span>
       <span class="tile-txt"><b>The setup</b><span>Six steps, about twenty minutes. Start here on your laptop.</span></span>
       <svg class="go"><use href="#s-arrow"/></svg>
     </a>
-    <a class="tile" href="#project">
+    <a class="tile" href="./project.html#project">
       <span class="tile-ico"><svg><use href="#s-wrench"/></svg></span>
       <span class="tile-txt"><b>Team INNOV8 · SIH26042</b><span>What the translation tool needs on top of the setup.</span></span>
       <svg class="go"><use href="#s-arrow"/></svg>
     </a>
-    <a class="tile" href="#offline">
+    <a class="tile" href="./setup.html#offline">
       <span class="tile-ico"><svg><use href="#s-offline"/></svg></span>
       <span class="tile-txt"><b>Offline AI</b><span>Optional backup for when the venue wifi gives out.</span></span>
       <svg class="go"><use href="#s-arrow"/></svg>
     </a>
-    <a class="tile" href="#perks">
+    <a class="tile" href="./toolkit.html#perks">
       <span class="tile-ico"><svg><use href="#s-gift"/></svg></span>
       <span class="tile-txt"><b>Student perks</b><span>Free storage, JetBrains, cloud credits and a domain.</span></span>
       <svg class="go"><use href="#s-arrow"/></svg>
     </a>
-    <a class="tile" href="#webkit">
+    <a class="tile" href="./toolkit.html#webkit">
       <span class="tile-ico"><svg><use href="#s-globe"/></svg></span>
       <span class="tile-txt"><b>The web toolkit</b><span>Nineteen tools that need no install at all.</span></span>
       <svg class="go"><use href="#s-arrow"/></svg>
     </a>
-    <a class="tile" href="#gotchas">
+    <a class="tile" href="./gotchas.html#gotchas">
       <span class="tile-ico"><svg><use href="#s-trap"/></svg></span>
       <span class="tile-txt"><b>Time wasters</b><span>Nine traps that already cost me hours. Read before you start.</span></span>
       <svg class="go"><use href="#s-arrow"/></svg>
     </a>
-    <a class="tile" href="#checklist">
+    <a class="tile" href="./gotchas.html#checklist">
       <span class="tile-ico"><svg><use href="#s-clip"/></svg></span>
       <span class="tile-txt"><b>Final checklist</b><span>What must be true before we leave for the venue.</span></span>
       <svg class="go"><use href="#s-arrow"/></svg>
@@ -165,13 +160,13 @@
   </div>
 
   <div class="flow">
-    <div class="fstep"><span class="fn">01</span><span class="fw"><b>Research the problem</b><span>Find real government figures we can put on a slide and defend when a judge questions them.</span></span><span class="ft"><svg class="logo logo-sm"><use href="#l-perplexity"/></svg><svg class="logo logo-sm"><use href="#l-notebook"/></svg></span></div>
-    <div class="fstep"><span class="fn">02</span><span class="fw"><b>Design the screens</b><span>Describe a screen in plain English and get a designed layout back in seconds.</span></span><span class="ft"><svg class="logo logo-sm"><use href="#l-stitch"/></svg></span></div>
-    <div class="fstep"><span class="fn">03</span><span class="fw"><b>Build it · prompt to task</b><span>Describe what we want and the agent writes it straight into the project files.</span></span><span class="ft"><svg class="logo logo-sm"><use href="#l-gemini"/></svg><svg class="logo logo-sm"><use href="#l-openai"/></svg></span></div>
-    <div class="fstep"><span class="fn">04</span><span class="fw"><b>Review and run it</b><span>Read what changed, fix what is wrong, then open it in a browser and confirm it works.</span></span><span class="ft"><svg class="logo logo-sm"><use href="#l-vscode"/></svg><svg class="logo logo-sm"><use href="#l-antigravity"/></svg></span></div>
-    <div class="fstep"><span class="fn">05</span><span class="fw"><b>Store the data</b><span>Database and login, hosted online, with nothing heavy running on our laptops.</span></span><span class="ft"><svg class="logo logo-sm"><use href="#l-supabase"/></svg></span></div>
-    <div class="fstep"><span class="fn">06</span><span class="fw"><b>Record the demo</b><span>The moment it works. A recording that plays reliably beats a live demo that crashes.</span></span><span class="ft"><svg class="logo logo-sm"><use href="#l-obs"/></svg><svg class="logo logo-sm"><use href="#l-cloudflare"/></svg></span></div>
-    <div class="fstep"><span class="fn">07</span><span class="fw"><b>Build the deck</b><span>Slides written as a text file and exported to PDF. This is scored, not decoration.</span></span><span class="ft"><svg class="logo logo-sm"><use href="#l-slidev"/></svg></span></div>
+    <a class="fstep" href="./toolkit.html#webkit"><span class="fn">01</span><span class="fw"><b>Research the problem</b><span>Find real government figures we can put on a slide and defend when a judge questions them.</span></span><span class="ft"><svg class="logo logo-sm"><use href="#l-perplexity"/></svg><svg class="logo logo-sm"><use href="#l-notebook"/></svg></span></a>
+    <a class="fstep" href="./toolkit.html#webkit"><span class="fn">02</span><span class="fw"><b>Design the screens</b><span>Describe a screen in plain English and get a designed layout back in seconds.</span></span><span class="ft"><svg class="logo logo-sm"><use href="#l-stitch"/></svg></span></a>
+    <a class="fstep" href="./setup.html#setup"><span class="fn">03</span><span class="fw"><b>Build it · prompt to task</b><span>Describe what we want and the agent writes it straight into the project files.</span></span><span class="ft"><svg class="logo logo-sm"><use href="#l-gemini"/></svg><svg class="logo logo-sm"><use href="#l-openai"/></svg></span></a>
+    <a class="fstep" href="./setup.html#setup"><span class="fn">04</span><span class="fw"><b>Review and run it</b><span>Read what changed, fix what is wrong, then open it in a browser and confirm it works.</span></span><span class="ft"><svg class="logo logo-sm"><use href="#l-vscode"/></svg><svg class="logo logo-sm"><use href="#l-antigravity"/></svg></span></a>
+    <a class="fstep" href="./toolkit.html#webkit"><span class="fn">05</span><span class="fw"><b>Store the data</b><span>Database and login, hosted online, with nothing heavy running on our laptops.</span></span><span class="ft"><svg class="logo logo-sm"><use href="#l-supabase"/></svg></span></a>
+    <a class="fstep" href="./project.html#project"><span class="fn">06</span><span class="fw"><b>Record the demo</b><span>The moment it works. A recording that plays reliably beats a live demo that crashes.</span></span><span class="ft"><svg class="logo logo-sm"><use href="#l-obs"/></svg><svg class="logo logo-sm"><use href="#l-cloudflare"/></svg></span></a>
+    <a class="fstep" href="./toolkit.html#webkit"><span class="fn">07</span><span class="fw"><b>Build the deck</b><span>Slides written as a text file and exported to PDF. This is scored, not decoration.</span></span><span class="ft"><svg class="logo logo-sm"><use href="#l-slidev"/></svg></span></a>
   </div>
 
 

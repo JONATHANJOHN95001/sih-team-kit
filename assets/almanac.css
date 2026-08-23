@@ -656,6 +656,10 @@
   .who:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
   .roles-note { margin:12px 0 0; }
   #roles td:first-child { padding-right:14px; min-width:150px; }
+  a.fstep { text-decoration:none; color:inherit; cursor:pointer;
+            transition:border-color .2s ease, transform .2s ease, box-shadow .2s ease; }
+  a.fstep:hover { border-color:var(--accent); transform:translateY(-2px); box-shadow:var(--shadow); }
+  a.fstep:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
   .stk-wrap { overflow-x:auto; }
   /* demo run sheet */
   .dflow { display:grid; gap:0; margin:4px 0 0; }
