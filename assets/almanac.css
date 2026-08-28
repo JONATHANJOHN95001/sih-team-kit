@@ -1,13 +1,20 @@
 
   :root {
     --paper:#F4F5FA; --card:#FFFFFF; --raise:#FAFAFE;
-    --ink:#131529; --ink-soft:#414565; --ink-faint:#71769A;
+    --ink:#131529; --ink-soft:#414565; --ink-faint:#666B8D;
     --rule:#D9DBEC; --rule-soft:#E9EAF5;
     --accent:#4B36D9; --accent-ink:#3524AB; --accent-wash:#EAE6FC;
     --req:#C22C4C; --req-wash:#FBE9ED;
     --ok:#147F5C; --ok-wash:#E2F2EC;
     --term-bg:#111528; --term-ink:#DCDDF2; --term-pre:#9E8CFF;
     --mono-mark:#131529;
+    /* Chips paint their lettering on a token ground. Those grounds invert
+       in dark mode, so the lettering has to invert with them, and a
+       hardcoded #fff cannot. */
+    --on-accent:#FFFFFF; --on-ok:#FFFFFF;
+    /* A sign stays a sign in both themes: fixed signal red, white
+       letters, never the pale dark-mode --req. */
+    --sign-bg:#C22C4C; --sign-ink:#FFFFFF;
     --shadow-sm:0 1px 2px rgba(19,21,41,.07);
     --shadow:0 1px 2px rgba(19,21,41,.05), 0 12px 30px -16px rgba(19,21,41,.30);
     --f-display:'DM Sans','Helvetica Neue',Arial,sans-serif;
@@ -24,6 +31,8 @@
       --ok:#5FC5A0; --ok-wash:#12291F;
       --term-bg:#080A18; --term-ink:#D6D8EE; --term-pre:#A594FF;
       --mono-mark:#EDEEF8;
+      --on-accent:#131529; --on-ok:#131529;
+      --sign-bg:#CE3453; --sign-ink:#FFFFFF;
       --shadow-sm:0 1px 2px rgba(0,0,0,.5);
       --shadow:0 1px 2px rgba(0,0,0,.5), 0 12px 30px -16px rgba(0,0,0,.8);
     }
@@ -37,6 +46,8 @@
     --ok:#5FC5A0; --ok-wash:#12291F;
     --term-bg:#080A18; --term-ink:#D6D8EE; --term-pre:#A594FF;
     --mono-mark:#EDEEF8;
+      --on-accent:#131529; --on-ok:#131529;
+      --sign-bg:#CE3453; --sign-ink:#FFFFFF;
     --shadow-sm:0 1px 2px rgba(0,0,0,.5);
     --shadow:0 1px 2px rgba(0,0,0,.5), 0 12px 30px -16px rgba(0,0,0,.8);
   }
@@ -462,7 +473,7 @@
     letter-spacing:-.038em; margin:0 0 20px; text-wrap:balance; color:#fff;
   }
   .byline { display:flex; align-items:center; gap:10px; margin:0 0 22px; }
-  .avatar { width:34px; height:34px; border-radius:99px; background:var(--accent); color:#fff;
+  .avatar { width:34px; height:34px; border-radius:99px; background:var(--accent); color:var(--on-accent);
             font-family:var(--f-display); font-weight:700; font-size:14px; display:grid; place-items:center; }
   .byline-t { font-size:14.5px; color:#A9AECF; }
   .byline-t b { color:#fff; font-weight:600; }
@@ -539,7 +550,7 @@
               color:var(--accent-ink); border:1.5px solid var(--accent);
               font-family:var(--f-display); font-weight:800; font-size:19px; display:grid; place-items:center;
               transition:background .25s, color .25s, border-color .25s; }
-  .step[data-done="1"] .step-num { background:var(--ok); color:#fff; border-color:var(--ok); }
+  .step[data-done="1"] .step-num { background:var(--ok); color:var(--on-ok); border-color:var(--ok); }
   .step-title { display:block; font-family:var(--f-display); font-weight:700; font-size:19px;
                  letter-spacing:-.015em; }
   .step-sub { display:block; font-size:14px; color:var(--ink-faint); margin-top:2px; line-height:1.55; }
@@ -584,7 +595,7 @@
           cursor:pointer; transition:background .18s,color .18s; }
   .copy:hover { background:rgba(255,255,255,.15); color:#fff; }
   .copy:focus-visible { outline:2px solid var(--accent); outline-offset:-3px; }
-  .copy[data-copied="1"] { background:var(--ok); color:#fff; }
+  .copy[data-copied="1"] { background:var(--ok); color:var(--on-ok); }
 
   .note { display:flex; gap:11px; padding:13px 15px; border-radius:6px; font-size:14.5px;
           margin:13px 0; line-height:1.55; align-items:flex-start; }
@@ -629,7 +640,7 @@
   .donebtn[data-on="1"] { background:var(--ok-wash); border-color:var(--ok); color:var(--ok); font-weight:600; }
   .tick { width:17px; height:17px; border:1.5px solid currentColor; border-radius:4px; display:grid;
           place-items:center; font-size:11px; line-height:1; }
-  .donebtn[data-on="1"] .tick { background:var(--ok); border-color:var(--ok); color:#fff; }
+  .donebtn[data-on="1"] .tick { background:var(--ok); border-color:var(--ok); color:var(--on-ok); }
 
   .grid { display:grid; gap:13px; }
   .grid > * { min-width:0; }
@@ -711,7 +722,7 @@
   .fitem:last-child { border-bottom:0; }
   .fbox { width:17px; height:17px; border:1.5px solid var(--ink-faint); border-radius:4px; flex-shrink:0;
           margin-top:3px; display:grid; place-items:center; font-size:11px; color:transparent; transition:all .18s; }
-  .fitem[data-on="1"] .fbox { background:var(--ok); border-color:var(--ok); color:#fff; }
+  .fitem[data-on="1"] .fbox { background:var(--ok); border-color:var(--ok); color:var(--on-ok); }
   .fitem[data-on="1"] .flabel { color:var(--ink-faint); text-decoration:line-through; }
   .flabel b { font-weight:600; }
   .flabel .why { display:block; color:var(--ink-faint); font-size:13.5px; margin-top:2px; text-decoration:none; }
@@ -826,7 +837,7 @@
                    background:transparent; color:var(--ink-soft); line-height:1;
                    transition:background .16s ease, color .16s ease; }
   .themer button:hover { color:var(--ink); }
-  .themer button[aria-pressed="true"] { background:var(--accent); color:#fff; }
+  .themer button[aria-pressed="true"] { background:var(--accent); color:var(--on-accent); }
 
   /* Nav scrolls sideways rather than wrapping onto a second line. */
   .nav { flex:1 1 auto; min-width:0; display:flex; gap:2px; flex-wrap:nowrap;
@@ -953,8 +964,8 @@
   }
   .readfirst-tag {
     flex:0 0 auto; font-family:var(--f-mono); font-size:10.5px; font-weight:700;
-    letter-spacing:.09em; text-transform:uppercase; color:#fff;
-    background:var(--req); border-radius:6px; padding:5px 9px; margin-top:2px;
+    letter-spacing:.09em; text-transform:uppercase; color:var(--sign-ink);
+    background:var(--sign-bg); border-radius:6px; padding:5px 9px; margin-top:2px;
     white-space:nowrap;
   }
   .readfirst b { display:block; font-size:16px; color:var(--ink); margin-bottom:4px; }
@@ -966,7 +977,7 @@
   .flag {
     font-style:normal; font-family:var(--f-mono); font-size:9.5px; font-weight:700;
     letter-spacing:.08em; text-transform:uppercase;
-    color:#fff; background:var(--req); border-radius:5px;
+    color:var(--sign-ink); background:var(--sign-bg); border-radius:5px;
     padding:2px 6px; margin-left:8px; vertical-align:2px; white-space:nowrap;
   }
   .tile:has(.flag) { border-color:color-mix(in srgb, var(--req) 45%, transparent); }
@@ -991,8 +1002,8 @@
   .sign-face { position:relative; flex:0 0 auto; width:82px; height:82px; display:grid;
                place-items:center; filter:drop-shadow(0 3px 8px rgba(160,20,45,.35)); }
   .sign-face svg { position:absolute; inset:0; width:100%; height:100%; }
-  .sign-face polygon { fill:var(--req); stroke:#fff; stroke-width:5; }
-  .sign-face b { position:relative; color:#fff; font-family:var(--f-display);
+  .sign-face polygon { fill:var(--sign-bg); stroke:var(--sign-ink); stroke-width:5; }
+  .sign-face b { position:relative; color:var(--sign-ink); font-family:var(--f-display);
                  font-weight:700; font-size:14px; line-height:1.12; letter-spacing:.02em;
                  text-align:center; }
 
@@ -1022,16 +1033,143 @@
      white border held in from the edge, which is the detail that makes a
      real sign read as a sign rather than a coloured button. */
   .nav a[href*="toolkit"] {
-    background:var(--req); color:#fff; font-weight:700;
+    background:var(--sign-bg); color:var(--sign-ink); font-weight:700;
     letter-spacing:.02em; border-radius:7px; padding:7px 14px; margin:0 3px;
     box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.92),
-               0 2px 9px -2px color-mix(in srgb, var(--req) 70%, transparent);
+               0 2px 9px -2px color-mix(in srgb, var(--sign-bg) 70%, transparent);
     text-shadow:0 1px 1px rgba(0,0,0,.20);
   }
   .nav a[href*="toolkit"]:hover {
-    background:color-mix(in srgb, var(--req) 86%, #000); color:#fff;
+    background:color-mix(in srgb, var(--sign-bg) 86%, #000); color:var(--sign-ink);
   }
   .nav a[href*="toolkit"][aria-current="page"] {
-    background:color-mix(in srgb, var(--req) 92%, #000); color:#fff;
+    background:color-mix(in srgb, var(--sign-bg) 92%, #000); color:var(--sign-ink);
     box-shadow:inset 0 0 0 1.5px #fff;
   }
+
+  /* ============ Between the pages ====================================
+     Five pages that share a header, and until now every link between
+     them was a hard cut: white flash, header redrawn, scroll position
+     thrown away. Cross-document view transitions hand the browser both
+     pages at once so it can animate from one to the other.
+
+     The header is named, so it is recognised as the same element on
+     both sides and simply stays where it is while the body travels.
+     Everything else is the root snapshot, which lifts out and settles
+     back in. Browsers without support navigate exactly as before. */
+  @view-transition { navigation: auto; }
+
+  .topbar { view-transition-name: topbar; }
+  .mark   { view-transition-name: mark; }
+
+  ::view-transition-old(root) { animation: vt-leave .26s cubic-bezier(.4,0,1,1) both; }
+  ::view-transition-new(root) { animation: vt-enter .42s cubic-bezier(0,0,.2,1) both; }
+  @keyframes vt-leave { to   { opacity:0; transform:translateY(-10px) scale(.994); filter:blur(2px); } }
+  @keyframes vt-enter { from { opacity:0; transform:translateY(16px)  scale(.995); filter:blur(4px); } }
+
+  /* The header morphs rather than crossfades, so the active nav pill
+     travels to its new link instead of blinking there. */
+  ::view-transition-group(topbar) { animation-duration:.36s;
+    animation-timing-function:cubic-bezier(.2,.7,.3,1); }
+
+  /* ---- How far through the page you are ------------------------------
+     A hairline under the header that fills as you scroll. Tied to scroll
+     POSITION, so it is honest: it tracks the document rather than
+     guessing from a timer, and it runs backwards when you scroll back.
+     No script, no listener, nothing to keep in sync. */
+  @supports (animation-timeline: scroll()) {
+    .topbar::after {
+      content:''; position:absolute; left:0; right:0; bottom:-1px; height:2px;
+      background:linear-gradient(90deg, var(--accent), var(--aur-2) 55%, var(--aur-3));
+      transform:scaleX(0); transform-origin:0 50%; pointer-events:none;
+      animation:readrail linear both;
+      animation-timeline:scroll(root block);
+    }
+    @keyframes readrail { to { transform:scaleX(1); } }
+  }
+
+  /* ---- The seven stages, drawn as you reach them ---------------------
+     The day is a sequence, so it should look like one. A rail runs down
+     behind the cards, visible only in the gaps between them, and fills
+     from the top as the section passes. Each number lights up as its own
+     card reaches reading position, so the page marks your progress
+     through the day rather than showing all seven at equal weight. */
+  .flow { position:relative; }
+  .flow::before, .flow::after {
+    content:''; position:absolute; left:31px; top:6px; bottom:6px; width:2px;
+    border-radius:2px; z-index:0; pointer-events:none;
+  }
+  .flow::before { background:var(--rule-soft); }
+  .flow::after  { background:linear-gradient(180deg, var(--accent), var(--aur-3));
+                  transform:scaleY(0); transform-origin:50% 0; }
+  .fstep { position:relative; z-index:1; }
+  .fn { transition:background .4s ease, color .4s ease, box-shadow .4s ease; }
+
+  @supports (animation-timeline: view()) {
+    .flow::after {
+      animation:railfill linear both;
+      animation-timeline:view();
+      animation-range:cover 8% cover 72%;
+    }
+    @keyframes railfill { to { transform:scaleY(1); } }
+
+    .fstep .fn {
+      animation:fnlight linear both;
+      animation-timeline:view();
+      animation-range:entry 62% cover 42%;
+    }
+    @keyframes fnlight {
+      to { background:var(--accent); color:var(--on-accent);
+           box-shadow:0 0 0 4px color-mix(in srgb, var(--accent) 16%, transparent); }
+    }
+  }
+
+  /* Phones keep the rail but not the drawing of it, matching the rule
+     that nothing on a touchscreen moves with the scroll. */
+  @media (max-width:760px) {
+    .flow::after { animation:none !important; transform:scaleY(1) !important; }
+    .fstep .fn  { animation:none !important; }
+  }
+
+  /* ---- A light running the edge of READ FIRST ------------------------
+     The block already says READ FIRST in red. A beam travelling its
+     border catches the eye in peripheral vision, which is where a
+     warning has to work, without adding anything else to read. The ring
+     is masked to the border itself, so it never touches the text. */
+  @property --beam { syntax:'<angle>'; inherits:false; initial-value:0deg; }
+
+  .readfirst { position:relative; }
+  .readfirst::after {
+    content:''; position:absolute; inset:0; border-radius:inherit;
+    padding:1.5px; pointer-events:none; z-index:1;
+    background:conic-gradient(from var(--beam),
+      transparent 0deg, transparent 296deg,
+      color-mix(in srgb, var(--sign-bg) 55%, transparent) 330deg,
+      var(--sign-ink) 352deg,
+      color-mix(in srgb, var(--sign-bg) 55%, transparent) 358deg,
+      transparent 360deg);
+            mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+            mask-composite:exclude;
+    -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite:xor;
+    animation:beam 5.5s linear infinite;
+  }
+  @keyframes beam { to { --beam:360deg; } }
+
+  /* Motion off means all of it off, the new pieces included. */
+  @media (prefers-reduced-motion:reduce) {
+    ::view-transition-old(root), ::view-transition-new(root) { animation:none !important; }
+    ::view-transition-group(topbar) { animation-duration:0s; }
+    .topbar::after   { display:none; }
+    .flow::after     { animation:none; transform:scaleY(1); }
+    .fstep .fn       { animation:none; transition:none; }
+    .readfirst::after{ animation:none; opacity:0; }
+  }
+
+  /* Progress under the departure checklist, and the affordance that says
+     the rows are tappable - the ticked state was styled long before
+     anything could actually set it. */
+  .fcount { margin:12px 2px 0; font-family:var(--f-mono); font-size:12px; letter-spacing:.04em;
+            color:var(--ink-faint); font-variant-numeric:tabular-nums; }
+  .fitem { cursor:pointer; }
+  .fitem:focus-visible { outline:2px solid var(--accent); outline-offset:2px; border-radius:6px; }

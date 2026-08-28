@@ -29,8 +29,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="./assets/almanac.css?v=ed099316">
-<link rel="stylesheet" href="./assets/almanac.css?v=05f7f536">
+<link rel="stylesheet" href="./assets/almanac.css?v=95329a62">
 <style>
   /* The masthead backdrop is 100vw, which counts the scrollbar, so
      without this the page scrolls sideways by the scrollbar width. */
@@ -50,8 +49,9 @@
 <body>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
-  <symbol id="s-trap" viewBox="0 0 24 24"><path d="M9.4 4.6a3 3 0 0 1 5.2 0l7 12.2a3 3 0 0 1-2.6 4.5H5a3 3 0 0 1-2.6-4.5Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M12 9.4v4.4M12 17.2v.1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
-  <symbol id="s-clip" viewBox="0 0 24 24"><rect x="4.6" y="4" width="14.8" height="17" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><rect x="8.8" y="1.9" width="6.4" height="4.2" rx="1.4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m8.8 13 2.3 2.3 4.1-4.6" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="s-trap" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></g></symbol>
+  <symbol id="s-gauge" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></g></symbol>
+  <symbol id="s-clip" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></g></symbol>
 </defs></svg>
 
 <div class="topbar">
@@ -91,6 +91,24 @@
   </div>
 
 
+  <div class="shead" id="venue">
+    <h2><svg class="sico"><use href="#s-gauge"/></svg> When it breaks during the 24 hours</h2>
+    <p>The traps above cost me hours before the event. These are the ones waiting during it. Each already has the answer worked out, so nobody has to find it again at hour fourteen.</p>
+  </div>
+
+  <div class="gotchas">
+    <div class="gotcha"><div class="gk">Santali speech does not exist</div><div class="gv">There is <b>no open text-to-speech model for Santali anywhere</b>. Meta&rsquo;s MMS covers 1,143 languages and <code>sat</code> is not one of them. The trap is that <b>Ho, Mundari and Kurukh are</b>, so it looks like a near miss you can substitute. Do not. Those are different languages and the result is sounds no Santali child recognises. Two real sources only: Bhashini, or a person reading the lines into our own recording page, which is twenty minutes of someone&rsquo;s time. Translating <i>into</i> Santali works fine. It is only the synthesis that does not exist.</div></div>
+    <div class="gotcha"><div class="gk">Our database can pause on day two</div><div class="gv">A free Supabase project <b>pauses after seven days idle</b>, the whole thing, database and services together. One set up in late August can go dark on <b>5 September</b>, which is our second day. Open it once before we leave, or use Neon instead, which sleeps after five minutes but wakes in about a second.</div></div>
+    <div class="gotcha"><div class="gk">We all share one Gemini key</div><div class="gv">Roughly <b>15 requests a minute and 1,500 a day, for the team, not for each of us</b>. Gemini CLI, opencode, the Antigravity SDK and GenOffice all draw on the same key. When it runs dry it runs dry for everyone at the same moment, so agree who is spending it on what before we start.</div></div>
+    <div class="gotcha"><div class="gk">Antigravity&rsquo;s twenty a day is separate</div><div class="gv">The IDE agent has <b>its own pool of twenty requests a day</b> that the shared key cannot drain. That makes it the most protected capacity we have. Spend it on browser verification and recording the demo, never on routine code.</div></div>
+    <div class="gotcha"><div class="gk">Groq is not the free lane it looks like</div><div class="gv">The headline is 30 requests a minute and 14,400 a day. The number that actually decides it is <b>8,000 tokens per minute</b>, and one agent request carries about <b>38,500</b>. Every run dies. <b>No smaller model helps</b>, because the 38k is our tool definitions rather than the model. It does work through aider with <code>--map-tokens 0</code>.</div></div>
+    <div class="gotcha"><div class="gk">Two &ldquo;free tiers&rdquo; are dead</div><div class="gv">Both still appear in every generous-free-tier list. <b>Cerebras returns 402</b> since its no-card tier ended, and <b>GitHub Models returns 410 Gone</b>. Measured, not read. Do not spend the night working through a blog post&rsquo;s list.</div></div>
+    <div class="gotcha"><div class="gk">Let the judges open it themselves</div><div class="gv"><code>cloudflared tunnel --url http://localhost:3000</code> returns a public HTTPS address in seconds, with <b>no account and no deploy step</b>. Judges open our app on their own phone while we talk. It is the cheapest credibility available to us.</div></div>
+    <div class="gotcha"><div class="gk">The question the judges will ask</div><div class="gv">The problem statement wants <b>live voice under three seconds</b> and <b>full offline operation</b> on a 2 GB tablet. Those pull against each other and somebody will notice. Our answer: lessons are pre-synced and genuinely offline, while live dialogue uses the network when it is there and a smaller on-device model when it is not. <b>Measure the latency on the day and quote the real number.</b> Never claim it.</div></div>
+    <div class="gotcha"><div class="gk">If a machine hangs, suspect the laptop</div><div class="gv">On mine the freezes traced to a <b>disconnected Ethernet adapter logging five thousand hardware errors a month</b> with nothing plugged into it, plus ASUS services timing out at boot. Two commands, worth running before we leave: <code>Disable-NetAdapter -Name &quot;Ethernet&quot;</code> and <code>sc.exe config AMDRyzenMasterDriverV22 start= demand</code>. Wi-Fi is untouched by both.</div></div>
+  </div>
+
+
 
   <div class="shead" id="checklist">
     <h2><svg class="sico"><use href="#s-clip"/></svg> Before 3 September</h2>
@@ -104,7 +122,13 @@
     <div class="fitem" data-f="4"><span class="fbox">✓</span><span class="flabel"><b>Phone hotspot tested</b><span class="why">This is our genuine wifi backup, so please test it before we need it rather than after.</span></span></div>
     <div class="fitem" data-f="5"><span class="fbox">✓</span><span class="flabel"><b>Charger, power bank and an extension board</b><span class="why">Six laptops over 24 hours, and there are never enough sockets.</span></span></div>
     <div class="fitem" data-f="6"><span class="fbox">✓</span><span class="flabel"><b>Roles agreed between us</b><span class="why">Who owns the backend, the interface, the deck and the demo recording. Best decided now rather than at hour eighteen.</span></span></div>
+    <div class="fitem" data-f="7"><span class="fbox">&#10003;</span><span class="flabel"><b>A female team member registered</b><span class="why">At least one is mandatory under the rules. This is an eligibility check rather than a preference, and it is exactly the kind of thing nobody verifies until the morning of.</span></span></div>
+    <div class="fitem" data-f="8"><span class="fbox">&#10003;</span><span class="flabel"><b>Database opened this week</b><span class="why">A free Supabase project pauses after seven days idle and ours could go dark on the second day. Open it, or move us to Neon.</span></span></div>
+    <div class="fitem" data-f="9"><span class="fbox">&#10003;</span><span class="flabel"><b>Santali audio settled one way or the other</b><span class="why">Either Dr. Mahesh has approved Bhashini, or the lines are already recorded. No model can do this for us, so it cannot be left to the day.</span></span></div>
+    <div class="fitem" data-f="10"><span class="fbox">&#10003;</span><span class="flabel"><b>Dependencies installed at home, not at the venue</b><span class="why">Run the project install once on good wifi. Venue networks are the most reliable thing to fail, and nothing large should be downloaded there.</span></span></div>
   </div>
+
+  <p class="fcount"><span id="finalCount"></span></p>
 
   <div class="foot">
     <span class="avatar">JJ</span>
@@ -569,5 +593,44 @@
 
 
 </script>
+
+<script>
+/* The ticked state was already styled but nothing ever set it, so the
+   "tap each line to tick it off" instruction did nothing at all. Each
+   person's answers are remembered on their own machine only. */
+(function () {
+  var list = document.getElementById('finalList');
+  if (!list) return;
+  var KEY = 'almanac-final', out = document.getElementById('finalCount');
+  var items = [].slice.call(list.querySelectorAll('.fitem'));
+  var state = {};
+  try { state = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) {}
+  function paint() {
+    var done = 0;
+    items.forEach(function (el) {
+      var on = !!state[el.getAttribute('data-f')];
+      if (on) done++;
+      el.setAttribute('data-on', on ? '1' : '0');
+      el.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    if (out) out.textContent = done + ' of ' + items.length + ' ready';
+  }
+  items.forEach(function (el) {
+    el.setAttribute('role', 'button');
+    el.setAttribute('tabindex', '0');
+    el.addEventListener('click', function () {
+      var k = el.getAttribute('data-f');
+      state[k] = !state[k];
+      try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {}
+      paint();
+    });
+    el.addEventListener('keydown', function (ev) {
+      if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); el.click(); }
+    });
+  });
+  paint();
+})();
+</script>
+
 </body>
 </html>
